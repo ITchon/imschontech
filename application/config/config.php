@@ -23,9 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$root = "http://".$_SERVER['HTTP_HOST'];
-$root .= dirname($_SERVER['SCRIPT_NAME']);
-$config['base_url'] = $root;
+$config['base_url'] = 'http://localhost/imschontech/';
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +35,7 @@ $config['base_url'] = $root;
 | variable so that it is blank.
 |
 */
-$config['index_page'] = '';
+$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -379,14 +377,10 @@ $config['encryption_key'] = '';
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
 */
-$sessDir = session_save_path();
-$sessDir = "{$sessDir}/sessionPath";
-is_dir($sessDir)?:mkdir($sessDir);
-
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = $sessDir;
+$config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

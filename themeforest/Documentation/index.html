@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Avant">
+    <meta name="author" content="The Red Team">
+	<title>Avant Documentation</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+	<link href="assets/style.css" rel="stylesheet" type="text/css" media="all">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+	<![endif]-->
+  </head>
+  <body id="top" data-spy="scroll" data-target="#navbar-demo" data-offset="81"> 
+
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-default navbar-fixed-top" id="navbar-demo">
+	  <div class="container">
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="fa fa-bar"></span>
+			<span class="fa fa-bar"></span>
+			<span class="fa fa-bar"></span>
+		  </button>
+		  <a class="navbar-brand" href="#top">Avant</a>
+		</div>
+		<div class="navbar-collapse collapse">
+		  <ul class="nav navbar-nav">
+			<li class="active"><a href="#top">Home</a></li>
+			<li><a href="#markup">Markup</a></li>
+			<li><a href="#styles">Styles</a></li>
+			<li><a href="#javascript">Javascript</a></li>
+			<li><a href="#fonts">Fonts</a></li>
+			<li><a href="#plugins">Plugins</a></li>
+			<li><a href="#tips">Tips</a></li>
+			<li style="display:none"><a href="#changelog"></a></li>
+		  </ul>
+		  <ul class="nav navbar-nav navbar-right">
+			<!-- <li><a href="#">Theme Link</a></li> -->
+		  </ul>
+		</div><!--/.nav-collapse -->
+	  </div>
+	</div>
+
+	<div class="container">
+
+	  <!-- Main component for a primary marketing message or call to action -->
+	  <div class="jumbotron">
+		<h1 class="text-center">Avant <small>Documentation</small></h1>
+		<p class="text-center">A flexible and responsive, mobile first admin template</p>
+		<div class="well"><p><small>Thank you for purchasing our theme. If you have any questions that are beyond the scope of this help file, please feel free to email us!</small></p></div>
+		<div class="row">
+		  <div class="col-md-4"><a href="http://themeforest.net/item/avant-clean-and-responsive-bootstrap-3-admin/5961888?ref=TheRedTeam" class="btn btn-lg btn-block btn-primary">Item Support</a></div>
+		  <div class="col-md-4"><a href="#changelog" class="btn btn-lg btn-block btn-success">Changelog</a></div>
+		  <div class="col-md-4"><a href="#contact" class="btn btn-lg btn-block btn-danger">Contact</a></div>
+		</div>
+	  </div>
+
+		<div class="table-responsive">
+			<table class="table" id="versioninfo">
+				<tr>
+					<th>Author:</th>
+					<td>The Red Team</td>
+					<th>Author URL:</th>
+					<td><a href="http://themeforest.net/user/TheRedTeam">@Themeforest</a></td>
+					<th>Theme Version:</th>
+					<td>1.4</td>
+					<th>Created:</th>
+					<td>30 Oct 2013</td>
+				</tr>
+				<tr>
+					<th>Contact:</th>
+					<td><a href="mailto:redteamux@gmail.com">redteamux@gmail.com</a></td>
+					<th>Theme URL:</th>
+					<td><a href="http://themeforest.net/item/avant-clean-and-responsive-bootstrap-3-admin/5961888?ref=TheRedTeam">@Avant</a></td>
+					<th>Documentation Version:</th>
+					<td>1.3</td>
+					<th>Modified:</th>
+					<td>25 March 2015</td>
+				</tr>
+			</table>
+		</div>
+
+<section>
+	<div id="markup"></div><!--putting scrollspy links fixes issues with having a fixed topbar -->
+	<div class="page-header">
+		<h1>Markup <small>Markup customization and highlights</small></h3>
+	</div>
+		<p>The theme is fluid layout with 12 columns. The left sidebar is removed from the grid and is fixed. The right sidebar appears on top of site and is also not a part of the grid. All content should go inside #page-content > #wrap.</p>
+		<div class="row">
+			<div class="col-sm-3">
+				<h3>General Markup</h3>
+				<p>The general template structure is the same throughout the template. Here is the general structure.</p>
+			</div>
+			<div class="col-sm-9">
+				<div class="detailedcontent">
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;&lt;!--insert all stylesheet links --&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;header class=&quot;navbar navbar-inverse&quot; role=&quot;banner&quot;&gt;
+    &lt;!-- All header links, including sidebar triggers and drop downs--&gt;
+  &lt;/header&gt;
+  &lt;div id=&quot;page-container&quot;&gt;
+    &lt;nav id=&quot;page-leftbar&quot; role=&quot;navigation&quot;&gt;
+      &lt;ul class=&quot;acc-menu&quot; id=&quot;sidebar&quot;&gt;&lt;!-- all sidebar links --&gt;&lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;div id=&quot;page-rightbar&quot;&gt;
+      &lt;div id=&quot;widgetarea&quot;&gt;&lt;!-- all rightbar widgets --&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;page-content&quot;&gt;
+      &lt;div id=&quot;wrap&quot;&gt;
+        &lt;div id=&quot;page-heading&quot;&gt;&lt;!-- page heading content--&gt;&lt;/div&gt;
+        &lt;div class=&quot;container&quot;&gt;&lt;!-- Content begins here--&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;footer role=&quot;contentinfo&quot;&gt;&lt;!--Footer--&gt;&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<h3>Fixed/Boxed Layout</h3>
+			</div>
+			<div class="col-sm-9">
+				<div class="detailedcontent">
+					You can easily make a fixed/boxed layout by adding the <code>fixed-layout</code> class to the body in the above code. You can change the width of the boxed layout and the background from the <em>variables.less</em> file.
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<h3>Navigation</h3>
+				<p>Left sidebar navigation controls</p>
+			</div>
+			<div class="col-sm-9">
+				<div class="detailedcontent">
+					<p>For the sidebar, use the <code>.acc-mennu</code> class wher eever you wish to have an dropdown menu. Use <code>javascript:;</code> to as <code>href</code> as the dropdown is handled by javascript in <em>application.js</em></p>
+<pre class="prettyprint linenums">
+&lt;ul id=&quot;sidebar&quot; class=&quot;acc-menu&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;link.html&quot;&gt;&lt;span&gt;Dashboard&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;javascript:;&quot;&gt;&lt;span&gt;Unlimited Level Menu&lt;/span&gt;&lt;/a&gt;
+    &lt;ul class=&quot;acc-menu&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;link.html&quot;&gt;Menu Item 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;javascript:;&quot;&gt;Menu Item 2&lt;/a&gt;
+        &lt;ul class=&quot;acc-menu&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;link.html&quot;&gt;Menu Item 2.1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;link.html&quot;&gt;Menu Item 2.2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<h3>Horizontal Navigation</h3>
+				Avant comes with two Horizontal Navigation options
+			</div>
+			<div class="col-sm-9">
+				<div class="detailedcontent">
+					<p>General markup styles can for horizontal navigation can be achieved by using the <code>horizontal-nav</code> class on the body as such</p>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;&lt;!--insert all stylesheet links --&gt;&lt;/head&gt;
+&lt;body class=&quot;horizontal-nav&quot&gt;
+  &lt;header class=&quot;navbar navbar-inverse&quot; role=&quot;banner&quot;&gt;
+    &lt;!-- All header links, including sidebar triggers and drop downs--&gt;
+  &lt;/header&gt;
+  &lt;div id=&quot;page-container&quot;&gt;
+  &lt;nav class=&quot;navbar navbar-default andromdea-dropdown&quot; role=&quot;navigation&quot;&gt;
+	&lt;div class=&quot;navbar-header&quot;&gt;
+	  &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.collapsenav&quot;&gt;
+	    &lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;
+	    &lt;span class=&quot;fa fa-bar&quot;&gt;&lt;/span&gt;
+	    &lt;span class=&quot;fa fa-bar&quot;&gt;&lt;/span&gt;
+	    &lt;span class=&quot;fa fa-bar&quot;&gt;&lt;/span&gt;
+	  &lt;/button&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;collapse navbar-collapse collapsenav&quot; id=&quot;horizontal-navbar&quot;&gt;
+	  &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+	    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-dashboard&quot;&gt;&lt;/i&gt; &lt;span&gt;Dashboard&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+	    ...
+	  &lt;/ul&gt;
+	&lt;/div&gt;
+  &lt;/nav&gt;
+    &lt;div id=&quot;page-rightbar&quot;&gt;
+      &lt;div id=&quot;widgetarea&quot;&gt;&lt;!-- all rightbar widgets --&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;page-content&quot;&gt;
+      &lt;div id=&quot;wrap&quot;&gt;
+        &lt;div id=&quot;page-heading&quot;&gt;&lt;!-- page heading content--&gt;&lt;/div&gt;
+        &lt;div class=&quot;container&quot;&gt;&lt;!-- Content begins here--&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;footer role=&quot;contentinfo&quot;&gt;&lt;!--Footer--&gt;&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>If you wish to have the large icon navigation simply add <code>large-icons-nav</code> class to the <code>#horizontal-navigation</code> div</p>
+				</div>
+			</div>
+		</div>
+</section>
+
+
+<section>
+	<div class="page-header">
+		<h1 id="styles">Styles <small>Styles customization and highlights</small></h1>
+	</div>
+	<p><span class="label label-info">Heads up!</span> The theme is built using <a href="http://lesscss.org">LESS</a>. However you should precompile the files in CSS for improved performance in production. We recommend <a href="http://winless.org/">WinLESS</a></p>
+	
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Stylesheets</h3> <p>The locations and filenames of the stylesheets</p>
+		</div>
+		<div class="col-sm-9">
+			<div class="detailedcontent">
+			<p>All the .less files are located in <em>assets/less/</em> directory of the admin theme and are called via <em>styles.less</em> file. Avant code and Bootstrap code are kept separate so that you can easily switch to a new Bootstrap version by overwritign the files at <em>assets/less/bootstrap/</em>.</p>
+			<p>The few files that have been heavily edited are:</p>
+			<div class="responsive">
+				<table class="table table-striped">
+					<tr>
+						<td>variables.less</td>
+						<td>Bootstrap's variables.less, with additional variables for Avant</td>
+					</tr>
+					<tr>
+						<td>navbar.less</td>
+						<td>Bootstrap's navbar.less file, heavily modified</td>
+					</tr>
+					<tr>
+						<td>layout.less</td>
+						<td>Handles the layout &amp; left sidebar of the theme.</td>
+					</tr>
+					<tr>
+						<td>topnav.less</td>
+						<td>The topnav dropdowns</td>
+					</tr>
+					<tr>
+						<td>leftbar.less</td>
+						<td>The left sidebar navigation and search</td>
+					</tr>
+					<tr>
+						<td>rightbar.less</td>
+						<td>The right sidebar, widget area and chatbox</td>
+					</tr>
+					<tr>
+						<td>panels.less</td>
+						<td>Completely redone to support tabs</td>
+					</tr>
+					<tr>
+						<td>tiles.less</td>
+						<td>the Tiles component</td>
+					</tr>
+					<tr>
+						<td>apps.less</td>
+						<td>A few plugins used for the theme has their style modified to use with the theme. Those codes are available here.</td>
+					</tr>
+					<tr>
+						<td>avant-mixins.less</td>
+						<td>Mixins used in Avant and in some cases modification of bootstrap's mixins.</td>
+					</tr>
+					<tr>
+						<td>feeds.less</td>
+						<td>The CSS for the Feeds Panel and To Do</td>
+					</tr>
+					<tr>
+						<td>timeline.less</td>
+						<td>The CSS for Timeline apge</td>
+					</tr>
+					<tr>
+						<td>tabs.less</td>
+						<td>The CSS for the inline tabs and accordions</td>
+					</tr>
+					<tr>
+						<td><a href="http://geedmo.github.io/yamm3/">yamm.less</a></td>
+						<td>LESS stylesheet Megamenu</td>
+					</tr>
+					<tr>
+						<td>demo.less</td>
+						<td>Some styles used in displaying the demo, but no need for a fresh install</td>
+					</tr>
+				</table>
+
+				<p>The following files are modification on top of Bootstrap's codes</p>
+
+				<table class="table table-striped">
+					<tr>
+						<td>extend-core.less</td>
+						<td>scaffolding, type, code, grid, tables, forms, buttons</td>
+					</tr>
+					<tr>
+						<td>extend-common.less</td>
+						<td>dropdown, list-groups, wells, close</td>
+					</tr>
+					<tr>
+						<td>extend-nav.less</td>
+						<td>navs, button-groups, breadcrumbs, paginations, pager</td>
+					</tr>
+					<tr>
+						<td>extend-popover.less</td>
+						<td>modals, tooltips, popovers</td>
+					</tr>
+					<tr>
+						<td>extend-misc.less</td>
+						<td>alerts, thumbnails, labels, badges, progressbars, input groups...</td>
+					</tr>
+				</table>
+			</div>
+			<p>A pre-compiled <em>style.css</em> is provided in case you are not comfortable with LESS. It is minified at <em>styles.min.css</em></p>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<h3>Fundamental styles</h3>
+			<p>The classes and elements used in Avant</p>
+		</div>
+		<div class="col-sm-9">
+			<div class="detailedcontent">
+				<p>You can take a look at <a href="http://getbootstrap.com/css/">Bootstrap 3.0 Documentation</a> for an extensive how to on how to use the theme and style the elements. Since the theme is based on top of BS3.0, all the examples are valid albit styled differently</p>
+				<p>A large part of the theme can be customized with the included <em>varialbles.less</em> file</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section>
+	<div class="page-header">
+		<h1 id="javascript">Javascript <small>JavaScript customization</small></h1>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Scripts</h3> <p>The location and filenames if the javascript files</p>
+		</div>
+		<div class="col-sm-9">
+			<div class="detailedcontent">
+				<p>The files located in <em>assets/js/</em> should be treated as essential to the operation of the theme, however some of them can be removed IF you know what you are doing. Check the links for documentation regarding the files</p>
+				<div class="responsive-tables">
+					<table class="table table-striped">
+						<tr>
+							<td>application.js</td>
+							<td>Essential js file which controls navigations, loads fonts, etc.</td>
+						</tr>
+						<tr>
+							<td><a href="http://getbootstrap.com/javascript/">bootstrap.min.js</a></td>
+							<td>All bootstrap javascript plugins in one</td>
+						</tr>
+						<tr>
+							<td><a href="http://wicky.nillia.ms/enquire.js/">enquire.js</a></td>
+							<td>Javascript media queries. essential for touch support</td>
+						</tr>
+						<tr>
+							<td><a href="https://github.com/carhartl/jquery-cookie">jquery.cookie.js</a></td>
+							<td>To save sidebar collapse states</td>
+						</tr>
+						<tr>
+							<td><a href="http://jquery.com">jquery-1.8.1.min.js</a></td>
+							<td>Essential. Use as a fallback if CDN does not load</td>
+						</tr>
+						<tr>
+							<td><a href="http://jqueryui.com">jqueryui.js</a></td>
+							<td>Non-essential. use as a fallback if CDN does not load</td>
+						</tr>
+						<tr>
+							<td><a href="http://lesscss.org">less.js</a></td>
+							<td>The LESS pre-processor. Do not use in production environemnt</td>
+						</tr>
+						<tr>
+							<td><a href="http://jqueryui.com">jqueryui.css</a></td>
+							<td>Theme for jQueryUI. Use if jQueryUI is used</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3"><h3>CDN</h3><p>Use content delivery network to speed up your site</p></div>
+		<div class="col-sm-9">
+			<div class="detailedcontent">
+				<p>In the rare case that your CDN fails, you can use the included files as fallback</p>
+<pre class="prettyprint linenums">
+&lt;script&gt;!window.jQuery &amp;&amp; document.write(unescape('%3Cscript src=&quot;assets/js/jquery-1.8.1.min.js&quot;%3E%3C/script%3E'))&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;!window.jQuery.ui &amp;&amp; document.write(unescape('%3Cscript src=&quot;assets/js/jqueryui-1.10.3.min.js'))&lt;/script&gt;
+</pre>
+<p><a href="http://stackoverflow.com/a/2180401/336714">Why should you use CDN?</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section>
+	<div class="page-header">
+		<h1 id="fonts">Fonts <small>Custom Fonts</small></h1>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Webfonts</h3>
+			<p>Spice up your site with webfonts!</p>
+		</div>
+		<div class="col-sm-9">
+			<div class="detailedcontent">
+				<p>Avant uses Source Sans Pro and Source Sans Pro Light webfonts. Include the following script at the very start the page right after the opening <code>head</code> tag of your page (<a href="http://googlewebfonts.blogspot.com/2010/09/optimizing-use-of-google-font-api.html">learn why</a>) to load the fonts asnychronously. You may change the default fonts from the <em>variables.less</em> file</p>
+<pre class="prettyprint linenums">
+&lt;script type=&quot;text/javascript&quot;&gt;
+  WebFontConfig = {
+    google: { families: [ 'Source+Sans+Pro:300,400,600:latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); &lt;/script&gt;
+</pre>
+<p>Or alternatively</p>
+<pre class="prettyprint">
+&lt;link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'&gt;
+</pre>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Icon Font</h3> <p>Loation of the icon fonts</p>
+		</div>
+		<div class="col-sm-9">
+			<div class="detailedcontent">
+				<p>Avant uses <a href="fontawesome.github.io/Font-Awesome/">FontAwesome</a> icon library as default.</p>
+				<p>The library is included as a less file in the main <i>styles.less</i></p>
+				<p>If you want to separately include the FontAwesome library, you must include the CSS file from <pre class="prettyprint">&lt;link href=&quot;assets/fonts/font-awesome/css/font-awesome.min.css&quot; rel=&quot;stylesheet&quot;&gt;</pre>
+				<p>If you wish to, however, you can include the font set from the following CDN</p>
+				<pre class="prettyprint">&lt;link href=&quot;//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css&quot; rel=&quot;stylesheet&quot;&gt;</pre>
+				<p>To include the glyphicon iconset, you must similarly include the CSS file from the link below. Note that Font-Awesome is used primarily in Avant and you might need to modify Avant significantly to move to this iconset. However, you can use Glyphicon and Font-Awesome side-by-side</p><pre class="prettyprint">&lt;link href=&quot;assets/fonts/glyphicons/css/glyphicons.css&quot; rel=&quot;stylesheet&quot;&gt;</pre>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section>
+	<div class="page-header">
+		<h1 id="plugins">Plugins <small>Third-party plugins used to enhance the theme</small></h1>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Plugins</h3>
+		</div>
+		<div class="col-sm-9">
+			<div class="detailedcontent">
+				<p>The plugins included in the theme are located in <em>assets/plugins/</em>. Some of them may be calling multiple js files and even css files. Explore the documentation of each plugins for your answers on how to use them.</p>
+				<p>Neither the Red Team or Avant claim any credits or responsibility of the use of these plugins. Any support regarding the plugins should be directed to the makers of the plugin</p>
+				<div class="detailedcontent">
+					<div class="responsive">
+						<table class="table table-striped">
+							<tr>
+								<td width="25%"><a href="http://www.oesmith.co.uk/morris.js/">charts-morrisjs</a></td>
+								<td>Creates beautiful charts in canvas</td>
+							</tr>
+							<tr>
+								<td><a href="http://google-code-prettify.googlecode.com/">codeprettifier</a></td>
+								<td>Prettify's code with highlighting</td>
+							</tr>
+							<tr>
+								<td><a href="datatables.net">datatables</a></td>
+								<td><p>Supercharges your tables</p> 
+									<p><span class="label label-warning">Compability</span> fixes with Bootstrap 3 adressed below</p>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="http://www.dropzonejs.com/">dropzone</a></td>
+								<td>Drag'n'Drop file uploads with image previews made simple.</td>
+							</tr>
+							<tr>
+								<td><a href="http://www.jacklmoore.com/autosize/">form-autosize</a></td>
+								<td>Automatically adjusts text-size area</td>
+							</tr>
+							<tr>
+								<td><a href="http://ckeditor.com">form-ckeditor</a></td>
+								<td>Advanced WYSIWYG Editor</td>
+							</tr>
+							<tr>
+								<td><a href="http://burakson.github.io/fseditor/">form-fseditor</a></td>
+								<td>jQuery Fullscreen Editor plugin transforms textfields to customizable editors, either it can be used within a form or standalone.</td>
+							</tr>
+							<tr>
+								<td><a href="http://www.eyecon.ro/bootstrap-colorpicker/">form-colorpicker</a></td>
+								<td>Colorpicker</td>
+							</tr>
+							<tr>
+								<td><a href="https://github.com/dangrossman/bootstrap-daterangepicker">form-datrangeepicker</a></td>
+								<td>Selecting Date Range</td>
+							</tr>
+							<tr>
+								<td><a href="https://github.com/RobinHerbots/jquery.inputmask">form-inputmask</a></td>
+								<td>An inputmask helps the user with the input by ensuring a predefined format.</td>
+							</tr>
+							<tr>
+								<td><a href="http://loudev.com/">form-multiselect</a></td>
+								<td>Userfriendly drop-in replacement for standard <code>select</code></td>
+							</tr>
+							<tr>
+								<td><a href="https://github.com/riklomas/quicksearch">quicksearch</a></td>
+								<td>A jQuery based plug-in for filtering large data sets with user input. Used in conjecture with multiselect</td>
+							</tr>
+							<tr>
+								<td><a href="http://parsleyjs.org">form-parsley</a></td>
+								<td>Front-end UX-aware form-validation.</td>
+							</tr>
+							<tr>
+								<td><a href="http://jquerypulsate.kilianvalkhof.com/">jQuery.pulsate</a></td>
+								<td>jQuery.pulsate.js adds a pulsating effect to elements.</td>
+							</tr>
+							<tr>
+								<td><a href="http://jonathandanielmiles.com/bootstrap-datepaginator/">Date Paginator</a></td>
+								<td>Adds date functions to bootstrap's pagination using jQuery</td>
+							</tr>
+							<tr>
+								<td><a href="http://sliptree.github.io/bootstrap-tokenfield/">form-tokenfield</a></td>
+								<td>Advanced tagging/tokenizing plugin for input fields with a focus on keyboard and copy-paste support.</td>
+							</tr>
+							<tr>
+								<td><a href="http://deepliquid.com/content/Jcrop.html">jCrop</a></td>
+								<td>jQuery Image Cropping Plugin</td>
+							</tr>
+							<tr>
+								<td><a href="clu3.github.io/bootstro.js/">bootsto.js</a></td>
+								<td>Show your users a guided tour of what is what on a page.</td>
+							</tr>
+							<tr>
+								<td><a href="http://vitalets.github.io/x-editable/">form-xeditable</a></td>
+								<td>Create editable elements on your page</td>
+							</tr>
+							<tr>
+								<td><a href="https://github.com/eternicode/bootstrap-datepicker‎">Bootstrap Datepicker</a></td>
+								<td>A datepicker for Twitter bootstrap</td>
+							</tr>
+							<tr>
+								<td><a href="http://bootboxjs.com/">Bootbox</a></td>
+								<td>Create programmatic dialog boxes using Twitter’s Bootstrap modals without managing DOM elements</td>
+							</tr>
+							<tr>
+								<td><a href="jasny.github.io/bootstrap/javascript/#fileinput">jasny fileinput</a></td>
+								<td>Adds customizable file input boxes (+image previews)</td>
+							</tr>
+							<tr>
+								<td><a href="http://ivaynberg.github.io/select2/index.html">form-select2</a></td>
+								<td>
+									<p>Advanced select boxes</p>
+									<p><span class="label label-warning">Compability</span> You must set width:resolve to your select2() buttons. <a href="https://github.com/ivaynberg/select2/issues/368">See here</a>. </p>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="http://areaaperta.com/nicescroll/">nicescroll</a></td>
+								<td>a jQuery plugin for scrollbars like iOS</td>
+							</tr>
+							<tr>
+								<td><a href="http://simontabor.com/toggles/">form-toggle</a></td>
+								<td>Toggle buttons</td>
+							</tr>
+							<tr>
+								<td><a href="http://twitter.github.io/typeahead.js/">form-typeahead</a></td>
+								<td>Fast and full-featured autocomplete library</td>
+							</tr>
+							<tr>
+								<td><a href="http://arshaw.com/fullcalendar/">fullcalendar</a></td>
+								<td>Full sized Calendar plugin</td>
+							</tr>
+							<tr>
+								<td><a href="http://hpneo.github.io/gmaps/">gmaps</a></td>
+								<td>Google Maps API made simple</td>
+							</tr>
+							<tr>
+								<td><a href="https://github.com/jboesch/Gritter">gritter</a></td>
+								<td>jQuery notifications plugin</td>
+							</tr>
+							<tr>
+								<td><a href="https://github.com/victorjonsson/jquery-editable">jquery-editable</a></td>
+								<td>This plugin makes it possible to edit the content of an element simply by double clicking on it. Works in conjecture with datatables in the demo</td>
+							</tr>
+							<tr>
+								<td><a href="http://blueimp.github.io/jQuery-File-Upload/">jquery-fileupload</a></td>
+								<td>File Upload widget with multiple file selection, drag&drop support, progress bars, validation and preview images, audio and video for jQuery.</td>
+							</tr>
+							<tr>
+								<td><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a></td>
+								<td>Crossbrowser mousewheel support. For input boxes.</td>
+							</tr>
+							<tr>
+								<td><a href="http://fgelinas.com/code/timepicker/">jqueryui-timepicker</a></td>
+								<td>Based on the existing jQuery date picker, the timepicker will blend nicely with your form and use your selected jQuery UI theme.</td>
+							</tr>
+							<tr>
+								<td><a href="jqvmap.com">jqvmap</a></td>
+								<td>Resizable and scalable vector maps</td>
+							</tr>
+							<tr>
+								<td><a href="http://anthonyterrien.com/knob/">knob</a></td>
+								<td>Touch enabled jQuery dial</td>
+							</tr>
+							<tr>
+								<td><a href="http://mixitup.io">mixitup</a></td>
+								<td>A lightweight and powerful filter and sort plugin which provides beautiful animations</td>
+							</tr>
+							<tr>
+								<td><a href="http://skylo.s3-website-ap-southeast-1.amazonaws.com/">progress-skylo</a></td>
+								<td>Progressbar at the top of the page</td>
+							</tr>
+							<tr>
+								<td><a href="http://omnipotent.net/jquery.sparkline/">sparklines</a></td>
+								<td>Generate inline charts</td>
+							</tr>
+							<tr>
+								<td><a href="http://github.com/wbotelhos/stepy">stepy</a></td>
+								<td>A jQuery wizard plugin</td>
+							</tr>
+							<tr>
+								<td><a href="http://jqueryvalidation.org/">form-validation</a></td>
+								<td>This jQuery plugin makes simple clientside form validation easy, whilst still offering plenty of customization options. This plugin is needed if you are using the the stepy for form wizard validation. Otherwise we recommend Parsley</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Demo Files</h3>
+		</div>
+		<div class="col-sm-9">
+			<div class="detailedcontent">
+				<p>All demo files used in the theme is saved at <em>assets/demo/</em>. The filenames correspond to the html file in which the demo is used.</p>
+				<p>A notable exception is the <em>demo.js</em> file which houses the demo scripts that are being called by the demo constantly. Notable in it, is the function of the outlook like chatbar on the right sidebar</p>
+				<p>Styling of the plugins were either done through modifying the CSS files that come withe plugin, or if they don't, the styles are modified and available with the <em>apps.less</em> file</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Compability Fixes</h3>
+		</div>
+		<div class="col-sm-9">
+			<div class="detailedcontent">
+				<p>Some plugins listed requires special modifications to work with Bootstrap 3, and thus, the theme.</p>
+				<h4>DataTables</h4>
+<p>Datatables has built in support for jQueryUI, however, to make it play nicely with Bootstrap 3, include the <em>dataTables.bootstrap.js</em> file <u>after</u> you load <em>jquery.dataTables.js</em>. Similarly, the <em>dataTables.editor.bootstrap.js</em> must be added after <em>dataTables.editor.js</em> to make the DataTable editor use styles from Bootstrap 3 instead of it's internal styles</p>
+<p>To initialize Datatables, use the following properties</p>
+<pre class="prettyprint linenums">
+$(document).ready(function() {
+    $('.datatables').dataTable({
+        &quot;sDom&quot;: &quot;&lt;'row'&lt;'col-xs-6'l&gt;&lt;'col-xs-6'f&gt;r&gt;t&lt;'row'&lt;'col-xs-6'i&gt;&lt;'col-xs-6'p&gt;&gt;&quot;,
+        &quot;sPaginationType&quot;: &quot;bootstrap&quot;,
+        &quot;oLanguage&quot;: {
+            &quot;sLengthMenu&quot;: &quot;_MENU_ records per page&quot;,
+            &quot;sSearch&quot;: &quot;&quot;
+        }
+    });
+    $('.dataTables_filter input').addClass('form-control input-sm').attr('placeholder','Search...');
+    $('.dataTables_length select').addClass('form-control input-sm');
+});
+</pre>
+				<h4>Form Wizard / Stepy</h4>
+				<p>Add the following line of code after you call the <code>.stepy()</code> plugin. This ensures that the back and next buttons are properly indented to the <code>panel-footer</code>. <em>jQuery.steppy.js</em> has been lightly modified with classnames used in Bootstrap 3</p>
+<pre class="prettyprint linenums">
+$('.stepy-navigator').wrapInner('&lt;div class=&quot;pull-right&quot;&gt;&lt;/div&gt;');
+</pre>
+				<h4>Form Validation / jQuery Validation</h4>
+				<p>Add these properties to the jQuery Validation plugin to make it work with Avant. Note that this is not the plugin demonstrated in the Form Validation demo of the site but just with the wizard. The jQuery Validator support is built in to the Wizard</p>
+<pre class="prettyprint linenums">
+$('#form').validate({
+    errorClass: "help-block",
+    validClass: "help-block",
+    highlight: function(element, errorClass,validClass) {
+       $(element).closest('.form-group').addClass("has-error");
+    },
+    unhighlight: function(element, errorClass,validClass) {
+        $(element).closest('.form-group').removeClass("has-error");
+    }
+});
+</pre>
+				<h4>Form Validation / Parsley</h4>
+				<p>Add these properties whenever you use Parsley</p>
+<pre class="prettyprint linenums">
+//Parsley Form Validation
+//While the JS is not usually required in Parsley, we will be modifying
+//the default classes so it plays well with Bootstrap
+$('#vform).parsley({
+    successClass: 'has-success',
+    errorClass: 'has-error',
+    errors: {
+        classHandler: function(el) {
+            return $(el).closest('.form-group');
+        },
+        errorsWrapper: '&lt;ul class=\&quot;help-block list-unstyled\&quot;&gt;&lt;/ul&gt;',
+        errorElem: '&lt;li&gt;&lt;/li&gt;'
+    }
+});
+</pre>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section>
+	<div class="page-header">
+		<h1 id="tips">Theme Tips <small>Make the most out of Avant</small></h1>
+	</div>
+	<div class="row">
+
+		<div class="col-sm-3">
+			<p>Always show navigation arrows instead of when just hovering</p>
+		</div>
+		<div class="col-sm-9">
+			<p>Find and change the first instance of <code>#sidebar:hover li.hasChild>a:before, #sidebar:hover li.hasChild.open>a:before</code> in the file layout.less and remove all <code>:hover</code> references</p>
+			<hr>
+		</div>
+	
+		<div class="col-sm-3">
+			<p>Leverage LESS Mixins</p>
+		</div>
+		<div class="col-sm-9">
+			<p>Create as many different colors schemes of panels or buttons as you want!</p>
+			<p>Simply change and add the variables in <em>panels.less</em> file:</p>
+	
+<pre class="prettyprint linenums">.panel-color { 
+  .panel-variated(@heading-text-color, @heading-bg-color, @heading-border);
+}</pre>
+
+	For Buttons in <em>buttons.less</em>:
+<pre class="prettyprint linenums">.btn-color {
+  .btn-pseudo-states(@btn-default-color, @btn-default-bg, @btn-default-border);
+}</pre>
+
+	For Alternative Buttons:
+<pre class="prettyprint linenums">.btn-color-alt {
+  .btn-alt-states(@border);
+}</pre>
+
+	For alerts in <em>alerts.less</em>:
+<pre class="prettyprint linenums">.alert-color {
+  .alert-variant(@background; @border; @text-color);
+}</pre>
+
+	For labels in <em>labels.less</em>:
+<pre class="prettyprint linenums">.label-color {
+  .label-variant(@color);
+}</pre>
+
+	For progressbars in <em>progress-bars.less</em>:
+<pre class="prettyprint linenums">.progress-color {
+  .progress-bar-variant(@color);
+}</pre>
+	
+		</div>
+		<div class="col-sm-3">
+			<h3>Internet Explorer</h3>
+			<p>8 and below</p>
+		</div>
+		<div class="col-sm-9">
+			<div class="detailedcontent">
+				<p>For supporting IE8 and below, please include the following in your header</p>
+<pre class="prettyprint linenums">
+&lt;!--[if lt IE 9]&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/ie8.css&quot;&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;http://html5shim.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;assets/plugins/charts-flot/excanvas.min.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</pre>
+				<p>Respond.js, which makes Bootstrap IE8 compatible, is inherently incompatible with LESS.js because of how they work (<a href="http://stackoverflow.com/questions/8141696/how-can-i-make-respond-js-and-less-js-play-nice-together">learn more</a>). If you want your site to function properly in IE8 we strongly recommend that you compile your LESS files into a CSS file - it also improves performance!</p>
+				<p>The included <em>assets/js/placeholdr.js</em> adds drop-in HTML5 placeholder support for input boxes. However, it must be executed after jQuery</p>
+			</div>
+		</div>
+		
+	</div>
+</section>
+
+<section>
+	<div class="page-header">
+		<h1 id="FAQ">FAQ</h1>
+	</div>
+	<h3>What is LESS and how do I use it?</h3>
+	<p><a href="http://lesscss.org/">LESS</a> is a CSS Pre-Processor. In simple terms, LESS allows you to write CSS in a smarter way by combining functions, mixins, operations and more. This means you write more concise style information and can reuse things like colors and styles more easily.</p>
+
+	<p>Bootstrap was built using LESS, which is why we also use LESS to build Jarvis. While a full tutorial is out of the scope of the documentation, there are many tutorials of LESS <a href="https://www.google.com/search?q=less+tutorial">available on the internet.</a></p>
+
+	<p>More to the point, all the .less files are in assets/less directory of the theme. Browsers cannot read less files as is, which is why we need to compile it into css. There are many applications which can serve this purpse (<a href="http://winless.org/">WinLESS</a>, <a href="http://wearekiss.com/simpless">SimpLESS</a>) or you can also use javascript to read less directly (slower, we recommend compiling into css first in production environment).</p>
+
+	<h3>Why does removing certain HTML (like Charts) also stop all javascript in the page from loading?</h3>
+
+	<p>Charts are made and displayed from javascript (using a plugin called Flot) and placed in a placeholder in the HTML. You have removed the placeholder, but the javascript code is still there. Unable to find where to put the charts, javascript throws an error and the whole document stops processing.</p>
+
+	<p>What you need to do is go to <em>assets/js/demo-index.js</em> and find the comment <code>//Flot</code>. You can then remove the code following that and the error will be removed as well.</p>
+
+	<p>Even if the page is not using Charts, you can solve similar problems by going to the relevant <em>demo-*.js</em> file and finding and removing whichever plugin is called for.</p>
+
+
+</section>
+
+<section>
+	<div class="page-header">
+		<h1 id="changelog">Changelog</h1>
+	</div>
+	<div class="table-responsive">
+	<table class="table table-bordered table-striped table-condensed">
+			<thead>
+				<tr>
+					<td width="7%">Version</td>
+					<td width="18%">Date</td>
+					<td width="75%">Info</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>v1.0</td>
+					<td>30th October 2013</td>
+					<td>Initial Release</td>
+				</tr>
+				<tr>
+					<td>v1.1</td>
+					<td>31st October 2013</td>
+					<td>
+						<ol>
+							<li>Layout- Horizontal 2 and Fixed added <span class="label label-info">new pages</span></li>
+							<li>Upgraded to FontAwesome 4.0.1</li>
+							<li>Avant <i>.less</i> files now separate from Bootstrap's code</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<td>v1.1.1</td>
+					<td>3rd November 2013</td>
+					<td>
+						<ol>
+							<li>The left sidebar navigation becomes fixed position in mobile browsers</li>
+							<li>Extra- Search <span class="label label-info">new page</span></li>
+							<li>Various bug fixes</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<td>v1.1.2</td>
+					<td>7th November 2013</td>
+					<td>
+						<ol>
+							<li>Improved Dashboard</li>
+							<li>Tabs &amp; Accordions <span class="label label-info">new page</span></li>
+							<li>Updated FontAwesome to 4.0.3</li>
+							<li>New Plugin- jQuery Pulsate</li>
+							<li>Various bug fixes</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<td>v1.1.3</td>
+					<td>14th November 2013</td>
+					<td>
+						<ol>
+							<li>Support in dropdown in panel tabs</li>
+							<li>Added scrollbars in Messages and Notifications dropdown</li>
+							<li>Extras- Forgot Password <span class="label label-info">new page</span></li>
+							<li>Extras- Inbox <span class="label label-info">new page</span></li>
+							<li>Extras- Invoice <span class="label label-info">new page</span></li>
+							<li>Extras- Profile <span class="label label-info">new page</span></li>
+							<li>Extras- Registration <span class="label label-info">new page</span></li>
+							<li>Extras- Signup Form <span class="label label-info">new page</span></li>
+							<li>Extras- Timeline <span class="label label-info">new page</span></li>
+							<li>Various bug fixes</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<td>v1.2</td>
+					<td>28th November 2013</td>
+					<td>
+						<ol>
+							<li>Updated to latest Bootstrap</li>
+							<li>Improved support for Horizontal Navigation</li>
+							<li>In small screen sizes, the header goes to two lines instead of logos being hidden</li>
+							<li>The login pages are now responsive</li>
+							<li>Extras - Chat Room <span class="label label-info">new page</span></li>
+							<li>X-Editable <span class="label label-info">new plugin</span></li>
+							<li>jQuery Fullscreen Editor <span class="label label-info">new plugin</span></li>
+							<li>Various Bugfixes</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<td>v1.2.1</td>
+					<td>10th Janunary 2014</td>
+					<td>
+						<ol>
+							<li>Jasny File Input <span class="label label-info">new plugin</span></li>
+							<li>Bootbox <span class="label label-info">new plugin</span></li>
+							<li>Date Paginator <span class="label label-info">new plugin</span></li>
+							<li>Date Picker (replacing jQueryUI Calendar) <span class="label label-info">new plugin</span></li>
+							<li>Tokenfield <span class="label label-info">new plugin</span></li>
+							<li>Bootstro.js <span class="label label-info">new plugin</span></li>
+							<li>jCrop <span class="label label-info">new plugin</span></li>
+							<li>Various Bugfixes</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<td>v1.2.2</td>
+					<td>15th February 2014</td>
+					<td>
+						<ol>
+							<li>Updated to Bootstrap 3.1</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<td>v1.3</td>
+					<td>28th July 2014</td>
+					<td>
+						<ol>
+							<li>Added Megamenu Support <span class="label label-info">new plugin</span></li>
+							<li>Added New Button Styles: Focused Icon Buttons <span class="label label-info">new feature</span></li>
+							<li>Updated to Bootstrap 3.2</li>
+							<li>Updated to FontAwesome 4.1</li>
+							<li>Better IE7 Transparency Support</li>
+							<li>Minor bugfixes</li>
+						</ol>
+					</td>
+				</tr>
+
+				<tr>
+					<td>v1.4</td>
+					<td>25th March 2015</td>
+					<td>
+						<ol>
+							<li>Fixed a long-running bug that affected sidebars</li>
+							<li>Boxed Layout is now responsive in small screens</li>
+							<li>Updated to Bootstrap 3.3.2</li>
+							<li>Updated FontAwesome to 4.3.0</li>
+						</ol>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+</section>
+
+
+<section>
+	<div class="page-header">
+		<h1 id="contact">Contact &amp; more!</h1>
+	</div>
+	<p>Please feel free to email with your questions at <a href="mailto:redteamux@gmail.com">redteamux@gmail.com</a> or post in the <a href="http://themeforest.net/user/TheRedTeam">item discussion</a> page in Themeforest</p>
+	<p>We will be making more admin themes in the future, so if you have any suggestions we are open all ears! And if you can send us links or screenshots of your implimentation that would be really helpful in developing better themes in the future</p>
+</section>
+
+
+<hr>
+<p>Once again, thank you so much for purchasing this theme! I request you to rate the theme 5-stars if you like it, and if you don't, just shoot us an email or post your question in the Item Discussion section before you vote so we can solve your issues regarding the theme first</p>
+
+<footer style="background:none; color:inherit">
+	<hr>
+	<p>&copy; 2015 The Red Team</p>
+</footer>
+
+	</div> <!-- /container -->
+
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src="assets/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/prettify.js"></script>
+	<script type="text/javascript">
+		$(function(){
+		  jQuery( document ).ready( function() {
+		    prettyPrint();
+		  });
+
+		  var voffset = 80;
+			$('.navbar li a').click(function(event) {
+			    event.preventDefault();
+			    $($(this).attr('href'))[0].scrollIntoView();
+			    scrollBy(0, -voffset);
+			});
+		});
+	</script>
+  </body>
+</html>

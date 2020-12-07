@@ -1,0 +1,23 @@
+Avant 1.4
+Changelog
+
+1.3 => 1.4
+----------
+- Fixed a long-running bug that affected sidebars
+- Boxed Layout is now responsive in small screens
+- Updated to Bootstrap 3.3.2
+- Updated FontAwesome to 4.3.0
+
+File Changes
+------------
+LESS Files
+
+In assets/less/
+- layout.less
+- leftbar.less
+- navbar.less
+- variables.less
+- all files in assets/less/bootstrap/
+
+In JS:
+- assets/js/application.js
