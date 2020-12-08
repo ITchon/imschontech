@@ -13,8 +13,8 @@ class Fullcalendar extends CI_Controller {
  function index()
  {
 
- $this->load->view('calen_css');
-  $this->load->view('fullcalendar');
+  $this->load->view('student/calen_css');
+  $this->load->view('student/fullcalendar');
 
  }
 

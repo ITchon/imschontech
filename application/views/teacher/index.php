@@ -1,12 +1,12 @@
 
-<div id="page-content">
+<div id="">
     <div id='wrap'>
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li class='active'><a href="<?php echo base_url(); ?>main">Dashboard</a></li>
             </ol>
 
-            <h1>Dashboard</h1>
+            <h1>Teacher</h1>
             <div class="options">
                 <div class="btn-toolbar">
                     <button class="btn btn-default" id="daterangepicker2">
