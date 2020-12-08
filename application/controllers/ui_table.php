@@ -19,8 +19,7 @@ class ui_table Extends CI_controller{
 	{
 
 		$this->load->view('table/manage');
-		$this->load->view('footer_la');
-
+	
 	}
 }
 ?>
