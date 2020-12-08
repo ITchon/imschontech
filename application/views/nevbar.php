@@ -84,11 +84,11 @@
                 </li>
                 <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
                     <ul class="acc-menu">
-                        <li><a href="<?php echo base_url(); ?>ui_table"> - Class</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table"> - Company</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table"> - division</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table"> - student</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table"> - teacher</a></li>
+                        <li><a href="<?php echo base_url(); ?>"> - Class</a></li>
+                        <li><a href="<?php echo base_url(); ?>"> - Company</a></li>
+                        <li><a href="<?php echo base_url(); ?>"> - division</a></li>
+                        <li><a href="<?php echo base_url(); ?>"> - student</a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_teacher"> - teacher</a></li>
                     </ul>
                 </li>
                 

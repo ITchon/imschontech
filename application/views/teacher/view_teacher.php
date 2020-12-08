@@ -33,7 +33,7 @@
                             <h4>Data Tables</h4>
                             <div class="options">   
                                 <a href="javascript:;"><i class="fa fa-cog"></i></a>
-                                <a href="javascript:;"><i class="fa fa-wrench"></i></a>
+                                <a href="<?php echo base_url(); ?>manage_teacher/insert_teacher"><i class="fa fa-plus"></i></a>
                                 <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
                             </div>
                         </div>
@@ -41,59 +41,33 @@
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                 <thead>
                                     <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
-                                        <th>CSS grade</th>
+                                        <th>title</th>
+                                        <th>First name</th>
+                                        <th>Last name</th>
+                                        <th>Telephone</th>
+                                        <th>E-mail</th>
+                                        <th>Username</th>
+                                        <th>password</th>
+                                        <th>Class_id</th>
+                                        <th  width="30%">Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet
-                                           Explorer 4.0</td>
-                                           <td>Win 95+</td>
-                                           <td class="center"> 4</td>
-                                           <td class="center">X</td>
-                                       </tr>
-                                       <tr class="even gradeC">
-                                        <td>Trident</td>
-                                        <td>Internet
-                                           Explorer 5.0</td>
-                                           <td>Win 95+</td>
-                                           <td class="center">5</td>
-                                           <td class="center">C</td>
-                                       </tr>
-                                       <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet
-                                           Explorer 5.5</td>
-                                           <td>Win 95+</td>
-                                           <td class="center">5.5</td>
-                                           <td class="center">A</td>
-                                       </tr>
-                                       <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet
-                                           Explorer 6</td>
-                                           <td>Win 98+</td>
-                                           <td class="center">6</td>
-                                           <td class="center">A</td>
-                                       </tr>
-                                       <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 7</td>
-                                        <td>Win XP SP2+</td>
-                                        <td class="center">7</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>AOL browser (AOL desktop)</td>
-                                        <td>Win XP</td>
-                                        <td class="center">6</td>
-                                        <td class="center">A</td>
+                                        <?php foreach($result as $r){ ?>
+                                    <tr>
+                                        <td><?php echo $r->title ?></td>
+                                        <td><?php echo $r->fname ?></td>
+                                        <td><?php echo $r->lname ?></td>
+                                        <td><?php echo $r->tel ?></td>
+                                        <td><?php echo $r->email ?></td>
+                                        <td><?php echo $r->username ?></td>
+                                        <td><?php echo $r->password ?></td>
+                                        <td><?php echo $r->class_id ?></td>
+                                        <td>
+                                        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_teacher/edit_teacher/' . $r->teacher_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
+                                            <?php echo "<a type='button' href='".base_url()."manage_teacher/delete_teacher_p/".$r->teacher_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                        </td>
+                                        <?php  } ?> 
                                     </tr>
                                 </tbody>
                             </table>
