@@ -44,13 +44,34 @@ public function chk_admin($user,$pass) {
 
 public function CheckSession()        
 {
-
-    if($this->session->userdata('user_id')=="") {
+  if($this->session->userdata('std_id')){
+    if($this->session->userdata('std_id')=="") {
       echo "<script>alert('Please Login')</script>";
       redirect('login','refresh');
    return FALSE;
-   
+  }
+}
+
+   else if($this->session->userdata('teacher_id')){
+    if($this->session->userdata('teacher_id')==""){
+      echo "<script>alert('Please Login')</script>";
+      redirect('login','refresh');
+   return FALSE;
     }
+   }
+    
+   else if($this->session->userdata('admin_id')){
+    if($this->session->userdata('admin_id')==""){
+      echo "<script>alert('Please Login')</script>";
+      redirect('login','refresh');
+   return FALSE;
+    }
+   }
+   else if($this->session->userdata('username') == ''){
+      echo "<script>alert('Please Login')</script>";
+      redirect('login','refresh');
+   return FALSE;
+   }
     else{    return TRUE;    }
 }
 

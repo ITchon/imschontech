@@ -9,9 +9,7 @@
 		}
     function index()
     {
-    	$this->session->unset_userdata('user_id');
-
-       // $this->session->session_destroy();
+		$this->session->sess_destroy();
         redirect('login','refresh');
     }
 }
