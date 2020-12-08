@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2020 at 10:00 AM
+-- Generation Time: Dec 08, 2020 at 10:11 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -130,11 +130,11 @@ CREATE TABLE `student` (
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
-  `tel` int(20) NOT NULL,
+  `tel` varchar(10) NOT NULL COMMENT 'password\r\n',
   `email` varchar(50) NOT NULL,
   `status` varchar(20) NOT NULL,
   `std_code` varchar(20) NOT NULL COMMENT 'username',
-  `birth_date` date NOT NULL COMMENT 'password',
+  `birth_date` date NOT NULL,
   `class_id` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -143,8 +143,8 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`std_id`, `title`, `fname`, `lname`, `gender`, `tel`, `email`, `status`, `std_code`, `birth_date`, `class_id`) VALUES
-(2, 'นาย', 'siwat', 'yodsamang', 'ชาย', 611567947, 'nongpavcd@hotmail.co.th', '0', '6239010018', '0000-00-00', '0'),
-(3, 'นาย', 'siwat', 'yodsamang', 'ชาย', 611567947, 'nongpavcd@hotmail.co.th', '1', '123123123', '2020-12-01', '');
+(2, 'นาย', 'siwat', 'yodsamang', 'ชาย', '0611567947', 'nongpavcd@hotmail.co.th', '0', '6239010018', '0000-00-00', '0'),
+(3, 'นาย', 'siwat', 'yodsamang', 'ชาย', '0611567947', 'nongpavcd@hotmail.co.th', '1', '123123123', '2020-12-01', '');
 
 -- --------------------------------------------------------
 
@@ -157,10 +157,10 @@ CREATE TABLE `teacher` (
   `title` varchar(20) NOT NULL,
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
-  `tel` int(10) NOT NULL,
+  `tel` varchar(10) NOT NULL COMMENT 'password',
   `email` varchar(50) NOT NULL,
   `th_code` varchar(20) NOT NULL COMMENT 'username',
-  `th_birth_date` date NOT NULL COMMENT 'password',
+  `th_birth_date` date NOT NULL,
   `class_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -169,7 +169,7 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`teacher_id`, `title`, `fname`, `lname`, `tel`, `email`, `th_code`, `th_birth_date`, `class_id`) VALUES
-(2, 'นาย', 'ศิวัช', 'yodsamangads', 611567947, 'poppavcdza@gmail.com', '6239010018', '2020-12-09', 0);
+(2, 'นาย', 'ศิวัช', 'yodsamangads', '611567947', 'poppavcdza@gmail.com', '6239010018', '2020-12-09', 0);
 
 --
 -- Indexes for dumped tables
