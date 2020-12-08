@@ -27,7 +27,7 @@
 
         ?>
         <form action="<?php echo base_url()?>Teacher/index" method="get">
-            <input type="text" class="form-control" name="student_search">
+            <input type="text" class="form-control" name="student_search" placeholder="รหัสนักศึกษา">
         </form>
     </div>
             <div class="row">
