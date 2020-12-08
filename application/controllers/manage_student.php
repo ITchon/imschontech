@@ -22,13 +22,13 @@ class manage_student Extends CI_controller{
 		$qry_inp =  "SELECT * FROM student";
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
-		$this->load->view('student/view_student',$data);
+		$this->load->view('admin/student/view',$data);
 	
     }
     
 	public function insert_student()
 	{
-		$this->load->view('student/insert_student');
+		$this->load->view('admin/student/insert');
 	}
 
 	public function insert_student_p()
@@ -53,7 +53,7 @@ class manage_student Extends CI_controller{
 		$id = $this->uri->segment('3'); 
         $data['result'] = $this->student_model->selectOnestudent($id);
         // $data['result_g'] = $this->teacher_model->select();
-		$this->load->view('student/edit_student',$data);
+		$this->load->view('admin/student/edit',$data);
 	}
 
 	public function edit_student_p()

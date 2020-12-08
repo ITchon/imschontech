@@ -38,6 +38,7 @@
                             </div>
                         </div>
                         <div class="panel-body collapse in">
+                        <div class="table-responsive">
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                 <thead>
                                     <tr>
@@ -49,7 +50,7 @@
                                         <th>teacher code</th>
                                         <th>birthdate</th>
                                         <th>Class_id</th>
-                                        <th  width="30%">Manage</th>
+                                        <th  width="15%">Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -71,6 +72,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
                         </div>
                     </div>
                 </div>
