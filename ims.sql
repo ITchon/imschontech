@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2020 at 03:31 AM
--- Server version: 10.4.16-MariaDB
--- PHP Version: 7.4.12
+-- Generation Time: Dec 08, 2020 at 10:00 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -96,9 +96,27 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `title`, `description`, `color`, `start_event`, `end_event`) VALUES
-(300, '', '', '#0071c5', '2020-12-01 00:00:00', '2020-12-09 00:00:00'),
-(301, '', '', '#0071c5', '2020-12-09 00:00:00', '2020-12-10 00:00:00'),
-(302, '', '', '#0071c5', '2020-12-10 00:00:00', '2020-12-17 00:00:00');
+(268, 'TESTWOYYYYYYY', '', '#c20309', '2020-05-19 04:00:00', '2020-05-25 14:00:00'),
+(279, 'Work', '', '#c70000', '2020-06-15 00:00:00', '2020-06-18 00:00:00'),
+(280, '', '', '#c70000', '2020-06-22 00:00:00', '2020-06-25 00:00:00'),
+(281, '', '', '#c70000', '2020-06-29 00:00:00', '2020-07-04 00:00:00'),
+(282, '', '', '#c70000', '2020-07-07 00:00:00', '2020-07-11 00:00:00'),
+(283, '', '', '#c70000', '2020-07-13 00:00:00', '2020-07-17 00:00:00'),
+(284, '', '', '#c70000', '2020-07-20 00:00:00', '2020-07-24 00:00:00'),
+(285, '', '', '#c70000', '2020-07-30 00:00:00', '2020-08-02 00:00:00'),
+(286, '', '', '#c70000', '2020-08-03 00:00:00', '2020-08-08 00:00:00'),
+(287, '', '', '#c70000', '2020-08-10 00:00:00', '2020-08-15 00:00:00'),
+(288, '', '', '#c70000', '2020-08-17 00:00:00', '2020-08-22 00:00:00'),
+(289, '', '', '#c70000', '2020-08-24 00:00:00', '2020-08-29 00:00:00'),
+(290, '', '', '#c70000', '2020-08-31 00:00:00', '2020-09-05 00:00:00'),
+(291, '', '', '#c70000', '2020-09-07 00:00:00', '2020-09-12 00:00:00'),
+(292, '', '', '#c70000', '2020-09-14 00:00:00', '2020-09-19 00:00:00'),
+(293, '', '', '#0071c5', '2020-12-09 00:00:00', '2020-12-18 00:00:00'),
+(294, '', '', '#0071c5', '2020-09-24 00:00:00', '2020-09-25 00:00:00'),
+(296, '', '31231', '#c70000', '2020-12-03 00:00:00', '2020-12-04 00:00:00'),
+(297, '', 'asadadasd', '#c70000', '2020-12-23 00:00:00', '2020-12-26 00:00:00'),
+(298, '', 'asadadasd', '#525252', '2020-12-30 00:00:00', '2020-12-31 00:00:00'),
+(299, '', 'asadadasd', '#525252', '2020-12-30 00:00:00', '2020-12-31 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -113,12 +131,20 @@ CREATE TABLE `student` (
   `lname` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `tel` int(20) NOT NULL,
-  `email` int(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `status` varchar(20) NOT NULL,
-  `username` varchar(12) NOT NULL,
-  `password` varchar(12) NOT NULL,
-  `class_id` int(11) NOT NULL
+  `std_code` varchar(20) NOT NULL COMMENT 'username',
+  `birth_date` date NOT NULL COMMENT 'password',
+  `class_id` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`std_id`, `title`, `fname`, `lname`, `gender`, `tel`, `email`, `status`, `std_code`, `birth_date`, `class_id`) VALUES
+(2, 'นาย', 'siwat', 'yodsamang', 'ชาย', 611567947, 'nongpavcd@hotmail.co.th', '0', '6239010018', '0000-00-00', '0'),
+(3, 'นาย', 'siwat', 'yodsamang', 'ชาย', 611567947, 'nongpavcd@hotmail.co.th', '1', '123123123', '2020-12-01', '');
 
 -- --------------------------------------------------------
 
@@ -128,15 +154,22 @@ CREATE TABLE `student` (
 
 CREATE TABLE `teacher` (
   `teacher_id` int(11) NOT NULL,
-  `title` int(20) NOT NULL,
-  `fname` int(50) NOT NULL,
-  `lname` int(50) NOT NULL,
-  `tel` int(20) NOT NULL,
-  `email` int(20) NOT NULL,
-  `username` varchar(12) NOT NULL,
-  `password` varchar(12) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `tel` int(10) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `th_code` varchar(20) NOT NULL COMMENT 'username',
+  `th_birth_date` date NOT NULL COMMENT 'password',
   `class_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `teacher`
+--
+
+INSERT INTO `teacher` (`teacher_id`, `title`, `fname`, `lname`, `tel`, `email`, `th_code`, `th_birth_date`, `class_id`) VALUES
+(2, 'นาย', 'ศิวัช', 'yodsamangads', 611567947, 'poppavcdza@gmail.com', '6239010018', '2020-12-09', 0);
 
 --
 -- Indexes for dumped tables
@@ -204,19 +237,19 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=303;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `std_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `std_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
