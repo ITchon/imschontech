@@ -16,6 +16,15 @@ public function chk_student($user,$pass) {
           }
 }
 
+public function block_student() {  
+        if($this->session->userdata('std_id')){
+          echo "<script>";
+            echo 'alert("Get back");';
+            echo 'history.go(-1);';
+            echo '</script>';
+        }
+}
+
 public function chk_teacher($user,$pass) {  
     // $pass = base64_encode(trim($pass));
     $sql ="SELECT * FROM teacher WHERE username='$user' and password='$pass'";

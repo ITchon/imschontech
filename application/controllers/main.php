@@ -8,7 +8,7 @@ class main Extends CI_controller{
 		$this->load->helper('url');
 		$this->load->helper('form');
         $this->load->view('header');
-        $this->load->view('nevbar');
+        
 		$this->load->database(); 
         $this->load->model('model');
 
@@ -17,8 +17,18 @@ class main Extends CI_controller{
 
 	public function index() 	
 	{
-		$this->load->view('index');
-		$this->load->view('footer');
+		if($this->session->userdata('teacher_id')){
+			$this->load->view('teacher/index');
+			
+		}else if($this->session->userdata('std_id')){
+			$this->load->view('student/index');
+			
+		}else if($this->session->userdata('admin_id')){
+			$this->load->view('nevbar');
+			$this->load->view('admin/index');
+		}
+		 
+		 $this->load->view('footer');
 
 	}
 

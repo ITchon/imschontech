@@ -14,9 +14,10 @@ class Teacher Extends CI_controller{
         $this->load->model('model_teacher');
 
 		$this->model->CheckSession();
+		$this->model->block_student();
 	}
 
-	public function index() 	
+	public function list() 	
 	{
         $student_search = $this->input->get('student_search');
         $std_id =  $this->uri->segment('3');
