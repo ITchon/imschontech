@@ -37,7 +37,7 @@
 <body class="">
 
 
-    <div id="headerbar">
+    <div id="headerbar"  >
         <div class="container">
             <div class="row">
                 <div class="col-xs-6 col-sm-2">
@@ -109,7 +109,7 @@
         </div>
     </div>
 
-    <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+    <header class="navbar navbar-inverse navbar-fixed-top" role="banner" >
         <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
         <a id="rightmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="left" title="Toggle Infobar"></a>
 
@@ -259,20 +259,20 @@
                     <li>
                         <label for="demo-header-variations" class="control-label">Header Colors</label>
                         <ul class="list-inline demo-color-variation" id="demo-header-variations">
-                            <li><a class="color-black" href="javascript:;"  data-headertheme="<?php echo base_url(); ?>header-black.css"></a></li>
-                            <li><a class="color-dark" href="javascript:;"  data-headertheme="<?php echo base_url(); ?>default.css"></a></li>
-                            <li><a class="color-red" href="javascript:;" data-headertheme="<?php echo base_url(); ?>header-red.css"></a></li>
-                            <li><a class="color-blue" href="javascript:;" data-headertheme="<?php echo base_url(); ?>header-blue.css"></a></li>
+                            <li><a class="color-black" href="javascript:;"  data-headertheme="header-black.css"></a></li>
+                            <li><a class="color-dark" href="javascript:;"  data-headertheme="default.css"></a></li>
+                            <li><a class="color-red" href="javascript:;" data-headertheme="header-red.css"></a></li>
+                            <li><a class="color-blue" href="javascript:;" data-headertheme="header-blue.css"></a></li>
                         </ul>
                     </li>
                     <li class="divider"></li>
                     <li>
                         <label for="demo-color-variations" class="control-label">Sidebar Colors</label>
                         <ul class="list-inline demo-color-variation" id="demo-color-variations">
-                            <li><a class="color-lite" href="javascript:;"  data-theme="<?php echo base_url(); ?>default.css"></a></li>
-                            <li><a class="color-steel" href="javascript:;" data-theme="<?php echo base_url(); ?>sidebar-steel.css"></a></li>
-                            <li><a class="color-lavender" href="javascript:;" data-theme="<?php echo base_url(); ?>sidebar-lavender.css"></a></li>
-                            <li><a class="color-green" href="javascript:;" data-theme="<?php echo base_url(); ?>sidebar-green.css"></a></li>
+                            <li><a class="color-lite" href="javascript:;"  data-theme="default.css"></a></li>
+                            <li><a class="color-steel" href="javascript:;" data-theme="sidebar-steel.css"></a></li>
+                            <li><a class="color-lavender" href="javascript:;" data-theme="sidebar-lavender.css"></a></li>
+                            <li><a class="color-green" href="javascript:;" data-theme="sidebar-green.css"></a></li>
                         </ul>
                     </li>
                     <li class="divider"></li>
