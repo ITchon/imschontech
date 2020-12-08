@@ -5,7 +5,7 @@ class Model extends CI_Model
 
 public function chk_student($user,$pass) {  
         // $pass = base64_encode(trim($pass));
-        $sql ="SELECT * FROM student WHERE username='$user' and password='$pass'";
+        $sql ="SELECT * FROM student WHERE std_code='$user' and tel='$pass'";
       $query = $this->db->query($sql);
       if($query->num_rows()!=0) {
         $result = $query->result_array();
@@ -27,7 +27,7 @@ public function block_student() {
 
 public function chk_teacher($user,$pass) {  
     // $pass = base64_encode(trim($pass));
-    $sql ="SELECT * FROM teacher WHERE username='$user' and password='$pass'";
+    $sql ="SELECT * FROM teacher WHERE th_code='$user' and tel='$pass'";
   $query = $this->db->query($sql);
   if($query->num_rows()!=0) {
     $result = $query->result_array();
