@@ -21,7 +21,7 @@
                         <li><a href="<?php echo base_url(); ?>layout/layout_fixd"><span>Fixed Boxed Layout</span></a></li>
                     </ul>
                 </li> -->
-                <li><a href="javascript:;"><i class="fa fa-list-ol"></i> <span>UI Elements</span> <span class="badge badge-indigo">4</span></a>
+                <li><a href="javascript:;"><i class="fa fa-list-ol"></i> <span>UI Elements</span></a>
                     <ul class='acc-menu'>
                         <li><a href="<?php echo base_url(); ?>ui_element">Typography</a></li>
                         <li><a href="<?php echo base_url(); ?>ui_element/btn">Buttons</a></li>
@@ -31,8 +31,9 @@
                         <li><a href="<?php echo base_url(); ?>ui_element/images">Images</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:;"><i class="fa fa-tasks"></i> <span>UI Components</span> <span class="badge badge-info">12</span></a>
+                <li><a href="javascript:;"><i class="fa fa-tasks"></i> <span>UI Components</span> </a>
                     <ul class="acc-menu">
+                    <!-- <span class="badge badge-info">12</span> -->
                         <li><a href="<?php echo base_url(); ?>ui_component">Tiles</a></li>
                         <li><a href="<?php echo base_url(); ?>ui_component/modals">Modals &amp; Bootbox</a></li>
                         <li><a href="<?php echo base_url(); ?>ui_component/">Progress Bars</a></li>
@@ -48,79 +49,50 @@
                         <li><a href="<?php echo base_url(); ?>ui_component/">Tour</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Advanced Tables</span></a>
+                <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Tables</span></a>
                     <ul class="acc-menu">
-                        <li><a href="<?php echo base_url(); ?>ui_table">Tables tast</a></li>
-                        <li><a href="tables-responsive.htm">Responsive Tables</a></li>
-                        <li><a href="tables-editable.htm">Editable Tables</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">Tables test</a></li>
+                       
                     </ul>
                 </li>
-                <li><a href="javascript:;"><i class="fa fa-pencil"></i> <span>Advanced Forms</span><span class="badge badge-primary">5</span></a>
+                <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Student</span></a>
+                    <!-- <ul class="acc-menu">
+                        <li><a href="<?php echo base_url(); ?>ui_table">Class</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">Company</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">division</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">student</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">teacher</a></li>
+                    </ul> -->
+                </li>
+                <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Teacher</span></a>
+                    <!-- <ul class="acc-menu">
+                        <li><a href="<?php echo base_url(); ?>ui_table">Class</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">Company</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">division</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">student</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">teacher</a></li>
+                    </ul> -->
+                </li>
+                <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Company</span></a>
+                    <!-- <ul class="acc-menu">
+                        <li><a href="<?php echo base_url(); ?>ui_table">Class</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">Company</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">division</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">student</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table">teacher</a></li>
+                    </ul> -->
+                </li>
+                <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
                     <ul class="acc-menu">
-                        <li><a href="form-components.htm">Components</a></li>
-                        <li><a href="form-wizard.htm">Wizards</a></li>
-                        <li><a href="form-validation.htm">Validation</a></li>
-                        <li><a href="form-masks.htm">Masks</a></li>
-                        <li><a href="form-fileupload.htm">Multiple File Uploads</a></li>
-                        <li><a href="form-dropzone.htm">Dropzone File Uploads</a></li>
-                        <li><a href="form-ckeditor.htm">WYSIWYG Editor</a></li>
-                        <li><a href="form-xeditable.htm">Inline Editor</a></li>
-                        <li><a href="form-imagecrop.htm">Image Cropping</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table"> - Class</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table"> - Company</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table"> - division</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table"> - student</a></li>
+                        <li><a href="<?php echo base_url(); ?>ui_table"> - teacher</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:;"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
-                    <ul class="acc-menu">
-                        <li><a href="maps-google.htm">Google Maps</a></li>
-                        <li><a href="maps-vector.htm">Vector Maps</a></li>
-                    </ul>
-                </li>
-                <li><a href="javascript:;"><i class="fa fa-bar-chart-o"></i> <span>Charts</span></a>
-                    <ul class="acc-menu">
-                        <li><a href="charts-flot.htm">Extensible</a></li>
-                        <li><a href="charts-svg.htm">Interactive</a></li>
-                        <li><a href="charts-canvas.htm">Lightweight</a></li>
-                        <li><a href="charts-inline.htm">Inline</a></li>
-                    </ul>
-                </li>
-                <li><a href="calendar.htm"><i class="fa fa-calendar"></i> <span>Calendar</span></a></li>
-                <li><a href="gallery.htm"><i class="fa fa-camera"></i> <span> Gallery</span> </a></li>
-                <li><a href="javascript:;"><i class="fa fa-flag"></i> <span>Icons</span> <span class="badge badge-orange">2</span></a>
-                    <ul class="acc-menu">
-                        <li><a href="icons-fontawesome.htm">Font Awesome</a></li>
-                        <li><a href="icons-glyphicons.htm">Glyphicons</a></li>
-                    </ul>
-                </li>
-                <li class="divider"></li>
-                <li><a href="javascript:;"><i class="fa fa-briefcase"></i> <span>Extras</span> <span class="badge badge-danger">1</span></a>
-                    <ul class="acc-menu">
-                        <li><a href="extras-timeline.htm">Timeline</a></li>
-                        <li><a href="extras-profile.htm">Profile</a></li>
-                        <li><a href="extras-inbox.htm">Inbox</a></li>
-                        <li><a href="extras-search.htm">Search Page</a></li>
-                        <li><a href="extras-chatroom.htm">Chat Room</a></li>
-                        <li><a href="extras-invoice.htm">Invoice</a></li>
-                        <li><a href="extras-registration.htm">Registration</a></li>
-                        <li><a href="extras-signupform.htm">Sign Up</a></li>
-                        <li><a href="extras-forgotpassword.htm">Password Reset</a></li>
-                        <li><a href="extras-login.htm">Login 1</a></li>
-                        <li><a href="extras-login2.htm">Login 2</a></li>
-                        <li><a href="extras-404.htm">404 Page</a></li>
-                        <li><a href="extras-500.htm">500 Page</a></li>
-                    </ul>
-                </li>
-                <li><a href="javascript:;"><i class="fa fa-sitemap"></i> <span>Unlimited Level Menu</span></a>
-                    <ul class="acc-menu">
-                        <li><a href="javascript:;">Menu Item 1</a></li>
-                        <li><a href="javascript:;">Menu Item 2</a>
-                            <ul class="acc-menu">
-                                <li><a href="javascript:;">Menu Item 2.1</a></li>
-                                <li><a href="javascript:;">Menu Item 2.2</a>
-                                    <ul class="acc-menu">
-                                        <li><a href="javascript:;">Menu Item 2.2.1</a></li>
-                                        <li><a href="javascript:;">Menu Item 2.2.2</a>
-                                            <ul class="acc-menu">
-                                                <li><a href="javascript:;">And deeper yet!</a></li>
-                                            </ul>
+                
+               
                                         </li>
                                     </ul>
                                 </li>
