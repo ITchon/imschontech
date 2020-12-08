@@ -125,7 +125,7 @@
         			<li class="username">
                         <a href="#">
         				    <div class="pull-left"><img src="<?php echo base_url(); ?>assets/demo/avatar/dangerfield.png" alt="Jeff Dangerfield"/></div>
-        				    <div class="pull-right"><h5>Howdy, John!</h5><small>Logged in as <span>john275</span></small></div>
+        				    <div class="pull-right"><h5>Howdy, <?php echo $this->session->userdata('username'); ?>!</h5><small>Logged in as <span>john275</span></small></div>
                         </a>
         			</li>
         			<li class="userlinks">

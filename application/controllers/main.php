@@ -12,6 +12,7 @@ class main Extends CI_controller{
 		$this->load->database(); 
         $this->load->model('model');
 
+		$this->model->CheckSession();
 	}
 
 	public function index() 	

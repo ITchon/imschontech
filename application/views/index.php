@@ -32,12 +32,12 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-toyo" href="#">
-                                <div class="tiles-heading">Profit</div>
+                            <a class="info-tiles tiles-toyo" href="<?php echo base_url()?>Teacher/index">
+                                <div class="tiles-heading">Teacher</div>
                                 <div class="tiles-body-alt">
                                     <!--i class="fa fa-bar-chart-o"></i-->
-                                    <div class="text-center"><span class="text-top">$</span>854</div>
-                                    <small>+8.7% from last period</small>
+                                    <div class="text-center"><span class="text-top"></span>Student</div>
+                                    <small>ดูรายชื่อนักเรียน</small>
                                 </div>
                                 <div class="tiles-footer">more info</div>
                             </a>
