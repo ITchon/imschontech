@@ -8,20 +8,20 @@
             $data  = $query->result(); 
         }
         // ,$class_id ,$th_id
-        public function insert_teacher($title ,$fname ,$lname ,$tel ,$email ,$username ,$password )
+        public function insert_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$class_id ,$th_id)
         {
-            $passworden = base64_encode(trim($password));
             $sql ="INSERT INTO  teacher (
                         title,
                         fname,
                         lname,
                         tel,
                         email,
-                        username,
-                        password
+                        th_code,
+                        th_birth_date,
+                        class_id
                         
                         )
-                VALUES ('$title','$fname','$lname','$tel','$email','$username','$passworden');";          
+                VALUES ('$title','$fname','$lname','$tel','$email','$th_code','$th_birth_date','$class_id');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {
@@ -59,16 +59,16 @@
             // }
         }
 
-        public function update_teacher($title ,$fname ,$lname ,$tel ,$email ,$username ,$password ,$class_id ,$th_id)
+        public function update_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$class_id ,$th_id)
         {
             $sqlEdt="UPDATE  teacher SET 
                              title   = '$title',
                              fname   = '$fname',
-                             lname  = '$lname',
-                             tel   = '$tel',
-                             email  = '$email' ,
-                             username  = '$username',
-                             password  = '$password'
+                             lname   = '$lname',
+                             tel     = '$tel',
+                             email   = '$email' ,
+                             th_code  = '$th_code',
+                             th_birth_date  = '$th_birth_date'
                             
                      WHERE teacher_id = '$th_id'";
             $exc_teacher = $this->db->query($sqlEdt);

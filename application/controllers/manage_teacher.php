@@ -38,11 +38,11 @@ class manage_teacher Extends CI_controller{
         $lname    = $this->input->post('lname');
         $tel      = $this->input->post('tel');
 		$email    = $this->input->post('email');
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
+		$th_code = $this->input->post('th_code');
+		$th_birth_date = $this->input->post('th_birth_date');
         $class_id = $this->input->post('class_id');
 	    $th_id 	  = $this->input->post('teacher_id');
-        $this->teacher_model->insert_teacher($title ,$fname ,$lname ,$tel ,$email ,$username ,$password ,$class_id ,$th_id); 
+        $this->teacher_model->insert_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$class_id ,$th_id); 
         redirect('manage_teacher');
 	}
 
@@ -61,11 +61,11 @@ class manage_teacher Extends CI_controller{
         $lname    = $this->input->post('lname');
         $tel      = $this->input->post('tel');
 		$email    = $this->input->post('email');
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
+		$th_code = $this->input->post('th_code');
+		$th_birth_date = $this->input->post('th_birth_date');
         $class_id = $this->input->post('class_id');
 	    $th_id 	  = $this->input->post('teacher_id');
-        $this->teacher_model->update_teacher($title ,$fname ,$lname ,$tel ,$email ,$username ,$password ,$class_id ,$th_id); 
+        $this->teacher_model->update_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$class_id ,$th_id); 
         redirect('manage_teacher');
 	}
 

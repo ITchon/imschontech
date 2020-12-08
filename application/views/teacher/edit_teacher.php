@@ -88,15 +88,15 @@
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="username">Username</label>
-                                            <input type="text" name="username" value="<?php echo $result[0]->username ?>" class="form-control">
+                                            <label for="th_code">teacher code</label>
+                                            <input type="text" name="th_code" value="<?php echo $result[0]->th_code ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="password">Password</label>
-                                            <input type="password" name="password" class="form-control">
+                                            <label for="th_birth_date">th_birth_date</label>
+                                            <input type="date" name="th_birth_date" value="<?php echo $result[0]->th_birth_date ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>

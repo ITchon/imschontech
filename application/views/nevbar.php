@@ -87,7 +87,7 @@
                         <li><a href="<?php echo base_url(); ?>"> - Class</a></li>
                         <li><a href="<?php echo base_url(); ?>"> - Company</a></li>
                         <li><a href="<?php echo base_url(); ?>"> - division</a></li>
-                        <li><a href="<?php echo base_url(); ?>"> - student</a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_student"> - student</a></li>
                         <li><a href="<?php echo base_url(); ?>manage_teacher"> - teacher</a></li>
                     </ul>
                 </li>

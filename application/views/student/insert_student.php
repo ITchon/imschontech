@@ -3,7 +3,7 @@
     <div id='wrap'>
         <div id="page-heading">
             <ol class="breadcrumb">
-                <li><a href="index.htm">Dashboard</a></li>
+                <li><a href="<?php echo base_url(); ?>main">Dashboard</a></li>
                 <li>Advanced Tables</li>
                 <li class="active">Data Tables</li>
             </ol>
@@ -33,7 +33,7 @@
                             <h4>Data Tables</h4>
                         </div>
                         <div class="panel-body collapse in">
-                                <?php echo form_open('manage_teacher/insert_teacher_p');?>
+                                <?php echo form_open('manage_student/insert_student_p');?>
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="form-group">
@@ -68,33 +68,54 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="email">E-mail</label>
-                                            <input type="text" name="email" class="form-control">
+                                            <label for="gender">gender</label>
+                                            <select name="gender" class="form-control">
+                                                <option value="ชาย">ชาย</option>
+                                                <option value="หญิง">หญิง</option>
+                                                <option value="อื่นๆ">อื่นๆ</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="email">E-mail</label>
+                                            <input type="email" name="email" class="form-control">
+                                       
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="status">Status</label>
+                                            <select name="status" class="form-control">
+                                                <option value="0">ยังไม่ลงทะเบียน</option>
+                                                <option value="1">ลงทะเบียนเเล้ว</option>
+                                              
+                                            </select>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="class_id">Class</label>
                                             <input type="text" name="class_id" class="form-control" disabled>
-                                            </select>
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="th_code">teacher code</label>
-                                            <input type="number" name="th_code" class="form-control">
+                                            <label for="std_code">std_code</label>
+                                            <input type="text" name="std_code" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="th_birth_date">birth date</label>
-                                            <input type="date" name="th_birth_date" class="form-control">
+                                            <label for="birth_date">birth_date</label>
+                                            <input type="date" name="birth_date" class="form-control">
                                             </select>
                                         </div>
                                     </div>
