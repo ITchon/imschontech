@@ -1,5 +1,5 @@
 
-<div id="page-content">
+<div id="">
     <div id='wrap'>
         <div id="page-heading">
             <ol class="breadcrumb">
