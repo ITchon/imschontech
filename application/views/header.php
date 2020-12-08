@@ -119,7 +119,7 @@
 
         <ul class="nav navbar-nav pull-right toolbar">
         	<li class="dropdown">
-        		<a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs">John McCartney <i class="fa fa-caret-down"></i></span>
+        		<a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span>
                     <img src="<?php echo base_url(); ?>assets/demo/avatar/dangerfield.png" alt="Dangerfield" /></a>
         		<ul class="dropdown-menu userinfo arrow">
         			<li class="username">
@@ -134,7 +134,7 @@
         					<li><a href="#">Account <i class="pull-right fa fa-cog"></i></a></li>
         					<li><a href="#">Help <i class="pull-right fa fa-question-circle"></i></a></li>
         					<li class="divider"></li>
-        					<li><a href="#" class="text-right">Sign Out</a></li>
+        					<li><a  href="<?php echo base_url()?>/logout" class="text-right">Sign Out</a></li>
         				</ul>
         			</li>
         		</ul>
