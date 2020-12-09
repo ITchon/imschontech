@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2020 at 08:44 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: Dec 09, 2020 at 10:12 AM
+-- Server version: 10.4.16-MariaDB
+-- PHP Version: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -87,6 +87,20 @@ INSERT INTO `company` (`company_id`, `company_name`, `address`, `province`, `zip
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `contract_id` int(11) NOT NULL,
+  `name` int(50) NOT NULL,
+  `tel` varchar(12) NOT NULL,
+  `username` varchar(12) NOT NULL,
+  `password` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `division`
 --
 
@@ -116,35 +130,40 @@ CREATE TABLE `events` (
   `description` varchar(255) DEFAULT NULL,
   `color` varchar(20) DEFAULT NULL,
   `start_event` datetime DEFAULT NULL,
-  `end_event` datetime DEFAULT NULL
+  `end_event` datetime DEFAULT NULL,
+  `std_id` int(11) NOT NULL,
+  `t_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `title`, `description`, `color`, `start_event`, `end_event`) VALUES
-(268, 'TESTWOYYYYYYY', '', '#c20309', '2020-05-19 04:00:00', '2020-05-25 14:00:00'),
-(279, 'Work', '', '#c70000', '2020-06-15 00:00:00', '2020-06-18 00:00:00'),
-(280, '', '', '#c70000', '2020-06-22 00:00:00', '2020-06-25 00:00:00'),
-(281, '', '', '#c70000', '2020-06-29 00:00:00', '2020-07-04 00:00:00'),
-(282, '', '', '#c70000', '2020-07-07 00:00:00', '2020-07-11 00:00:00'),
-(283, '', '', '#c70000', '2020-07-13 00:00:00', '2020-07-17 00:00:00'),
-(284, '', '', '#c70000', '2020-07-20 00:00:00', '2020-07-24 00:00:00'),
-(285, '', '', '#c70000', '2020-07-30 00:00:00', '2020-08-02 00:00:00'),
-(286, '', '', '#c70000', '2020-08-03 00:00:00', '2020-08-08 00:00:00'),
-(287, '', '', '#c70000', '2020-08-10 00:00:00', '2020-08-15 00:00:00'),
-(288, '', '', '#c70000', '2020-08-17 00:00:00', '2020-08-22 00:00:00'),
-(289, '', '', '#c70000', '2020-08-24 00:00:00', '2020-08-29 00:00:00'),
-(290, '', '', '#c70000', '2020-08-31 00:00:00', '2020-09-05 00:00:00'),
-(291, '', '', '#c70000', '2020-09-07 00:00:00', '2020-09-12 00:00:00'),
-(292, '', '', '#c70000', '2020-09-14 00:00:00', '2020-09-19 00:00:00'),
-(293, '', '', '#0071c5', '2020-12-09 00:00:00', '2020-12-18 00:00:00'),
-(294, '', '', '#0071c5', '2020-09-24 00:00:00', '2020-09-25 00:00:00'),
-(296, '', '31231', '#c70000', '2020-12-03 00:00:00', '2020-12-04 00:00:00'),
-(297, '', 'asadadasd', '#c70000', '2020-12-23 00:00:00', '2020-12-26 00:00:00'),
-(298, '', 'asadadasd', '#525252', '2020-12-30 00:00:00', '2020-12-31 00:00:00'),
-(299, '', 'asadadasd', '#525252', '2020-12-30 00:00:00', '2020-12-31 00:00:00');
+INSERT INTO `events` (`id`, `title`, `description`, `color`, `start_event`, `end_event`, `std_id`, `t_id`) VALUES
+(268, 'TESTWOYYYYYYY', '', '#c20309', '2020-05-19 04:00:00', '2020-05-25 14:00:00', 1, 0),
+(279, 'Work', '', '#c70000', '2020-06-15 00:00:00', '2020-06-18 00:00:00', 1, 0),
+(280, '', '', '#c70000', '2020-06-22 00:00:00', '2020-06-25 00:00:00', 1, 0),
+(281, '', '', '#c70000', '2020-06-29 00:00:00', '2020-07-04 00:00:00', 0, 0),
+(282, '', '', '#c70000', '2020-07-07 00:00:00', '2020-07-11 00:00:00', 0, 0),
+(283, '', '', '#c70000', '2020-07-13 00:00:00', '2020-07-17 00:00:00', 0, 0),
+(284, '', '', '#c70000', '2020-07-20 00:00:00', '2020-07-24 00:00:00', 0, 0),
+(285, '', '', '#c70000', '2020-07-30 00:00:00', '2020-08-02 00:00:00', 0, 0),
+(286, '', '', '#c70000', '2020-08-03 00:00:00', '2020-08-08 00:00:00', 0, 0),
+(287, '', '', '#c70000', '2020-08-10 00:00:00', '2020-08-15 00:00:00', 0, 0),
+(288, '', '', '#c70000', '2020-08-17 00:00:00', '2020-08-22 00:00:00', 0, 0),
+(289, '', '', '#c70000', '2020-08-24 00:00:00', '2020-08-29 00:00:00', 0, 0),
+(290, '', '', '#c70000', '2020-08-31 00:00:00', '2020-09-05 00:00:00', 0, 0),
+(291, '', '', '#c70000', '2020-09-07 00:00:00', '2020-09-12 00:00:00', 0, 0),
+(292, '', '', '#c70000', '2020-09-14 00:00:00', '2020-09-19 00:00:00', 0, 0),
+(293, '', '', '#0071c5', '2020-12-09 00:00:00', '2020-12-18 00:00:00', 0, 0),
+(294, '', '', '#0071c5', '2020-09-24 00:00:00', '2020-09-25 00:00:00', 0, 0),
+(296, '', '31231', '#c70000', '2020-12-03 00:00:00', '2020-12-04 00:00:00', 0, 0),
+(297, '', 'asadadasd', '#c70000', '2020-12-23 00:00:00', '2020-12-26 00:00:00', 0, 0),
+(298, '', 'asadadasd', '#525252', '2020-12-30 00:00:00', '2020-12-31 00:00:00', 0, 0),
+(299, '', 'asadadasd', '#525252', '2020-12-30 00:00:00', '2020-12-31 00:00:00', 0, 0),
+(300, '', '', '#b3002d', '2020-12-04 00:00:00', '2020-12-11 00:00:00', 1, 0),
+(301, '', '', '#0071c5', '2020-12-02 00:00:00', '2020-12-10 00:00:00', 2, 0),
+(302, '', '', '#0071c5', '2020-12-10 00:00:00', '2020-12-11 00:00:00', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -171,7 +190,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`std_id`, `title`, `fname`, `lname`, `gender`, `tel`, `email`, `status`, `std_code`, `birth_date`, `class_id`) VALUES
-(2, 'นาย', 'siwat', 'yodsamang', 'ชาย', '0611567947', 'nongpavcd@hotmail.co.th', '1', '', '0000-00-00', ''),
+(2, 'นาย', 'siwat', 'yodsamang', 'ชาย', '0123', 'nongpavcd@hotmail.co.th', '1', '123', '0000-00-00', '2'),
 (3, 'นาย', 'siwat', 'yodsamang', 'ชาย', '0611567947', 'nongpavcd@hotmail.co.th', '1', '123123123', '2020-12-01', '');
 
 -- --------------------------------------------------------
@@ -200,6 +219,23 @@ INSERT INTO `teacher` (`teacher_id`, `title`, `fname`, `lname`, `tel`, `email`, 
 (2, 'นาย', 'ศิวัช', 'yodsamangads', '0611567948', 'poppavcdza@gmail.com', '6239010018', '2020-12-09', 0),
 (5, 'นาย', 'ครู', '--', 'teach', 'dad@hotmail.com', 'teach', '0000-00-00', 0),
 (6, 'นาย', 'ครู', 'ครับ', 'teach', 'dad@hotmail.com', 'teach', '0000-00-00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `train`
+--
+
+CREATE TABLE `train` (
+  `t_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `std_id` int(11) NOT NULL,
+  `contract_id` int(11) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `note` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -248,6 +284,12 @@ ALTER TABLE `teacher`
   ADD PRIMARY KEY (`teacher_id`);
 
 --
+-- Indexes for table `train`
+--
+ALTER TABLE `train`
+  ADD PRIMARY KEY (`t_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -279,7 +321,7 @@ ALTER TABLE `division`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=303;
 
 --
 -- AUTO_INCREMENT for table `student`
@@ -292,6 +334,12 @@ ALTER TABLE `student`
 --
 ALTER TABLE `teacher`
   MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `train`
+--
+ALTER TABLE `train`
+  MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
