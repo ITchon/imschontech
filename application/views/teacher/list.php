@@ -26,7 +26,7 @@
         }
 
         ?>
-        <form action="<?php echo base_url()?>Teacher/index" method="get">
+        <form action="<?php echo base_url()?>Teacher/list" method="get">
             <input type="text" class="form-control" name="student_search" placeholder="รหัสนักศึกษา">
         </form>
     </div>
@@ -65,7 +65,7 @@
                               <td><?php echo $std->tel ?></td>
                               <td><?php echo $std->email ?></td>
                               <td><?php echo $std->class_name ?></td>
-                              <?php echo "<td><a href='".base_url()."Teacher/index/".$std->std_id."'>look</a></td>";  ?>
+                              <?php echo "<td><a href='".base_url()."Teacher/list/".$std->std_id."'>look</a></td>";  ?>
                             </tr>
                               <?php } ?>
                            
