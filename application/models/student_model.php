@@ -7,6 +7,15 @@
             $query = $this->db->query($sql); 
             $data  = $query->result(); 
         }
+        public function get_student() {  
+            $sql =  "SELECT * FROM student s 
+            inner join class c on c.class_id = s.class_id
+            inner join division d on d.dv_id = c.dv_id
+             where s.std_id = 2";
+            $query = $this->db->query($sql); 
+            $data = $query->result();
+            return $data;
+        }
         // ,$class_id ,$th_id
         public function insert_student($title ,$fname ,$lname,$gender ,$tel ,$email,$status ,$std_code ,$birth_date ,$class_id)
         {

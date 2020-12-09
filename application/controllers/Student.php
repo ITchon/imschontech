@@ -1,6 +1,6 @@
 <?php
 
-	class Std_dashboard extends CI_Controller {
+	class Student extends CI_Controller {
 
 		function __construct(){
 			parent::__construct();
@@ -10,13 +10,19 @@
       $this->load->view('student/menu');  
       $this->load->database(); 
       $this->load->model('model');
+      $this->load->model('student_model');
 		}
     function index()
     {
-     redirect("Std_dashboard/view");
+     redirect("Student/view");
     }
     function calendar(){
       $this->load->view('student/calendar');
+
+    }
+    function profile(){
+      $data['result'] = $this->student_model->get_student();
+      $this->load->view('student/profile',$data);
 
     }
     function view(){
@@ -32,7 +38,8 @@
       $this->googlemaps->add_marker($marker);
       $data['map'] = $this->googlemaps->create_map();
 
-      $sql =  "SELECT * FROM events where std_id = 1";
+      $std_id =  $this->session->userdata('std_id');
+      $sql =  "SELECT * FROM events where std_id =  $std_id";
       $query = $this->db->query($sql); 
       $data['result'] = $query->result();
       $this->load->view('student/dashboard', $data);

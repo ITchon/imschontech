@@ -73,8 +73,8 @@
                                         <div class="panel panel-sky">
                                             <div class="panel-body collapse in">
                                                 <div class="table-responsive">
-                                                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
-                                                    <thead>
+                                                <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
+                                                    <thead class="bg-primary">
 	              	                    				<tr>
 	              	                    					<th width="5%">#</th>
 	              	                    					<th width="35%">Title</th>

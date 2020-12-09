@@ -20,7 +20,7 @@ class Fullcalendar extends CI_Controller {
 
  function load()
  {
-  $std_id = 1;
+  $std_id =  $this->session->userdata('std_id');
   $event_data = $this->fullcalendar_model->fetch_all_event($std_id);
   foreach($event_data->result_array() as $row)
   {
@@ -45,7 +45,7 @@ class Fullcalendar extends CI_Controller {
     $s_time= $this->input->post('start_time');
     $e_day =$this->input->post('end_day');
     $e_time= $this->input->post('etime');
-    $std_id = 1;
+    $std_id =  $this->session->userdata('std_id');
      $this->fullcalendar_model->insert_event( $title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id);
    
 
