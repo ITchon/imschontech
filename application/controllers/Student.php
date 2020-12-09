@@ -21,7 +21,8 @@
 
     }
     function profile(){
-      $data['result'] = $this->student_model->get_student();
+      $std_id =  $this->session->userdata('std_id');
+      $data['result'] = $this->student_model->get_student($std_id);
       $this->load->view('student/profile',$data);
 
     }

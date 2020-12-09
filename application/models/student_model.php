@@ -7,11 +7,11 @@
             $query = $this->db->query($sql); 
             $data  = $query->result(); 
         }
-        public function get_student() {  
+        public function get_student($std_id) {  
             $sql =  "SELECT * FROM student s 
             inner join class c on c.class_id = s.class_id
             inner join division d on d.dv_id = c.dv_id
-             where s.std_id = 2";
+             where s.std_id = $std_id";
             $query = $this->db->query($sql); 
             $data = $query->result();
             return $data;
