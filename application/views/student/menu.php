@@ -14,7 +14,7 @@
                     <div class="row">
                         
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-success" href="<?php echo base_url(); ?>Std_dashboard/view">
+                            <a class="info-tiles tiles-success" href="<?php echo base_url(); ?>Student/view">
                                 <!-- <div class="tiles-heading">Revenue</div> -->
                                 <div class="tiles-body-alt">
                                     <!--i class="fa fa-money"></i-->
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-toyo" href="<?php echo base_url(); ?>Std_dashboard/calendar">
+                            <a class="info-tiles tiles-toyo" href="<?php echo base_url(); ?>Student/calendar">
                                 <!-- <div class="tiles-heading">Profit</div> -->
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-calendar"></i>
@@ -50,11 +50,11 @@
                         </div>
 
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-alizarin" href="#">
+                            <a class="info-tiles tiles-alizarin" href="<?php echo base_url(); ?>Student/profile">
                                 <!-- <div class="tiles-heading">Orders</div> -->
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-group"></i>
-                                    <div class="text-center">Profie</div>
+                                    <div class="text-center">Profile</div>
                                     <small>new orders received</small>
                                 </div>
                                 <!-- <div class="tiles-footer">manage orders</div> -->

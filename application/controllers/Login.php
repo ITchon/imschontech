@@ -58,7 +58,7 @@ class Login extends CI_Controller {
 								'lname' =>$data['lname']);	
             	$this->session->set_userdata($arrData);
 				$username = $this->session->userdata('username');
-				redirect('main');
+				redirect('student');
 				 }
 				else if($data['admin_id']){
 			 	$arrData = array('admin_id'=> $data['admin_id'],'password'=> $data['password'],'username'=> $data['username'],'class_id'=>$data['class_id'],'login' => "OK" ,'fname'=>$data['fname'] , 'lname' =>$data['lname']);	
