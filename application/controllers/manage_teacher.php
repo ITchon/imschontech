@@ -24,6 +24,7 @@ class manage_teacher Extends CI_controller{
         $data['result'] = $query->result();
         $data['result_g'] = $this->teacher_model->teacher();
 		$this->load->view('admin/teacher/view',$data);
+		$this->load->view('admin/footer_2020');
 	
 	}
 	public function insert_teacher()

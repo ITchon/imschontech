@@ -26,7 +26,7 @@ class Company Extends CI_controller{
         // $query = $this->db->query("SELECT * FROM division WHERE dv_id = $id");
         // $data['result_edit'] = $query->result();
 		$this->load->view('admin/company/view',$data);
-	
+		$this->load->view('admin/footer_2020');
     }
 
     public function insert_company()

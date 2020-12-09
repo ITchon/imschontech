@@ -27,7 +27,7 @@ class Classs Extends CI_controller{
         $data['result'] = $query->result();
 		
 		$this->load->view('admin/class/view',$data);
-	
+		$this->load->view('admin/footer_2020');
     }
 
     public function insert_class()
