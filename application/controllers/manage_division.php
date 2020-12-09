@@ -22,6 +22,9 @@ class manage_division Extends CI_controller{
 		$qry_inp =  "SELECT * FROM division";
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
+        // $id = $this->input->post('id');
+        // $query = $this->db->query("SELECT * FROM division WHERE dv_id = $id");
+        // $data['result_edit'] = $query->result();
 		$this->load->view('admin/division/view',$data);
 	
     }

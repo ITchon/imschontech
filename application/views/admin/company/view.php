@@ -5,10 +5,10 @@
             <ol class="breadcrumb">
                 <li><a href="<?php echo base_url();?>main">Dashboard</a></li>
                 <li>Admin</li>
-                <li class="active">Data division</li>
+                <li class="active">Data Company</li>
             </ol>
 
-            <h1>Data division</h1>
+            <h1>Data Company</h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -27,13 +27,13 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Data division</h4>
+                            <h4>Data Company</h4>
                             <div class="options">   
                                 <a href="javascript:;"><i class="fa fa-cog"></i></a>
-                                <!-- <a data-toggle="modal" href="#myModal" ><i class="fa fa-plus"></i></a> -->
+                                <a href="<?php echo base_url(); ?>Company/insert_company"><i class="fa fa-plus"></i></a>
                                 <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
                             </div>
                         </div>
@@ -42,54 +42,37 @@
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                 <thead>
                                     <tr>
-                                        <!-- <th>division id</th> -->
-                                        <th >division name</th>
-                                        <th width="35%">Manage</th>
+                                        <th>Company_name</th>
+                                        <th>address</th>
+                                        <th>province</th>
+                                        <th>Telephone</th>
+                                        <th>zipcode</th>
+                                      
+                                        <th>contact_id</th>
+                                        <th  width="15%">Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                         <?php foreach($result as $r){ ?>
                                     <tr>
-                                        <!-- <td><?php echo $r->dv_id ?></td> -->
-                                        <td><?php echo $r->dv_name ?></td>
-
-                                      
-                                        <!-- <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td> -->
+                                        <td><?php echo $r->company_name	 ?></td>
+                                        <td><?php echo $r->address ?></td>
+                                        <td><?php echo $r->province ?></td>
+                                        <td><?php echo $r->tel ?></td>
+                                        <td><?php echo $r->zipcode ?></td>
+                                       
+                                        <td><?php echo $r->contact_id ?></td>
                                         <td>
-                                         <!-- onclick="javascript:window.location='<?php echo base_url() . 'manage_division/edit_division/' . $r->dv_id; ?>';" -->
-                                        <a type ='button'data-toggle="modal" href="#myModal2" value="<?php echo $r->dv_id ; ?>" ><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."manage_division/delete_division_p/".$r->dv_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                       
+                                        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'Company/edit_company/' . $r->company_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
+                                            <?php echo "<a type='button' href='".base_url()."Company/delete_company_p/".$r->company_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
                                         </td>
                                         <?php  } ?> 
                                     </tr>
                                 </tbody>
                             </table>
-                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="panel panel-sky">
-                        <div class="panel-heading">
-                            <h4>Data Tables</h4>
-                            <div class="options">   
-                                <a href="javascript:;"><i class="fa fa-cog"></i></a>
-                                <!-- <a data-toggle="modal" href="#myModal" ><i class="fa fa-plus"></i></a> -->
-                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
-                            </div>
-
                         </div>
-                        <div class="panel-body collapse in">
-                            <?php echo form_open('manage_division/insert_dv_p');?>
-                                      
-                                        <div class="form-group">
-                                            <label for="dv_name">Division name</label>
-                                            <input type="text" name="dv_name" class="form-control">
-                                        </div>
-                                    
-                                        <?php echo form_submit(array('teacher_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                                              echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
-                                              echo form_close(); ?>
                     </div>
                 </div>
             </div>
@@ -107,36 +90,6 @@
         </div>
     </footer>
 
-
-    
-
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-											<h4 class="modal-title">Edit division</h4>
-										</div>
-										<div class="modal-body">
-                                            <?php echo form_open('manage_division/edit_dv_p');?>
-                                            <?php echo form_hidden('dv_id',$result[0]->dv_id);  ?>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="dv_name">division name</label>
-                                                    <input type="text" name="dv_name" class="form-control" >
-                                                    <!-- value="<?php echo $result_edit[0]->dv_name?>" -->
-                                                </div>
-                                            </div>
-										</div>
-										<div class="modal-footer">
-                                        <?php echo form_submit(array('dv_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                                                 echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark')); ?>
-										
-										</div>
-                                      <?php  echo form_close(); ?>
-									</div>
-								</div>
-							</div>
 
 
 <!--
@@ -163,8 +116,6 @@
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/placeholdr.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/application.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo.js'></script> 
-
-
 
 </body>
 </html>

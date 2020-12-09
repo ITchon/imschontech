@@ -170,14 +170,14 @@
 
             <div class="form-group">
                 <label class="col-sm-3 control-label">Multi-select Box</label>
-                <div class="col-sm-6">
-                    <select class="form-control" multiple>
-                        <option>Lorem ipsum dolor.</option>
-                        <option>Amet, impedit aperiam?</option>
-                        <option>Nemo, alias, quasi?</option>
-                        <option>Inventore, expedita.</option>
-                    </select>
-                </div>
+                    <div class="col-sm-6">
+                        <select class="form-control" multiple>
+                            <option>Lorem ipsum dolor.</option>
+                            <option>Amet, impedit aperiam?</option>
+                            <option>Nemo, alias, quasi?</option>
+                            <option>Inventore, expedita.</option>
+                        </select>
+                    </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">Inline Radio</label>
