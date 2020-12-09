@@ -12,9 +12,7 @@
 		}
     function index()
     {
-      $this->load->view('student/menu');
-      $this->load->view('student/index');
-	  	$this->load->view('footer');
+     redirect("Std_dashboard/view");
     }
     function calendar(){
       $this->load->view('student/menu');
@@ -25,7 +23,21 @@
       $this->load->view('student/menu');
       $this->load->view('student/dashboard');
 	  	$this->load->view('footer');
+    }
+    function map(){
+      $this->load->library('Googlemaps');
+      $config['center'] = '37.4419, -122.1419';
+      $config['zoom'] = 'auto';
+      $this->googlemaps->initialize($config);
 
+      $marker = array();
+      $lat = '13.4538667';
+      $long ='101.1025658'; 
+      $marker['position'] = $lat.','.$long;
+      $this->googlemaps->add_marker($marker);
+      $data['map'] = $this->googlemaps->create_map();
+
+      $this->load->view('student/map', $data);
     }
 }
 

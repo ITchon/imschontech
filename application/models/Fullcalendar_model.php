@@ -2,15 +2,15 @@
 
 class Fullcalendar_model extends CI_Model
 {
- function fetch_all_event(){
-     $sql = "SELECT * FROM events";
+ function fetch_all_event($std_id){
+     $sql = "SELECT * FROM events where std_id = $std_id";
      $query = $this->db->query($sql);
   return  $query;
  }
 
- function insert_event($title, $des, $color,$s_day,$s_time,$e_day,$e_time)
+ function insert_event($title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id)
  {
-    $sql = "INSERT INTO events ( title, description, color, start_event, end_event) VALUES ('$title','$des','$color','$s_day $s_time','$e_day $e_time')";
+    $sql = "INSERT INTO events ( title, description, color, start_event, end_event ,std_id) VALUES ('$title','$des','$color','$s_day $s_time','$e_day $e_time','$std_id')";
       $exc = $this->db->query($sql);
       if ($exc) { 
        return true; 

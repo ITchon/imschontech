@@ -215,7 +215,7 @@ today = yyyy + '-' + mm + '-' + dd;
 
     <div class="row">
          <div class="col-xs-12" >
-                <div class="panel panel-danger calendar" >
+                <div class="panel panel-midnightblue calendar" >
                     <div class="panel-heading">
 
                         <h4><i class="fa fa-calendar"></i> Calendar</h4>

@@ -10,17 +10,18 @@ class Fullcalendar extends CI_Controller {
   $this->load->model('fullcalendar_model');
  }
 
- function index()
- {
+//  function index()
+//  {
 
-  $this->load->view('student/calen_css');
-  $this->load->view('student/fullcalendar');
+//   $this->load->view('student/calen_css');
+//   $this->load->view('student/fullcalendar');
 
- }
+//  }
 
  function load()
  {
-  $event_data = $this->fullcalendar_model->fetch_all_event();
+  $std_id = 1;
+  $event_data = $this->fullcalendar_model->fetch_all_event($std_id);
   foreach($event_data->result_array() as $row)
   {
    $data[] = array(
@@ -44,7 +45,8 @@ class Fullcalendar extends CI_Controller {
     $s_time= $this->input->post('start_time');
     $e_day =$this->input->post('end_day');
     $e_time= $this->input->post('etime');
-     $this->fullcalendar_model->insert_event( $title, $des, $color,$s_day,$s_time,$e_day,$e_time);
+    $std_id = 1;
+     $this->fullcalendar_model->insert_event( $title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id);
    
 
    

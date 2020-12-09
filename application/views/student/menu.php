@@ -4,10 +4,9 @@
             <!-- <ol class="breadcrumb">
                 <li class='active'><a href="<?php echo base_url(); ?>main">Dashboard</a></li>
             </ol> -->
-           
+            <h1><?php echo ucfirst($this->uri->segment('2')) ?></h1>
            
         </div>
-
 
         <div class="container" style="background-color: #e5e5e5;" >
             <div class="row">
@@ -19,7 +18,7 @@
                                 <!-- <div class="tiles-heading">Revenue</div> -->
                                 <div class="tiles-body-alt">
                                     <!--i class="fa fa-money"></i-->
-                                    <div class="text-center">View</div>
+                                    <div class="text-center ">View</div>
                                     <small>-13.5% from last week</small>
                                 </div>
                                 <!-- <div class="tiles-footer">go to accounts</div> -->
@@ -30,8 +29,8 @@
                             <a class="info-tiles tiles-toyo" href="<?php echo base_url(); ?>Std_dashboard/calendar">
                                 <!-- <div class="tiles-heading">Profit</div> -->
                                 <div class="tiles-body-alt">
-                                    <!--i class="fa fa-bar-chart-o"></i-->
-                                    <div class="text-center">Add</div>
+                                    <i class="fa fa-calendar"></i>
+                                    <div class="text-center">Calendar</div>
                                     <small>+8.7% from last period</small>
                                 </div>
                                 <!-- <div class="tiles-footer">more info</div> -->
