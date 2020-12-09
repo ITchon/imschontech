@@ -5,10 +5,10 @@
             <ol class="breadcrumb">
                 <li><a href="<?php echo base_url();?>main">Dashboard</a></li>
                 <li>Admin</li>
-                <li class="active">Data Student</li>
+                <li class="active">Data Company</li>
             </ol>
 
-            <h1>Data Tables</h1>
+            <h1>Data Company</h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,10 +30,10 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Data Tables</h4>
+                            <h4>Data Company</h4>
                             <div class="options">   
                                 <a href="javascript:;"><i class="fa fa-cog"></i></a>
-                                <a href="<?php echo base_url(); ?>manage_student/insert_student"><i class="fa fa-plus"></i></a>
+                                <a href="<?php echo base_url(); ?>Company/insert_company"><i class="fa fa-plus"></i></a>
                                 <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
                             </div>
                         </div>
@@ -42,62 +42,36 @@
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                 <thead>
                                     <tr>
-                                        <th>std_code</th>
-                                        <th>birth_date</th>
-                                        <th>title</th>
-                                        <th width="15%">First name</th>
-                                        <th>Last name</th>
-                                        <th>Gender</th>
+                                        <th>Company_name</th>
+                                        <th>address</th>
+                                        <th>province</th>
                                         <th>Telephone</th>
-                                        <th>E-mail</th>
-                                        
-                                        
-                                        <th>Class_id</th>
-                                        <th width="19%">Status</th>
+                                        <th>zipcode</th>
+                                      
+                                        <th>contact_id</th>
                                         <th  width="15%">Manage</th>
                                     </tr>
                                 </thead>
-                                
                                 <tbody>
                                         <?php foreach($result as $r){ ?>
-                                        <?php 
-
-                           if($r->status == 1 ){ 
-                            
-                              $txt_status = 'ลงทะเบียนแล้ว'; 
-                              $txt_color = '#0EC952';
-                            
-                            }else{
-                             
-                            $txt_status = 'ยังไม่ลงทะเบียน'; 
-                              $txt_color = '#FF0000'; 
-                            
-                            }
-                      
-
-                   ?>
                                     <tr>
-                                        <td><?php echo $r->std_code ?></td>
-                                        <td><?php echo $r->birth_date ?></td>
-                                        <td><?php echo $r->title ?></td>
-                                        <td><?php echo $r->fname ?></td>
-                                        <td><?php echo $r->lname ?></td>
-                                        <td><?php echo $r->gender ?></td>
+                                        <td><?php echo $r->company_name	 ?></td>
+                                        <td><?php echo $r->address ?></td>
+                                        <td><?php echo $r->province ?></td>
                                         <td><?php echo $r->tel ?></td>
-                                        <td><?php echo $r->email ?></td>
-                                        
-                                        
-                                        <td><?php echo $r->class_id ?></td>
-                                        <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td>
+                                        <td><?php echo $r->zipcode ?></td>
+                                       
+                                        <td><?php echo $r->contact_id ?></td>
                                         <td>
-                                        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_student/edit_student/' . $r->std_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."manage_student/delete_student_p/".$r->std_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                       
+                                        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'Company/edit_company/' . $r->company_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
+                                            <?php echo "<a type='button' href='".base_url()."Company/delete_company_p/".$r->company_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
                                         </td>
                                         <?php  } ?> 
                                     </tr>
                                 </tbody>
                             </table>
-                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

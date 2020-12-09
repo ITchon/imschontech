@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2020 at 10:11 AM
+-- Generation Time: Dec 09, 2020 at 08:44 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -33,6 +33,13 @@ CREATE TABLE `admin` (
   `password` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `username`, `password`) VALUES
+(1, 'admin', 'admin');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +54,13 @@ CREATE TABLE `class` (
   `class_group` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `class`
+--
+
+INSERT INTO `class` (`class_id`, `teacher_id`, `dv_id`, `class_name`, `class_group`) VALUES
+(2, 6, 1, 'ggez', '1/2');
+
 -- --------------------------------------------------------
 
 --
@@ -60,10 +74,15 @@ CREATE TABLE `company` (
   `province` varchar(30) NOT NULL,
   `zipcode` varchar(12) NOT NULL,
   `tel` varchar(20) NOT NULL,
-  `username` varchar(12) NOT NULL,
-  `password` varchar(12) NOT NULL,
   `contact_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`company_id`, `company_name`, `address`, `province`, `zipcode`, `tel`, `contact_id`) VALUES
+(2, 'tbggg', '285/84\r\n1', 'chiracha', '20230', '0611567947', 0);
 
 -- --------------------------------------------------------
 
@@ -75,6 +94,15 @@ CREATE TABLE `division` (
   `dv_id` int(11) NOT NULL,
   `dv_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `division`
+--
+
+INSERT INTO `division` (`dv_id`, `dv_name`) VALUES
+(1, 'เทคโนโลยีสารสนเทศ'),
+(3, 'แผนกช่างมัน'),
+(4, 'asd');
 
 -- --------------------------------------------------------
 
@@ -143,7 +171,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`std_id`, `title`, `fname`, `lname`, `gender`, `tel`, `email`, `status`, `std_code`, `birth_date`, `class_id`) VALUES
-(2, 'นาย', 'siwat', 'yodsamang', 'ชาย', '0611567947', 'nongpavcd@hotmail.co.th', '0', '6239010018', '0000-00-00', '0'),
+(2, 'นาย', 'siwat', 'yodsamang', 'ชาย', '0611567947', 'nongpavcd@hotmail.co.th', '1', '', '0000-00-00', ''),
 (3, 'นาย', 'siwat', 'yodsamang', 'ชาย', '0611567947', 'nongpavcd@hotmail.co.th', '1', '123123123', '2020-12-01', '');
 
 -- --------------------------------------------------------
@@ -169,7 +197,9 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`teacher_id`, `title`, `fname`, `lname`, `tel`, `email`, `th_code`, `th_birth_date`, `class_id`) VALUES
-(2, 'นาย', 'ศิวัช', 'yodsamangads', '611567947', 'poppavcdza@gmail.com', '6239010018', '2020-12-09', 0);
+(2, 'นาย', 'ศิวัช', 'yodsamangads', '0611567948', 'poppavcdza@gmail.com', '6239010018', '2020-12-09', 0),
+(5, 'นาย', 'ครู', '--', 'teach', 'dad@hotmail.com', 'teach', '0000-00-00', 0),
+(6, 'นาย', 'ครู', 'ครับ', 'teach', 'dad@hotmail.com', 'teach', '0000-00-00', 0);
 
 --
 -- Indexes for dumped tables
@@ -192,6 +222,12 @@ ALTER TABLE `class`
 --
 ALTER TABLE `company`
   ADD PRIMARY KEY (`company_id`);
+
+--
+-- Indexes for table `division`
+--
+ALTER TABLE `division`
+  ADD PRIMARY KEY (`dv_id`);
 
 --
 -- Indexes for table `events`
@@ -219,19 +255,25 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `division`
+--
+ALTER TABLE `division`
+  MODIFY `dv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -243,13 +285,13 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `std_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `std_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

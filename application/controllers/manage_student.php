@@ -23,6 +23,7 @@ class manage_student Extends CI_controller{
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
 		$this->load->view('admin/student/view',$data);
+		$this->load->view('admin/footer_2020');
 	
     }
     

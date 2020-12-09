@@ -66,9 +66,9 @@
             $sqlEdt = "DELETE FROM division WHERE dv_id = '$dv_id';";
 
 
-            $exc_teacher = $this->db->query($sqlEdt);
+            $exc_dv = $this->db->query($sqlEdt);
            
-            if ($exc_teacher ){
+            if ($exc_dv ){
               
               return true;  
               

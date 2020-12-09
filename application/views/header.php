@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Avant</title>
+	<title>Internship Management</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Avant">
@@ -114,7 +114,7 @@
         <a id="rightmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="left" title="Toggle Infobar"></a>
 
         <div class="navbar-header pull-left">
-            <a class="navbar-brand" href="<?php echo base_url(); ?>main">Avant</a>
+            <a  href="<?php echo base_url(); ?>main"></a>
         </div>
 
         <ul class="nav navbar-nav pull-right toolbar">

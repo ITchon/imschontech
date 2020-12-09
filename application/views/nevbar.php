@@ -84,8 +84,8 @@
                 </li>
                 <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
                     <ul class="acc-menu">
-                        <li><a href="<?php echo base_url(); ?>"> - Class</a></li>
-                        <li><a href="<?php echo base_url(); ?>"> - Company</a></li>
+                        <li><a href="<?php echo base_url(); ?>Classs"> - Class</a></li>
+                        <li><a href="<?php echo base_url(); ?>Company"> - Company</a></li>
                         <li><a href="<?php echo base_url(); ?>manage_division"> - division</a></li>
                         <li><a href="<?php echo base_url(); ?>manage_student"> - student</a></li>
                         <li><a href="<?php echo base_url(); ?>manage_teacher"> - teacher</a></li>
