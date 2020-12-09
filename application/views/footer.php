@@ -42,5 +42,6 @@
 <script type='text/javascript' src='<?php echo base_url(); ?>assets/js/application.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>assets/demo/demo.js'></script> 
 
+
 </body>
 </html>

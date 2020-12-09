@@ -32,6 +32,21 @@ public function get_division($teacher_id) {
 }
 
 
+public function get_division_class($teacher_id) {
+  $sql ="SELECT DISTINCT dv.dv_id,dv.dv_name,c.class_id,c.class_name,c.class_group FROM class as c
+  left join division as dv on dv.dv_id = c.dv_id
+  WHERE c.teacher_id = '$teacher_id'";
+$query = $this->db->query($sql);
+if($query->num_rows()!=0) {
+  $result =  $query->result();
+    return $result;  
+    }
+  else{       
+  return false;
+    }
+}
+
+
 public function get_student_by($class_id) {
         $sql ="SELECT std.std_id, std.title, std.fname, std.lname, std.gender, std.tel, std.email, std.class_id, c.class_name FROM student as std
         left join class as c on c.class_id = std.class_id

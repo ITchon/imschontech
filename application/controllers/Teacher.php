@@ -31,6 +31,7 @@ class Teacher Extends CI_controller{
 	{
         $teacher_id =  $this->session->userdata('teacher_id');
         $result = $this->model_teacher->get_division($teacher_id);
+        $data['dv_class_list'] = $this->model_teacher->get_division_class($teacher_id);
         $data['division_list']  = $result;
         $dv_id = [];
         foreach($result as $r){
@@ -56,22 +57,7 @@ class Teacher Extends CI_controller{
                 array_push($dv_chk,$dv_id);
             }
         }
-
-        $total_std = [];
-        foreach($class_data as $class){
-            foreach($class as $c){
-            $sql = "SELECT COUNT(std_id) as std_id ,class_id  FROM student WHERE class_id = $c->class_id";
-            $query = $this->db->query($sql);
-            $student = $query->result();
-            array_push($total_std,$student);
-        }
-    }
-    $std_num = [];
-    foreach($total_std as $total){
-        foreach($total as $t){
-            array_push($std_num,$t->std_id);
-        }
-    }
+    
      $data['class_list'] = array_combine($class_name, $dv_chk);
 
         $this->load->view('teacher/menu');
@@ -99,8 +85,26 @@ class Teacher Extends CI_controller{
 
 		$this->load->view('teacher/list',$data);
 
-	}
+    }
+    public function search()
+    {
+        
+        $json = [];
+		$this->load->database();
 
+		
+		if(!empty($this->input->get("q"))){
+			$this->db->like('name', $this->input->get("q"));
+			$query = $this->db->select('id,name as text')
+						->limit(10)
+						->get("tags");
+			$json = $query->result();
+		}
+
+		
+		echo json_encode($json);
+
+    }
 
 
 

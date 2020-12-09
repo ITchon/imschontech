@@ -9,6 +9,8 @@
       $this->load->view('student/header');
       $this->load->database(); 
       $this->load->model('model');
+
+      $this->model->CheckSession();
 		}
     function index()
     {
