@@ -76,13 +76,24 @@ public function CheckSession()
    return FALSE;
     }
    }
-   else if($this->session->userdata('username') == ''){
+   else if($this->session->userdata('fname') == ''){
       echo "<script>alert('Please Login')</script>";
       redirect('login','refresh');
    return FALSE;
    }
     else{    return TRUE;    }
 }
+
+// public function CheckSession()        
+// {
+//   if($this->session->userdata('fname')=="") {
+//     echo "<script>alert('Please Login')</script>";
+//     redirect('login','refresh');
+//  return FALSE;
+ 
+//   }else{    return TRUE;    }
+  
+// }
 
 
 }
