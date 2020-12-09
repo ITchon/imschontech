@@ -23,12 +23,12 @@ class manage_teacher Extends CI_controller{
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
         $data['result_g'] = $this->teacher_model->teacher();
-		$this->load->view('teacher/view_teacher',$data);
+		$this->load->view('admin/teacher/view',$data);
 	
 	}
 	public function insert_teacher()
 	{
-		$this->load->view('teacher/insert_teacher');
+		$this->load->view('admin/teacher/insert');
 	}
 
 	public function insert_teacher_p()
@@ -51,7 +51,7 @@ class manage_teacher Extends CI_controller{
 		$id = $this->uri->segment('3'); 
         $data['result'] = $this->teacher_model->selectOneTeacher($id);
         // $data['result_g'] = $this->teacher_model->select();
-		$this->load->view('teacher/edit_teacher',$data);
+		$this->load->view('admin/teacher/edit',$data);
 	}
 
 	public function edit_teacher_p()
