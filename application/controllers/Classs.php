@@ -57,8 +57,8 @@ class Classs Extends CI_controller{
 
 	public function edit_class()
 	{
-		$id = $this->uri->segment('3'); 
-		$data['result'] = $this->class_model->selectOneclass($id);
+		// $id = $this->uri->segment('3'); 
+		// $data['result'] = $this->class_model->selectOneclass($id);
 		$qry_inp1 =  "SELECT * FROM teacher";
 		$query1 = $this->db->query($qry_inp1); 
 		$data['result_th'] = $query1->result();

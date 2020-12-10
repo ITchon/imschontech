@@ -39,24 +39,7 @@
             $data  = $query->result(); 
          
             return $data;
-            // UPDATE vvv
-            // $sqlEdt="UPDATE  sys_logs SET 
-            //                 fname   = '$ffname',
-            //                 lname   = '$llname',
-            //                 gender  = '$gender',
-            //                 email   = '$email',
-            //                 enable  = '1' ,
-            //                 ugp_id  = '$stat'
-            //         WHERE log_id = '$lid'";
-            // $exc_teacher = $this->db->query($sqlEdt);
-            // if ($exc_teacher)
-            // {
-            // return true;  
-            // }
-            // else
-            // {
-            // return false;
-            // }
+
         }
 
         public function update_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$class_id ,$th_id)
@@ -68,7 +51,8 @@
                              tel     = '$tel',
                              email   = '$email' ,
                              th_code  = '$th_code',
-                             th_birth_date  = '$th_birth_date'
+                             th_birth_date  = '$th_birth_date',
+                             class_id = '$class_id'
                             
                      WHERE teacher_id = '$th_id'";
             $exc_teacher = $this->db->query($sqlEdt);

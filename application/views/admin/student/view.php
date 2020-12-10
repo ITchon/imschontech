@@ -42,18 +42,17 @@
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                 <thead>
                                     <tr>
-                                        <th>std_code</th>
-                                        <th>birth_date</th>
-                                        <th>title</th>
-                                        <th width="15%">First name</th>
-                                        <th>Last name</th>
-                                        <th>Gender</th>
-                                        <th>Telephone</th>
-                                        <th>E-mail</th>
-                                        
-                                        
-                                        <th>Class_id</th>
-                                        <th width="19%">Status</th>
+                                        <th>รหัสนักเรียน</th>
+                                        <th width="12%">ปีเกิด</th>
+                                        <th width="11%">คำนำหน้า</th>
+                                        <th width="15%">ชื่อ นามสกุล</th>
+                                        <!-- <th>นามสกุล</th> -->
+                                        <th>เพศ</th>
+                                        <th>เบอร์ติดต่อ</th>
+                                        <th>อีเมล</th>
+                                        <th width="11%">ระดับชั้น</th>
+                                        <th width="11%">กลุ่ม</th>
+                                        <th width="19%">สถานะ</th>
                                         <th  width="15%">Manage</th>
                                     </tr>
                                 </thead>
@@ -80,14 +79,15 @@
                                         <td><?php echo $r->std_code ?></td>
                                         <td><?php echo $r->birth_date ?></td>
                                         <td><?php echo $r->title ?></td>
-                                        <td><?php echo $r->fname ?></td>
-                                        <td><?php echo $r->lname ?></td>
+                                        <td><?php echo $r->fname." ".$r->lname ?></td>
+                                        <!-- <td><?php echo $r->lname ?></td> -->
                                         <td><?php echo $r->gender ?></td>
                                         <td><?php echo $r->tel ?></td>
                                         <td><?php echo $r->email ?></td>
                                         
                                         
-                                        <td><?php echo $r->class_id ?></td>
+                                        <td><?php echo $r->class_name ?></td>
+                                        <td><?php echo $r->class_group ?></td>
                                         <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td>
                                         <td>
                                         <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_student/edit_student/' . $r->std_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 

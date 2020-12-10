@@ -43,7 +43,7 @@
                                 <thead>
                                     <tr>
                                         <!-- <th>division id</th> -->
-                                        <th >division name</th>
+                                        <th >ชื่อแผนก</th>
                                         <th width="35%">Manage</th>
                                     </tr>
                                 </thead>
@@ -83,7 +83,7 @@
                             <?php echo form_open('manage_division/insert_dv_p');?>
                                       
                                         <div class="form-group">
-                                            <label for="dv_name">Division name</label>
+                                            <label for="dv_name">ชื่อแผนก</label>
                                             <input type="text" name="dv_name" class="form-control">
                                         </div>
                                     

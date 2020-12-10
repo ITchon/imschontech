@@ -42,10 +42,10 @@
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                 <thead>
                                     <tr>
-                                        <th>Teacher</th>
-                                        <th>Division</th>
-                                        <th>Class name</th>
-                                        <th>Class group</th>
+                                        <th>ครู</th>
+                                        <th>แผนก</th>
+                                        <th>ระดับชั้น</th>
+                                        <th>กลุ่ม</th>
                                         <th  width="15%">Manage</th>
                                     </tr>
                                 </thead>

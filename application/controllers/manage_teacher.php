@@ -19,7 +19,18 @@ class manage_teacher Extends CI_controller{
 
 	public function index() 	
 	{
-		$qry_inp =  "SELECT * FROM teacher";
+		$qry_inp =  "SELECT 	
+						cl.class_id,
+						cl.class_name,
+						th.teacher_id,
+						th.title,
+						th.fname,
+						th.lname,
+						th.tel,
+						th.email,
+						th.th_code,
+						th.th_birth_date,
+						th.class_id FROM teacher AS th INNER JOIN class AS cl ON cl.class_id = th.class_id" ;
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
         $data['result_g'] = $this->teacher_model->teacher();
@@ -29,10 +40,13 @@ class manage_teacher Extends CI_controller{
 	}
 	public function insert_teacher()
 	{
-		$this->load->view('admin/teacher/insert');
+		$qry_inp =  "SELECT * FROM class";
+        $query = $this->db->query($qry_inp); 
+        $data['result_cl'] = $query->result();
+		$this->load->view('admin/teacher/insert',$data);
 	}
 
-	public function insert_teacher_p()
+	public function insert_p()
 	{
 		$title    = $this->input->post('title'); 
         $fname    = $this->input->post('fname');
@@ -48,10 +62,12 @@ class manage_teacher Extends CI_controller{
 	}
 
 	public function edit_teacher()
-	{
+	{	
 		$id = $this->uri->segment('3'); 
         $data['result'] = $this->teacher_model->selectOneTeacher($id);
-        // $data['result_g'] = $this->teacher_model->select();
+        $qry_inp =  "SELECT * FROM class";
+        $query = $this->db->query($qry_inp); 
+        $data['result_cl'] = $query->result();
 		$this->load->view('admin/teacher/edit',$data);
 	}
 

@@ -41,7 +41,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="form-group">
-                                            <label for="title">title</label>
+                                            <label for="title">คำนำหน้า</label>
                                             <select name="title" class="form-control">
                                                 <option value="<?php echo $result[0]->title ?>"><?php echo $result[0]->title ?>
                                                 <option value="นาย">นาย</option>
@@ -52,21 +52,21 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="fname">first name</label>
+                                            <label for="fname">ชื่อ</label>
                                             <input type="text" name="fname" value="<?php echo $result[0]->fname ?>" class="form-control">
                                             
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="lname">last name</label>
+                                            <label for="lname">นามสกุล</label>
                                             <input type="text" name="lname" value="<?php echo $result[0]->lname ?>" class="form-control">
                                             
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="tel">Telephone</label>
+                                            <label for="tel">เบอร์ติดต่อ</label>
                                             <input type="number" name="tel" value="<?php echo $result[0]->tel ?>" class="form-control">
                                             
                                         </div>
@@ -75,7 +75,7 @@
                                 <div class="row">
                                 <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="gender">gender</label>
+                                            <label for="gender">เพศ</label>
                                             <select name="gender" class="form-control">
                                                 <option value="<?php echo $result[0]->gender ?>"><?php echo $result[0]->gender ?></option>
                                                 <option value="ชาย">ชาย</option>
@@ -86,14 +86,14 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="email">E-mail</label>
+                                            <label for="email">อีเมล</label>
                                             <input type="email" name="email" value="<?php echo $result[0]->email ?>" class="form-control">
                                        
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="status">Status</label>
+                                            <label for="status">สถานะ</label>
                                             <select name="status" class="form-control">
                                                 <option value="<?php echo $result[0]->status ?>"><?php if($result[0]->status == 0 )
                                                                                                             { echo "ยังไม่ลงทะเบียน"; }
@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="class_id">Class id</label>
+                                            <label for="class_id">ระดับชั้น</label>
                                             <input type="text" name="class_id" class="form-control" disabled>
                                             
                                         </div>
@@ -115,14 +115,14 @@
                                     
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="std_code">std_code</label>
+                                            <label for="std_code">รหัสนักเรียน</label>
                                             <input type="text" name="std_code" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="birth_date">birth_date</label>
+                                            <label for="birth_date">ปีเกิด</label>
                                             <input type="date" name="birth_date" class="form-control">
                                             </select>
                                         </div>

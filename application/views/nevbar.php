@@ -84,11 +84,13 @@
                 </li>
                 <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
                     <ul class="acc-menu">
-                        <li><a href="<?php echo base_url(); ?>Classs"> - Class</a></li>
-                        <li><a href="<?php echo base_url(); ?>Company"> - Company</a></li>
-                        <li><a href="<?php echo base_url(); ?>manage_division"> - division</a></li>
-                        <li><a href="<?php echo base_url(); ?>manage_student"> - student</a></li>
-                        <li><a href="<?php echo base_url(); ?>manage_teacher"> - teacher</a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_contact"> Contact</a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_train"> Train</a></li>
+                        <li><a href="<?php echo base_url(); ?>Classs"> Class</a></li>
+                        <li><a href="<?php echo base_url(); ?>Company"> Company</a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_division"> division</a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_student"> student</a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_teacher"> teacher</a></li>
                     </ul>
                 </li>
                 

@@ -3,7 +3,7 @@
     <div id='wrap'>
         <div id="page-heading">
             <ol class="breadcrumb">
-                <li><a href="<?php echo base_url(); ?>main">Dashboard</a></li>
+                <li><a href="index.htm">Dashboard</a></li>
                 <li>Advanced Tables</li>
                 <li class="active">Data Tables</li>
             </ol>
@@ -33,76 +33,40 @@
                             <h4>Data Tables</h4>
                         </div>
                         <div class="panel-body collapse in">
-                                <?php echo form_open('manage_student/insert_student_p');?>
+                                <?php echo form_open('manage_train/edit_p');?>
+                                <?php echo form_hidden('t_id',$result[0]->t_id);  ?>
                                 <div class="row">
-                                    <div class="col-md-1">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="title">คำนำหน้า</label>
-                                            <select name="title" class="form-control">
-                                                <option value="นาย">นาย</option>
-                                                <option value="นาง">นาง</option>
-                                                <option value="นางสาว">นางสาว</option>
+                                            <label for="Company">Company</label>
+                                            <select name="company_id" class="form-control">
+                                                <option value="<?php echo $result[0]->company_id ?>"><?php echo $result[0]->company_name  ?></option>
+                                                <?php foreach ($result_cp as $cp) {
+                                                        echo " <option value=".$cp->company_id."> ".$cp->company_name." </option> ";
+                                                                                 }
+                                                ?>
+                                            </select> 
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="std_id">Student</label>
+                                            <select name="std_id" class="form-control">
+                                                <option value="<?php echo $result[0]->std_id ?>"><?php echo $result[0]->fname." ".$result[0]->lname ?></option>
+                                                <?php foreach ($result_std as $std) {
+                                                        echo " <option value=".$std->std_id."> ".$std->fname." ".$std->lname." </option> ";
+                                                                                 }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="fname">ชื่อ</label>
-                                            <input type="text" name="fname" class="form-control">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="lname">นามสกุล</label>
-                                            <input type="text" name="lname" class="form-control">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="tel">เบอร์ติดต่อ</label>
-                                            <input type="number" name="tel" class="form-control">
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="gender">เพศ</label>
-                                            <select name="gender" class="form-control">
-                                                <option value="ชาย">ชาย</option>
-                                                <option value="หญิง">หญิง</option>
-                                                <option value="อื่นๆ">อื่นๆ</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="email">อีเมล</label>
-                                            <input type="email" name="email" class="form-control">
-                                       
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="status">สถานะ</label>
-                                            <select name="status" class="form-control">
-                                                <option value="0">ยังไม่ลงทะเบียน</option>
-                                                <option value="1">ลงทะเบียนเเล้ว</option>
-                                              
-                                            </select>
-                                           
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                        <label for="class_id">กลุ่ม</label>
-                                            <select name="class_id" class="form-control">
-                                                <!-- <option value="<?php echo $result_cl[0]->class_id ?>"><?php echo $result_cl[0]->class_name ?></option> -->
-                                                <?php foreach ($result_cl as $cl) {
-                                                        echo " <option value=".$cl->class_id."> ".$cl->class_name." </option> ";
+                                            <label for="contract_id">contract</label>
+                                            <select name="contract_id" class="form-control">
+                                                <option value="<?php echo $result[0]->contract_id ?>"><?php echo $result[0]->name ?></option>
+                                                <?php foreach ($result_ct as $ct) {
+                                                        echo " <option value=".$ct->contract_id."> ".$ct->name." </option> ";
                                                                                  }
                                                 ?>
                                             </select>
@@ -110,25 +74,44 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-5">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="std_code">รหัสนักเรียน</label>
-                                            <input type="text" name="std_code" class="form-control">
+                                            <label for="start_date">Start date</label>
+                                            <input type="date" name="start_date" value="<?php echo $result[0]->start_date ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="birth_date">ปีเกิด</label>
-                                            <input type="date" name="birth_date" class="form-control">
+                                            <label for="end_date">End date</label>
+                                            <input type="date" name="end_date" value="<?php echo $result[0]->end_date ?>" class="form-control">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="status">Status</label>
+                                            <select name="status" class="form-control">
+                                                <option value="<?php echo $result[0]->status ?>"><?php echo $result[0]->status ?></option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="note">note</label>
+                                            <textarea name="note"  class="form-control"><?php echo $result[0]->note ?></textarea>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
-                        <?php echo form_submit(array('std_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_student', 'Cancel',array('class'=>'btn btn-dark'));
+                        </div>
+                        <?php echo form_submit(array('t_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
+                              echo anchor(base_url().'manage_teacher', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>

@@ -25,14 +25,14 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="company_name">Company name</label>
+                                            <label for="company_name">ชื่อบริษัท</label>
                                             <input type="text" name="company_name" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label for="address">Address</label>
+                                            <label for="address">ที่อยู่</label>
                                            
                                                 <textarea name="address" class="form-control"></textarea>
                                          
@@ -40,21 +40,21 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="province">province</label>
+                                            <label for="province">อำเภอ</label>
                                             <input type="text" name="province" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="zipcode">zipcode</label>
+                                            <label for="zipcode">รหัสไปรษณีย์</label>
                                             <input type="text" name="zipcode" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="tel">telephone</label>
+                                            <label for="tel">เบอร์ติดต่อ</label>
                                             <input type="text" name="tel" class="form-control">
                                             </select>
                                         </div>

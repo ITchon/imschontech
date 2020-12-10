@@ -38,7 +38,7 @@
                                 <?php echo form_hidden('teacher_id',$result[0]->teacher_id);  ?>
                                     <div class="col-md-1">
                                         <div class="form-group">
-                                            <label for="title">title</label>
+                                            <label for="title">คำนำหน้า</label>
                                             <select name="title" class="form-control">
                                                 <option value="<?php echo $result[0]->title ?>"><?php echo $result[0]->title ?></option>
                                                 <option value="นาย">นาย</option>
@@ -80,7 +80,12 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="class_id">Class</label>
-                                            <input type="text" name="class_id" class="form-control" disabled>
+                                            <select name="class_id" class="form-control">
+                                                <option value="<?php echo $result_cl[0]->class_id ?>"><?php echo $result_cl[0]->class_name ?></option>
+                                                <?php foreach ($result_cl as $cl) {
+                                                        echo " <option value=".$cl->class_id."> ".$cl->class_name." </option> ";
+                                                                                 }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>

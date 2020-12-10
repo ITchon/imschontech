@@ -29,10 +29,11 @@
                         email,
                         status,
                         std_code,
-                        birth_date
+                        birth_date,
+                        class_id
                         
                         )
-                VALUES ('$title','$fname','$lname','$gender','$tel','$email','$status','$std_code','$birth_date');";          
+                VALUES ('$title','$fname','$lname','$gender','$tel','$email','$status','$std_code','$birth_date','$class_id');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {

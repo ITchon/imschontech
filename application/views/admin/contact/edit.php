@@ -33,82 +33,39 @@
                             <h4>Data Tables</h4>
                         </div>
                         <div class="panel-body collapse in">
-                                <?php echo form_open('manage_teacher/insert_p');?>
-                              
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <div class="form-group">
-                                            <label for="title">title</label>
-                                            <select name="title" class="form-control">
-                                                <option value="นาย">นาย</option>
-                                                <option value="นาง">นาง</option>
-                                                <option value="นางสาว">นางสาว</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="fname">first name</label>
-                                            <input type="text" name="fname" class="form-control">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="lname">last name</label>
-                                            <input type="text" name="lname" class="form-control">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="tel">Telephone</label>
-                                            <input type="number" name="tel" class="form-control">
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php echo form_open('manage_contact/edit_p');?>
+                                <?php echo form_hidden('contract_id',$result[0]->contract_id);  ?>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="email">E-mail</label>
-                                            <input type="text" name="email" class="form-control">
+                                            <label for="name">ชื่อผู้คุมฝึกงาน</label>
+                                            <input type="text" name="name" value="<?php echo $result[0]->name ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="class_id">Class</label>
-                                            <select name="class_id" class="form-control">
-                                                <!-- <option value="<?php echo $result_cl[0]->class_id ?>"><?php echo $result_cl[0]->class_name ?></option> -->
-                                                <?php foreach ($result_cl as $cl) {
-                                                        echo " <option value=".$cl->class_id."> ".$cl->class_name." </option> ";
-                                                                                 }
-                                                ?>
+                                            <label for="tel">เบอร์ติดต่อ</label>
+                                            <input type="text" name="tel" value="<?php echo $result[0]->tel ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="th_code">teacher code</label>
-                                            <input type="number" name="th_code" class="form-control">
+                                            <label for="username">username</label>
+                                            <input type="text" name="username" value="<?php echo $result[0]->username ?>" class="form-control">
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="th_birth_date">birth date</label>
-                                            <input type="date" name="th_birth_date" class="form-control">
+                                            <label for="password">password</label>
+                                            <input type="password" name="password" value="<?php echo $result[0]->password ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
-                        <?php echo form_submit(array('teacher_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_teacher', 'Cancel',array('class'=>'btn btn-dark'));
+                        <?php echo form_submit(array('contract_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
+                              echo anchor(base_url().'manage_contact', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>

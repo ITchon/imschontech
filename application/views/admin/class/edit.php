@@ -25,7 +25,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                        <label for="teacher_id">teacher_id</label>
+                                        <label for="teacher_id">ครู</label>
                                             <select name="teacher_id" class="form-control">
                                                 <option value="<?php echo $result[0]->teacher_id ?>"><?php echo $result[0]->fname ." ".$result[0]->lname?></option>
                                                 <?php foreach ($result_th as $th) {
@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="dv_id">division_id</label>
+                                            <label for="dv_id">แผนก</label>
                                             <select name="dv_id" class="form-control">
                                                 <option value="<?php echo $result[0]->dv_id ?>"><?php echo $result[0]->dv_name ?></option>
                                                 <?php foreach ($result_dv as $dv) {
@@ -49,13 +49,13 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                        <label for="class_name">Class name</label>
+                                        <label for="class_name">ระดับ</label>
                                             <input type="text" name="class_name" value="<?php echo $result[0]->class_name ?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                        <label for="class_group">Class group</label>
+                                        <label for="class_group">กลุ่ม</label>
                                             <input type="text" name="class_group" value="<?php echo $result[0]->class_group ?>" class="form-control">
                                         </div>
                                     </div>
