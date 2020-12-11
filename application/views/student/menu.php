@@ -17,7 +17,7 @@
                             <a class="info-tiles tiles-success" href="<?php echo base_url(); ?>Student/view">
                                 <!-- <div class="tiles-heading">Revenue</div> -->
                                 <div class="tiles-body-alt">
-                                    <!--i class="fa fa-money"></i-->
+                                    <i class="fa fa-4x fa-eye"></i>
                                     <div class="text-center ">View</div>
                                     <small>-13.5% from last week</small>
                                 </div>
