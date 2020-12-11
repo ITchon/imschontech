@@ -13,7 +13,7 @@
 									<img src="assets/demo/avatar/johansson.png" alt="" class="pull-left" style="margin: 0 20px 20px 0">
 									<div class="table-responsive">
 										<table class="table table-condensed ">
-											<h3><strong>John Doe</strong></h3>
+											<h3><strong><?php echo ucfirst($train_detail[0]->fname."  ".$train_detail[0]->lname) ?></strong></h3>
 											<!-- <thead>
 												<tr>
 													<th width="50%"></th>
@@ -21,43 +21,36 @@
 												</tr>
 											</thead> -->
 											<tbody>
+
 												<tr>
-													<td>Web</td>
-													<td><a href="#">www.johndoe.com</a></td>
+													<td><b>Class</b></td>
+													<td><?php echo $train_detail[0]->class_name." ". $train_detail[0]->class_group  ?></td>
 												</tr>
 												<tr>
-													<td>Email</td>
-													<td><a href="">doe@lime.com</a></td>
+													<td><b>Division</b></td>
+													<td><?php echo $train_detail[0]->dv_name ?></td>
 												</tr>
 												<tr>
-													<td>Phone</td>
-													<td>(123)-342-5412</td>
+													<td><b>Train Duration</b></td>
+													<td><?php echo $train_detail[0]->start_date." ถึง ".$train_detail[0]->end_date ?></td>
 												</tr>
 												<tr>
-													<td>Position</td>
-													<td>Designer</td>
+														<td><b>Train Location</b></td>
+														<td><?php echo $train_detail[0]->company_name." <br>".$train_detail[0]->address." ". $train_detail[0]->province ." ". $train_detail[0]->zipcode." <br>(".$train_detail[0]->tel.") " ?></td>
+															
 												</tr>
+												
 												<tr>
-													<td>Status</td>
-													<td>Member</td>
-												</tr>
-												<tr>
-													<td>Social</td>
-													<td>
-														<a href="#" class="btn btn-xs"><i class="fa fa-skype"></i></a>
-														<a href="#" class="btn btn-xs"><i class="fa fa-facebook"></i></a>
-														<a href="#" class="btn btn-xs"><i class="fa fa-twitter"></i></a>
-														<a href="#" class="btn btn-xs"><i class="fa fa-dribbble"></i></a>
-														<a href="#" class="btn btn-xs"><i class="fa fa-tumblr"></i></a>
-														<a href="#" class="btn btn-xs"><i class="fa fa-linkedin"></i></a>
-													</td>
+													<td><b>Contact Person</b></td>
+													<td><?php echo $train_detail[0]->name." (".$train_detail[0]->tel.") " ?></td>
 												</tr>
 											</tbody>
 										</table>
+
 									</div>
 								</div>
 								<div class="col-md-6">
-									<h3>Position of : <b>TBKK<b></h3>
+									<h3>Position of : <b><?php echo $train_detail[0]->company_name ?><b></h3>
 				
            							        <?php echo $map['html']; ?>
     

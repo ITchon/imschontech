@@ -11,6 +11,9 @@
             $sql =  "SELECT * FROM student s 
             inner join class c on c.class_id = s.class_id
             inner join division d on d.dv_id = c.dv_id
+            inner join train t on t.std_id = s.std_id
+            inner join company cy on cy.company_id = t.company_id
+            inner join contact ct on ct.contact_id = t.contact_id
              where s.std_id = $std_id";
             $query = $this->db->query($sql); 
             $data = $query->result();
