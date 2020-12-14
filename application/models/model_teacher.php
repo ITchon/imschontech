@@ -62,9 +62,11 @@ public function get_student_by($class_id) {
 }
 
 public function get_student_detail_byid($std_id,$class_id) {
-        $sql ="SELECT std.std_id, std.title, std.fname, std.lname, std.gender, std.tel, std.email, std.class_id, c.class_name FROM student as std
+        $sql ="SELECT std.std_id, std.title, std.fname, std.lname, std.gender, std.tel, std.email, std.class_id,e.id,e.title,e.description,e.color,e.start_event,e.end_event,e.t_id
+        ,e.teacher_confirm,e.company_comfirm FROM events as e
+        left join student as std on std.std_id = e.std_id
         left join class as c on c.class_id = std.class_id
-        WHERE std.std_id='$std_id' AND c.class_id = '$class_id'";
+        WHERE std.std_id='$std_id' AND c.class_id = '$class_id' AND e.teacher_confirm = 0";
       $query = $this->db->query($sql);
       if($query->num_rows()!=0) {
         $result =  $query->result();
@@ -76,9 +78,15 @@ public function get_student_detail_byid($std_id,$class_id) {
 }
 
 public function get_student_detail_by($student_search,$class_id) {
-    $sql ="SELECT std.std_id, std.title, std.fname, std.lname, std.gender, std.tel, std.email, std.class_id, c.class_name FROM student as std
+    // $sql ="SELECT std.std_id, std.title, std.fname, std.lname, std.gender, std.tel, std.email, std.class_id, c.class_name FROM student as std
+    // left join class as c on c.class_id = std.class_id
+    // WHERE std.std_code='$student_search' AND c.class_id = '$class_id'";
+    $sql ="SELECT std.std_id, std.title, std.fname, std.lname, std.gender, std.tel, std.email, std.class_id,e.id,e.title,e.description,e.color,e.start_event,e.end_event,e.t_id
+    ,e.teacher_confirm,e.company_comfirm FROM events as e
+    left join student as std on std.std_id = e.std_id
     left join class as c on c.class_id = std.class_id
-    WHERE std.username='$student_search' AND c.class_id = '$class_id'";
+    where std.std_code = '$student_search' AND e.teacher_confirm = 0";
+
   $query = $this->db->query($sql);
   if($query->num_rows()!=0) {
     $result =  $query->result();
@@ -87,6 +95,20 @@ public function get_student_detail_by($student_search,$class_id) {
     else{       
     return false;
       }
+}
+
+public function teacher_confirm($id) {
+  // $sql ="SELECT std.std_id, std.title, std.fname, std.lname, std.gender, std.tel, std.email, std.class_id, c.class_name FROM student as std
+  // left join class as c on c.class_id = std.class_id
+  // WHERE std.std_code='$student_search' AND c.class_id = '$class_id'";
+  $sql ="UPDATE events SET teacher_confirm = '1' WHERE id = '$id'";
+$query = $this->db->query($sql);
+if($query) {
+    return true;  
+    }
+  else{       
+  return false;
+    }
 }
 
 

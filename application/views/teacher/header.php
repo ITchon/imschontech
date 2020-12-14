@@ -112,7 +112,7 @@
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner" >
 
         <div class="navbar-header pull-left">
-            <a class="navbar-brand" href="<?php echo base_url(); ?>main">Avant</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>teacher/dashboard">Avant</a>
         </div>
 
         <ul class="nav navbar-nav pull-right toolbar">
