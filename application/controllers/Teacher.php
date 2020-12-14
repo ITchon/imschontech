@@ -125,6 +125,13 @@ class Teacher Extends CI_controller{
     //     $this->load->view('teacher/std_data',$data);
     //     $this->load->view('teacher/footer');
 
+        $teacher_id = $this->session->userdata('teacher_id');
+        $res = $this->model_teacher->get_division_class($teacher_id);
+        $class_teacher = [];
+        foreach($res as $r){
+            $c = $r->class_id;
+            array_push($class_teacher,$c);
+        }
 
     if($this->uri->segment('3')){
     $std_id =  $this->uri->segment('3');
@@ -132,7 +139,7 @@ class Teacher Extends CI_controller{
     $data['train_id'] = $train_id;
     $data['train_detail'] = $this->student_model->get_student($std_id,$train_id);
     $data['train_select'] = $this->student_model->get_train($std_id);
-
+    
     $start_date = $data['train_detail'][0]->start_date;
     $end_date = $data['train_detail'][0]->end_date;
     $sql =  "SELECT * FROM `events`WHERE start_event >= '$start_date' AND end_event <= '$end_date' and std_id = '$std_id'";
@@ -167,8 +174,14 @@ class Teacher Extends CI_controller{
     $this->googlemaps->add_marker($marker);
     $data['map'] = $this->googlemaps->create_map();
 
-    $this->load->view('teacher/std_data',$data);
-    $this->load->view('teacher/footer');
+    $class_chk = $data['train_detail'][0]->class_id;
+    if(in_array($class_chk,$class_teacher)){
+        $this->load->view('teacher/std_data',$data);
+        $this->load->view('teacher/footer');
+    }else{
+        echo "who this";
+        die();
+    }
 
     }
 
