@@ -54,6 +54,7 @@
       $this->load->view('student/dashboard', $data);
       $this->load->view('student/footer');
     }
+    
     function map(){
       $this->load->library('Googlemaps');
       $config['center'] = '37.4419, -122.1419';
