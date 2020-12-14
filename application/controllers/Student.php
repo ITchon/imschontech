@@ -28,7 +28,11 @@
     }
     function view(){
       $std_id =  $this->session->userdata('std_id');
-      $data['train_detail'] = $this->student_model->get_student($std_id);
+      $train_id = $this->input->post('train_id'); 
+      $data['train_id'] = $train_id;
+      $data['train_detail'] = $this->student_model->get_student($std_id,$train_id);
+      $data['train_select'] = $this->student_model->get_train($std_id);
+
       $start_date = $data['train_detail'][0]->start_date;
       $end_date = $data['train_detail'][0]->end_date;
       $sql =  "SELECT * FROM `events`WHERE start_event >= '$start_date' AND end_event <= '$end_date' and std_id = '$std_id'";
