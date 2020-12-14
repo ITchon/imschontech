@@ -8,18 +8,18 @@
         //     $data  = $query->result(); 
         // }
         // ,$class_id ,$th_id
-        public function insert_p($company_id ,$std_id ,$contract_id ,$start_date ,$end_date ,$status ,$note)
+        public function insert_p($company_id ,$std_id ,$contact_id ,$start_date ,$end_date ,$status ,$note)
         {
             $sql ="INSERT INTO  train (
                         company_id,
                         std_id,
-                        contract_id,
+                        contact_id,
                         start_date,
                         end_date,
                         status,
                         note
                         )
-                VALUES ('$company_id','$std_id','$contract_id','$start_date','$end_date','$status','$note');";          
+                VALUES ('$company_id','$std_id','$contact_id','$start_date','$end_date','$status','$note');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {
@@ -35,7 +35,7 @@
             $sql="SELECT tn.t_id , 
                         cp.company_id ,
                         std.std_id ,
-                        ct.contract_id ,
+                        ct.contact_id ,
                         cp.company_name , 
                         std.fname , 
                         std.lname , 
@@ -46,7 +46,7 @@
                         tn.note FROM train AS tn
             INNER JOIN company AS cp ON cp.company_id = tn.company_id
             INNER JOIN student AS std ON   std.std_id = tn.std_id
-            INNER JOIN contact AS ct ON ct.contract_id = tn.contract_id
+            INNER JOIN contact AS ct ON ct.contact_id = tn.contact_id
             WHERE tn.t_id = $id";
             $query = $this->db->query($sql); 
             $data  = $query->result(); 
@@ -55,12 +55,12 @@
           
         }
 
-        public function edit_p($company_id ,$std_id ,$contract_id ,$start_date ,$end_date ,$status ,$note ,$t_id)
+        public function edit_p($company_id ,$std_id ,$contact_id ,$start_date ,$end_date ,$status ,$note ,$t_id)
         {
             $sqlEdt="UPDATE  train SET 
                              company_id   = '$company_id',
                              std_id   = '$std_id',
-                             contract_id   = '$contract_id',
+                             contact_id   = '$contact_id',
                              start_date     = '$start_date',
                              end_date   = '$end_date' ,
                              status  = '$status',

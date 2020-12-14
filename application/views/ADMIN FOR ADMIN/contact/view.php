@@ -55,8 +55,8 @@
                                         <td><?php echo $r->tel ?></td>
                                         <td><?php echo $r->username ?></td>
                                         <td>
-                                        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_contact/edit/' . $r->contract_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."manage_contact/delete_p/".$r->contract_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_contact/edit/' . $r->contact_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
+                                            <?php echo "<a type='button' href='".base_url()."manage_contact/delete_p/".$r->contact_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
                                         </td>
                                         <?php  } ?> 
                                     </tr>

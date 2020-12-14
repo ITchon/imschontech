@@ -65,11 +65,11 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="contract_id">contract</label>
-                                            <select  class="itemName form-control" name="contract_id">
+                                            <label for="contact_id">contract</label>
+                                            <select  class="itemName form-control" name="contact_id">
                                                 <option value="">-select-</option>
                                                 <?php foreach ($result_ct as $ct) {
-                                                        echo " <option value=".$ct->contract_id."> ".$ct->name." </option> ";
+                                                        echo " <option value=".$ct->contact_id."> ".$ct->name." </option> ";
                                                                                  }
                                                 ?>
                                             </select>

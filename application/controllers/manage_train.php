@@ -30,12 +30,12 @@ class manage_train Extends CI_controller{
 							tn.note FROM train AS tn
 					INNER JOIN company AS cp ON cp.company_id = tn.company_id
 					INNER JOIN student AS std ON   std.std_id = tn.std_id
-					INNER JOIN contact AS ct ON ct.contract_id = tn.contract_id";
+					INNER JOIN contact AS ct ON ct.contact_id = tn.contact_id";
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
         // $data['result_g'] = $this->train_model->train();
-		$this->load->view('admin/train/view',$data);
-		$this->load->view('admin/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/train/view',$data);
+		$this->load->view('ADMIN FOR ADMIN/footer_2020');
 	
 	}
 	public function insert()
@@ -49,20 +49,20 @@ class manage_train Extends CI_controller{
 		$qry_inp1 =  "SELECT * FROM contact";
 		$query1 = $this->db->query($qry_inp1); 
 		$data['result_ct'] = $query1->result();
-		$this->load->view('admin/train/insert',$data);
+		$this->load->view('ADMIN FOR ADMIN/train/insert',$data);
 	}
 
 	public function insert_p()
 	{
 		$company_id    = $this->input->post('company_id'); 
         $std_id    = $this->input->post('std_id');
-        $contract_id    = $this->input->post('contract_id');
+        $contact_id    = $this->input->post('contact_id');
         $start_date      = $this->input->post('start_date');
 		$end_date      = $this->input->post('end_date');
 		$status      = $this->input->post('status');
 		$note      = $this->input->post('note');
 
-        $this->train_model->insert_p($company_id ,$std_id ,$contract_id ,$start_date ,$end_date ,$status ,$note); 
+        $this->train_model->insert_p($company_id ,$std_id ,$contact_id ,$start_date ,$end_date ,$status ,$note); 
         redirect('manage_train');
 	}
 
@@ -79,21 +79,21 @@ class manage_train Extends CI_controller{
 		$qry_inp1 =  "SELECT * FROM contact";
 		$query1 = $this->db->query($qry_inp1); 
 		$data['result_ct'] = $query1->result();
-		$this->load->view('admin/train/edit',$data);
+		$this->load->view('ADMIN FOR ADMIN/train/edit',$data);
 	}
 
 	public function edit_p()
 	{
 		$company_id    = $this->input->post('company_id'); 
         $std_id    = $this->input->post('std_id');
-        $contract_id    = $this->input->post('contract_id');
+        $contact_id    = $this->input->post('contact_id');
         $start_date      = $this->input->post('start_date');
 		$end_date      = $this->input->post('end_date');
 		$status      = $this->input->post('status');
 		$note      = $this->input->post('note');
 		
 	    $t_id 	  = $this->input->post('t_id');
-        $this->train_model->edit_p($company_id ,$std_id ,$contract_id ,$start_date ,$end_date ,$status ,$note ,$t_id); 
+        $this->train_model->edit_p($company_id ,$std_id ,$contact_id ,$start_date ,$end_date ,$status ,$note ,$t_id); 
         redirect('manage_train');
 	}
 

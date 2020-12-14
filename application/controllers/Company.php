@@ -25,13 +25,13 @@ class Company Extends CI_controller{
         // $id = $this->input->post('id');
         // $query = $this->db->query("SELECT * FROM division WHERE dv_id = $id");
         // $data['result_edit'] = $query->result();
-		$this->load->view('admin/company/view',$data);
-		$this->load->view('admin/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/company/view',$data);
+		$this->load->view('ADMIN FOR ADMIN/footer_2020');
     }
 
     public function insert_company()
 	{
-		$this->load->view('admin/company/insert');
+		$this->load->view('ADMIN FOR ADMIN/company/insert');
 	}
 
 
@@ -53,7 +53,7 @@ class Company Extends CI_controller{
 		$id = $this->uri->segment('3'); 
         $data['result'] = $this->company_model->selectOnecompany($id);
     
-		$this->load->view('admin/company/edit',$data);
+		$this->load->view('ADMIN FOR ADMIN/company/edit',$data);
 	}
 
 	public function edit_cp_p()

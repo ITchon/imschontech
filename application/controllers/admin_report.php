@@ -20,8 +20,8 @@ class admin_report Extends CI_controller{
 	public function index() 	
 	{
 
-		$this->load->view('admin/report');
-        $this->load->view('admin/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/report');
+        $this->load->view('ADMIN FOR ADMIN/footer_2020');
         
     }
 

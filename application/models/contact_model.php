@@ -29,7 +29,7 @@
 
         public function selectOneContact($id)
         {
-            $sql="SELECT * FROM contact WHERE contract_id = '$id' ";
+            $sql="SELECT * FROM contact WHERE contact_id = '$id' ";
             $query = $this->db->query($sql); 
             $data  = $query->result(); 
          
@@ -45,7 +45,7 @@
                              username     = '$username',
                              password     = '$password'
                             
-                     WHERE contract_id = '$ct_id'";
+                     WHERE contact_id = '$ct_id'";
             $exc_teacher = $this->db->query($sqlEdt);
             if ($exc_teacher)
             {
@@ -57,9 +57,9 @@
             }
         }
 
-        public function del_p($contract_id)
+        public function del_p($contact_id)
         {
-            $sqlEdt = "DELETE FROM contact WHERE contract_id = '$contract_id';";
+            $sqlEdt = "DELETE FROM contact WHERE contact_id = '$contact_id';";
 
 
             $exc_contact = $this->db->query($sqlEdt);
