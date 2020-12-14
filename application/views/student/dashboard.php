@@ -81,7 +81,16 @@
 										</ul>
                                         <div class="panel panel-sky">
                                             <div class="panel-body collapse in">
+												
+   													
+											
                                                 <div class="table-responsive">
+												<!-- <div class="pull-right text-right">
+														
+														<a href="<?php echo base_url()?>Student/export_excel" class="btn btn-success btn-lg" data-toggle="tooltip" title="ส่งออกข้อมูล">
+															<i class="fas fa-file-excel"></i></span> Excel
+														</a>
+													</div> -->
                                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
 	              	                    				<tr>
@@ -105,6 +114,7 @@
                                                     
 	              	                    			</tbody>
                                                 </table>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -117,7 +127,15 @@
 					</div>
 				</div>
 			</div>
-			
-
 </body>
 </html>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+</script>

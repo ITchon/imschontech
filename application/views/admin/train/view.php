@@ -44,7 +44,7 @@
                                     <tr>
                                         <th>company_id</th>
                                         <th>std_id</th>
-                                        <th>contract_id</th>
+                                        <th>contact_id</th>
                                         <th>start_date</th>
                                         <th>end_date</th>
                                         <th>status</th>

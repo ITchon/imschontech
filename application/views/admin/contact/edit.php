@@ -34,7 +34,7 @@
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('manage_contact/edit_p');?>
-                                <?php echo form_hidden('contract_id',$result[0]->contract_id);  ?>
+                                <?php echo form_hidden('contact_id',$result[0]->contact_id);  ?>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -64,7 +64,7 @@
                                     </div>
                             </div>
                         </div>
-                        <?php echo form_submit(array('contract_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
+                        <?php echo form_submit(array('contact_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
                               echo anchor(base_url().'manage_contact', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          

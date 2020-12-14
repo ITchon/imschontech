@@ -34,8 +34,8 @@ class manage_teacher Extends CI_controller{
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
         $data['result_g'] = $this->teacher_model->teacher();
-		$this->load->view('admin/teacher/view',$data);
-		$this->load->view('admin/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/teacher/view',$data);
+		$this->load->view('ADMIN FOR ADMIN/footer_2020');
 	
 	}
 	public function insert_teacher()
@@ -43,7 +43,7 @@ class manage_teacher Extends CI_controller{
 		$qry_inp =  "SELECT * FROM class";
         $query = $this->db->query($qry_inp); 
         $data['result_cl'] = $query->result();
-		$this->load->view('admin/teacher/insert',$data);
+		$this->load->view('ADMIN FOR ADMIN/teacher/insert',$data);
 	}
 
 	public function insert_p()
@@ -68,7 +68,7 @@ class manage_teacher Extends CI_controller{
         $qry_inp =  "SELECT * FROM class";
         $query = $this->db->query($qry_inp); 
         $data['result_cl'] = $query->result();
-		$this->load->view('admin/teacher/edit',$data);
+		$this->load->view('ADMIN FOR ADMIN/teacher/edit',$data);
 	}
 
 	public function edit_teacher_p()

@@ -23,13 +23,13 @@ class manage_contact Extends CI_controller{
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
         // $data['result_g'] = $this->contact_model->teacher();
-		$this->load->view('admin/contact/view',$data);
-		$this->load->view('admin/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/contact/view',$data);
+		$this->load->view('ADMIN FOR ADMIN/footer_2020');
 	
 	}
 	public function insert()
 	{
-		$this->load->view('admin/contact/insert');
+		$this->load->view('ADMIN FOR ADMIN/contact/insert');
 	}
 
 	public function insert_p()
@@ -48,7 +48,7 @@ class manage_contact Extends CI_controller{
 		$id = $this->uri->segment('3'); 
         $data['result'] = $this->contact_model->selectOneContact($id);
         // $data['result_g'] = $this->contact_model->select();
-		$this->load->view('admin/contact/edit',$data);
+		$this->load->view('ADMIN FOR ADMIN/contact/edit',$data);
 	}
 
 	public function edit_p()
@@ -58,14 +58,14 @@ class manage_contact Extends CI_controller{
         $username    = $this->input->post('username');
         $password      = $this->input->post('password');
 		
-	    $ct_id 	  = $this->input->post('contract_id');
+	    $ct_id 	  = $this->input->post('contact_id');
         $this->contact_model->edit_p($name ,$tel ,$username ,$password ,$ct_id); 
         redirect('manage_contact');
 	}
 
-	public function delete_p($contract_id)
+	public function delete_p($contact_id)
 	{
-		$result = $this->contact_model->del_p($contract_id);
+		$result = $this->contact_model->del_p($contact_id);
 		if($result!=FALSE)
 		{
             redirect('manage_contact','refresh');
