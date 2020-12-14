@@ -7,23 +7,24 @@
             $query = $this->db->query($sql); 
             $data  = $query->result(); 
         }
-        public function get_student($std_id,$train_id) {  
-            if($train_id == null){
-            $sql =  "SELECT * FROM student s 
-            inner join class c on c.class_id = s.class_id
-            inner join division d on d.dv_id = c.dv_id
-            inner join train t on t.std_id = s.std_id
-            inner join company cy on cy.company_id = t.company_id
-            inner join contact ct on ct.contact_id = t.contact_id
-             where s.std_id = $std_id and t.start_date = (SELECT max(start_date) FROM `train` ) ";
+        public function get_student($std_id,$train_id){  
+
+            if($train_id != null){
+                $sql =  "SELECT * FROM student s 
+                inner join class c on c.class_id = s.class_id
+                inner join division d on d.dv_id = c.dv_id
+                inner join train t on t.std_id = s.std_id
+                inner join company cy on cy.company_id = t.company_id
+                inner join contact ct on ct.contact_id = t.contact_id
+                 where s.std_id = $std_id and t_id = $train_id ";
             }else{
-            $sql =  "SELECT * FROM student s 
-            inner join class c on c.class_id = s.class_id
-            inner join division d on d.dv_id = c.dv_id
-            inner join train t on t.std_id = s.std_id
-            inner join company cy on cy.company_id = t.company_id
-            inner join contact ct on ct.contact_id = t.contact_id
-             where s.std_id = $std_id and t.t_id = $train_id ";
+                $sql =  "SELECT * FROM student s 
+                inner join class c on c.class_id = s.class_id
+                inner join division d on d.dv_id = c.dv_id
+                inner join train t on t.std_id = s.std_id
+                inner join company cy on cy.company_id = t.company_id
+                inner join contact ct on ct.contact_id = t.contact_id
+                where s.std_id = $std_id and t.start_date = (SELECT max(start_date) FROM `train` Where std_id = $std_id) ";
             }
             $query = $this->db->query($sql); 
             $data = $query->result();

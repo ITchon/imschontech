@@ -1,7 +1,7 @@
 <head><?php echo $map['js']; ?></head>
 
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12"> 
                
 					<div class="panel panel-midnightblue">
 						<div class="panel-body">
@@ -19,7 +19,8 @@
 											<?php
 												$optName = array();
 												foreach($train_select as $r){
-												    $optName[$r->t_id] = $r->start_date;   
+													$date = substr($r->start_date,0,4);
+												    $optName[$r->t_id] = $date;   
 												}
 												$selected = $train_id ;
 												echo form_dropdown('train_id', $optName ,$selected,'class="form-control" ');
