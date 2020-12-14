@@ -27,25 +27,34 @@
 
     }
     function view(){
+      $std_id =  $this->session->userdata('std_id');
+      $train_id = $this->input->post('train_id'); 
+      $data['train_id'] = $train_id;
+      $data['train_detail'] = $this->student_model->get_student($std_id,$train_id);
+      $data['train_select'] = $this->student_model->get_train($std_id);
+
+      $start_date = $data['train_detail'][0]->start_date;
+      $end_date = $data['train_detail'][0]->end_date;
+      $sql =  "SELECT * FROM `events`WHERE start_event >= '$start_date' AND end_event <= '$end_date' and std_id = '$std_id'";
+      $query = $this->db->query($sql); 
+      $data['result'] = $query->result();
+
       $this->load->library('Googlemaps');
       $config['center'] = '37.4419, -122.1419';
       $config['zoom'] = 'auto';
       $this->googlemaps->initialize($config);
 
       $marker = array();
-      $lat = '13.4538667';
-      $long ='101.1025658'; 
+      $lat = $data['train_detail'][0]->latitude;
+      $long = $data['train_detail'][0]->longitude; 
       $marker['position'] = $lat.','.$long;
       $this->googlemaps->add_marker($marker);
       $data['map'] = $this->googlemaps->create_map();
 
-      $std_id =  $this->session->userdata('std_id');
-      $sql =  "SELECT * FROM events where std_id =  $std_id";
-      $query = $this->db->query($sql); 
-      $data['result'] = $query->result();
       $this->load->view('student/dashboard', $data);
       $this->load->view('student/footer');
     }
+    
     function map(){
       $this->load->library('Googlemaps');
       $config['center'] = '37.4419, -122.1419';

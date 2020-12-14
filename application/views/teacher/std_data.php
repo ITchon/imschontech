@@ -1,3 +1,21 @@
+<style>
+    .container{
+        padding-left:50px;
+        padding-right:50px;
+        padding-top:100px;
+    }
+    .student_detail{
+        padding-left:50px;
+        padding-right:50px;
+        padding-top:100px;
+    }
+    .fa-check{
+        color: green;
+    }
+    .fa-ban{
+        color: red;
+    }
+</style>
 <head><?php echo $map['js']; ?></head>
 
 			<div class="row">
@@ -80,24 +98,15 @@
 										</ul>
                                         <div class="panel panel-sky">
                                             <div class="panel-body collapse in">
-												
-   													
-											
                                                 <div class="table-responsive">
-												<!-- <div class="pull-right text-right">
-														
-														<a href="<?php echo base_url()?>Student/export_excel" class="btn btn-success btn-lg" data-toggle="tooltip" title="ส่งออกข้อมูล">
-															<i class="fas fa-file-excel"></i></span> Excel
-														</a>
-													</div> -->
                                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
 	              	                    				<tr>
 	              	                    					<th width="5%">#</th>
 	              	                    					<th width="35%">Title</th>
-	              	                    					<th width="35%">Start</th>
+	              	                    					<th width="25%">Start</th>
 	              	                    					<th width="25%">End</th>
-	              	                    					<th width="25%"> - </th>
+	              	                    					<th width="35%"> - </th>
 	              	                    				</tr>
 	              	                    			</thead>
 	              	                    			<tbody>
@@ -107,13 +116,15 @@
 					                    				  <td><?php echo $r->title ?></td>
 					                    				  <td><?php echo $r->start_event ?></td>
 					                    				  <td><?php echo $r->end_event ?></td>
-					                    				  <td><a href="#" class=""><i class="fa fa-eye"></i></a></td>
+					                    				  <td class="text-center">
+                                                          <?php echo "<a href='".base_url()."teacher/confirm/".$r->id ."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-check'></i></a>";   ?>
+                                                          <?php echo "<a href='".base_url()."teacher/no_confirm/".$r->id ."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-ban'></i></a>";   ?>
+                                                          </td>
 					                    				</tr>
 					                    				  <?php  } ?> 
                                                     
 	              	                    			</tbody>
                                                 </table>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -126,15 +137,7 @@
 					</div>
 				</div>
 			</div>
+			
+
 </body>
 </html>
-<script>
-$(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    } );
-} );
-</script>

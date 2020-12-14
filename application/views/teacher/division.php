@@ -27,15 +27,16 @@
                                 </div>
                                 <!-- <div class="tiles-footer">go to accounts</div> -->
                             </a>
-                            <?php foreach($class_list as $c => $dv_chk){ 
-                                if($dv_chk == $dv->dv_id){
+                            <?php foreach($class as $d){ 
+                                foreach($d as $c){
+                                if($c->dv_id == $dv->dv_id){
                                 ?>
                             <div class="col-sm-6">
-                            <a class="info-tiles btn-midnightblue-alt" href="<?php echo base_url(); ?>teacher/list/"<?php echo $dv->dv_id ?>>
+                            <a class="info-tiles btn-midnightblue-alt" href="<?php echo base_url(); ?>teacher/list/<?php echo $c->class_id ?>">
                                 <!-- <div class="tiles-heading">Revenue</div> -->
                                 <div class="tiles-body-alt">
                                     <!--i class="fa fa-money"></i-->
-                                    <div class="text-center"><?php echo $c ?></div>
+                                    <div class="text-center"><?php echo $c->class_name.$c->class_group ?></div>
                                     
                                 </div>
                                 <!-- <div class="tiles-footer">go to accounts</div> -->
@@ -43,7 +44,8 @@
                         </div>
                         <?php 
                             }    
-                        }?>
+                        }
+                    }?>
                         </div>
                     <?php } ?>
 

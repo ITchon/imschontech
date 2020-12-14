@@ -7,15 +7,37 @@
             $query = $this->db->query($sql); 
             $data  = $query->result(); 
         }
-        public function get_student($std_id) {  
+        public function get_student($std_id,$train_id) {  
+            if($train_id == null){
             $sql =  "SELECT * FROM student s 
             inner join class c on c.class_id = s.class_id
             inner join division d on d.dv_id = c.dv_id
-             where s.std_id = $std_id";
+            inner join train t on t.std_id = s.std_id
+            inner join company cy on cy.company_id = t.company_id
+            inner join contact ct on ct.contact_id = t.contact_id
+             where s.std_id = $std_id and t.start_date = (SELECT max(start_date) FROM `train` ) ";
+            }else{
+            $sql =  "SELECT * FROM student s 
+            inner join class c on c.class_id = s.class_id
+            inner join division d on d.dv_id = c.dv_id
+            inner join train t on t.std_id = s.std_id
+            inner join company cy on cy.company_id = t.company_id
+            inner join contact ct on ct.contact_id = t.contact_id
+             where s.std_id = $std_id and t.t_id = $train_id ";
+            }
             $query = $this->db->query($sql); 
             $data = $query->result();
             return $data;
         }
+        public function get_train($std_id) {  
+            
+            $sql =  "SELECT * FROM train where std_id = $std_id ORDER BY `train`.`end_date` DESC";
+            $query = $this->db->query($sql); 
+            $data = $query->result();
+
+            return $data;
+        }
+
         // ,$class_id ,$th_id
         public function insert_student($title ,$fname ,$lname,$gender ,$tel ,$email,$status ,$std_code ,$birth_date ,$class_id)
         {
