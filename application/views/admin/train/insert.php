@@ -39,13 +39,16 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="Company">Company</label>
-                                            <select name="company_id" class="form-control">
+                                            <select name="company_id" class="form-control itemName">
                                                 <option value="">-select-</option>
                                                 <?php foreach ($result_cp as $cp) {
                                                         echo " <option value=".$cp->company_id."> ".$cp->company_name." </option> ";
                                                                                  }
                                                 ?>
                                             </select> 
+                                            <!-- <select class="itemName form-control" style="width:500px" name="itemName">
+                                                <option value="">asd</option>
+                                            </select> -->
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -63,13 +66,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="contract_id">contract</label>
-                                            <select name="contract_id" class="form-control">
+                                            <select  class="itemName form-control" name="contract_id">
                                                 <option value="">-select-</option>
                                                 <?php foreach ($result_ct as $ct) {
                                                         echo " <option value=".$ct->contract_id."> ".$ct->name." </option> ";
                                                                                  }
                                                 ?>
                                             </select>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Dropdown with Search</label>
+                                                <div class="col-sm-6">
+                                                    <select id="e1" style="width:100%" class="populate"></select>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +129,13 @@
         </div> <!-- container -->
     </div> <!--wrap -->
 </div> <!-- page-content -->
+    <script type="text/javascript">
+$('.itemName').select2({
+  placeholder: '--- Select Item ---',
+});
 
+
+</script>
     <footer role="contentinfo">
         <div class="clearfix">
             <ul class="list-unstyled list-inline pull-left">
@@ -129,16 +144,6 @@
             <button class="pull-right btn btn-inverse-alt btn-xs hidden-print" id="back-to-top"><i class="fa fa-arrow-up"></i></button>
         </div>
     </footer>
-
-
-
-<!--
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-
-<script>!window.jQuery && document.write(unescape('%3Cscript src="assets/js/jquery-1.10.2.min.js"%3E%3C/script%3E'))</script>
-<script type="text/javascript">!window.jQuery.ui && document.write(unescape('%3Cscript src="assets/js/jqueryui-1.10.3.min.js'))</script>
--->
 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jquery-1.10.2.min.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jqueryui-1.10.3.min.js'></script> 
@@ -150,12 +155,33 @@
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/easypiechart/jquery.easypiechart.min.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/sparklines/jquery.sparklines.min.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-toggle/toggle.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/datatables/jquery.dataTables.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/datatables/dataTables.bootstrap.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo-datatables.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/placeholdr.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/application.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo.js'></script> 
+
+<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/fullcalendar/fullcalendar.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/form-daterangepicker/daterangepicker.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/form-daterangepicker/moment.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/charts-flot/jquery.flot.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/charts-flot/jquery.flot.resize.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/charts-flot/jquery.flot.orderBars.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/pulsate/jQuery.pulsate.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>assets/demo/demo-index.js'></script> 
+<!-- 
+scripttag("assets/plugins/form-multiselect/js/jquery.multi-select.min.js"); 
+    scripttag("assets/plugins/quicksearch/jquery.quicksearch.min.js");     
+    scripttag("assets/plugins/form-typeahead/typeahead.min.js");         
+    scripttag("assets/plugins/form-select2/select2.min.js");                    
+    scripttag("assets/plugins/form-autosize/jquery.autosize-min.js");            
+    scripttag("assets/plugins/form-colorpicker/js/bootstrap-colorpicker.min.js");r 
+    scripttag("assets/plugins/jqueryui-timepicker/jquery.ui.timepicker.min.js"); . 
+    scripttag("assets/plugins/form-daterangepicker/daterangepicker.min.js");      
+    scripttag("assets/plugins/form-datepicker/js/bootstrap-datepicker.js");      
+    scripttag("assets/plugins/form-daterangepicker/moment.min.js");              
+    scripttag("assets/plugins/form-fseditor/jquery.fseditor-min.js");            
+    scripttag("assets/plugins/form-jasnyupload/fileinput.js");                   
+    scripttag("assets/plugins/form-tokenfield/bootstrap-tokenfield.min.js");     
+    scripttag("assets/demo/demo-formcomponents.js"); -->
 
 </body>
 </html>

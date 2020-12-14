@@ -21,67 +21,8 @@
                         <li><a href="<?php echo base_url(); ?>layout/layout_fixd"><span>Fixed Boxed Layout</span></a></li>
                     </ul>
                 </li> -->
-                <li><a href="javascript:;"><i class="fa fa-list-ol"></i> <span>UI Elements</span></a>
-                    <ul class='acc-menu'>
-                        <li><a href="<?php echo base_url(); ?>ui_element">Typography</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_element/btn">Buttons</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_element/table_basic">Tables</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_element/forms">Forms</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_element/panels">Panels</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_element/images">Images</a></li>
-                    </ul>
-                </li>
-                <li><a href="javascript:;"><i class="fa fa-tasks"></i> <span>UI Components</span> </a>
-                    <ul class="acc-menu">
-                    <!-- <span class="badge badge-info">12</span> -->
-                        <li><a href="<?php echo base_url(); ?>ui_component">Tiles</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_component/modals">Modals &amp; Bootbox</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_component/">Progress Bars</a></li>
-						<li><a href="<?php echo base_url(); ?>ui_component/">Pagers &amp; Paginations</a></li>
-						<li><a href="<?php echo base_url(); ?>ui_component/">Breadcrumbs</a></li>
-						<li><a href="<?php echo base_url(); ?>ui_component/">Labels &amp; Badges</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_component/">Alerts &amp; Notificiations</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_component/">Sliders &amp; Ranges</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_component/">Tabs &amp; Accordions</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_component/">Carousel</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_component/">Nestable Lists</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_component/">Wells</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_component/">Tour</a></li>
-                    </ul>
-                </li>
-                <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Tables</span></a>
-                    <ul class="acc-menu">
-                        <li><a href="<?php echo base_url(); ?>ui_table">Tables test</a></li>
-                       
-                    </ul>
-                </li>
-                <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Student</span></a>
-                    <!-- <ul class="acc-menu">
-                        <li><a href="<?php echo base_url(); ?>ui_table">Class</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">Company</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">division</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">student</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">teacher</a></li>
-                    </ul> -->
-                </li>
-                <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Teacher</span></a>
-                    <!-- <ul class="acc-menu">
-                        <li><a href="<?php echo base_url(); ?>ui_table">Class</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">Company</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">division</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">student</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">teacher</a></li>
-                    </ul> -->
-                </li>
-                <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Company</span></a>
-                    <!-- <ul class="acc-menu">
-                        <li><a href="<?php echo base_url(); ?>ui_table">Class</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">Company</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">division</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">student</a></li>
-                        <li><a href="<?php echo base_url(); ?>ui_table">teacher</a></li>
-                    </ul> -->
-                </li>
+               
+                
                 <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
                     <ul class="acc-menu">
                         <li><a href="<?php echo base_url(); ?>manage_contact"> Contact</a></li>
