@@ -77,32 +77,30 @@ class Teacher Extends CI_controller{
         $data['student_list'] = $this->model_teacher->get_student_by($class_id);
 
         if($this->uri->segment('3')){
-            $data['student_detail'] = $this->model_teacher->get_student_detail_byid($std_id,$class_id);
+      $sql =  "SELECT * FROM events where std_id =  $std_id AND teacher_confirm = 0";
+      $query = $this->db->query($sql); 
+      $data['result'] = $query->result();
          }
          else if($this->input->get('student_search')){
-            $data['student_detail'] = $this->model_teacher->get_student_detail_by($student_search,$class_id);
+            $data['result'] = $this->model_teacher->get_student_detail_by($student_search,$class_id);
          }
 
-		$this->load->view('teacher/list',$data);
+        $this->load->view('teacher/menu');
+        $this->load->view('teacher/list',$data);
+        $this->load->view('teacher/footer');
 
     }
-    public function search()
+    public function confirm()
     {
-        
-        $json = [];
-		$this->load->database();
-
-		
-		if(!empty($this->input->get("q"))){
-			$this->db->like('name', $this->input->get("q"));
-			$query = $this->db->select('id,name as text')
-						->limit(10)
-						->get("tags");
-			$json = $query->result();
-		}
-
-		
-		echo json_encode($json);
+        $id =  $this->uri->segment('3');
+        $result = $this->model_teacher->teacher_confirm($id);
+        if($result != true){
+            echo "wtf happend";
+            die();
+        }else{
+            die();
+        redirect('teacher/list?'.$search.'','refresh');
+        }
 
     }
 
