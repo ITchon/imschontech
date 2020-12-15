@@ -2,6 +2,8 @@
 
 	class Student extends CI_Controller {
 
+    private $upload_path = "./uploads";
+
 		function __construct(){
 			parent::__construct();
       $this->load->helper('url');
@@ -129,6 +131,114 @@
   //       $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
   //         $objWriter->save('php://output');
   //   }
+
+  public function upload(){
+
+    $config["upload_path"]   = $this->upload_path;
+    $config["allowed_types"] = "*";
+    $config['overwrite'] = TRUE;
+    // $config['encrypt_name'] = TRUE;
+
+     if($_FILES != null){
+       $file = array(
+         'file' => $_FILES['file']['name']
+       );
+     }else{
+       $file = array(
+         'file' => ''
+       );
+     }
+
+    if ( ! empty($_FILES)) 
+  {
+     $this->load->library('upload', $config);
+     $this->upload->initialize($config);
+     if ( ! $this->upload->do_upload("file")) {
+       echo "failed to upload file(s)";
+     }else{
+      $uploaded = $this->upload->data();
+      $code = array('filename'  => $uploaded['file_name']);
+      foreach($code as $c){
+        $this->session->set_userdata('filecode', $c);
+      }
+     }
+   }
+   echo json_encode($file);
+   
+
+  
+
+}
+
+public function getfilecode()
+{
+ $filecode = $this->session->userdata('filecode');
+echo json_encode('clear');
+
+}
+
+public function insert_issue()
+{
+$file = $this->input->post('file');
+
+$data = array(
+  'plant' => $this->input->post('plant'),
+  'pj_id' => $this->input->post('pj_id'),
+  'date_iden' => $this->input->post('date_iden'),
+  'is_des' => $this->input->post('is_des'),
+  'priority' => $this->input->post('priority'),
+  'owner_id' => $this->input->post('owner_id'),
+  'date_er' => $this->input->post('date_er'),
+  'er' => $this->input->post('er'),
+  'imp_sum' => $this->input->post('imp_sum'),
+  'act_step' => $this->input->post('act_step'),
+  'is_type' => $this->input->post('is_type'),
+  'cur_st' => $this->input->post('cur_st'),
+  'frr' => $this->input->post('frr'),
+ 'note' => $this->input->post('note')
+);
+if($this->input->post('plant') != null){
+$last_id = $this->model_issue->insert_issue($data);
+$this->session->set_userdata('is_id',$last_id);
+}
+if($file != null){
+foreach ($file as $c) {
+  $res = $this->model_issue->insert_img($last_id,$c,$c);
+ }
+}
+
+if($res !=false){
+echo json_encode('clear');
+}else{
+echo json_encode('sad');
+}
+
+
+}
+
+public function save_img()
+{
+$file = $this->input->post('file');
+if($file !=null){
+  echo json_encode($file);
+}else{
+ echo json_encode('sad');
+}
+die();
+if($file != null){
+  $this->model_issue->update_img($file);
+}
+}
+
+public function remove()
+{
+$file = $this->input->post("file");
+if ($file && file_exists($this->upload_path . "/" . $file)) {
+  unlink($this->upload_path . "/" . $file);
+}
+}
+
+
 }
 
 ?>

@@ -157,6 +157,11 @@ class Teacher Extends CI_controller{
     $start_date = $data['train_detail'][0]->start_date;
     $end_date = $data['train_detail'][0]->end_date;
     $data['result'] = $this->model_teacher->get_events_date($start_date,$end_date,$std_id,$class_id);
+   
+    $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' AND teacher_confirm = 0 ORDER BY `events`.`start_event` DESC";
+      $query = $this->db->query($sql); 
+      $data['result_test'] = $query->result();
+
 
     } else if($this->input->get('student_search')){
         
@@ -173,6 +178,11 @@ class Teacher Extends CI_controller{
         $start_date = $data['train_detail'][0]->start_date;
         $end_date = $data['train_detail'][0]->end_date;
         $data['result'] = $this->model_teacher->get_events_date($start_date,$end_date,$std_id,$class_id);
+
+      $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' AND teacher_confirm = 0 ORDER BY `events`.`start_event` DESC";
+      $query = $this->db->query($sql); 
+      $data['result_test'] = $query->result();
+
      }
     $this->load->library('Googlemaps');
     $config['center'] = '37.4419, -122.1419';
@@ -199,8 +209,14 @@ class Teacher Extends CI_controller{
 
     public function confirm()
     {
-        $id =  $this->uri->segment('3');
-        $result = $this->model_teacher->teacher_confirm($id);
+        $std_id = $this->input->post('std_id'); 
+        $date = $this->input->post('date'); 
+        $result = $this->model_teacher->get_eid($std_id,$date);
+
+        foreach($result as $r){
+            $id = $r->id;
+            $result = $this->model_teacher->teacher_confirm($id);
+        }
         if($result != true){
             echo "wtf happend";
             die();
@@ -214,8 +230,14 @@ class Teacher Extends CI_controller{
 
     public function no_confirm()
     {
-        $id =  $this->uri->segment('3');
-        $result = $this->model_teacher->teacher_noconfirm($id);
+        $std_id = $this->input->post('std_id'); 
+        $date = $this->input->post('date'); 
+        $result = $this->model_teacher->get_eid($std_id,$date);
+
+        foreach($result as $r){
+            $id = $r->id;
+            $result = $this->model_teacher->teacher_noconfirm($id);
+        }
         if($result != true){
             echo "wtf happend";
             die();

@@ -15,6 +15,9 @@
     .fa-ban{
         color: red;
     }
+	#form {
+  display: inline-block;
+	}
 </style>
 <head><?php echo $map['js']; ?></head>
 
@@ -102,26 +105,58 @@
                                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
 	              	                    				<tr>
-	              	                    					<th width="5%">#</th>
-	              	                    					<th width="35%">Title</th>
-	              	                    					<th width="25%">Start</th>
-	              	                    					<th width="25%">End</th>
-	              	                    					<th width="35%"> - </th>
+														  <th>Date</th>
+	              	                    					<th width="40%">Title</th>
+	              	                    					<th width="10%"> - </th>
+	              	                    					<th width="3%"> - </th>
 	              	                    				</tr>
 	              	                    			</thead>
 	              	                    			<tbody>
-					                    			  <?php foreach($result as $r){ ?>
-	              	                    				<tr>
-					                    				  <td><?php echo $r->id ?></td>
-					                    				  <td><?php echo $r->title ?></td>
-					                    				  <td><?php echo $r->start_event ?></td>
-					                    				  <td><?php echo $r->end_event ?></td>
-					                    				  <td class="text-center">
-                                                          <?php echo "<a href='".base_url()."teacher/confirm/".$r->id ."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-check'></i></a>";   ?>
-                                                          <?php echo "<a href='".base_url()."teacher/no_confirm/".$r->id ."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-ban'></i></a>";   ?>
-                                                          </td>
-					                    				</tr>
-					                    				  <?php  } ?> 
+													  <?php 
+
+											foreach($result_test as $row){
+												
+												$s = $row->date;
+												$dt = new DateTime($s);
+												$date = $dt->format('m/d/Y');
+												$time = $dt->format('H:i:s');
+												?>
+												<tr>
+												<td><?php echo $date ?></td>
+												<td>
+												<?php foreach($result as $r){
+														$s = $r->start_event;
+														$dt = new DateTime($s);
+														$date_event = $dt->format('m/d/Y');
+														$time = $dt->format('H:i:s');
+														if($date == $date_event){
+															echo $r->title."  ";
+														}
+												} ?>
+												</td>
+												<td class="text-center">
+													<form id="form" action="<?php echo base_url()?>teacher/confirm" method="post">
+														<!-- <?php echo "<a href='".base_url()."teacher/confirm/".$row->date ."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-check'></i></a>";   ?> -->
+															<input type="hidden" name="std_id" value="<?php echo $r->std_id?>">
+															<input type="hidden" name="date" value="<?php echo $row->date?>">
+														<?php echo "<button type='submit' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-check'></i></button>";?>
+													</form>
+
+													<form id="form" action="<?php echo base_url()?>teacher/no_confirm" method="post">
+														<!-- <?php echo "<a href='".base_url()."teacher/no_confirm/".$row->date ."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-ban'></i></a>";   ?> -->
+															<input type="hidden" name="std_id" value="<?php echo $r->std_id?>">
+															<input type="hidden" name="date" value="<?php echo $row->date?>">
+														<?php echo "<button type='submit' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-ban'></i></button>";?>
+													</form>
+													
+												</td>
+												<td>
+												<a class="open-modal" ><i class="fa fa-eye"></i></a>
+												</td>
+												</tr>
+												<?php
+													}
+														  ?> 
                                                     
 	              	                    			</tbody>
                                                 </table>

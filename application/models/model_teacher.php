@@ -30,6 +30,18 @@ if($query) {
     }
 }
 
+public function get_eid($std_id,$date) {
+  $sql ="SELECT id FROM events WHERE std_id = '$std_id' AND start_event = '$date'";
+$query = $this->db->query($sql);
+$result =  $query->result();
+if($query) {
+    return $result;  
+    }
+  else{       
+  return false;
+    }
+}
+
 public function get_events_date($start_date,$end_date,$std_id,$class_id) {
   $sql =  "SELECT e.id, e.title, e.description, e.color, e.start_event, e.end_event, e.std_id, e.t_id ,e.teacher_confirm, e.contact_confirm FROM `events` as e
   inner join student as std on std.std_id = e.std_id
@@ -43,6 +55,22 @@ if($query) {
   return false;
     }
 }
+
+// public function get_events_date($start_date,$end_date,$std_id,$class_id) {
+//   $sql = "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date ,e.id, e.title, e.description, e.color, e.start_event, e.end_event, e.std_id, e.t_id ,e.teacher_confirm, e.contact_confirm
+//   FROM `events` as e
+//   inner join student as std on std.std_id = e.std_id
+//   WHERE start_event BETWEEN '$start_date' AND  '$end_date' 
+//   AND e.std_id = '$std_id' AND std.class_id = '$class_id' AND e.teacher_confirm = 0 ORDER BY `e`.`start_event` DESC";
+// $query = $this->db->query($sql);
+// $result =  $query->result();
+// if($query) {
+//     return $result;  
+//     }
+//   else{       
+//   return false;
+//     }
+// }
 
 public function get_stdid_bycode($student_search) {
   $sql ="SELECT * FROM student
