@@ -18,20 +18,20 @@
                                 <!-- <div class="tiles-heading">Revenue</div> -->
                                 <div class="tiles-body-alt">
                                     <!--i class="fa fa-money"></i-->
-                                    <div class="text-center ">View</div>
-                                    <small>-13.5% from last week</small>
+                                    <div class="text-center ">แผนก</div>
+                                    <small>แผนกที่ควบคุม</small>
                                 </div>
                                 <!-- <div class="tiles-footer">go to accounts</div> -->
                             </a>
                         </div>
 
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-toyo" href="<?php echo base_url(); ?>teacher/calendar">
+                            <a class="info-tiles tiles-primary" href="<?php echo base_url(); ?>teacher/student">
                                 <!-- <div class="tiles-heading">Profit</div> -->
                                 <div class="tiles-body-alt">
-                                    <i class="fa fa-calendar"></i>
-                                    <div class="text-center">Calendar</div>
-                                    <small>+8.7% from last period</small>
+                                    <i class="fa fa-user"></i>
+                                    <div class="text-center">นักเรียน</div>
+                                    <small>ค้นหาข้อมูลรายบุคคล</small>
                                 </div>
                                 <!-- <div class="tiles-footer">more info</div> -->
                             </a>
