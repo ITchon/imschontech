@@ -44,11 +44,13 @@
 
       $start_date = $data['train_detail'][0]->start_date;
       $end_date = $data['train_detail'][0]->end_date;
-
-
-      $sql =  "SELECT * FROM `events` where start_event <= '$end_date' AND end_event >= '$start_date' and std_id = '$std_id'";
+      $sql =  "SELECT * FROM `events`WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id'";
       $query = $this->db->query($sql); 
       $data['result'] = $query->result();
+      
+      $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' ORDER BY `events`.`start_event` DESC";
+      $query = $this->db->query($sql); 
+      $data['result_test'] = $query->result();
 
       $this->load->library('Googlemaps');
       $config['center'] = '37.4419, -122.1419';
@@ -83,6 +85,7 @@
     }
     
     function error(){
+      $this->load->view('student/footer');
       $this->load->view('student/header');
       $this->load->view('student/error');
     }

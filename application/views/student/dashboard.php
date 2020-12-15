@@ -1,4 +1,4 @@
-<head><?php echo $map['js']; ?></head>
+<head><?php echo $map['js'];?></head>
 
 			<div class="row">
 				<div class="col-md-12"> 
@@ -94,50 +94,96 @@
                                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
 	              	                    				<tr>
-	              	                    					<th>#</th>
+	              	                    					<th>Date</th>
 	              	                    					<th width="40%">Title</th>
-	              	                    					<th>Start</th>
-	              	                    					<th>End</th>
 	              	                    					<th width="10%">Teacher</th>
 	              	                    					<th width="10%">Company</th>
+	              	                    					<th width="3%"> - </th>
 	              	                    				</tr>
 	              	                    			</thead>
 	              	                    			<tbody>
-					                    			  <?php foreach($result as $r){ ?>
-	              	                    				<tr>
-					                    				  <td><?php echo $r->id ?></td>
-					                    				  <td><?php echo $r->title ?></td>
-					                    				  <td><?php echo $r->start_event ?></td>
-					                    				  <td><?php echo $r->end_event ?></td>
-														  <?php if($r->teacher_confirm == 0){
-															$t_color	= 	"text-warning";
-															$t_text 	= 	"รอการยืนยัน";
-														  }else if($r->teacher_confirm == 1){
-															$t_color	= 	"text-success";
-															$t_text 	= 	"ยืนยันเรียบร้อย";
-														  }else if($r->teacher_confirm == 2){
-															$t_color	= 	"text-danger";
-															$t_text 	= 	"ปฎิเสธการยืนยัน";
+													  <?php 
 
-														  }
-														  ?>
-														  <?php if($r->contact_confirm == 0){
-															$c_color	= 	"text-warning";
-															$c_text 	= 	"รอการยืนยัน";
-														  }else if($r->contact_confirm == 1){
-															$c_color	= 	"text-success";
-															$c_text 	= 	"ยืนยันเรียบร้อย";
-														  }else if($r->contact_confirm == 2){
-															$c_color	= 	"text-danger";
-															$c_text 	= 	"ปฎิเสธการยืนยัน";
-
-														  }
-														  ?>
-					                    				 <?php  echo "<td class='text-center $t_color'>$t_text </td>"; ?>
-					                    				 <?php  echo "<td class='text-center $c_color'>$c_text </td>"; ?>
-														 
-					                    				</tr>
-					                    				  <?php  } ?> 
+											foreach($result_test as $row){
+												
+												$s = $row->date;
+												$dt = new DateTime($s);
+												$date = $dt->format('m/d/Y');
+												$time = $dt->format('H:i:s');
+												?>
+												<tr>
+												<td><?php echo $date ?></td>
+												<td>
+												<?php foreach($result as $r){
+														$s = $r->start_event;
+														$dt = new DateTime($s);
+														$date_event = $dt->format('m/d/Y');
+														$time = $dt->format('H:i:s');
+														if($date == $date_event){
+															echo $r->title."  ";
+														}
+												} ?>
+												</td>
+												<td class="text-center">
+												<?php
+												$a = [];
+												 foreach($result as $r){
+														$s = $r->start_event;
+														$dt = new DateTime($s);
+														$date_event = $dt->format('m/d/Y');
+														$time = $dt->format('H:i:s');
+														if($date == $date_event){
+															array_push($a,$r->teacher_confirm);
+														}
+												}
+												
+												if (in_array("1", $a))
+												  {
+													echo "<span style='color:#44c748'>ยืนยันเรียบร้อย</span>";
+												  }
+												  else if(in_array("2", $a)){
+													echo "<span style=''>ปฎิเสธการยืนยัน</span>";
+												  }
+												else
+												  {
+													echo "<span style='color:#fe0000'>รอยืนยัน</span>";
+												  
+												  }
+												?> 
+												</td>
+												<td class="text-center">
+												<?php
+												$a = [];
+												foreach($result as $r){
+														$s = $r->start_event;
+														$dt = new DateTime($s);
+														$date_event = $dt->format('m/d/Y');
+														$time = $dt->format('H:i:s');
+														if($date == $date_event){
+															array_push($a,$r->contact_confirm);
+														}
+												} 
+												if (in_array("1", $a))
+												  {
+													echo "<span style='color:#44c748'>ยืนยันเรียบร้อย</span>";
+												  }
+												  else if(in_array("2", $a)){
+													echo "<span style='color:#00000'>ปฎิเสธการยืนยัน</span>";
+												  }
+												else
+												  {
+													echo "<span style='color:#fe0000'>รอยืนยัน</span>";
+												  
+												  }
+												?>
+												</td>
+												<td>
+												<a class="open-modal" ><i class="fa fa-eye"></i></a>
+												</td>
+												</tr>
+												<?php
+													}
+														  ?> 
                                                     
 	              	                    			</tbody>
                                                 </table>
@@ -157,12 +203,29 @@
 </body>
 </html>
 <script>
-$(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    } );
-} );
-</script>
+$(document).on('click', '.open-modal', function() {
+	 var id = $(this).val();
+	 $.ajax({
+				url: "<?php
+				$zone = $this->uri->segment('1');
+					 echo base_url("crud/$zone");
+					 ?>",  
+    			type: "POST",
+    			cache: false,
+    			data:{
+    				id: id
+    			},
+    			success: function(data){		
+     			//  $('#smart_fac').modal();
+     			//  $('#data_body').html(data);
+     			//  $('#text_header').html($("#Textheader").val());//modal head
+
+				  
+	 			//  console.log(data);
+    			},
+          error:function(data){
+            // console.log(data);
+          }
+    });
+});
+ </script>
