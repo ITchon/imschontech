@@ -92,19 +92,7 @@
                                               echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
                                               echo form_close(); ?>
                             </div>
-                            <!-- <?php if($result_ed[0]->dv_id == ''){?> -->
-                             <div class="panel-body collapse in">
-                                <?php echo form_open('manage_division/edit_p');?>
-                                <?php echo form_hidden('dv_id',$result_ed[0]->dv_id);  ?>
-                                        <div class="form-group">
-                                            <label for="dv_name">ชื่อแผนก</label>
-                                            <input type="text" name="dv_name" value="<?php echo $result_ed[0]->dv_name ?>" class="form-control">
-                                        </div>
-                                    
-                                        <?php echo form_submit(array('dv_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                                              echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
-                                              echo form_close(); ?>
-                            </div><?php } ?>
+                          
                         </div>
                 </div>
             </div>

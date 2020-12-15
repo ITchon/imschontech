@@ -4,11 +4,24 @@
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="index.htm">Dashboard</a></li>
-                <li>Admin</li>
-                <li class="active">Data Company</li>
+                <li>Advanced Tables</li>
+                <li class="active">Data Tables</li>
             </ol>
 
-            <h1>Data Company</h1>
+            <h1>Data Tables</h1>
+            <!-- <div class="options">
+                <div class="btn-toolbar">
+                    <div class="btn-group hidden-xs">
+                        <a href='#' class="btn btn-default dropdown-toggle" data-toggle='dropdown'><i class="fa fa-cloud-download"></i><span class="hidden-sm"> Export as  </span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Text File (*.txt)</a></li>
+                            <li><a href="#">Excel File (*.xlsx)</a></li>
+                            <li><a href="#">PDF File (*.pdf)</a></li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn btn-default"><i class="fa fa-cog"></i></a>
+                </div>
+            </div> -->
         </div>
 
 
@@ -17,55 +30,24 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Data Company</h4>
+                            <h4>Data Tables</h4>
                         </div>
                         <div class="panel-body collapse in">
-                                <?php echo form_open('Company/insert_cp_p');?>
-                                
+                                <?php echo form_open('manage_division/edit_p');?>
+                                <?php echo form_hidden('dv_id',$result_ed[0]->dv_id);  ?>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="company_name">ชื่อบริษัท</label>
-                                            <input type="text" name="company_name" class="form-control">
+                                            <label for="dv_name">ชื่อบริษัท</label>
+                                            <input type="text" name="dv_name" value="<?php echo $result_ed[0]->dv_name  ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label for="address">ที่อยู่</label>
-                                           
-                                                <textarea name="address" class="form-control"></textarea>
-                                         
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="province">อำเภอ</label>
-                                            <input type="text" name="province" class="form-control">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="zipcode">รหัสไปรษณีย์</label>
-                                            <input type="text" name="zipcode" class="form-control">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="tel">เบอร์ติดต่อ</label>
-                                            <input type="text" name="tel" class="form-control">
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                
+                                    
                             </div>
                         </div>
-                        <?php echo form_submit(array('company_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_company', 'Cancel',array('class'=>'btn btn-dark'));
+                        <?php echo form_submit(array('dv_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
+                              echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>

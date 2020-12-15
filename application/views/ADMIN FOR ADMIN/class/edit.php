@@ -64,8 +64,8 @@
                                 
                             </div>
                         </div>
-                        <?php echo form_submit(array('company_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'Class', 'Cancel',array('class'=>'btn btn-dark'));
+                        <?php echo form_submit(array('class_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
+                              echo anchor(base_url().'Classs', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>

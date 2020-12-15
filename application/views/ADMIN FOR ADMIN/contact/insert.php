@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <?php echo form_submit(array('teacher_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_teacher', 'Cancel',array('class'=>'btn btn-dark'));
+                              echo anchor(base_url().'manage_contact', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>
