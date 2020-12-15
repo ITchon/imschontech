@@ -12,7 +12,7 @@ input[type=text] {
                 <div class="col-md-12">
                        <h1>ใส่รหัส</h1>
                        <form target = '_blank' action="<?php echo base_url()?>teacher/std_data" method="get">
-            <input type="text" class="form-control" name="student_search" placeholder="รหัสนักศึกษา">
+            <input type="text" class="form-control input-lg" name="student_search" placeholder="รหัสนักศึกษา">
                          </form>   
                          <?php  if(isset($result)){
             if($result != null){

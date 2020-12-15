@@ -28,10 +28,13 @@ class Login extends CI_Controller {
 			if($data != true){
 				$data= $this->model->chk_admin($user,$pass);
 				if($data != true){
-					$this->session->set_flashdata('success','<div class="alert alert-danger hide-it">  
-					<span> Wrong username or password </span>
-				  </div> ');
-					  redirect('login');  
+					$data= $this->model->chk_contact($user,$pass);
+					if($data != true){
+						$this->session->set_flashdata('success','<div class="alert alert-danger hide-it">  
+						<span> Wrong username or password </span>
+					  </div> ');
+						  redirect('login');  
+					}
 				}
 			}
 		}
@@ -54,7 +57,7 @@ class Login extends CI_Controller {
 									'name' =>$data['name']);	
 					$this->session->set_userdata($arrData);
 					$username = $this->session->userdata('username');
-					redirect('student');
+					redirect('contact');
 					 }
 				else if($data['std_id']){
 				$arrData = array('std_id'=> $data['std_id'],

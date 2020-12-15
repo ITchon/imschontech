@@ -59,6 +59,19 @@ public function chk_admin($user,$pass) {
       }
 }
 
+public function chk_contact($user,$pass) {  
+    // $pass = base64_encode(trim($pass));
+    $sql ="SELECT * FROM contact WHERE username='$user' and password='$pass'";
+  $query = $this->db->query($sql);
+  if($query->num_rows()!=0) {
+    $result = $query->result_array();
+      return $result[0];  
+      }
+    else{       
+    return false;
+      }
+}
+
 public function CheckSession()        
 {
   if($this->session->userdata('std_id')){
@@ -84,6 +97,15 @@ public function CheckSession()
    return FALSE;
     }
    }
+
+   else if($this->session->userdata('contact_id')){
+    if($this->session->userdata('contact_id')==""){
+      echo "<script>alert('Please Login')</script>";
+      redirect('login','refresh');
+   return FALSE;
+    }
+   }
+
    else if($this->session->userdata('fname') == ''){
       echo "<script>alert('Please Login')</script>";
       redirect('login','refresh');

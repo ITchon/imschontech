@@ -121,13 +121,13 @@
 
 														  }
 														  ?>
-														  <?php if($r->company_confirm == 0){
+														  <?php if($r->contact_confirm == 0){
 															$c_color	= 	"text-warning";
 															$c_text 	= 	"รอการยืนยัน";
-														  }else if($r->company_confirm == 1){
+														  }else if($r->contact_confirm == 1){
 															$c_color	= 	"text-success";
 															$c_text 	= 	"ยืนยันเรียบร้อย";
-														  }else if($r->company_confirm == 2){
+														  }else if($r->contact_confirm == 2){
 															$c_color	= 	"text-danger";
 															$c_text 	= 	"ปฎิเสธการยืนยัน";
 

@@ -5,7 +5,7 @@
             <div class="row">
             <div class=" col-sm-12">
             <form action="<?php echo base_url()?>teacher/list/" method="post">
-            <select name="class_id" id="e1" class="form-control" onchange="this.form.submit()">
+            <select name="class_id" id="e1" class="form-control input-lg" onchange="this.form.submit()">
             <option value="">- - - Select - - -</option>
             <?php foreach($dv_class_list as $d){ ?>
             <option value="<?php echo $d->class_id ?>"><?php echo $d->class_name.$d->class_group ?></option>
