@@ -37,8 +37,8 @@ class manage_student Extends CI_controller{
 					INNER JOIN class AS cl ON cl.class_id = std.class_id";
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
-		$this->load->view('ADMIN FOR ADMIN/student/view',$data);
-		$this->load->view('ADMIN FOR ADMIN/footer_2020');
+		$this->load->view('admin/student/view',$data);
+		$this->load->view('admin/footer_2020');
 	
     }
     
@@ -47,7 +47,7 @@ class manage_student Extends CI_controller{
 		$qry_inp =  "SELECT * FROM class";
         $query = $this->db->query($qry_inp); 
         $data['result_cl'] = $query->result();
-		$this->load->view('ADMIN FOR ADMIN/student/insert',$data);
+		$this->load->view('admin/student/insert',$data);
 	}
 
 	public function insert_student_p()
@@ -72,7 +72,7 @@ class manage_student Extends CI_controller{
 		$id = $this->uri->segment('3'); 
         $data['result'] = $this->student_model->selectOnestudent($id);
         // $data['result_g'] = $this->teacher_model->select();
-		$this->load->view('ADMIN FOR ADMIN/student/edit',$data);
+		$this->load->view('admin/student/edit',$data);
 	}
 
 	public function edit_student_p()

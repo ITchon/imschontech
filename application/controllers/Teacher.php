@@ -14,7 +14,7 @@ class Teacher Extends CI_controller{
         $this->load->model('student_model');
 
 		$this->model->CheckSession();
-		$this->model->block_student();
+		$this->model->block_for_teacher();
     }
     
     public function dashboard() 	

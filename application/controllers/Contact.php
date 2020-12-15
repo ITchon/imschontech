@@ -13,13 +13,13 @@ class Contact Extends CI_controller{
         $this->load->model('model_contact');
 
 		$this->model->CheckSession();
-		$this->model->block_student();
+		$this->model->block_for_contact();
 
 
 
 	}
 
-	public function index() 	
+	public function dashboard() 	
 	{
         $contact_id = $this->session->userdata('contact_id');
         $data['cp'] = $this->model_contact->get_contact_profile($contact_id);

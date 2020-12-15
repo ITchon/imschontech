@@ -34,8 +34,8 @@ class manage_train Extends CI_controller{
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
         // $data['result_g'] = $this->train_model->train();
-		$this->load->view('ADMIN FOR ADMIN/train/view',$data);
-		$this->load->view('ADMIN FOR ADMIN/footer_2020');
+		$this->load->view('admin/train/view',$data);
+		$this->load->view('admin/footer_2020');
 	
 	}
 	public function insert()
@@ -49,7 +49,7 @@ class manage_train Extends CI_controller{
 		$qry_inp1 =  "SELECT * FROM contact";
 		$query1 = $this->db->query($qry_inp1); 
 		$data['result_ct'] = $query1->result();
-		$this->load->view('ADMIN FOR ADMIN/train/insert',$data);
+		$this->load->view('admin/train/insert',$data);
 	}
 
 	public function insert_p()
@@ -79,7 +79,7 @@ class manage_train Extends CI_controller{
 		$qry_inp1 =  "SELECT * FROM contact";
 		$query1 = $this->db->query($qry_inp1); 
 		$data['result_ct'] = $query1->result();
-		$this->load->view('ADMIN FOR ADMIN/train/edit',$data);
+		$this->load->view('admin/train/edit',$data);
 	}
 
 	public function edit_p()
