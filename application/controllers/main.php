@@ -31,8 +31,6 @@ class main Extends CI_controller{
 			$this->load->view('nevbar');
 			$this->load->view('ADMIN FOR ADMIN/index');
 
-			$this->load->view('admin for admin/index');
-
 		}
 		 
 		 $this->load->view('footer');
