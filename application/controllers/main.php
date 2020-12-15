@@ -29,8 +29,8 @@ class main Extends CI_controller{
 			
 		}else if($this->session->userdata('admin_id')){
 			$this->load->view('nevbar');
-			$this->load->view('ADMIN FOR ADMIN/index');
 
+			$this->load->view('ADMIN FOR ADMIN/index');
 		}
 		 
 		 $this->load->view('footer');

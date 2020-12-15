@@ -28,15 +28,6 @@ class Teacher Extends CI_controller{
 
     }
 
-    public function student() 	
-	{
-
-        $this->load->view('teacher/menu');
-		$this->load->view('teacher/student');
-		$this->load->view('footer');
-
-    }
-
     public function division() 	
 	{
         $teacher_id =  $this->session->userdata('teacher_id');
@@ -82,10 +73,8 @@ class Teacher Extends CI_controller{
 
 	public function list() 	
 	{
-        $class_id = $this->input->post('class_id');
-        if($this->uri->segment('3')){
-            $class_id =  $this->uri->segment('3');
-        }
+        $student_search = $this->input->get('student_search');
+        $class_id =  $this->uri->segment('3');
 
         $data['student_list'] = $this->model_teacher->get_student_by($class_id);
         $data['class'] = $this->model_teacher->show_class($class_id);
@@ -112,7 +101,7 @@ class Teacher Extends CI_controller{
 
     //     if($this->uri->segment('3')){
     //     $std_id =  $this->uri->segment('3');
-    //     $res = $this->model_teacher->get_std($std_id);
+    //     $res = $this->model_teacher->get_classid($std_id);
     //     $class_id = $res->class_id;
     //     $data['student_list'] = $this->model_teacher->get_student_by($class_id);
     //     $data['class'] = $this->model_teacher->show_class($class_id);
@@ -151,16 +140,15 @@ class Teacher Extends CI_controller{
     $data['train_detail'] = $this->student_model->get_student($std_id,$train_id);
     $data['train_select'] = $this->student_model->get_train($std_id);
     
-    $res = $this->model_teacher->get_std($std_id);
-    $class_id = $res->class_id;
-
     $start_date = $data['train_detail'][0]->start_date;
     $end_date = $data['train_detail'][0]->end_date;
-    $data['result'] = $this->model_teacher->get_events_date($start_date,$end_date,$std_id,$class_id);
-
+    $sql =  "SELECT * FROM `events`WHERE start_event >= '$start_date' AND end_event <= '$end_date' and std_id = '$std_id'";
+    $query = $this->db->query($sql); 
+    $data['result'] = $query->result();
     } else if($this->input->get('student_search')){
         
-        $train_id = $this->input->post('train_id'); 
+    $std_id =  $this->uri->segment('3');
+    $train_id = $this->input->post('train_id'); 
 
         $student_search = $this->input->get('student_search');
         $res = $this->model_teacher->get_stdid_bycode($student_search);
@@ -172,7 +160,7 @@ class Teacher Extends CI_controller{
     
         $start_date = $data['train_detail'][0]->start_date;
         $end_date = $data['train_detail'][0]->end_date;
-        $data['result'] = $this->model_teacher->get_events_date($start_date,$end_date,$std_id,$class_id);
+        $data['result'] = $this->model_teacher->get_student_detail_byid($std_id,$class_id);
      }
     $this->load->library('Googlemaps');
     $config['center'] = '37.4419, -122.1419';

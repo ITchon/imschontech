@@ -22,7 +22,9 @@ class manage_division Extends CI_controller{
 		$qry_inp =  "SELECT * FROM division";
         $query = $this->db->query($qry_inp); 
 		$data['result'] = $query->result();
-
+        $id = $this->uri->segment('3');
+        $query = $this->db->query("SELECT * FROM division WHERE dv_id = '$id'");
+        $data['result_ed'] = $query->result();
 		$this->load->view('ADMIN FOR ADMIN/division/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
     }
@@ -39,11 +41,14 @@ class manage_division Extends CI_controller{
 
 	public function edit_division()
 	{	
+		$qry_inp =  "SELECT * FROM division";
+        $query = $this->db->query($qry_inp); 
+		$data['result'] = $query->result();
 		$id = $this->uri->segment('3'); 
         $data['result_ed'] = $this->division_model->selectOnedivision($id);
-     
-		$this->load->view('ADMIN FOR ADMIN/division/edit',$data);
-
+        // $data['result_g'] = $this->teacher_model->select();
+		$this->load->view('ADMIN FOR ADMIN/division/view',$data);
+		$this->load->view('ADMIN FOR ADMIN/footer_2020');
 	}
 
 	public function edit_p()
@@ -52,8 +57,8 @@ class manage_division Extends CI_controller{
        
 	    $dv_id 	  = $this->input->post('dv_id');
         $this->division_model->update_division($dv_name ,$dv_id); 
-		redirect('manage_division');
-
+		$this->load->view('ADMIN FOR ADMIN/division/view');
+		$this->load->view('ADMIN FOR ADMIN/footer_2020');
 	}
 
 	public function delete_division_p($dv_id)
