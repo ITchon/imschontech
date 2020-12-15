@@ -16,8 +16,17 @@ public function chk_student($user,$pass) {
           }
 }
 
-public function block_student() {  
-        if($this->session->userdata('std_id')){
+public function block_for_teacher() {  
+        if($this->session->userdata('std_id') || $this->session->userdata('contact_id')){
+          echo "<script>";
+            echo 'alert("Get back");';
+            echo 'history.go(-1);';
+            echo '</script>';
+        }
+}
+
+public function block_for_contact() {  
+        if($this->session->userdata('std_id') || $this->session->userdata('teacher_id')){
           echo "<script>";
             echo 'alert("Get back");';
             echo 'history.go(-1);';

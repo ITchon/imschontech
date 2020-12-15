@@ -27,15 +27,18 @@ class main Extends CI_controller{
       		$this->load->view('student/dashboard');
 	  		$this->load->view('footer');
 			
+
 		}else if($this->session->userdata('admin_id')){
 			$this->load->view('nevbar');
 
 			$this->load->view('ADMIN FOR ADMIN/index');
 		}
+
+
 		 
 		 $this->load->view('footer');
-
 	}
+}
 
 
 

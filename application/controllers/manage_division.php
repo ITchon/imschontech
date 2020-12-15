@@ -25,8 +25,10 @@ class manage_division Extends CI_controller{
         $id = $this->uri->segment('3');
         $query = $this->db->query("SELECT * FROM division WHERE dv_id = '$id'");
         $data['result_ed'] = $query->result();
+
 		$this->load->view('ADMIN FOR ADMIN/division/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
+
     }
     
 
@@ -46,7 +48,7 @@ class manage_division Extends CI_controller{
 		$data['result'] = $query->result();
 		$id = $this->uri->segment('3'); 
         $data['result_ed'] = $this->division_model->selectOnedivision($id);
-        // $data['result_g'] = $this->teacher_model->select();
+
 		$this->load->view('ADMIN FOR ADMIN/division/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
 	}
@@ -57,6 +59,7 @@ class manage_division Extends CI_controller{
        
 	    $dv_id 	  = $this->input->post('dv_id');
         $this->division_model->update_division($dv_name ,$dv_id); 
+
 		$this->load->view('ADMIN FOR ADMIN/division/view');
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
 	}
