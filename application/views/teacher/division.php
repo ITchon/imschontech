@@ -1,19 +1,17 @@
 <div id="">
     <div id='wrap' >
 
-  <select class="itemName form-control" style="width:500px" name="itemName">
-<option value="">asd</option>
-</select>
-
-
         <div class="container" style="background-color: #ffffff;" >
             <div class="row">
             <div class=" col-sm-12">
-            <select id="e1" class="form-control">
+            <form action="<?php echo base_url()?>teacher/list/" method="post">
+            <select name="class_id" id="e1" class="form-control input-lg" onchange="this.form.submit()">
+            <option value="">- - - Select - - -</option>
             <?php foreach($dv_class_list as $d){ ?>
-            <option value="<?php echo $d->class_id ?>"><?php echo $d->class_name ?></option>
+            <option value="<?php echo $d->class_id ?>"><?php echo $d->class_name.$d->class_group ?></option>
             <?php } ?>
             </select>
+            </form>
             <br>
             </div>
                 <div class="col-md-12">
