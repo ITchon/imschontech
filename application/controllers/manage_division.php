@@ -41,9 +41,6 @@ class manage_division Extends CI_controller{
 
 	public function edit_division()
 	{	
-		$qry_inp =  "SELECT * FROM division";
-        $query = $this->db->query($qry_inp); 
-		$data['result'] = $query->result();
 		$id = $this->uri->segment('3'); 
         $data['result_ed'] = $this->division_model->selectOnedivision($id);
         // $data['result_g'] = $this->teacher_model->select();

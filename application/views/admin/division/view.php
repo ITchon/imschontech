@@ -1,4 +1,12 @@
 
+
+
+
+
+
+
+
+
 <div id="page-content">
     <div id='wrap'>
         <div id="page-heading">
@@ -88,23 +96,11 @@
                                             <input type="text" name="dv_name" class="form-control">
                                         </div>
                                     
-                                        <?php echo form_submit(array('division_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                                              echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
-                                              echo form_close(); ?>
-                            </div>
-                            <!-- <?php if($result_ed[0]->dv_id == ''){?> -->
-                             <div class="panel-body collapse in">
-                                <?php echo form_open('manage_division/edit_p');?>
-                                <?php echo form_hidden('dv_id',$result_ed[0]->dv_id);  ?>
-                                        <div class="form-group">
-                                            <label for="dv_name">ชื่อแผนก</label>
-                                            <input type="text" name="dv_name" value="<?php echo $result_ed[0]->dv_name ?>" class="form-control">
-                                        </div>
-                                    
                                         <?php echo form_submit(array('dv_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
                                               echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
                                               echo form_close(); ?>
-                            </div><?php } ?>
+                            </div>
+
                         </div>
                 </div>
             </div>
@@ -121,13 +117,4 @@
         </div>
     </footer>
 				
-
-
-<!--
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-
-<script>!window.jQuery && document.write(unescape('%3Cscript src="assets/js/jquery-1.10.2.min.js"%3E%3C/script%3E'))</script>
-<script type="text/javascript">!window.jQuery.ui && document.write(unescape('%3Cscript src="assets/js/jqueryui-1.10.3.min.js'))</script>
--->
-
+  
