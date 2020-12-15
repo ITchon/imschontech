@@ -84,11 +84,12 @@
                                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
 	              	                    				<tr>
-	              	                    					<th width="5%">#</th>
-	              	                    					<th width="35%">Title</th>
-	              	                    					<th width="35%">Start</th>
-	              	                    					<th width="25%">End</th>
-	              	                    					<th width="25%"> - </th>
+	              	                    					<th>#</th>
+	              	                    					<th width="40%">Title</th>
+	              	                    					<th>Start</th>
+	              	                    					<th>End</th>
+	              	                    					<th width="10%">Teacher</th>
+	              	                    					<th width="10%">Company</th>
 	              	                    				</tr>
 	              	                    			</thead>
 	              	                    			<tbody>
@@ -98,7 +99,33 @@
 					                    				  <td><?php echo $r->title ?></td>
 					                    				  <td><?php echo $r->start_event ?></td>
 					                    				  <td><?php echo $r->end_event ?></td>
-					                    				  <td><a href="#" class=""><i class="fa fa-eye"></i></a></td>
+														  <?php if($r->teacher_confirm == 0){
+															$t_color	= 	"text-warning";
+															$t_text 	= 	"รอการยืนยัน";
+														  }else if($r->teacher_confirm == 1){
+															$t_color	= 	"text-success";
+															$t_text 	= 	"ยืนยันเรียบร้อย";
+														  }else if($r->teacher_confirm == 2){
+															$t_color	= 	"text-danger";
+															$t_text 	= 	"ปฎิเสธการยืนยัน";
+
+														  }
+														  ?>
+														  <?php if($r->company_confirm == 0){
+															$c_color	= 	"text-warning";
+															$c_text 	= 	"รอการยืนยัน";
+														  }else if($r->company_confirm == 1){
+															$c_color	= 	"text-success";
+															$c_text 	= 	"ยืนยันเรียบร้อย";
+														  }else if($r->company_confirm == 2){
+															$c_color	= 	"text-danger";
+															$c_text 	= 	"ปฎิเสธการยืนยัน";
+
+														  }
+														  ?>
+					                    				 <?php  echo "<td class='text-center $t_color'>$t_text </td>"; ?>
+					                    				 <?php  echo "<td class='text-center $c_color'>$c_text </td>"; ?>
+														 
 					                    				</tr>
 					                    				  <?php  } ?> 
                                                     

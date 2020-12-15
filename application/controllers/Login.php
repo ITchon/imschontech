@@ -48,6 +48,14 @@ class Login extends CI_Controller {
 				$username = $this->session->userdata('username');
 				redirect('teacher/dashboard');
 				 }
+				 else if($data['contact_id']){
+					$arrData = array('contact_id'=> $data['contact_id'],
+									'tel'=> $data['tel'],
+									'name'=> $data['name'],],
+					$this->session->set_userdata($arrData);
+					$username = $this->session->userdata('username');
+					redirect('contact');
+					 }
 				else if($data['std_id']){
 				$arrData = array('std_id'=> $data['std_id'],
 								'tel'=> $data['tel'],
