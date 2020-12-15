@@ -71,8 +71,11 @@ class manage_student Extends CI_controller{
 	{
 		$id = $this->uri->segment('3'); 
         $data['result'] = $this->student_model->selectOnestudent($id);
-        // $data['result_g'] = $this->teacher_model->select();
+        $qry_inp =  "SELECT * FROM class";
+        $query = $this->db->query($qry_inp); 
+        $data['result_cl'] = $query->result();
 		$this->load->view('ADMIN FOR ADMIN/student/edit',$data);
+		
 	}
 
 	public function edit_student_p()

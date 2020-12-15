@@ -108,23 +108,28 @@
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="class_id">ระดับชั้น</label>
-                                            <input type="text" name="class_id" class="form-control" disabled>
-                                            
+                                            <!-- <input type="text" name="class_id" value="<?php echo $result[0]->class_id ?>" class="form-control" > -->
+                                            <select name="gender" class="form-control">
+                                                <option value="<?php echo $result_cl[0]->class_id ?>"><?php echo $result_cl[0]->class_name ?></option>
+                                                <?php foreach($result_cl as $cl){?>
+                                                <option value="<?php echo $cl->class_id ?>"><?php echo $cl->class_name ?></option>
+
+
+                                            <?php } ?>
+                                            </select>
                                         </div>
                                     </div>
                                     
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="std_code">รหัสนักเรียน</label>
-                                            <input type="text" name="std_code" class="form-control">
-                                            </select>
+                                            <input type="text" name="std_code" value="<?php echo $result[0]->std_code ?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="birth_date">ปีเกิด</label>
-                                            <input type="date" name="birth_date" class="form-control">
-                                            </select>
+                                            <input type="date" name="birth_date" value="<?php echo $result[0]->birth_date ?>"class="form-control">
                                         </div>
                                     </div>
                                 
@@ -133,7 +138,7 @@
                             </div>
                         </div>
                         <?php echo form_submit(array('teacher_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_teacher', 'Cancel',array('class'=>'btn btn-dark'));
+                              echo anchor(base_url().'manage_student', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>

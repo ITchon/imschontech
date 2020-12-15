@@ -12,26 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <style>
-.fc-day:hover{
-    background: #bed7f3;
-
-}
-
-/*Allow pointer-events through*/
-.fc-slats, /*horizontals*/
-.fc-content-skeleton, /*day numbers*/
-.fc-bgevent-skeleton /*events container*/{
-    pointer-events:none
-}
-
-/*Turn pointer events back on*/
-.fc-bgevent,
-.fc-event-container{
-    pointer-events:auto; /*events*/
-}
-
-    </style>
     <script>
     $(document).ready(function(){
         var today = new Date();
@@ -48,19 +28,21 @@ today = yyyy + '-' + mm + '-' + dd;
                 right:'month,agendaWeek,agendaDay',
              
             },
+
+
+            
+
             timeFormat: 'HH:mm',
             slotLabelFormat:'HH:mm',
             minTime:'00:00',
             maxTime:'24:00',
             timezone: 'Asia/Bangkok',
-            selectable:false,
+            selectable:true,
             allDaySlot: false,
             eventTextColor: '#FFFFFF',
-            nextDayThreshold : "24:00:00",
-            displayEventTime: true,
-			displayEventEnd:false,
+            nextDayThreshold : "00:00:01",
+			      displayEventEnd:true,
             editable:true,
- 
             events:"<?php echo base_url(); ?>fullcalendar/load",
                     eventRender: function (event, element, view) {
                 if (event.allDay === 'true') {
@@ -70,44 +52,54 @@ today = yyyy + '-' + mm + '-' + dd;
                 }
             },
 
-
-        dayClick:function(date, jsEvent, view)
+            select:function(start, end, allDay)
             {   
-            //  $(this).css('background-color', '#bed7f3'); 
                 
-            var datetime = $.fullCalendar.formatDate(date, "Y-MM-DD HH:mm:ss");
-            var date = datetime.slice(0, 10);
-            var time = datetime.slice(11, 20);
-            document.getElementById("start_date").value = date;
+
+                date_last_clicked = $(this);
+             $(this).css('background-color', '#bed7f3'); 
+            var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+            var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+     
+            var str = start; 
+            var time = str.slice(11, 20);
+            var start = str.slice(0, 10);
+            var end = end; 
+            var end_time = end.slice(11, 20);
+            var end_start = end.slice(0, 10);
             document.getElementById("start_time").value = time;
+            document.getElementById("start_date").value = start;
+            document.getElementById("end_time").value = end_time;
+            document.getElementById("end_date").value = end_start;
+
                   $('#addModal').modal();
            
          
             },
           
-            // eventResize:function(event)
-            // {
-            //     var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-            //     var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+            eventResize:function(event)
+            {
+                var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+                var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
 
-            //     var title = event.title;
+                var title = event.title;
 
        
-            //     var id = event.id;
+                var id = event.id;
 
-            //     $.ajax({
-            //         url:"<?php echo base_url(); ?>fullcalendar/update",
-            //         type:"POST",
-            //         data:{title:title, start:start, end:end, id:id},
-            //         success:function()
-            //         {
-            //             calendar.fullCalendar('refetchEvents');
+                $.ajax({
+                    url:"<?php echo base_url(); ?>fullcalendar/update",
+                    type:"POST",
+                    data:{title:title, start:start, end:end, id:id},
+                    success:function()
+                    {
+                        calendar.fullCalendar('refetchEvents');
                        
-            //         }
-            //     }) 
+                    }
+                }) 
            
                 
-            // },
+            },
             
   
          
@@ -115,15 +107,15 @@ today = yyyy + '-' + mm + '-' + dd;
             eventDrop:function(event)
             {
                 var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-                // alert(start);
-                // var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-                // alert(end);
+                //alert(start);
+                var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+                //alert(end
                 var id = event.id;
 
                     $.ajax({
                     url:"<?php echo base_url(); ?>fullcalendar/update",
                     type:"POST",
-                    data:{ start:start, id:id},
+                    data:{ start:start, end:end, id:id},
                     success:function()
                     {
                         calendar.fullCalendar('refetchEvents');
@@ -138,15 +130,20 @@ today = yyyy + '-' + mm + '-' + dd;
             {
 
                 var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+             var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
              var str = start; 
             var time = str.slice(11, 20);
             var start = str.slice(0, 10);
-
+             var end = end; 
+            var end_time = end.slice(11, 20);
+            var end_start = end.slice(0, 10);
                 $('#name').val(event.title);
                 $('#description').val(event.description);
                 $('#color').val(event.color);
                 $('#edit_start_time').val((time));
                 $('#edit_start_date').val((start));
+                $('#edit_end_time').val((end_time));
+                $('#edit_end_date').val((end_start));
                 $('#event_id').val(event.id);
                 $('#editModal').modal();
             }
@@ -290,15 +287,23 @@ today = yyyy + '-' + mm + '-' + dd;
 
        
         <div class="form-group">
-                <label for="p-in" class="col-md-4 col-xs-3 label-heading">Start Date</label>
-                <div class="col-md-4 col-xs-5">
-                    <input type="date" readonly class="form-control" name="start_day" id="start_date" required>
+                <label for="p-in" class="col-md-4 label-heading">Start Date</label>
+                <div class="col-md-4">
+                    <input type="date" class="form-control" name="start_day" id="start_date" required>
                 </div>
-                <div class="col-md-4 col-xs-4">
+                <div class="col-md-4">
                     <input type="time" class="form-control" name="start_time" id="start_time" required><br>
                 </div>
         </div>
-
+        <div class="form-group">
+                <label for="p-in" class="col-md-4 label-heading">End Date</label>
+                <div class="col-md-4">
+                    <input type="date" class="form-control" name="end_day" id="end_date" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="time" class="form-control" name="end_time" id="end_time" required><br>
+                </div>
+        </div>
       </div>
 
       <div class="modal-footer">
@@ -341,23 +346,30 @@ today = yyyy + '-' + mm + '-' + dd;
                 </div>
         </div>
         <div class="form-group">
-              <label for="p-in" class="col-md-4 col-xs-3 label-heading">Start Date</label>
-                <div class="col-md-4 col-xs-5">
-                    <input type="date" readonly class="form-control" name="start_day" id="edit_start_date" required>
+                <label for="p-in" class="col-md-4 label-heading">Start Date</label>
+                <div class="col-md-4">
+                    <input type="date" class="form-control" name="start_day" id="edit_start_date" required>
                 </div>
-                <div class="col-md-4 col-xs-4">
+                <div class="col-md-4">
                     <input type="time" class="form-control" name="start_time" id="edit_start_time" required><br>
                 </div>
         </div>
-    
+        <div class="form-group">
+                <label for="p-in" class="col-md-4 label-heading">End Date</label>
+                <div class="col-md-4">
+                    <input type="date" class="form-control" name="end_day" id="edit_end_date" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="time" class="form-control" name="end_time" id="edit_end_time" required><br>
+                </div>
+        </div>
+
             <input type="hidden" name="eventid" id="event_id" value="0" />
       </div>
       <div class="modal-footer">
-      <div class="col-md-12">
         <button type="button" id="delete" name="delete" class="btn btn-danger">Delete</button>
         <input type="button" class="btn btn-primary" value="Update Event" id="editsave">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
       </div>
     </div>
   </div>

@@ -20,43 +20,43 @@
                             <h4>Data Company</h4>
                         </div>
                         <div class="panel-body collapse in">
-                                <?php echo form_open('classs/Edit_process');?>
-                                <?php echo form_hidden('class_id',$result[0]->class_id);  ?>
+                                <?php echo form_open('Company/insert_cp_p');?>
+                                
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                        <label for="teacher_id">ครู</label>
-                                            <select name="teacher_id" class="form-control">
-                                                <option value="<?php echo $result[0]->teacher_id ?>"><?php echo $result[0]->fname ." ".$result[0]->lname?></option>
-                                                <?php foreach ($result_th as $th) {
-                                                        echo " <option value=".$th->teacher_id."> ".$th->fname." ".$th->lname." </option> ";
-                                                                                 }
-                                                ?>
-                                            </select> 
+                                            <label for="company_name">ชื่อบริษัท</label>
+                                            <input type="text" name="company_name" class="form-control">
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-8">
                                         <div class="form-group">
-                                            <label for="dv_id">แผนก</label>
-                                            <select name="dv_id" class="form-control">
-                                                <option value="<?php echo $result[0]->dv_id ?>"><?php echo $result[0]->dv_name ?></option>
-                                                <?php foreach ($result_dv as $dv) {
-                                                        echo " <option value=".$dv->dv_id."> ".$dv->dv_name." </option> ";
-                                                                                 }
-                                                ?>
-                                            </select> 
+                                            <label for="address">ที่อยู่</label>
+                                           
+                                                <textarea name="address" class="form-control"></textarea>
+                                         
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                        <label for="class_name">ระดับ</label>
-                                            <input type="text" name="class_name" value="<?php echo $result[0]->class_name ?>" class="form-control">
+                                            <label for="province">อำเภอ</label>
+                                            <input type="text" name="province" class="form-control">
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                        <label for="class_group">กลุ่ม</label>
-                                            <input type="text" name="class_group" value="<?php echo $result[0]->class_group ?>" class="form-control">
+                                            <label for="zipcode">รหัสไปรษณีย์</label>
+                                            <input type="text" name="zipcode" class="form-control">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="tel">เบอร์ติดต่อ</label>
+                                            <input type="text" name="tel" class="form-control">
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <?php echo form_submit(array('company_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'Class', 'Cancel',array('class'=>'btn btn-dark'));
+                              echo anchor(base_url().'manage_company', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>

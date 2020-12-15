@@ -4,11 +4,24 @@
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="index.htm">Dashboard</a></li>
-                <li>Admin</li>
-                <li class="active">Data Company</li>
+                <li>Advanced Tables</li>
+                <li class="active">Data Tables</li>
             </ol>
 
-            <h1>Data Company</h1>
+            <h1>Data Tables</h1>
+            <!-- <div class="options">
+                <div class="btn-toolbar">
+                    <div class="btn-group hidden-xs">
+                        <a href='#' class="btn btn-default dropdown-toggle" data-toggle='dropdown'><i class="fa fa-cloud-download"></i><span class="hidden-sm"> Export as  </span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Text File (*.txt)</a></li>
+                            <li><a href="#">Excel File (*.xlsx)</a></li>
+                            <li><a href="#">PDF File (*.pdf)</a></li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn btn-default"><i class="fa fa-cog"></i></a>
+                </div>
+            </div> -->
         </div>
 
 
@@ -17,55 +30,24 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Data Company</h4>
+                            <h4>Data Tables</h4>
                         </div>
                         <div class="panel-body collapse in">
-                                <?php echo form_open('classs/insert_cl_p');?>
-                                
+                                <?php echo form_open('manage_division/edit_p');?>
+                                <?php echo form_hidden('dv_id',$result_ed[0]->dv_id);  ?>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                        <label for="teacher_id">ครู</label>
-                                            <select name="teacher_id" class="form-control">
-                                                <option value="">-select-</option>
-                                                <?php foreach ($result_th as $th) {
-                                                        echo " <option value=".$th->teacher_id."> ".$th->fname." ".$th->lname." </option> ";
-                                                                                 }
-                                                ?>
-                                            </select> 
+                                            <label for="dv_name">ชื่อบริษัท</label>
+                                            <input type="text" name="dv_name" value="<?php echo $result_ed[0]->dv_name  ?>" class="form-control">
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="dv_id">แผนก</label>
-                                            <select name="dv_id" class="form-control">
-                                            <option value="">-select-</option>
-                                                <?php foreach ($result_dv as $dv) {
-                                                        echo " <option value=".$dv->dv_id."> ".$dv->dv_name." </option> ";
-                                                                                 }
-                                                ?>
-                                            </select> 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                        <label for="class_name">ระดับชั้น</label>
-                                            <input type="text" name="class_name" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                        <label for="class_group">กลุ่ม</label>
-                                            <input type="text" name="class_group" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                
+                                    
                             </div>
                         </div>
-                        <?php echo form_submit(array('company_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'Class', 'Cancel',array('class'=>'btn btn-dark'));
+                        <?php echo form_submit(array('dv_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
+                              echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>
