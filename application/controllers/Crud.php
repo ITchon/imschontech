@@ -13,13 +13,33 @@ class Crud Extends CI_controller{
 	}
 
 	public function event() 	
-    {    $date = $this->input->post('date');
-         $std_id = $this->uri->segment('3');
+    {   
+        $date = $this->input->post('date');
+        $std_id = $this->input->post('std_id');
+        if($this->uri->segment('3')){
+            $std_id = $this->uri->segment('3');
+        }
          $data['date'] = $date;
-         $sql =  " SELECT * FROM `events` where DATE(start_event) =  '$date' and std_id = $std_id ORDER BY `events`.`start_event` ASC";
+         $sql =  "SELECT * FROM `events` where DATE(start_event) =  '$date' and std_id = $std_id ORDER BY `events`.`start_event` ASC";
          $query = $this->db->query($sql); 
          $data['result'] = $query->result();
 		 $this->load->view('student/modal_data',$data);
+        
+    }
+
+    public function event_forteacher() 	
+    {   
+        $date = $this->input->post('date');
+        $std_id = $this->input->post('std_id');
+        if($this->uri->segment('3')){
+            $std_id = $this->uri->segment('3');
+        }
+         $data['date'] = $date;
+         $data['std_id'] = $std_id;
+         $sql =  "SELECT * FROM `events` where DATE(start_event) =  '$date' and std_id = $std_id ORDER BY `events`.`start_event` ASC";
+         $query = $this->db->query($sql); 
+         $data['result'] = $query->result();
+		 $this->load->view('teacher/modal_data',$data);
         
     }
 }

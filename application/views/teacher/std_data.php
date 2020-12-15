@@ -105,9 +105,8 @@
                                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
 	              	                    				<tr>
-														  <th>Date</th>
-	              	                    					<th width="40%">Title</th>
-	              	                    					<th width="10%"> - </th>
+														  	<th width="20%">Date</th>
+	              	                    					<th width="30%">Title</th>
 	              	                    					<th width="3%"> - </th>
 	              	                    				</tr>
 	              	                    			</thead>
@@ -118,7 +117,7 @@
 												
 												$s = $row->date;
 												$dt = new DateTime($s);
-												$date = $dt->format('m/d/Y');
+												$date = $dt->format('Y-m-d');
 												$time = $dt->format('H:i:s');
 												?>
 												<tr>
@@ -127,31 +126,18 @@
 												<?php foreach($result as $r){
 														$s = $r->start_event;
 														$dt = new DateTime($s);
-														$date_event = $dt->format('m/d/Y');
+														$date_event = $dt->format('Y-m-d');
 														$time = $dt->format('H:i:s');
 														if($date == $date_event){
 															echo $r->title."  ";
 														}
 												} ?>
 												</td>
-												<td class="text-center">
-													<form id="form" action="<?php echo base_url()?>teacher/confirm" method="post">
-														<!-- <?php echo "<a href='".base_url()."teacher/confirm/".$row->date ."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-check'></i></a>";   ?> -->
-															<input type="hidden" name="std_id" value="<?php echo $r->std_id?>">
-															<input type="hidden" name="date" value="<?php echo $row->date?>">
-														<?php echo "<button type='submit' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-check'></i></button>";?>
-													</form>
-
-													<form id="form" action="<?php echo base_url()?>teacher/no_confirm" method="post">
-														<!-- <?php echo "<a href='".base_url()."teacher/no_confirm/".$row->date ."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-ban'></i></a>";   ?> -->
-															<input type="hidden" name="std_id" value="<?php echo $r->std_id?>">
-															<input type="hidden" name="date" value="<?php echo $row->date?>">
-														<?php echo "<button type='submit' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-ban'></i></button>";?>
-													</form>
-													
-												</td>
+												<input id="std_id" type="hidden" name="std_id" value="<?php echo $r->std_id?>">
 												<td>
-												<a class="open-modal" ><i class="fa fa-eye"></i></a>
+												<button type="button" value='<?php echo $date ?>' class="btn btn-xs btn-warning open-modal">
+															<i class="ace-icon fa fa-search bigger-120"></i>
+												</button>
 												</td>
 												</tr>
 												<?php
@@ -176,3 +162,39 @@
 
 </body>
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(".open-modal").click(function() {
+	var date = $(this).val();
+	var std_id = document.getElementById("std_id").value;
+	 $.ajax({
+				url: "<?php
+					 echo base_url("crud/event_forteacher/");
+					 ?>",  
+    			type: "POST",
+    			cache: false,
+    			data:{
+					date: date,
+					std_id:std_id
+    			},
+    			success: function(data){		
+     			 $('#event_detail').modal();
+     			 $('#data_body').html(data);
+     			 $('#text_header').html($("#Textheader").val());//modal head
+
+				  
+	 			//  console.log(data);
+    			},
+          error:function(data){
+			// console.log(data);
+			// $('#event_detail').modal();
+
+			
+          }
+    });
+});
+
+   
+
+</script>
