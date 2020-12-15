@@ -15,7 +15,7 @@
 		}
     function index()
     {
-     redirect("Student/view");
+    redirect("Student/view/");
     }
     function calendar(){
       $this->load->view('student/header');
@@ -65,7 +65,7 @@
       $marker['position'] = $lat.','.$long;
       $this->googlemaps->add_marker($marker);
       $data['map'] = $this->googlemaps->create_map();
-
+      $this->load->view('student/modal');
       $this->load->view('student/dashboard', $data);
       $this->load->view('student/footer');
     }

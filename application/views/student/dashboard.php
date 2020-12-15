@@ -107,7 +107,7 @@
 												
 												$s = $row->date;
 												$dt = new DateTime($s);
-												$date = $dt->format('m/d/Y');
+												$date = $dt->format('Y-m-d');
 												$time = $dt->format('H:i:s');
 												?>
 												<tr>
@@ -116,7 +116,7 @@
 												<?php foreach($result as $r){
 														$s = $r->start_event;
 														$dt = new DateTime($s);
-														$date_event = $dt->format('m/d/Y');
+														$date_event = $dt->format('Y-m-d');
 														$time = $dt->format('H:i:s');
 														if($date == $date_event){
 															echo $r->title."  ";
@@ -129,7 +129,7 @@
 												 foreach($result as $r){
 														$s = $r->start_event;
 														$dt = new DateTime($s);
-														$date_event = $dt->format('m/d/Y');
+														$date_event = $dt->format('Y-m-d');
 														$time = $dt->format('H:i:s');
 														if($date == $date_event){
 															array_push($a,$r->teacher_confirm);
@@ -156,7 +156,7 @@
 												foreach($result as $r){
 														$s = $r->start_event;
 														$dt = new DateTime($s);
-														$date_event = $dt->format('m/d/Y');
+														$date_event = $dt->format('Y-m-d');
 														$time = $dt->format('H:i:s');
 														if($date == $date_event){
 															array_push($a,$r->contact_confirm);
@@ -177,7 +177,9 @@
 												?>
 												</td>
 												<td>
-												<a class="open-modal" ><i class="fa fa-eye"></i></a>
+												<button type="button" value='<?php echo $date ?>' class="btn btn-xs btn-warning open-modal">
+															<i class="ace-icon fa fa-search bigger-120"></i>
+												</button>
 												</td>
 												</tr>
 												<?php
@@ -200,32 +202,39 @@
 				</div>
 			</div>
 </body>
+
 </html>
-<script>
-$(document).on('click', '.open-modal', function() {
-	 var id = $(this).val();
-	 alert('55');
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(".open-modal").click(function() {
+	var date = $(this).val();
 	 $.ajax({
 				url: "<?php
-				$zone = $this->uri->segment('1');
-					 echo base_url("crud/$zone");
+				$std_id = $this->session->userdata('std_id');
+					 echo base_url("crud/event/$std_id");
 					 ?>",  
     			type: "POST",
     			cache: false,
     			data:{
-    				id: id
+    				date: date
     			},
     			success: function(data){		
-     			//  $('#smart_fac').modal();
-     			//  $('#data_body').html(data);
-     			//  $('#text_header').html($("#Textheader").val());//modal head
+     			 $('#event_detail').modal();
+     			 $('#data_body').html(data);
+     			 $('#text_header').html($("#Textheader").val());//modal head
 
 				  
 	 			//  console.log(data);
     			},
           error:function(data){
-            // console.log(data);
+			// console.log(data);
+			// $('#event_detail').modal();
+
+			
           }
     });
 });
- </script>
+
+   
+
+</script>
