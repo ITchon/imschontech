@@ -26,8 +26,8 @@ class Classs Extends CI_controller{
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
 		
-		$this->load->view('admin/class/view',$data);
-		$this->load->view('admin/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/class/view',$data);
+		$this->load->view('ADMIN FOR ADMIN/footer_2020');
     }
 
     public function insert_class()
@@ -38,7 +38,7 @@ class Classs Extends CI_controller{
 		$qry_inp2 =  "SELECT * FROM division";
 		$query1 = $this->db->query($qry_inp2); 
         $data['result_dv'] = $query1->result();
-		$this->load->view('admin/class/insert',$data);
+		$this->load->view('ADMIN FOR ADMIN/class/insert',$data);
 	}
 
 
@@ -66,7 +66,7 @@ class Classs Extends CI_controller{
 		$query1 = $this->db->query($qry_inp2); 
         $data['result_dv'] = $query1->result();
     
-		$this->load->view('admin/class/eadminit',$data);
+		$this->load->view('ADMIN FOR ADMIN/class/eADMIN FOR ADMINit',$data);
 	}
 
 	public function Edit_process()
