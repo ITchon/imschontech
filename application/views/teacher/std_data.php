@@ -1,9 +1,4 @@
 <style>
-    .container{
-        padding-left:50px;
-        padding-right:50px;
-        padding-top:100px;
-    }
     .student_detail{
         padding-left:50px;
         padding-right:50px;

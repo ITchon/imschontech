@@ -17,7 +17,10 @@
 							<div class="timeline-icon"><i class="fa fa-camera"></i></div>
 							<div class="timeline-body">
 								<div class="timeline-content">
-									<img src="assets/demo/images/thmb_nature_enchantedcreek.jpg" alt="" class="pull-left">
+									<img src="<?php echo base_url()?>assets/demo/images/thmb_nature_enchantedcreek.jpg" alt="" class="pull-left">
+									<img src="<?php echo base_url()?>assets/img/lol.jpg" alt="" class="pull-left">
+								</div>
+								<div class="timeline-footer">
 								</div>
 
 							</div>
