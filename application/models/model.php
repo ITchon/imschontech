@@ -3,6 +3,14 @@
 class Model extends CI_Model
 {
 
+public function chk_session() {  
+       if($this->session->userdata('std_id')=="") {
+         echo "<script>alert('Please Login')</script>";
+         redirect('login','refresh');
+         return FALSE;
+
+       }else{    return TRUE;    }
+}
 public function chk_student($user,$pass) {  
         // $pass = base64_encode(trim($pass));
         $sql ="SELECT * FROM student WHERE std_code='$user' and tel='$pass'";

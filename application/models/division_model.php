@@ -7,7 +7,7 @@
             $query = $this->db->query($sql); 
             $data  = $query->result(); 
         }
-        // ,$class_id ,$th_id
+     
         public function insert_dv($dv_name)
         {
            
@@ -25,41 +25,31 @@
                 } 
         }
 
-        // public function selectOnestudent($id)
-        // {
-        //     $sql="SELECT * FROM student WHERE std_id = '$id' ";
-        //     $query = $this->db->query($sql); 
-        //     $data  = $query->result(); 
+        public function selectOnedivision($id)
+        {
+            $sql="SELECT * FROM division WHERE dv_id = '$id' ";
+            $query = $this->db->query($sql); 
+            $data  = $query->result(); 
          
-        //     return $data;
+            return $data;
         
-        // }
+        }
 
-        // public function update_student($title ,$fname ,$lname ,$gender ,$tel ,$email,$status ,$std_code ,$birth_date     ,$class_id ,$std_id)
-        // {
-        //     $sqlEdt="UPDATE  student SET 
-        //                      title   = '$title',
-        //                      fname   = '$fname',
-        //                      lname   = '$lname',
-        //                      gender  = '$gender',
-        //                      tel     = '$tel',
-        //                      email   = '$email' ,
-        //                      status  = '$status',
-        //                      std_code  = '$std_code',
-        //                      birth_date   = '$birth_date ',
-        //                      class_id  = ''
-                            
-        //              WHERE std_id = '$std_id'";
-        //     $exc_teacher = $this->db->query($sqlEdt);
-        //     if ($exc_teacher)
-        //     {
-        //     return true;  
-        //     }
-        //     else
-        //     {
-        //     return false;
-        //     }
-        // }
+        public function update_division($dv_name ,$dv_id)
+        {
+            $sqlEdt="UPDATE  division SET 
+                             dv_name   = '$dv_name'
+                     WHERE dv_id = '$dv_id'";
+            $exc_teacher = $this->db->query($sqlEdt);
+            if ($exc_teacher)
+            {
+            return true;  
+            }
+            else
+            {
+            return false;
+            }
+        }
 
         public function del_dv_p($dv_id)
         {

@@ -1,7 +1,7 @@
 <head><?php echo $map['js']; ?></head>
 
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12"> 
                
 					<div class="panel panel-midnightblue">
 						<div class="panel-body">
@@ -19,7 +19,8 @@
 											<?php
 												$optName = array();
 												foreach($train_select as $r){
-												    $optName[$r->t_id] = $r->start_date;   
+													$date = substr($r->start_date,0,4);
+												    $optName[$r->t_id] = $date;   
 												}
 												$selected = $train_id ;
 												echo form_dropdown('train_id', $optName ,$selected,'class="form-control" ');
@@ -80,7 +81,16 @@
 										</ul>
                                         <div class="panel panel-sky">
                                             <div class="panel-body collapse in">
+												
+   													
+											
                                                 <div class="table-responsive">
+												<!-- <div class="pull-right text-right">
+														
+														<a href="<?php echo base_url()?>Student/export_excel" class="btn btn-success btn-lg" data-toggle="tooltip" title="ส่งออกข้อมูล">
+															<i class="fas fa-file-excel"></i></span> Excel
+														</a>
+													</div> -->
                                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
 	              	                    				<tr>
@@ -131,6 +141,7 @@
                                                     
 	              	                    			</tbody>
                                                 </table>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -143,7 +154,15 @@
 					</div>
 				</div>
 			</div>
-			
-
 </body>
 </html>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+</script>

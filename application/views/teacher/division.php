@@ -57,12 +57,8 @@
                 </div>
             </div>
 
-            <script type="text/javascript">
-
-
-$('.itemName').select2({
-  placeholder: '--- Select Item ---',
-});
-
-
+<script type="text/javascript">
+    $('.itemName').select2({
+    placeholder: '--- Select Item ---',
+    });
 </script>
