@@ -204,6 +204,7 @@
 <script>
 $(document).on('click', '.open-modal', function() {
 	 var id = $(this).val();
+	 alert('55');
 	 $.ajax({
 				url: "<?php
 				$zone = $this->uri->segment('1');
