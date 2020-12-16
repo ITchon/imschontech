@@ -157,24 +157,13 @@ today = yyyy + '-' + mm + '-' + dd;
          $('#insert').on("click", function () {
         myDropzone.processQueue();
         var data = $('#form').serialize();
-        start = $("#start_date").val();
-        end = $("#end_date").val();
-        start_time = $("#start_time").val();
-        end_time = $("#end_time").val();
-        var index;
-        var array=[];
-      for (index = 0; index < myDropzone.files.length; ++index) {
-          array.push(myDropzone.files[index].name);
-      };
-        data.push({name: "file", value: array});
-
             $.ajax({
             url:"<?php echo base_url(); ?>fullcalendar/insert",
                     type:"POST",
                      data: data,
                     success:function(res)
                     {           
-                      alert(res);
+                      insert_issue(res);
                         calendar.fullCalendar('refetchEvents');
                         $('#addModal').modal('hide');
                     }
@@ -403,7 +392,7 @@ today = yyyy + '-' + mm + '-' + dd;
     var myDropzone = new Dropzone(".dropzone", {
       acceptedFiles: ".jpeg,.jpg,.png",
       autoProcessQueue: false,
-      url: "<?php echo site_url("student/upload") ?>",
+      url: "<?php echo site_url("fullcalendar/upload") ?>",
       addRemoveLinks: true,
       parallelUploads: 10,
       success: function( file, response ){
@@ -442,76 +431,30 @@ today = yyyy + '-' + mm + '-' + dd;
 
     });
     
-    $('#insert').click(function(){
-      $.ajax({
-        url: "<?php echo site_url("student/getfilecode") ?>",
-        type: "POST",
-        dataType : "html",
-          data: { 
-            
-          },
-          success: function(data) {
-            // console.log(data);
-            console.log(data);
-            insert_issue(data);
-             },
-         });
-
-  });
   
   </script>
-     <!-- <script type="text/javascript">
+     <script type="text/javascript">
     function insert_issue(data) {
-      myDropzone.processQueue();
-      // var plant = $('#plant').val();
-      var plant = document.querySelector('input[name="plant"]:checked').value;
-      var pj_id = $('#pj_id').val();
-      var date_iden = $('#date_iden').val();
-      var is_des = $('#is_des').val();
-      var priority = $('#priority').val();
-      var owner_id = $('#owner_id').val();
-      var date_er = $('#date_er').val();
-      // var er = $('#er').val();
-      var er = document.querySelector('input[name="er"]:checked').value;
-      var imp_sum = $('#imp_sum').val();
-      var act_step = $('#act_step').val();
-      var is_type = $('#is_type').val();
-      var cur_st = $('#cur_st').val();
-      var frr = $('#frr').val();
-      var note = $('#note').val();
       var index;
       var array=[];
     for (index = 0; index < myDropzone.files.length; ++index) {
         array.push(myDropzone.files[index].name);
     };
         $.ajax({
-        url: "<?php echo site_url("issue/insert_issue") ?>",
+        url: "<?php echo site_url("fullcalendar/insert_img") ?>",
         type : 'POST',
         dataType : "html",
         data : {
-          'filecode':data,
           'file':array,
-          'plant':plant,
-          'pj_id':pj_id,
-          'date_iden':date_iden,
-          'is_des':is_des,
-          'priority':priority,
-          'owner_id':owner_id,
-          'date_er':date_er,
-          'er':er,
-          'imp_sum':imp_sum,
-          'act_step':act_step,
-          'is_type':is_type,
-          'cur_st':cur_st,
-          'frr':frr,
-          'note':note
+          'id':data
         },
         success : function(data) {   
+          console.log(data);
         }
     });
   };
 </script>
-
+<!-- 
   <script type="text/javascript">
     function save_img(data) {
         $.ajax({
