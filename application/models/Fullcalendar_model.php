@@ -18,6 +18,15 @@ class Fullcalendar_model extends CI_Model
       } 
  }
 
+ function insert_img($id,$c)
+ {
+    $sql = "INSERT INTO event_img (id,img_code) VALUES ('$id','$c')";
+      $exc = $this->db->query($sql);
+      if ($exc) { 
+       return true; 
+      } 
+ }
+
  function update_event($eventid,$title,$desc,$color,$s_day,$s_time,$e_day,$e_time)
  {
   $sql = "UPDATE events SET title='$title',description='$desc',color='$color',start_event='$s_day $s_time',end_event='$e_day $e_time' WHERE id ='$eventid'";
