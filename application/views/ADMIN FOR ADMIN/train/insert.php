@@ -54,13 +54,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="std_id">Student</label>
-                                            <select name="std_id" class="form-control">
+                                            <select id="e1" name="std_id" class="form-control">
                                                 <option value="">-select-</option>
                                                 <?php foreach ($result_std as $std) {
                                                         echo " <option value=".$std->std_id."> ".$std->fname." ".$std->lname." </option> ";
                                                                                  }
                                                 ?>
                                             </select>
+
+                                            <!-- <select class="js-example-basic-single" name="state">
+                                                <option value="AL">Alabama</option>
+                                                    ...
+                                                <option value="WY">Wyoming</option>
+                                            </select> -->
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -73,12 +79,12 @@
                                                                                  }
                                                 ?>
                                             </select>
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label class="col-sm-3 control-label">Dropdown with Search</label>
                                                 <div class="col-sm-6">
                                                     <select id="e1" style="width:100%" class="populate"></select>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +125,7 @@
                         </div>
                         </div>
                         <?php echo form_submit(array('t_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_teacher', 'Cancel',array('class'=>'btn btn-dark'));
+                              echo anchor(base_url().'manage_train', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>
@@ -129,10 +135,10 @@
         </div> <!-- container -->
     </div> <!--wrap -->
 </div> <!-- page-content -->
-    <script type="text/javascript">
-$('.itemName').select2({
+    <!-- <script type="text/javascript">
+$('.e1').select2({
   placeholder: '--- Select Item ---',
-});
+}); -->
 
 
 </script>
@@ -159,29 +165,27 @@ $('.itemName').select2({
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/application.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo.js'></script> 
 
-<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/fullcalendar/fullcalendar.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/form-daterangepicker/daterangepicker.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/form-daterangepicker/moment.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/charts-flot/jquery.flot.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/charts-flot/jquery.flot.resize.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/charts-flot/jquery.flot.orderBars.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>assets/plugins/pulsate/jQuery.pulsate.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>assets/demo/demo-index.js'></script> 
-<!-- 
-scripttag("assets/plugins/form-multiselect/js/jquery.multi-select.min.js"); 
-    scripttag("assets/plugins/quicksearch/jquery.quicksearch.min.js");     
-    scripttag("assets/plugins/form-typeahead/typeahead.min.js");         
-    scripttag("assets/plugins/form-select2/select2.min.js");                    
-    scripttag("assets/plugins/form-autosize/jquery.autosize-min.js");            
-    scripttag("assets/plugins/form-colorpicker/js/bootstrap-colorpicker.min.js");r 
-    scripttag("assets/plugins/jqueryui-timepicker/jquery.ui.timepicker.min.js"); . 
-    scripttag("assets/plugins/form-daterangepicker/daterangepicker.min.js");      
-    scripttag("assets/plugins/form-datepicker/js/bootstrap-datepicker.js");      
-    scripttag("assets/plugins/form-daterangepicker/moment.min.js");              
-    scripttag("assets/plugins/form-fseditor/jquery.fseditor-min.js");            
-    scripttag("assets/plugins/form-jasnyupload/fileinput.js");                   
-    scripttag("assets/plugins/form-tokenfield/bootstrap-tokenfield.min.js");     
-    scripttag("assets/demo/demo-formcomponents.js"); -->
+<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/fullcalendar/fullcalendar.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-daterangepicker/daterangepicker.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-daterangepicker/moment.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/charts-flot/jquery.flot.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/charts-flot/jquery.flot.resize.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/charts-flot/jquery.flot.orderBars.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/pulsate/jQuery.pulsate.min.js'></script> 
+<!-- <script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo-index.js'></script>  -->
 
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/quicksearch/jquery.quicksearch.min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-typeahead/typeahead.min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-select2/select2.min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-autosize/jquery.autosize-min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-colorpicker/js/bootstrap-colorpicker.min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/jqueryui-timepicker/jquery.ui.timepicker.min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-daterangepicker/daterangepicker.min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-datepicker/js/bootstrap-datepicker.js'></script>
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-daterangepicker/moment.min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-fseditor/jquery.fseditor-min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-jasnyupload/fileinput.js'></script>
+    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-tokenfield/bootstrap-tokenfield.min.js'></script>
+    <!-- <script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo-formcomponents.js'></script> -->
 </body>
 </html>
