@@ -83,7 +83,7 @@ today = yyyy + '-' + mm + '-' + dd;
             eventTextColor: '#FFFFFF',
             nextDayThreshold : "24:00:00",
             displayEventTime: true,
-			displayEventEnd:false,
+			      displayEventEnd:false,
             editable:true,
  
             events:"<?php echo base_url(); ?>fullcalendar/load",
@@ -173,6 +173,13 @@ today = yyyy + '-' + mm + '-' + dd;
                 $('#edit_start_time').val((time));
                 $('#edit_start_date').val((start));
                 $('#event_id').val(event.id);
+                if(event.teacher_confirm == 1 && event.contact_confirm == 1){
+                  $('#editsave').removeAttr("style").hide();
+                  $('#delete').removeAttr("style").hide();
+                }else{
+                  $("#editsave").show();
+                  $("#delete").show();
+                }
                 $('#editModal').modal();
             }
 
@@ -367,6 +374,8 @@ today = yyyy + '-' + mm + '-' + dd;
   </div>
 </div>
 
+
+
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -374,8 +383,6 @@ today = yyyy + '-' + mm + '-' + dd;
     
         <h4 class="modal-title" id="myModalLabel">Update Calendar Event</h4>
       </div>
-
-
       <form name="form2" id="form2" class='form2' method="post">
       <div class="modal-body">
       <div class="form-group">
@@ -410,7 +417,7 @@ today = yyyy + '-' + mm + '-' + dd;
       </div>
       <div class="modal-footer">
       <div class="col-md-12">
-        <button type="button" id="delete" name="delete" class="btn btn-danger">Delete</button>
+        <button type="button" name="delete" class="btn btn-danger"  id="delete">Delete</button>
         <input type="button" class="btn btn-primary" value="Update Event" id="editsave">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
