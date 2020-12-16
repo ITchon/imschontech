@@ -4,11 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Fullcalendar extends CI_Controller {
 
+     private $upload_path = "./uploads";
+
  public function __construct()
  {
   parent::__construct();
   $this->load->model('fullcalendar_model');
-  $this->load->helper('url');
   $this->load->library('upload');
  }
 
@@ -38,12 +39,47 @@ class Fullcalendar extends CI_Controller {
   echo json_encode($data);
  }
 
+ public function upload(){
+
+     $config["upload_path"]   = $this->upload_path;
+     $config["allowed_types"] = "*";
+     $config['overwrite'] = TRUE;
+     // $config['encrypt_name'] = TRUE;
+
+      if($_FILES != null){
+        $file = array(
+          'file' => $_FILES['file']['name']
+        );
+      }else{
+        $file = array(
+          'file' => ''
+        );
+      }
+
+     if ( ! empty($_FILES)) 
+   {
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+      if ( ! $this->upload->do_upload("file")) {
+        echo "failed to upload file(s)";
+      }else{
+       $uploaded = $this->upload->data();
+       $code = array('filename'  => $uploaded['file_name']);
+       foreach($code as $c){
+         $this->session->set_userdata('filecode', $c);
+       }
+      }
+    }
+    echo json_encode($file);
+    
+
+   
+
+ }
+
+
  function insert()
  {
-      $config['upload_path']="./uploads";
-      $config['allowed_types']='gif|jpg|png';
-      $config['encrypt_name'] = TRUE;
-
    $title =$this->input->post('title');
    $des = $this->input->post('description');
    $color = $this->input->post('color');
@@ -51,19 +87,16 @@ class Fullcalendar extends CI_Controller {
     $s_time= $this->input->post('start_time');
     $e_day =$this->input->post('end_day');
     $e_time= $this->input->post('etime');
-    $file= $this->input->post('file_name');
     $std_id =  $this->session->userdata('std_id');
-
     $last_id = $this->fullcalendar_model->insert_event( $title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id);
-      
+    
+    $this->fullcalendar_model->insert_img($last_id,$file);
      
-     echo json_decode($file);
+     echo json_encode($file);
+
+   
+
  }
-
- function do_upload(){
-     
-
-  }
 
  function update()
  {

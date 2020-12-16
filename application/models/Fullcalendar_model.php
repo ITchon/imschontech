@@ -18,9 +18,9 @@ class Fullcalendar_model extends CI_Model
       } 
  }
 
- function insert_img($id,$c)
+ function insert_img($id,$file)
  {
-    $sql = "INSERT INTO event_img (id,img_code) VALUES ('$id','$c')";
+    $sql = "INSERT INTO event_img (id,img_code) VALUES ('$id','$file')";
       $exc = $this->db->query($sql);
       if ($exc) { 
        return true; 
