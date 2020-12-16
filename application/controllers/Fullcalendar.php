@@ -4,10 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Fullcalendar extends CI_Controller {
 
+     private $upload_path = "./uploads";
+
  public function __construct()
  {
   parent::__construct();
   $this->load->model('fullcalendar_model');
+  $this->load->library('upload');
  }
 
 //  function index()
@@ -24,26 +27,56 @@ class Fullcalendar extends CI_Controller {
   $event_data = $this->fullcalendar_model->fetch_all_event($std_id);
   foreach($event_data->result_array() as $row)
   {
-     $confirm = "";
-       if($row['teacher_confirm']==1 && $row['contact_confirm'] == 1){
-            $confirm = " (ยืนยันแล้ว)";
-       }
-       
    $data[] = array(
     'id' => $row['id'],
-    'title' => $row['title'].$confirm,
+    'title' => $row['title'],
     'description' => $row['description'],
     'color' => $row['color'],
     'start' => $row['start_event'],
-    'end' => $row['end_event'],
-    'teacher_confirm' => $row['teacher_confirm'],
-    'contact_confirm' => $row['contact_confirm'],
-
+    'end' => $row['end_event']
    );
   }
   echo json_encode($data);
-  
  }
+
+ public function upload(){
+
+     $config["upload_path"]   = $this->upload_path;
+     $config["allowed_types"] = "*";
+     $config['overwrite'] = TRUE;
+     // $config['encrypt_name'] = TRUE;
+
+      if($_FILES != null){
+        $file = array(
+          'file' => $_FILES['file']['name']
+        );
+      }else{
+        $file = array(
+          'file' => ''
+        );
+      }
+
+     if ( ! empty($_FILES)) 
+   {
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+      if ( ! $this->upload->do_upload("file")) {
+        echo "failed to upload file(s)";
+      }else{
+       $uploaded = $this->upload->data();
+       $code = array('filename'  => $uploaded['file_name']);
+       foreach($code as $c){
+         $this->session->set_userdata('filecode', $c);
+       }
+      }
+    }
+    echo json_encode($file);
+    
+
+   
+
+ }
+
 
  function insert()
  {
@@ -54,12 +87,12 @@ class Fullcalendar extends CI_Controller {
     $s_time= $this->input->post('start_time');
     $e_day =$this->input->post('end_day');
     $e_time= $this->input->post('etime');
-    $file= $this->input->post('file');
     $std_id =  $this->session->userdata('std_id');
     $last_id = $this->fullcalendar_model->insert_event( $title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id);
-
     
-   
+    $this->fullcalendar_model->insert_img($last_id,$file);
+     
+     echo json_encode($file);
 
    
 

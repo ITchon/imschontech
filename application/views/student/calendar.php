@@ -14,30 +14,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/dropzone.min.js"></script>
     <style>
-label{
-  color:#495057;
-  font-size:16px; 
-   font-weight: bold;
-}
-.dropzone {
-      background: #fff;
-      border: 2px dashed #ddd;
-      border-radius: 5px;
-    }
-
-.dz-message {
-      color: #999;
-    }
-
-.dz-message:hover {
-      color: #464646;
-    }
-
-.dz-message h3 {
-      font-size: 200%;
-      margin-bottom: 15px;
-    }
-
 .fc-day:hover{
     background: #bed7f3;
 
@@ -83,7 +59,7 @@ today = yyyy + '-' + mm + '-' + dd;
             eventTextColor: '#FFFFFF',
             nextDayThreshold : "24:00:00",
             displayEventTime: true,
-			      displayEventEnd:false,
+			displayEventEnd:false,
             editable:true,
  
             events:"<?php echo base_url(); ?>fullcalendar/load",
@@ -173,13 +149,6 @@ today = yyyy + '-' + mm + '-' + dd;
                 $('#edit_start_time').val((time));
                 $('#edit_start_date').val((start));
                 $('#event_id').val(event.id);
-                if(event.teacher_confirm == 1 && event.contact_confirm == 1){
-                  $('#editsave').removeAttr("style").hide();
-                  $('#delete').removeAttr("style").hide();
-                }else{
-                  $("#editsave").show();
-                  $("#delete").show();
-                }
                 $('#editModal').modal();
             }
 
@@ -194,19 +163,20 @@ today = yyyy + '-' + mm + '-' + dd;
         end_time = $("#end_time").val();
         var index;
         var array=[];
-        for (index = 0; index < myDropzone.files.length; ++index) {
-        array.push(myDropzone.files[index].name);
-        };
-        alert(array);
+      for (index = 0; index < myDropzone.files.length; ++index) {
+          array.push(myDropzone.files[index].name);
+      };
+        data.push({name: "file", value: array});
+
             $.ajax({
             url:"<?php echo base_url(); ?>fullcalendar/insert",
-                    type: "POST",
-                    file: array,
-                    data: data,
-                    success:function()
-                    {   
-                      calendar.fullCalendar('refetchEvents');
-                      $('#addModal').modal('hide');
+                    type:"POST",
+                     data: data,
+                    success:function(res)
+                    {           
+                      alert(res);
+                        calendar.fullCalendar('refetchEvents');
+                        $('#addModal').modal('hide');
                     }
                   
             });
@@ -306,7 +276,7 @@ today = yyyy + '-' + mm + '-' + dd;
       </div>
       <div class="modal-body">
 
-     <form name="form" id="form" class='form' method="post">
+     <form name="form" id="form" class='form' method="post" enctype="multipart/form-data">
       <div class="form-group">
                 <label for="p-in" class="col-md-4 label-heading">Event Name</label>
                 <div class="col-md-8 ui-front">
@@ -337,31 +307,31 @@ today = yyyy + '-' + mm + '-' + dd;
                     <input type="time" class="form-control" name="start_time" id="start_time" required><br>
                 </div>
         </div>
-   
-            <div class="form-group">
-                    <label for="p-in" class="col-md-4 col-xs-3 label-heading">Attach file</label>
-                    <div class="col-md-12 col-xs-12">
-                    <div class='content'>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                            <!-- <label class=""><b> Attach file</b></label> -->
-                            </div>
-                        </div>
-                        <div id="file" class="dropzone" name="file" action="<?= base_url()?>">
-                        
-        <div class="dz-message">
-        <div class="fallback">
-        </div>
-            <h3>Drop files here</h3> or <strong>click</strong> to upload
-        </div>
-        </div>
-                        
-        </div> 
-        <br>
 
-                    </div>
-            </div>
-       
+        <div class="form-group">
+                <label for="p-in" class="col-md-4 col-xs-3 label-heading">Image</label>
+                <div class="col-md-12 col-xs-5">
+                                  
+       <div class='content'>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class=""><b> Attach file</b></label>
+                        </div>
+                      </div>
+                      <div id="file" class="dropzone" name="file" action="<?= base_url()?>">
+                      
+      <div class="dz-message">
+      <div class="fallback">
+    </div>
+        <h3>Drop files here</h3> or <strong>click</strong> to upload
+      </div>
+    </div>
+                      
+    </div> 
+                </div>
+
+        </div>
+
       </div>
       
       
@@ -374,8 +344,6 @@ today = yyyy + '-' + mm + '-' + dd;
   </div>
 </div>
 
-
-
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -383,6 +351,8 @@ today = yyyy + '-' + mm + '-' + dd;
     
         <h4 class="modal-title" id="myModalLabel">Update Calendar Event</h4>
       </div>
+
+
       <form name="form2" id="form2" class='form2' method="post">
       <div class="modal-body">
       <div class="form-group">
@@ -417,7 +387,7 @@ today = yyyy + '-' + mm + '-' + dd;
       </div>
       <div class="modal-footer">
       <div class="col-md-12">
-        <button type="button" name="delete" class="btn btn-danger"  id="delete">Delete</button>
+        <button type="button" id="delete" name="delete" class="btn btn-danger">Delete</button>
         <input type="button" class="btn btn-primary" value="Update Event" id="editsave">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
@@ -472,5 +442,86 @@ today = yyyy + '-' + mm + '-' + dd;
 
     });
     
+    $('#insert').click(function(){
+      $.ajax({
+        url: "<?php echo site_url("student/getfilecode") ?>",
+        type: "POST",
+        dataType : "html",
+          data: { 
+            
+          },
+          success: function(data) {
+            // console.log(data);
+            console.log(data);
+            insert_issue(data);
+             },
+         });
+
+  });
   
   </script>
+     <!-- <script type="text/javascript">
+    function insert_issue(data) {
+      myDropzone.processQueue();
+      // var plant = $('#plant').val();
+      var plant = document.querySelector('input[name="plant"]:checked').value;
+      var pj_id = $('#pj_id').val();
+      var date_iden = $('#date_iden').val();
+      var is_des = $('#is_des').val();
+      var priority = $('#priority').val();
+      var owner_id = $('#owner_id').val();
+      var date_er = $('#date_er').val();
+      // var er = $('#er').val();
+      var er = document.querySelector('input[name="er"]:checked').value;
+      var imp_sum = $('#imp_sum').val();
+      var act_step = $('#act_step').val();
+      var is_type = $('#is_type').val();
+      var cur_st = $('#cur_st').val();
+      var frr = $('#frr').val();
+      var note = $('#note').val();
+      var index;
+      var array=[];
+    for (index = 0; index < myDropzone.files.length; ++index) {
+        array.push(myDropzone.files[index].name);
+    };
+        $.ajax({
+        url: "<?php echo site_url("issue/insert_issue") ?>",
+        type : 'POST',
+        dataType : "html",
+        data : {
+          'filecode':data,
+          'file':array,
+          'plant':plant,
+          'pj_id':pj_id,
+          'date_iden':date_iden,
+          'is_des':is_des,
+          'priority':priority,
+          'owner_id':owner_id,
+          'date_er':date_er,
+          'er':er,
+          'imp_sum':imp_sum,
+          'act_step':act_step,
+          'is_type':is_type,
+          'cur_st':cur_st,
+          'frr':frr,
+          'note':note
+        },
+        success : function(data) {   
+        }
+    });
+  };
+</script>
+
+  <script type="text/javascript">
+    function save_img(data) {
+        $.ajax({
+        url: "<?php echo site_url("issue/save_img") ?>",
+        type : 'POST',
+        data : {
+          'file':data
+        },
+        success : function(response) {   
+        }
+    });
+  };
+</script> -->
