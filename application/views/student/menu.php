@@ -18,8 +18,7 @@
                                 <!-- <div class="tiles-heading">Revenue</div> -->
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-4x fa-eye"></i>
-                                    <div class="text-center ">View</div>
-                                    <small>-13.5% from last week</small>
+                                    <div class="text-center" style="font-size:33px">ข้อมูลการฝึกงาน</div>
                                 </div>
                                 <!-- <div class="tiles-footer">go to accounts</div> -->
                             </a>
@@ -30,8 +29,7 @@
                                 <!-- <div class="tiles-heading">Profit</div> -->
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-calendar"></i>
-                                    <div class="text-center">Calendar</div>
-                                    <small>+8.7% from last period</small>
+                                    <div class="text-center" style="font-size:33px">ปฎิทิน</div>
                                 </div>
                                 <!-- <div class="tiles-footer">more info</div> -->
                             </a>
@@ -42,8 +40,7 @@
                                 <!-- <div class="tiles-heading">Members</div> -->
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-comments-o"></i>
-                                    <div class="text-center">Chat</div>
-                                    <small>new users registered</small>
+                                    <div class="text-center" style="font-size:33px">แชท</div>
                                 </div>
                                 <!-- <div class="tiles-footer">manage members</div> -->
                             </a>
@@ -54,8 +51,7 @@
                                 <!-- <div class="tiles-heading">Orders</div> -->
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-group"></i>
-                                    <div class="text-center">Profile</div>
-                                    <small>new orders received</small>
+                                    <div class="text-center" style="font-size:33px">ข้อมูลส่วนตัว</div>
                                 </div>
                                 <!-- <div class="tiles-footer">manage orders</div> -->
                             </a>
