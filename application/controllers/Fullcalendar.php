@@ -54,8 +54,11 @@ class Fullcalendar extends CI_Controller {
     $s_time= $this->input->post('start_time');
     $e_day =$this->input->post('end_day');
     $e_time= $this->input->post('etime');
+    $file= $this->input->post('file');
     $std_id =  $this->session->userdata('std_id');
-     $this->fullcalendar_model->insert_event( $title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id);
+    $last_id = $this->fullcalendar_model->insert_event( $title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id);
+
+    
    
 
    
