@@ -24,16 +24,25 @@ class Fullcalendar extends CI_Controller {
   $event_data = $this->fullcalendar_model->fetch_all_event($std_id);
   foreach($event_data->result_array() as $row)
   {
+     $confirm = "";
+       if($row['teacher_confirm']==1 && $row['contact_confirm'] == 1){
+            $confirm = " (ยืนยันแล้ว)";
+       }
+       
    $data[] = array(
     'id' => $row['id'],
-    'title' => $row['title'],
+    'title' => $row['title'].$confirm,
     'description' => $row['description'],
     'color' => $row['color'],
     'start' => $row['start_event'],
-    'end' => $row['end_event']
+    'end' => $row['end_event'],
+    'teacher_confirm' => $row['teacher_confirm'],
+    'contact_confirm' => $row['contact_confirm'],
+
    );
   }
   echo json_encode($data);
+  
  }
 
  function insert()
