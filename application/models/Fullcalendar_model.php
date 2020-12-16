@@ -12,8 +12,9 @@ class Fullcalendar_model extends CI_Model
  {
     $sql = "INSERT INTO events ( title, description, color, start_event, end_event ,std_id) VALUES ('$title','$des','$color','$s_day $s_time','$e_day $e_time','$std_id')";
       $exc = $this->db->query($sql);
+      $last_id = $this->db->insert_id();
       if ($exc) { 
-       return true; 
+       return $last_id; 
       } 
  }
 
