@@ -32,37 +32,38 @@
                         <div class="panel-heading">
                             <h4>Data contact</h4>
                             <div class="options">   
-                                <a href="javascript:;"><i class="fa fa-cog"></i></a>
+                                <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a>
                                 <a href="<?php echo base_url(); ?>manage_contact/insert"><i class="fa fa-plus"></i></a>
-                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
+                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a> -->
                             </div>
                         </div>
                         <div class="panel-body collapse in">
-                        <div class="table-responsive">
-                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
-                                <thead>
-                                    <tr>
-                                        <th>ชื่อผู้คุมฝึกงาน</th>
-                                        <th>เบอร์ติดต่อ</th>
-                                        <th>Username</th>
-                                        <th  width="15%">Manage</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                        <?php foreach($result as $r){ ?>
-                                    <tr>
-                                        <td><?php echo $r->name ?></td>
-                                        <td><?php echo $r->tel ?></td>
-                                        <td><?php echo $r->username ?></td>
-                                        <td>
-                                        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_contact/edit/' . $r->contact_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."manage_contact/delete_p/".$r->contact_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
-                                        </td>
-                                        <?php  } ?> 
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            <div class="table-responsive">
+                                <a class="btn btn-success pull-right" href="<?php echo base_url(); ?>manage_contact/insert">เพิ่ม</a>
+                                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
+                                    <thead>
+                                        <tr>
+                                            <th>ชื่อผู้คุมฝึกงาน</th>
+                                            <th>เบอร์ติดต่อ</th>
+                                            <th>Username</th>
+                                            <th  width="15%">Manage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            <?php foreach($result as $r){ ?>
+                                        <tr>
+                                            <td><?php echo $r->name ?></td>
+                                            <td><?php echo $r->tel ?></td>
+                                            <td><?php echo $r->username ?></td>
+                                            <td>
+                                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_contact/edit/' . $r->contact_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
+                                                <?php echo "<a type='button' href='".base_url()."manage_contact/delete_p/".$r->contact_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                            </td>
+                                            <?php  } ?> 
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

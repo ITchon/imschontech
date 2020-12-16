@@ -32,46 +32,47 @@
                         <div class="panel-heading">
                             <h4>Data train</h4>
                             <div class="options">   
-                                <a href="javascript:;"><i class="fa fa-cog"></i></a>
+                                <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a>
                                 <a href="<?php echo base_url(); ?>manage_train/insert"><i class="fa fa-plus"></i></a>
-                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
+                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a> -->
                             </div>
                         </div>
                         <div class="panel-body collapse in">
-                        <div class="table-responsive">
-                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
-                                <thead>
-                                    <tr>
-                                        <th>company_id</th>
-                                        <th>std_id</th>
-                                        <th>contact_id</th>
-                                        <th>start_date</th>
-                                        <th>end_date</th>
-                                        <th>status</th>
-                                        <th>note</th>
-                                     
-                                        <th  width="15%">Manage</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                        <?php foreach($result as $r){ ?>
-                                    <tr>
-                                        <td><?php echo $r->company_name ?></td>
-                                        <td><?php echo $r->fname." ".$r->lname ?></td>
-                                        <td><?php echo $r->name ?></td>
-                                        <td><?php echo $r->start_date ?></td>
-                                        <td><?php echo $r->end_date ?></td>
-                                        <td><?php echo $r->status ?></td>
-                                        <td><?php echo $r->note ?></td>
-                                        <td>
-                                        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_train/edit/' . $r->t_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."manage_train/delete_p/".$r->t_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
-                                        </td>
-                                        <?php  } ?> 
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            <div class="table-responsive">
+                                <a class="btn btn-success pull-right" href="<?php echo base_url(); ?>manage_train/insert">เพิ่ม</a>
+                                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
+                                    <thead>
+                                        <tr>
+                                            <th>company_id</th>
+                                            <th>std_id</th>
+                                            <th>contact_id</th>
+                                            <th>start_date</th>
+                                            <th>end_date</th>
+                                            <th>status</th>
+                                            <th>note</th>
+                                        
+                                            <th  width="15%">Manage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            <?php foreach($result as $r){ ?>
+                                        <tr>
+                                            <td><?php echo $r->company_name ?></td>
+                                            <td><?php echo $r->fname." ".$r->lname ?></td>
+                                            <td><?php echo $r->name ?></td>
+                                            <td><?php echo $r->start_date ?></td>
+                                            <td><?php echo $r->end_date ?></td>
+                                            <td><?php echo $r->status ?></td>
+                                            <td><?php echo $r->note ?></td>
+                                            <td>
+                                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_train/edit/' . $r->t_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
+                                                <?php echo "<a type='button' href='".base_url()."manage_train/delete_p/".$r->t_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                            </td>
+                                            <?php  } ?> 
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

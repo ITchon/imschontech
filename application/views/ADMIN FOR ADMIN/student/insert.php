@@ -102,7 +102,7 @@
                                             <select name="class_id" class="form-control">
                                                 <!-- <option value="<?php echo $result_cl[0]->class_id ?>"><?php echo $result_cl[0]->class_name ?></option> -->
                                                 <?php foreach ($result_cl as $cl) {
-                                                        echo " <option value=".$cl->class_id."> ".$cl->class_name." </option> ";
+                                                        echo " <option value=".$cl->class_id."> ".$cl->class_name." ".$cl->class_group." </option> ";
                                                                                  }
                                                 ?>
                                             </select>
@@ -130,7 +130,6 @@
                         <?php echo form_submit(array('std_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
                               echo anchor(base_url().'manage_student', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
-         
                         </div>
                     </div>
                 </div>

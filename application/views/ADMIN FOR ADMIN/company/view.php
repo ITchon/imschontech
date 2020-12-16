@@ -32,42 +32,43 @@
                         <div class="panel-heading">
                             <h4>Data Company</h4>
                             <div class="options">   
-                                <a href="javascript:;"><i class="fa fa-cog"></i></a>
+                                <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a>
                                 <a href="<?php echo base_url(); ?>Company/insert_company"><i class="fa fa-plus"></i></a>
-                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
+                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a> -->
                             </div>
                         </div>
                         <div class="panel-body collapse in">
-                        <div class="table-responsive">
-                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
-                                <thead>
-                                    <tr>
-                                        <th>ชื่อบริษัท</th>
-                                        <th>ที่อยู่</th>
-                                        <th>อำเภอ</th>
-                                        <th>เบอร์ติดต่อ</th>
-                                        <th>รหัสไปรษณีย์</th>
-                                        <th  width="15%">Manage</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                        <?php foreach($result as $r){ ?>
-                                    <tr>
-                                        <td><?php echo $r->company_name	 ?></td>
-                                        <td><?php echo $r->address ?></td>
-                                        <td><?php echo $r->province ?></td>
-                                        <td><?php echo $r->tel ?></td>
-                                        <td><?php echo $r->zipcode ?></td>
-                                        <td>
-                                       
-                                        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'Company/edit_company/' . $r->company_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."Company/delete_company_p/".$r->company_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
-                                        </td>
-                                        <?php  } ?> 
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            <div class="table-responsive">
+                                <a class="btn btn-success pull-right" href="<?php echo base_url(); ?>Company/insert_company">เพิ่ม</a>
+                                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
+                                    <thead>
+                                        <tr>
+                                            <th>ชื่อบริษัท</th>
+                                            <th>ที่อยู่</th>
+                                            <th>อำเภอ</th>
+                                            <th>เบอร์ติดต่อ</th>
+                                            <th>รหัสไปรษณีย์</th>
+                                            <th  width="15%">Manage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            <?php foreach($result as $r){ ?>
+                                        <tr>
+                                            <td><?php echo $r->company_name	 ?></td>
+                                            <td><?php echo $r->address ?></td>
+                                            <td><?php echo $r->province ?></td>
+                                            <td><?php echo $r->tel ?></td>
+                                            <td><?php echo $r->zipcode ?></td>
+                                            <td>
+                                        
+                                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'Company/edit_company/' . $r->company_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
+                                                <?php echo "<a type='button' href='".base_url()."Company/delete_company_p/".$r->company_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                            </td>
+                                            <?php  } ?> 
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
