@@ -13,7 +13,7 @@
 				<div class="col-md-12">
 					<h4 class="timeline-month"><span><?php echo $time ?></span></h4>
 					<ul class="timeline">
-						<li class="timeline-success">
+						<li class="timeline-midnightblue">
 							<div class="timeline-icon"><i class="fa fa-camera"></i></div>
 							<div class="timeline-body">
 								<div class="timeline-content">
@@ -25,7 +25,7 @@
 
 							</div>
 						</li>
-						<li class="timeline-warning">
+						<li class="timeline-primary">
 							<div class="timeline-icon"><i class="fa fa-pencil"></i></div>
 							<div class="timeline-body">
 
@@ -36,7 +36,9 @@
 							</div>
 						</li>
 					</ul>
+                    <hr>
 				</div>
+          
                 <?php } ?>
 			</div>
 

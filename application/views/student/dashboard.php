@@ -104,9 +104,7 @@
 													  <?php 
 
 											foreach($result_test as $row){
-												
-												$s = $row->date;
-												$dt = new DateTime($s);
+												$dt = new DateTime($row->date);
 												$date = $dt->format('Y-m-d');
 												$time = $dt->format('H:i:s');
 												?>
@@ -114,8 +112,8 @@
 												<td><?php echo $date ?></td>
 												<td>
 												<?php foreach($result as $r){
-														$s = $r->start_event;
-														$dt = new DateTime($s);
+											
+														$dt = new DateTime($r->start_event);
 														$date_event = $dt->format('Y-m-d');
 														$time = $dt->format('H:i:s');
 														if($date == $date_event){
@@ -127,8 +125,8 @@
 												<?php
 												$a = [];
 												 foreach($result as $r){
-														$s = $r->start_event;
-														$dt = new DateTime($s);
+											
+														$dt = new DateTime($r->start_event);
 														$date_event = $dt->format('Y-m-d');
 														$time = $dt->format('H:i:s');
 														if($date == $date_event){
@@ -154,8 +152,8 @@
 												<?php
 												$a = [];
 												foreach($result as $r){
-														$s = $r->start_event;
-														$dt = new DateTime($s);
+											
+														$dt = new DateTime($r->start_event);
 														$date_event = $dt->format('Y-m-d');
 														$time = $dt->format('H:i:s');
 														if($date == $date_event){
