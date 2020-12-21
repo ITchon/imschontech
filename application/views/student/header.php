@@ -28,7 +28,7 @@
 <link href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css' type='text/css' rel='stylesheet'>
 <link href='<?= base_url() ?>assets/css/dropzone.css' type='text/css' rel='stylesheet'>
 
-  <script src='<?= base_url() ?>assets/resources/dropzone.js' type='text/javascript'></script>
+  <!-- <script src='<?= base_url() ?>assets/js/dropzone.js' type='text/javascript'></script> -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js' type='text/javascript'></script>
 <!-- <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/less.js"></script> -->
 </head>
