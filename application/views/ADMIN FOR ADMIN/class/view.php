@@ -5,10 +5,10 @@
             <ol class="breadcrumb">
                 <li><a href="<?php echo base_url();?>main">Dashboard</a></li>
                 <li>Admin</li>
-                <li class="active">Data Company</li>
+                <li class="active">Data class</li>
             </ol>
 
-            <h1>Data Company</h1>
+            <h1>Data class</h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,46 +30,48 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Data Company</h4>
+                            <h4>Data class</h4>
                             <div class="options">   
-                                <a href="javascript:;"><i class="fa fa-cog"></i></a>
+                                <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a>
                                 <a href="<?php echo base_url(); ?>Classs/insert_class"><i class="fa fa-plus"></i></a>
-                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
+                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a> -->
                             </div>
                         </div>
                         <div class="panel-body collapse in">
-                        <div class="table-responsive">
-                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
-                                <thead>
-                                    <tr>
-                                        <th>ครู</th>
-                                        <th>แผนก</th>
-                                        <th>ระดับชั้น</th>
-                                        <th>กลุ่ม</th>
-                                        <th  width="15%">Manage</th>
-                                    </tr>
-                                </thead>
+                            
+                            <div class="table-responsive">
+                            <a class="btn btn-success pull-right" href="<?php echo base_url(); ?>Classs/insert_class">เพิ่ม</a>
+                                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
+                                    <thead>
+                                        <tr>
+                                            <th>ครู</th>
+                                            <th>แผนก</th>
+                                            <th>ระดับชั้น</th>
+                                            <th>กลุ่ม</th>
+                                            <th  width="15%">Manage</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                
-                                        <?php foreach($result as $r){ ?>
-                                    <tr>
-                                        <td><?php echo $r->fname ." ".$r->lname	 ?></td>
-                                        <td><?php echo $r->dv_name ?></td>
-                                        <td><?php echo $r->class_name ?></td>
-                                        <td><?php echo $r->class_group ?></td>
+                                    <tbody>
+                                    
+                                            <?php foreach($result as $r){ ?>
+                                        <tr>
+                                            <td><?php echo $r->fname ." ".$r->lname	 ?></td>
+                                            <td><?php echo $r->dv_name ?></td>
+                                            <td><?php echo $r->class_name ?></td>
+                                            <td><?php echo $r->class_group ?></td>
 
-                                        <td>
-                                       
-                                        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'Classs/edit_class/' . $r->class_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."Classs/delete/".$r->class_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
-                                        </td>
-                                       
-                                    </tr> 
-                                    <?php  } ?> 
-                                </tbody>
-                            </table>
-                        </div>
+                                            <td>
+                                        
+                                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'Classs/edit_class/' . $r->class_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
+                                                <?php echo "<a type='button' href='".base_url()."Classs/delete/".$r->class_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                            </td>
+                                        
+                                        </tr> 
+                                        <?php  } ?> 
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

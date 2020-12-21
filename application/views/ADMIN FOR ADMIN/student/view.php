@@ -32,32 +32,33 @@
                         <div class="panel-heading">
                             <h4>Data Tables</h4>
                             <div class="options">   
-                                <a href="javascript:;"><i class="fa fa-cog"></i></a>
+                                <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a>
                                 <a href="<?php echo base_url(); ?>manage_student/insert_student"><i class="fa fa-plus"></i></a>
-                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
+                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a> -->
                             </div>
                         </div>
                         <div class="panel-body collapse in">
-                        <div class="table-responsive">
-                            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
-                                <thead>
-                                    <tr>
-                                        <th>รหัสนักเรียน</th>
-                                        <th width="12%">ปีเกิด</th>
-                                        <th width="11%">คำนำหน้า</th>
-                                        <th width="15%">ชื่อ นามสกุล</th>
-                                        <!-- <th>นามสกุล</th> -->
-                                        <th>เพศ</th>
-                                        <th>เบอร์ติดต่อ</th>
-                                        <th>อีเมล</th>
-                                        <th width="11%">ระดับชั้น</th>
-                                        <th width="11%">กลุ่ม</th>
-                                        <th width="19%">สถานะ</th>
-                                        <th  width="15%">Manage</th>
-                                    </tr>
-                                </thead>
-                                
-                                <tbody>
+                            <div class="table-responsive">
+                                <a class="btn btn-success pull-right" href="<?php echo base_url(); ?>manage_student/insert_student">เพิ่ม</a>
+                                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
+                                    <thead>
+                                        <tr>
+                                            <th>รหัสนักเรียน</th>
+                                            <th width="12%">ปีเกิด</th>
+                                            <th width="11%">คำนำหน้า</th>
+                                            <th width="15%">ชื่อ นามสกุล</th>
+                                            <!-- <th>นามสกุล</th> -->
+                                            <th>เพศ</th>
+                                            <th>เบอร์ติดต่อ</th>
+                                            <th>อีเมล</th>
+                                            <th width="11%">ระดับชั้น</th>
+                                            <th width="11%">กลุ่ม</th>
+                                            <th width="19%">สถานะ</th>
+                                            <th  width="15%">Manage</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
                                         <?php foreach($result as $r){ ?>
                                         <?php 
 

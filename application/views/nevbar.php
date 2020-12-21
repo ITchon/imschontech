@@ -22,18 +22,24 @@
                     </ul>
                 </li> -->
                
-                
-                <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
+                <li><a href="<?php echo base_url(); ?>manage_contact"><i class="fa fa-user"></i> <span>Contact</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_train"><i class="fa fa-suitcase"></i><span>Train</span></a></li>
+                <li><a href="<?php echo base_url(); ?>Classs"><i class="fa fa-circle"></i><span>Class</span></a></li>
+                <li><a href="<?php echo base_url(); ?>Company"><i class="fa fa-building"></i><span>Company</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_division"><i class="fa fa-home"></i><span>Division</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>Student</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_teacher"><i class="fa fa-user"></i><span>Teacher</span></a></li>
+                <!-- <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
                     <ul class="acc-menu">
                         <li><a href="<?php echo base_url(); ?>manage_contact"> Contact</a></li>
-                        <li><a href="<?php echo base_url(); ?>manage_train"> Train</a></li>
-                        <li><a href="<?php echo base_url(); ?>Classs"> Class</a></li>
-                        <li><a href="<?php echo base_url(); ?>Company"> Company</a></li>
-                        <li><a href="<?php echo base_url(); ?>manage_division"> division</a></li>
-                        <li><a href="<?php echo base_url(); ?>manage_student"> student</a></li>
+                         Train</a></li> -->
+                         <!-- Class</a></li>
+                         Company</a></li>
+                         division</a></li>
+                         student</a></li>
                         <li><a href="<?php echo base_url(); ?>manage_teacher"> teacher</a></li>
                     </ul>
-                </li>
+                </li> -->
                 
                
                                         </li>

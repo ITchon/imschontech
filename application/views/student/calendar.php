@@ -155,15 +155,15 @@ today = yyyy + '-' + mm + '-' + dd;
             
         });
          $('#insert').on("click", function () {
+        myDropzone.processQueue();
         var data = $('#form').serialize();
-        
-            console.log(data);
             $.ajax({
             url:"<?php echo base_url(); ?>fullcalendar/insert",
                     type:"POST",
-                    data: data,
-                    success:function(data)
+                     data: data,
+                    success:function(res)
                     {           
+                      insert_issue(res);
                         calendar.fullCalendar('refetchEvents');
                         $('#addModal').modal('hide');
                     }
@@ -299,12 +299,26 @@ today = yyyy + '-' + mm + '-' + dd;
 
         <div class="form-group">
                 <label for="p-in" class="col-md-4 col-xs-3 label-heading">Image</label>
-                <div class="col-md-4 col-xs-5">
-                <input type="file" name="file_name" class="form-control" id="file_name" onchange="file()"> 
+                <div class="col-md-12 col-xs-5">
+                                  
+       <div class='content'>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class=""><b> Attach file</b></label>
+                        </div>
+                      </div>
+                      <div id="file" class="dropzone" name="file" action="<?= base_url()?>">
+                      
+      <div class="dz-message">
+      <div class="fallback">
+    </div>
+        <h3>Drop files here</h3> or <strong>click</strong> to upload
+      </div>
+    </div>
+                      
+    </div> 
                 </div>
-                <div class="col-md-4 col-xs-4">
-                    <p>sad</p>
-                </div>
+
         </div>
 
       </div>
@@ -371,132 +385,56 @@ today = yyyy + '-' + mm + '-' + dd;
 </div>
 </div>
 </div>
-
-<!-- <script>
+<script>
     Dropzone.autoDiscover = false;
 
     var myDropzone = new Dropzone(".dropzone", {
       acceptedFiles: ".jpeg,.jpg,.png",
       autoProcessQueue: false,
-      url: "<?php echo site_url("issue/upload") ?>",
+      url: "<?php echo site_url("fullcalendar/upload") ?>",
       addRemoveLinks: true,
       parallelUploads: 10,
       success: function( file, response ){
         //  obj = JSON.parse(response);
         //  alert(obj.filename); // <---- here is your filename
     },
-      removedfile: function(file) {
-        var name = file.name;
-        //del in database
-        $.ajax({
-          type: "post",
-          url: "<?php echo site_url("issue/remove") ?>",
-          data: { file: name },
-          dataType: 'html'
-        });
-        // remove the thumbnail
-        var previewElement;
-        return (previewElement = file.previewElement) != null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
-      },
-
-      init: function() {
-        var me = this;
-        $.get("<?php echo site_url("issue/list_files") ?>", function(data) {
-          // if any files already in server show all here
-          if (data.length > 0) {
-            $.each(data, function(key, value) {
-              var mockFile = value;
-         
-              me.emit("addedfile", mockFile);
-              me.emit("thumbnail", mockFile, "<?php echo base_url(); ?>uploads/" + value.name);
-              me.emit("complete", mockFile);
-            });
-          }
-        });
-      },
 
     });
     
-    $('#insert').click(function(){
-      $.ajax({
-        url: "<?php echo site_url("issue/getfilecode") ?>",
-        type: "POST",
-        dataType : "html",
-          data: { 
-            
-          },
-          success: function(data) {
-            // console.log(data);
-            console.log(data);
-            insert_issue(data);
-             },
-         });
-
-  });
   
-  </script> -->
-//     <script type="text/javascript">
-//     function insert_issue(data) {
-//       myDropzone.processQueue();
-//       // var plant = $('#plant').val();
-//       var plant = document.querySelector('input[name="plant"]:checked').value;
-//       var pj_id = $('#pj_id').val();
-//       var date_iden = $('#date_iden').val();
-//       var is_des = $('#is_des').val();
-//       var priority = $('#priority').val();
-//       var owner_id = $('#owner_id').val();
-//       var date_er = $('#date_er').val();
-//       // var er = $('#er').val();
-//       var er = document.querySelector('input[name="er"]:checked').value;
-//       var imp_sum = $('#imp_sum').val();
-//       var act_step = $('#act_step').val();
-//       var is_type = $('#is_type').val();
-//       var cur_st = $('#cur_st').val();
-//       var frr = $('#frr').val();
-//       var note = $('#note').val();
-//       var index;
-//       var array=[];
-//     for (index = 0; index < myDropzone.files.length; ++index) {
-//         array.push(myDropzone.files[index].name);
-//     };
-//         $.ajax({
-//         url: "<?php echo site_url("issue/insert_issue") ?>",
-//         type : 'POST',
-//         dataType : "html",
-//         data : {
-//           'filecode':data,
-//           'file':array,
-//           'plant':plant,
-//           'pj_id':pj_id,
-//           'date_iden':date_iden,
-//           'is_des':is_des,
-//           'priority':priority,
-//           'owner_id':owner_id,
-//           'date_er':date_er,
-//           'er':er,
-//           'imp_sum':imp_sum,
-//           'act_step':act_step,
-//           'is_type':is_type,
-//           'cur_st':cur_st,
-//           'frr':frr,
-//           'note':note
-//         },
-//         success : function(data) {   
-//         }
-//     });
-//   };
-// </script>
-
-//   <script type="text/javascript">
-//     function save_img(data) {
-//         $.ajax({
-//         url: "<?php echo site_url("issue/save_img") ?>",
-//         type : 'POST',
-//         data : {
-//           'file':data
-//         },
-//         success : function(response) {   
-//         }
-//     });
-//   };
-// </script>
+  </script>
+     <script type="text/javascript">
+    function insert_issue(data) {
+      var index;
+      var array=[];
+    for (index = 0; index < myDropzone.files.length; ++index) {
+        array.push(myDropzone.files[index].name);
+    };
+        $.ajax({
+        url: "<?php echo site_url("fullcalendar/insert_img") ?>",
+        type : 'POST',
+        dataType : "html",
+        data : {
+          'file':array,
+          'id':data
+        },
+        success : function(data) {   
+          console.log(data);
+        }
+    });
+  };
+</script>
+<!-- 
+  <script type="text/javascript">
+    function save_img(data) {
+        $.ajax({
+        url: "<?php echo site_url("issue/save_img") ?>",
+        type : 'POST',
+        data : {
+          'file':data
+        },
+        success : function(response) {   
+        }
+    });
+  };
+</script> -->
