@@ -156,18 +156,14 @@ today = yyyy + '-' + mm + '-' + dd;
         });
          $('#insert').on("click", function () {
         var data = $('#form').serialize();
-        start = $("#start_date").val();
-        end = $("#end_date").val();
-        start_time = $("#start_time").val();
-        end_time = $("#end_time").val();
-
+        
+            console.log(data);
             $.ajax({
             url:"<?php echo base_url(); ?>fullcalendar/insert",
                     type:"POST",
                     data: data,
                     success:function(data)
                     {           
-                      alert(data);
                         calendar.fullCalendar('refetchEvents');
                         $('#addModal').modal('hide');
                     }

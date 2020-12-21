@@ -30,7 +30,7 @@ class manage_teacher Extends CI_controller{
 						th.email,
 						th.th_code,
 						th.th_birth_date,
-						th.class_id FROM teacher AS th INNER JOIN class AS cl ON cl.class_id = th.class_id" ;
+						th.class_id FROM teacher AS th LEFT JOIN class AS cl ON cl.class_id = th.class_id" ;
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
         $data['result_g'] = $this->teacher_model->teacher();

@@ -1,17 +1,15 @@
 
 		<div class="container">
-
 			<div class="row">
 				<div class="col-md-12">
 					<div class="panel panel-midnightblue">
 						<div class="panel-body">
-
 							<div class="row">
 								<div class="col-md-12">
 									<img src="assets/demo/avatar/johansson.png" alt="" class="pull-left" style="margin: 0 20px 20px 0">
 									<div class="table-responsive">
 										<table class="table table-condensed">
-											<h3><strong>Msupha kooo</strong></h3>
+											<h3>ข้อมูลส่วนตัว</h3>
 											<!-- <thead>
 												<tr>
 													<th width="50%"></th>
