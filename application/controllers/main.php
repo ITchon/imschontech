@@ -7,7 +7,7 @@ class main Extends CI_controller{
 
 		$this->load->helper('url');
 		$this->load->helper('form');
-		$this->load->view('student/header');
+		
         
 		$this->load->database(); 
         $this->load->model('model');
@@ -18,6 +18,7 @@ class main Extends CI_controller{
 	public function index() 	
 	{
 		if($this->session->userdata('teacher_id')){
+			$this->load->view('student/header');
 			$this->load->view('student/menu');
 			$this->load->view('teacher/dashboard');
 			$this->load->view('footer');
@@ -29,7 +30,8 @@ class main Extends CI_controller{
 			
 
 		}else if($this->session->userdata('admin_id')){
-			$this->load->view('nevbar');
+			$this->load->view('ADMIN FOR ADMIN/header');
+			$this->load->view('ADMIN FOR ADMIN/nevbar');
 
 			$this->load->view('ADMIN FOR ADMIN/index');
 		}

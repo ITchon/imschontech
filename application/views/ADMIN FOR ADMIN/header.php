@@ -36,7 +36,7 @@
 
 <body class="">
 
-    <div id="headerbar"  >
+    <!-- <div id="headerbar"  >
         <div class="container">
             <div class="row">
                 <div class="col-xs-6 col-sm-2">
@@ -106,7 +106,7 @@
                             
             </div>
         </div>
-    </div>
+    </div> -->
 
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner" >
         <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
@@ -117,6 +117,9 @@
             <!-- <a  href="<?php echo base_url(); ?>main"></a> -->
         
 
+
+
+            <!--###################################### -->
         <ul class="nav navbar-nav pull-right toolbar"> 
         	<li class="dropdown">
         		<a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span>
@@ -142,3 +145,24 @@
         
 		</ul>
     </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

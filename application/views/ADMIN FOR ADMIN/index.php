@@ -1,32 +1,7 @@
 
 <div id="page-content">
     <div id='wrap'>
-        <!-- <div id="page-heading">
-            <ol class="breadcrumb">
-                <li class='active'><a href="<?php echo base_url(); ?>main">Dashboard</a></li>
-            </ol>
-
-            <h1>Admin</h1>
-            <div class="options">
-                <div class="btn-toolbar">
-                    <button class="btn btn-default" id="daterangepicker2">
-                        <i class="fa fa-calendar-o"></i> 
-                        <span class="hidden-xs hidden-sm">December 9, 2013 - January 8, 2014</span> <b class="caret"></b>
-                    </button>
-                    <div class="btn-group hidden-xs">
-                        <a href='#' class="btn btn-default dropdown-toggle" data-toggle='dropdown'><i class="fa fa-cloud-download"></i><span class="hidden-xs hidden-sm hidden-md"> Export as</span> <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Text File (*.txt)</a></li>
-                            <li><a href="#">Excel File (*.xlsx)</a></li>
-                            <li><a href="#">PDF File (*.pdf)</a></li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn btn-default hidden-xs"><i class="fa fa-cog"></i></a>
-                </div>
-            </div>
-        </div> -->
-
-
+      
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -121,7 +96,7 @@
                     </div>
                 </div>
             </div>
-
+<!-- 
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-primary">
@@ -173,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="row">
                 <div class="col-xs-12 col-md-3 col-sm-6 col-lg-3">
@@ -228,7 +203,7 @@
                 
             </div>
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-grape">
                         <div class="panel-body">
@@ -281,11 +256,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             
 
 
-            <div class="row">        
+            <!-- <div class="row">        
                 <div class="col-md-6">
                     <div class="panel panel-indigo">
                         <div class="panel-heading">
@@ -365,9 +340,9 @@
                 </div>
 
                
-            </div>
+            </div> -->
 
-            <div class="row">
+            <!-- <div class="row">
               
                 <div class="col-md-6">
                     <div class="panel panel-midnightblue">
@@ -621,7 +596,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div> <!-- container -->
     </div> <!--wrap -->
