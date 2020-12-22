@@ -19,7 +19,7 @@
 <div class="container">
     <div class="text-center">
     <div class="row">
-        <?php  if(isset($result)){
+        <!-- <?php  if(isset($result)){
             if($result != null){
 
             ?>
@@ -63,7 +63,7 @@
                                 <?php  }else{
                                     echo "No Data";
                                 }
-                            }?>
+                            }?> -->
                             </div>
                 <h1><?php if(isset($class)){
                  echo $class->class_name.$class->class_group; }else{

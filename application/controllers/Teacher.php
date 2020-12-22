@@ -109,17 +109,17 @@ class Teacher Extends CI_controller{
         $data['student_list'] = $this->model_teacher->get_student_by($class_id);
         $data['class'] = $this->model_teacher->show_class($class_id);
 
-    //     if($this->uri->segment('3')){
-    //   $sql =  "SELECT * FROM events where std_id =  $std_id AND teacher_confirm = 0";
-    //   $query = $this->db->query($sql); 
-    //   $data['result'] = $query->result();
-    //   $sql =  "SELECT * FROM student where std_id =  $std_id";
-    //   $query = $this->db->query($sql); 
-    //   $data['name'] = $query->result()[0];
-    //      }
-    //      else if($this->input->get('student_search')){
-    //         $data['result'] = $this->model_teacher->get_student_detail_by($student_search,$class_id);
-    //      }
+    //      if($this->uri->segment('3')){
+    //    $sql =  "SELECT * FROM events where std_id =  $std_id AND teacher_confirm = 0";
+    //    $query = $this->db->query($sql); 
+    //    $data['result'] = $query->result();
+    //    $sql =  "SELECT * FROM student where std_id =  $std_id";
+    //    $query = $this->db->query($sql); 
+    //    $data['name'] = $query->result()[0];
+    //       }
+          if($this->input->get('student_search')){
+             $data['result'] = $this->model_teacher->get_student_detail_by($student_search,$class_id);
+          }
 
         
         $this->load->view('teacher/list',$data);
@@ -188,8 +188,9 @@ class Teacher Extends CI_controller{
 
         $student_search = $this->input->get('student_search');
         $res = $this->model_teacher->get_stdid_bycode($student_search);
-        $std_id = $res->std_id;
-        $class_id = $res->class_id;
+        if($res != null){
+        $std_id = $res[0]->std_id;
+        $class_id = $res[0]->class_id;
         $data['train_id'] = $train_id;
         $data['train_detail'] = $this->student_model->get_student($std_id,$train_id);
         $data['train_select'] = $this->student_model->get_train($std_id);
@@ -202,7 +203,6 @@ class Teacher Extends CI_controller{
       $query = $this->db->query($sql); 
       $data['result_test'] = $query->result();
 
-     }
     $this->load->library('Googlemaps');
     $config['center'] = '37.4419, -122.1419';
     $config['zoom'] = 'auto';
@@ -216,6 +216,7 @@ class Teacher Extends CI_controller{
     $data['map'] = $this->googlemaps->create_map();
 
     $class_chk = $data['train_detail'][0]->class_id;
+    
     if(in_array($class_chk,$class_teacher)){
         $this->load->view('teacher/modal');
         $this->load->view('teacher/std_data',$data);
@@ -224,6 +225,11 @@ class Teacher Extends CI_controller{
         echo "who this";
         die();
     }
+}else{
+    $this->load->view('teacher/error');
+    $this->load->view('teacher/footer');
+}
+ }
 
     }
 
