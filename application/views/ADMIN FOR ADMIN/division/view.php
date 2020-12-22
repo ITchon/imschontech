@@ -5,10 +5,10 @@
             <ol class="breadcrumb">
                 <li><a href="<?php echo base_url();?>main">Dashboard</a></li>
                 <li>Admin</li>
-                <li class="active">Data division</li>
+                <li class="active">Data Division</li>
             </ol>
 
-            <h1>Data division</h1>
+            <h1>Data Division</h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,9 +30,9 @@
                 <div class="col-md-7">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Data division</h4>
+                            <h4>Data Division</h4>
                             <div class="options">   
-                                <a href="javascript:;"><i class="fa fa-cog"></i></a>
+                                <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a> -->
                                 <!-- <a data-toggle="modal" href="#myModal" ><i class="fa fa-plus"></i></a> -->
                                 <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
                             </div>
@@ -89,7 +89,7 @@
                                         </div>
                                     
                                         <?php echo form_submit(array('division_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                                              echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
+                                            //   echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
                                               echo form_close(); ?>
                             </div>
                           

@@ -20,9 +20,12 @@ class Crud Extends CI_controller{
             $std_id = $this->uri->segment('3');
         }
          $data['date'] = $date;
-         $sql =  "SELECT * FROM `events` where DATE(start_event) =  '$date' and std_id = $std_id ORDER BY `events`.`start_event` ASC";
+         $sql =  "SELECT * FROM `events`  where DATE(start_event) =  '$date' and std_id = $std_id ORDER BY `events`.`start_event` ASC";
          $query = $this->db->query($sql); 
          $data['result'] = $query->result();
+         $sql =  "SELECT * FROM event_img ";
+         $query = $this->db->query($sql); 
+         $data['result_img'] = $query->result();
 		 $this->load->view('student/modal_data',$data);
         
     }

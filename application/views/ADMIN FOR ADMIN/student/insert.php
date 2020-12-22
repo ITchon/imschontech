@@ -4,11 +4,11 @@
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="<?php echo base_url(); ?>main">Dashboard</a></li>
-                <li>Advanced Tables</li>
-                <li class="active">Data Tables</li>
+                <li>Table Student</li>
+                <li class="active">Insert Student</li>
             </ol>
 
-            <h1>Data Tables</h1>
+            <h1></h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,7 +30,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Data Tables</h4>
+                            <h4>Insert Student</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('manage_student/insert_student_p');?>

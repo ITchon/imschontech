@@ -4,11 +4,11 @@
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="index.htm">Dashboard</a></li>
-                <li>Advanced Tables</li>
-                <li class="active">Data Tables</li>
+                <li>Table Teacher</li>
+                <li class="active">Edit Teacher</li>
             </ol>
 
-            <h1>Data Tables</h1>
+            <h1></h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,7 +30,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Data Tables</h4>
+                            <h4>Edit Teacher</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('manage_teacher/edit_teacher_p');?>
@@ -49,37 +49,46 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="fname">first name</label>
+                                            <label for="fname">ชื่อ</label>
                                             <input type="text" name="fname" value="<?php echo $result[0]->fname ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="lname">last name</label>
+                                            <label for="lname">นามสกุล</label>
                                             <input type="text" name="lname" value="<?php echo $result[0]->lname ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="tel">Telephone</label>
+                                            <label for="tel">เบอร์ติดต่อ</label>
                                             <input type="number" name="tel" value="<?php echo $result[0]->tel ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="email">E-mail</label>
+                                            <label for="email">อีเมล</label>
                                             <input type="text" name="email" value="<?php echo $result[0]->email ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label for="th_birth_date">วันเกิด</label>
+                                            <input type="date" name="th_birth_date" value="<?php echo $result[0]->th_birth_date ?>" class="form-control">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="class_id">Class</label>
+                                            <label for="class_id">สอนระดับชี้น</label>
                                             <select name="class_id" class="form-control">
                                                 <option value="<?php echo $result_cl[0]->class_id ?>"><?php echo $result_cl[0]->class_name ?></option>
                                                 <?php foreach ($result_cl as $cl) {
@@ -89,21 +98,16 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5">
+                                
+                                
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="th_code">teacher code</label>
+                                            <label for="th_code">รหัสครู</label>
                                             <input type="text" name="th_code" value="<?php echo $result[0]->th_code ?>" class="form-control">
-                                            </select>
+                                            
                                         </div>
                                     </div>
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-                                            <label for="th_birth_date">th_birth_date</label>
-                                            <input type="date" name="th_birth_date" value="<?php echo $result[0]->th_birth_date ?>" class="form-control">
-                                            </select>
-                                        </div>
+                                   
                                     </div>
                                 </div>
                             </div>

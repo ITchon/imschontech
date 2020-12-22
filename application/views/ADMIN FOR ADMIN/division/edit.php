@@ -4,11 +4,11 @@
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="index.htm">Dashboard</a></li>
-                <li>Advanced Tables</li>
-                <li class="active">Data Tables</li>
+                <li>Table Division</li>
+                <li class="active">Edit Division</li>
             </ol>
 
-            <h1>Data Tables</h1>
+            <h1></h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,7 +30,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Data Tables</h4>
+                            <h4>Edit Division</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('manage_division/edit_p');?>
@@ -45,6 +45,7 @@
                                     </div>
                                     
                             </div>
+                        </div>
                         </div>
                         <?php echo form_submit(array('dv_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
                               echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));

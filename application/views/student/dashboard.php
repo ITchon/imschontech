@@ -47,7 +47,16 @@
 												</tr>
 												<tr>
 													<td><b>Train Duration</b></td>
-													<td><?php echo $train_detail[0]->start_date." ถึง ".$train_detail[0]->end_date ?></td>
+													<td>
+													<?php echo $train_detail[0]->start_date." ถึง ".$train_detail[0]->end_date ;
+														$today =date("Y-m-d");
+														if($train_detail[0]->end_date < $today){
+															echo "<span class='text-danger'> (สิ้นสุดการฝึกงานแล้ว) </span>";
+														}else if(($today >= $train_detail[0]->start_date) && ($today <= $train_detail[0]->end_date)){
+															echo "<span class='text-success'> (กำลังฝึกงาน) </span>";
+														}	
+													
+													?></td>
 												</tr>
 												<tr>
 														<td><b>Train Location</b></td>

@@ -4,11 +4,11 @@
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="index.htm">Dashboard</a></li>
-                <li>Admin</li>
-                <li class="active">Data Company</li>
+                <li>Table Company</li>
+                <li class="active">Edit Company</li>
             </ol>
 
-            <h1>Data Company</h1>
+            <h1></h1>
         </div>
 
 
@@ -17,7 +17,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Data Company</h4>
+                            <h4>Edit Company</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('Company/edit_cp_p');?>
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <?php echo form_submit(array('company_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_company', 'Cancel',array('class'=>'btn btn-dark'));
+                              echo anchor(base_url().'company', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>

@@ -215,7 +215,6 @@ today = yyyy + '-' + mm + '-' + dd;
     
     </script>
 </head>
-
     <div class="row">
          <div class="col-xs-12" >
                 <div class="panel panel-midnightblue calendar" >
