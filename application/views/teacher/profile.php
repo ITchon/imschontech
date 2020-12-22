@@ -19,27 +19,32 @@
 											<tbody>
 												<tr>
 													<td>ชื่อ</td>
-													<td><?php echo $result[0]->title." ".$result[0]->fname." ".$result[0]->lname ?></td>
+													<td><?php echo $result->title." ".$result->fname." ".$result->lname ?></td>
 												</tr>
 												<tr>
 													<td>แผนก</td>
-													<td><?php echo $result[0]->dv_name ?></td>
+													<td><?php echo $result->dv_name ?></td>
 												</tr>
 												<tr>
 													<td>เพศ</td>
-													<td><?php echo $result[0]->gender ?></td>
+                                                    <?php if ($result->title == "นาย"){
+                                                        $gender = "ชาย";
+                                                    }else{
+                                                        $gender = "หญิง";
+                                                    }?>
+													<td><?php echo $gender ?></td>
 												</tr>
 												<tr>
 													<td>เบอร์โทร์</td>
-													<td><?php echo $result[0]->tel ?></td>
+													<td><?php echo $result->tel ?></td>
 												</tr>
 												<tr>
 													<td>อีเมลล์</td>
-													<td><?php echo $result[0]->email ?></td>
+													<td><?php echo $result->email ?></td>
 												</tr>
 												<tr>
 													<td>วันเกิด   </td>
-													<td><?php echo $result[0]->birth_date ?></td>
+													<td><?php echo $result->th_birth_date ?></td>
 												</tr>
 												<tr>
 													<td>Social</td>

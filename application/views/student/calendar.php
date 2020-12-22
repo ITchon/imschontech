@@ -138,7 +138,7 @@ today = yyyy + '-' + mm + '-' + dd;
             eventClick:function(event)
             {
 
-                var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+              var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
              var str = start; 
             var time = str.slice(11, 20);
             var start = str.slice(0, 10);
@@ -149,6 +149,8 @@ today = yyyy + '-' + mm + '-' + dd;
                 $('#edit_start_time').val((time));
                 $('#edit_start_date').val((start));
                 $('#event_id').val(event.id);
+                $('#img_code').val(event.img_code);
+                $('#ei_id').val(event.ei_id);
                 $('#editModal').modal();
             }
 
@@ -213,7 +215,6 @@ today = yyyy + '-' + mm + '-' + dd;
     
     </script>
 </head>
-
     <div class="row">
          <div class="col-xs-12" >
                 <div class="panel panel-midnightblue calendar" >
@@ -371,8 +372,26 @@ today = yyyy + '-' + mm + '-' + dd;
                     <input type="time" class="form-control" name="start_time" id="edit_start_time" required><br>
                 </div>
         </div>
+        <div class="form-group">
+              <label for="p-in" class="col-md-4 col-xs-3 label-heading">Start Date</label>
+                <div class="col-md-12 col-xs-12">
+                    <input type="date" readonly class="form-control" name="start_day" id="edit_start_date" required>
+                </div>
+        </div>
+        <div class="form-group">
+              <label for="p-in" class="col-md-4 col-xs-3 label-heading">img_code </label>
+                <div class="col-md-12 col-xs-12">
+                    <input type="text" readonly class="form-control" name="img_code" id="img_code" required>
+                </div>
+        </div>
+        <div class="form-group">
+              <label for="p-in" class="col-md-4 col-xs-3 label-heading">img_id </label>
+                <div class="col-md-12 col-xs-12">
+                    <input type="text" readonly class="form-control" name="ei_id" id="ei_id" required>
+                </div>
+        </div>
     
-            <input type="hidden" name="eventid" id="event_id" value="0" />
+            <input type="text" name="eventid" id="event_id" value="0" />
       </div>
       <div class="modal-footer">
       <div class="col-md-12">
@@ -385,7 +404,6 @@ today = yyyy + '-' + mm + '-' + dd;
 </div>
 </div>
 </div>
-
 <script>
     Dropzone.autoDiscover = false;
 
@@ -399,35 +417,6 @@ today = yyyy + '-' + mm + '-' + dd;
         //  obj = JSON.parse(response);
         //  alert(obj.filename); // <---- here is your filename
     },
-      removedfile: function(file) {
-        var name = file.name;
-        //del in database
-        $.ajax({
-          type: "post",
-          url: "<?php echo site_url("student/remove") ?>",
-          data: { file: name },
-          dataType: 'html'
-        });
-        // remove the thumbnail
-        var previewElement;
-        return (previewElement = file.previewElement) != null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
-      },
-
-      init: function() {
-        var me = this;
-        $.get("<?php echo site_url("student/list_files") ?>", function(data) {
-          // if any files already in server show all here
-          if (data.length > 0) {
-            $.each(data, function(key, value) {
-              var mockFile = value;
-         
-              me.emit("addedfile", mockFile);
-              me.emit("thumbnail", mockFile, "<?php echo base_url(); ?>uploads/" + value.name);
-              me.emit("complete", mockFile);
-            });
-          }
-        });
-      },
 
     });
     

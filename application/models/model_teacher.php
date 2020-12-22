@@ -4,9 +4,11 @@ class Model_teacher extends CI_Model
 {
 
 public function get_teacher_profile($teacher_id) {
-        $sql ="SELECT tea.teacher_id, tea.title, tea.fname, tea.lname, tea.tel, tea.email, tea.class_id, c.class_name FROM teacher as tea
-        left join class as c on c.class_id = tea.class_id
-        WHERE tea.teacher_id='$teacher_id'";
+        $sql ="SELECT tea.teacher_id, tea.title, tea.fname, tea.lname, tea.tel, tea.email, tea.th_birth_date, tea.class_id, c.class_name ,dv.dv_name
+        FROM teacher as tea
+                left join class as c on c.class_id = tea.class_id
+                left join division as dv on dv.dv_id = c.dv_id
+                WHERE tea.teacher_id='$teacher_id'";
       $query = $this->db->query($sql);
       if($query->num_rows()!=0) {
         $result =  $query->result();
