@@ -4,11 +4,11 @@
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="index.htm">Dashboard</a></li>
-                <li>Advanced Tables</li>
-                <li class="active">Data Tables</li>
+                <li>Tables Train</li>
+                <li class="active">Edit Train</li>
             </ol>
 
-            <h1>Data Tables</h1>
+            <h1></h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,7 +30,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Data Tables</h4>
+                            <h4>Edit Train</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('manage_train/edit_p');?>
@@ -38,7 +38,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="Company">Company</label>
+                                            <label for="Company">ชื่อบริษัท</label>
                                             <select name="company_id" class="form-control">
                                                 <option value="<?php echo $result[0]->company_id ?>"><?php echo $result[0]->company_name  ?></option>
                                                 <?php foreach ($result_cp as $cp) {
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="std_id">Student</label>
+                                            <label for="std_id">นักเรียน</label>
                                             <select name="std_id" class="form-control">
                                                 <option value="<?php echo $result[0]->std_id ?>"><?php echo $result[0]->fname." ".$result[0]->lname ?></option>
                                                 <?php foreach ($result_std as $std) {
@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="contact_id">contact</label>
+                                            <label for="contact_id">ผู้คุมการฝึกงาน</label>
                                             <select name="contact_id" class="form-control">
                                                 <option value="<?php echo $result[0]->contact_id ?>"><?php echo $result[0]->name ?></option>
                                                 <?php foreach ($result_ct as $ct) {
@@ -76,25 +76,29 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="start_date">Start date</label>
+                                            <label for="start_date">เวลาเรื่มฝึกงาน</label>
                                             <input type="date" name="start_date" value="<?php echo $result[0]->start_date ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="end_date">End date</label>
+                                            <label for="end_date">เวลาจบฝึกงาน</label>
                                             <input type="date" name="end_date" value="<?php echo $result[0]->end_date ?>" class="form-control">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="status">Status</label>
+                                            <label for="status">สถานะ</label>
                                             <select name="status" class="form-control">
-                                                <option value="<?php echo $result[0]->status ?>"><?php echo $result[0]->status ?></option>
-                                                <option value="0">0</option>
-                                                <option value="1">1</option>
+                                                <option value="<?php echo $result[0]->status ?>"><?php if($result[0]->status == '0'){
+                                                                                                    echo "ไม่ผ่าน";
+                                                                                                        }else{
+                                                                                                    echo "ผ่าน";        
+                                                                                                        } ?></option>
+                                                <option value="0">ไม่ผ่าน</option>
+                                                <option value="1">ผ่าน</option>
                                             </select>
                                         </div>
                                     </div>
@@ -102,7 +106,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="note">note</label>
+                                            <label for="note">หมายเหตุ</label>
                                             <textarea name="note"  class="form-control"><?php echo $result[0]->note ?></textarea>
                                            
                                         </div>
@@ -111,7 +115,7 @@
                         </div>
                         </div>
                         <?php echo form_submit(array('t_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_teacher', 'Cancel',array('class'=>'btn btn-dark'));
+                              echo anchor(base_url().'manage_train', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>

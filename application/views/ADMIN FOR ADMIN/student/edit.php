@@ -4,11 +4,11 @@
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="<?php echo base_url(); ?>main">Dashboard</a></li>
-                <li>Admin</li>
+                <li>Table Student</li>
                 <li class="active">Edit Student</li>
             </ol>
 
-            <h1>Edit Student</h1>
+            <h1></h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">

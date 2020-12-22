@@ -38,7 +38,7 @@
                                 <div class="row">
                                     <div class="col-md-1">
                                         <div class="form-group">
-                                            <label for="title">title</label>
+                                            <label for="title">คำนำหน้า</label>
                                             <select name="title" class="form-control">
                                                 <option value="นาย">นาย</option>
                                                 <option value="นาง">นาง</option>
@@ -48,37 +48,47 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="fname">first name</label>
+                                            <label for="fname">ชื่อ</label>
                                             <input type="text" name="fname" class="form-control">
-                                            </select>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="lname">last name</label>
+                                            <label for="lname">นามสกุล</label>
                                             <input type="text" name="lname" class="form-control">
-                                            </select>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="tel">Telephone</label>
+                                            <label for="tel">เบอร์ติดต่อ</label>
                                             <input type="number" name="tel" class="form-control">
-                                            </select>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for="email">อีเมล</label>
+                                            <input type="text" name="email" class="form-control">
+                                           
+                                        </div>
+                                    </div>
+                                
+                                
+                                    <div class="col-md-7">
+                                        
+                                        <div class="form-group">
+                                            <label for="th_birth_date">วันเกิด</label>
+                                            <input type="date" name="th_birth_date" class="form-control">
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="email">E-mail</label>
-                                            <input type="text" name="email" class="form-control">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="class_id">Class</label>
+                                            <label for="class_id">สอนระดับชั้น</label>
                                             <select name="class_id" class="form-control">
                                                 <!-- <option value="<?php echo $result_cl[0]->class_id ?>"><?php echo $result_cl[0]->class_name ?></option> -->
                                                 <?php foreach ($result_cl as $cl) {
@@ -88,22 +98,15 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5">
+                                
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="th_code">teacher code</label>
+                                            <label for="th_code">รหัสครู</label>
                                             <input type="number" name="th_code" class="form-control">
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-                                            <label for="th_birth_date">birth date</label>
-                                            <input type="date" name="th_birth_date" class="form-control">
-                                            </select>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
