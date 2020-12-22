@@ -17,8 +17,13 @@
 							<div class="timeline-icon"><i class="fa fa-camera"></i></div>
 							<div class="timeline-body">
 								<div class="timeline-content">
-									<img src="<?php echo base_url()?>assets/demo/images/thmb_nature_enchantedcreek.jpg" alt="" class="pull-left">
-									<img src="<?php echo base_url()?>assets/img/lol.jpg" alt="" class="pull-left">
+								<?php 
+								foreach($result_img as $row){
+									if($r->id == $row->id){	?>
+										<img src="<?php echo base_url()."uploads/$row->img_code"?>"  alt="" class="pull-left img-responsive">
+									<?php
+									}
+								} ?>
 								</div>
 								<div class="timeline-footer">
 								</div>
@@ -30,9 +35,10 @@
 							<div class="timeline-body">
 
 								<div class="timeline-content">
-									<h3><?php echo $r->title ?></h3>
-									<p><?php echo $r->description ?></p>
+									<h3><b><?php echo $r->title ?></b></h3><hr>
+									<textarea name="description" readonly id="" style="background-color:#ffffff;border:none;cursor: not-allowed;font-size:24px" class="form-control texarea-show" cols="20" rows="3"><?php echo $r->description ?></textarea><br>
 								</div>
+
 							</div>
 						</li>
 					</ul>
