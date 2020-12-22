@@ -34,6 +34,8 @@ class Fullcalendar extends CI_Controller {
     'color' => $row['color'],
     'start' => $row['start_event'],
     'end' => $row['end_event']
+    'ei_id' => $row['ei_id']
+    'img_code' => $row['img_code']
    );
   }
   echo json_encode($data);
@@ -142,8 +144,6 @@ class Fullcalendar extends CI_Controller {
       $delete = intval($this->input->post("delete"));
 
       if(!$delete) {
-      
-   
                 $this->fullcalendar_model->update_event($eventid,$title,$desc,$color,$s_day,$s_time,$e_day,$e_time);
     
       } else {
