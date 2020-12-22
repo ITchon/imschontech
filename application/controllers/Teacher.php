@@ -28,6 +28,17 @@ class Teacher Extends CI_controller{
 
     }
 
+    public function profile() 	
+	{
+        $teacher_id =  $this->session->userdata('teacher_id');
+        $data['result'] = $this->model_teacher->get_teacher_profile($teacher_id);
+
+        $this->load->view('teacher/menu');
+		$this->load->view('teacher/profile',$data);
+		$this->load->view('footer');
+
+    }
+
     public function student() 	
 	{
 

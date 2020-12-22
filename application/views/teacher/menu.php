@@ -19,7 +19,7 @@
                                 <div class="tiles-body-alt">
                                     <!--i class="fa fa-money"></i-->
                                     <div class="text-center ">แผนก</div>
-                                    <small>แผนกที่ควบคุม</small>
+                                    <small></small>
                                 </div>
                                 <!-- <div class="tiles-footer">go to accounts</div> -->
                             </a>
@@ -31,7 +31,7 @@
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-user"></i>
                                     <div class="text-center">นักเรียน</div>
-                                    <small>ค้นหาข้อมูลรายบุคคล</small>
+                                    <small></small>
                                 </div>
                                 <!-- <div class="tiles-footer">more info</div> -->
                             </a>
@@ -42,8 +42,8 @@
                                 <!-- <div class="tiles-heading">Members</div> -->
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-comments-o"></i>
-                                    <div class="text-center">Chat</div>
-                                    <small>new users registered</small>
+                                    <div class="text-center">แชท</div>
+                                    <small></small>
                                 </div>
                                 <!-- <div class="tiles-footer">manage members</div> -->
                             </a>
@@ -54,8 +54,8 @@
                                 <!-- <div class="tiles-heading">Orders</div> -->
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-group"></i>
-                                    <div class="text-center">Profile</div>
-                                    <small>new orders received</small>
+                                    <div class="text-center">ข้อมูลส่วนตัว</div>
+                                    <small></small>
                                 </div>
                                 <!-- <div class="tiles-footer">manage orders</div> -->
                             </a>
