@@ -13,29 +13,32 @@
                 <div class="col-md-12">
                     <div class="row">
                         
-                        <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-success" href="<?php echo base_url(); ?>teacher/division">
-                                <!-- <div class="tiles-heading">Revenue</div> -->
-                                <div class="tiles-body-alt">
-                                    <!--i class="fa fa-money"></i-->
-                                    <div class="text-center ">แผนก</div>
-                                    <small></small>
-                                </div>
-                                <!-- <div class="tiles-footer">go to accounts</div> -->
-                            </a>
-                        </div>
+                        <?php if($result !=null){ ?>
 
-                        <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-primary" href="<?php echo base_url(); ?>teacher/student">
-                                <!-- <div class="tiles-heading">Profit</div> -->
-                                <div class="tiles-body-alt">
-                                    <i class="fa fa-user"></i>
-                                    <div class="text-center">นักเรียน</div>
-                                    <small></small>
-                                </div>
-                                <!-- <div class="tiles-footer">more info</div> -->
+                            <div class="col-md-3 col-xs-12 col-sm-6">
+                            <a class="info-tiles tiles-success" href="<?php echo base_url(); ?>teacher/division">
+                            <!-- <div class="tiles-heading">Revenue</div> -->
+                            <div class="tiles-body-alt">
+                            <!--i class="fa fa-money"></i-->
+                            <div class="text-center ">แผนก</div>
+                            <small></small>
+                            </div>
+                            <!-- <div class="tiles-footer">go to accounts</div> -->
                             </a>
-                        </div>
+                            </div>
+                            
+                            <div class="col-md-3 col-xs-12 col-sm-6">
+                            <a class="info-tiles tiles-primary" href="<?php echo base_url(); ?>teacher/student">
+                            <!-- <div class="tiles-heading">Profit</div> -->
+                            <div class="tiles-body-alt">
+                            <i class="fa fa-user"></i>
+                            <div class="text-center">นักเรียน</div>
+                            <small></small>
+                            </div>
+                            <!-- <div class="tiles-footer">more info</div> -->
+                            </a>
+                            </div>
+                         <?php } ?>
 
                         <div class="col-md-3 col-xs-12 col-sm-6">
                             <a class="info-tiles tiles-orange" href="#">

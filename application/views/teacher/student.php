@@ -10,12 +10,12 @@ input[type=text] {
         <div class="container" style="background-color: #ffffff;" >
             <div class="row">
                 <div class="col-md-12">
+                         <?php  if($result != null){ ?>
                        <h1>ใส่รหัส</h1>
                        <form target = '_blank' action="<?php echo base_url()?>teacher/std_data" method="get">
             <input type="text" class="form-control input-lg" name="student_search" placeholder="รหัสนักศึกษา">
                          </form>   
-                         <?php  if(isset($result)){
-            if($result != null){
+           <?php if($result != null){
 
             ?>
                          <div class="col-xs-12">
@@ -58,7 +58,24 @@ input[type=text] {
                                 <?php  }else{
                                     echo "No Data";
                                 }
-                            }?>  
+                            }else{ ?>
+                                <div id='wrap'>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-center">
+                <span class="text-danger" style="font-size:4em;">Oops!</span>
+            </p>
+            <p class="text-center">Something went terribly wrong.</p>
+            <p class="text-center">We are fixing it. Please try again later.</p>
+        </div>
+    </div>
+
+</div> <!-- container -->
+</div> <!--wrap -->
+                            <?php }?>  
                     </div>
                 </div>
             </div>
