@@ -130,6 +130,15 @@ class Fullcalendar extends CI_Controller {
   }
  }
 
+ function seeimg()
+ {
+  $event_id = $this->input->post('event_id');
+   $data['result'] = $this->fullcalendar_model->get_img($this->input->post('event_id'));
+  
+  //  echo json_encode($result);
+   $this->load->view('student/data_img',$data);
+ }
+
  public function edit_event()
  {
       $eventid = intval($this->input->post("eventid"));
