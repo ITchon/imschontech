@@ -60,9 +60,7 @@
       $this->googlemaps->initialize($config);
 
       $marker = array();
-      $lat = $data['train_detail'][0]->latitude;
-      $long = $data['train_detail'][0]->longitude; 
-      $marker['position'] = $lat.','.$long;
+      $marker['position'] =  $data['train_detail'][0]->latlong;
       $this->googlemaps->add_marker($marker);
       $data['map'] = $this->googlemaps->create_map();
       
