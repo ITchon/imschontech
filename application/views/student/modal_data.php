@@ -36,7 +36,7 @@
 
 								<div class="timeline-content">
 									<h3><b><?php echo $r->title ?></b></h3><hr>
-									<textarea name="description" readonly id="" style="background-color:#ffffff;border:none;cursor: not-allowed;font-size:24px" class="form-control texarea-show" cols="20" rows="3"><?php echo $r->description ?></textarea><br>
+									<textarea name="description" readonly id="" style="background-color:#ffffff;border:none;cursor: not-allowed;font-size:18px" class="form-control texarea-show" cols="20" rows="3"><?php echo $r->description ?></textarea><br>
 								</div>
 
 							</div>

@@ -324,12 +324,12 @@ today = yyyy + '-' + mm + '-' + dd;
 
       </div>
       
-      
-            <div class="modal-footer">
-                <input type="button" class="btn btn-primary" id="insert" value="Add Event">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </form>
+ 
+            <div class="modal-footer" >
+                <input type="button" class="btn btn-primary" style="margin-top:20px" id="insert" value="Add Event">
+              <button type="button" class="btn btn-default" style="margin-top:20px" data-dismiss="modal">Close</button>
       </div>
+        </form>
     </div>
   </div>
 </div>
