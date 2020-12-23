@@ -3,13 +3,21 @@
 class Fullcalendar_model extends CI_Model
 {
  function fetch_all_event($std_id){
-     $sql = "SELECT e.title,e.title,e.description,e.color,e.start_event,e.end_event,e.std_id
-     ,e.t_id,e.teacher_confirm,e.contact_confirm,em.ei_id,em.img_code
-      FROM events as e
-     left join event_img as em on em.id = e.id
+     $sql = "SELECT *
+      FROM events 
      where std_id = '$std_id'";
      $query = $this->db->query($sql);
   return  $query;
+ }
+
+ function get_img($eventid){
+     $sql = "SELECT * FROM event_img
+     where id = '$eventid'";
+     $query = $this->db->query($sql);
+     $result =  $query->result();
+     if ($query) { 
+        return $result; 
+       } 
  }
 
  function insert_event($title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id)

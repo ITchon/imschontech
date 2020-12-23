@@ -149,8 +149,6 @@ today = yyyy + '-' + mm + '-' + dd;
                 $('#edit_start_time').val((time));
                 $('#edit_start_date').val((start));
                 $('#event_id').val(event.id);
-                $('#img_code').val(event.img_code);
-                $('#ei_id').val(event.ei_id);
                 $('#editModal').modal();
             }
 
@@ -195,7 +193,6 @@ today = yyyy + '-' + mm + '-' + dd;
     });
 
     $('#delete').on("click", function () {
-        
              var data = $('#form2').serialize();
             $.ajax({
             url:"<?php echo base_url(); ?>fullcalendar/delete",
@@ -205,6 +202,20 @@ today = yyyy + '-' + mm + '-' + dd;
                     {
                         calendar.fullCalendar('refetchEvents');
                         $('#editModal').modal('hide');
+                    }
+            });
+    });
+    
+    $('#seeimg').on("click", function () {
+      var event_id = $("#event_id").val();
+            $.ajax({
+            url:"<?php echo base_url(); ?>fullcalendar/seeimg",
+                    type:"POST",
+                    data: {event_id:event_id},
+                    success:function(data)
+                    {
+                      $('#img_data').html(data);
+                      $('#modal_img').modal();
                     }
             });
     });
@@ -324,12 +335,12 @@ today = yyyy + '-' + mm + '-' + dd;
 
       </div>
       
-      
-            <div class="modal-footer">
-                <input type="button" class="btn btn-primary" id="insert" value="Add Event">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </form>
+ 
+            <div class="modal-footer" >
+                <input type="button" class="btn btn-primary" style="margin-top:20px" id="insert" value="Add Event">
+              <button type="button" class="btn btn-default" style="margin-top:20px" data-dismiss="modal">Close</button>
       </div>
+        </form>
     </div>
   </div>
 </div>
@@ -372,29 +383,12 @@ today = yyyy + '-' + mm + '-' + dd;
                     <input type="time" class="form-control" name="start_time" id="edit_start_time" required><br>
                 </div>
         </div>
-        <div class="form-group">
-              <label for="p-in" class="col-md-4 col-xs-3 label-heading">Start Date</label>
-                <div class="col-md-12 col-xs-12">
-                    <input type="date" readonly class="form-control" name="start_day" id="edit_start_date" required>
-                </div>
-        </div>
-        <div class="form-group">
-              <label for="p-in" class="col-md-4 col-xs-3 label-heading">img_code </label>
-                <div class="col-md-12 col-xs-12">
-                    <input type="text" readonly class="form-control" name="img_code" id="img_code" required>
-                </div>
-        </div>
-        <div class="form-group">
-              <label for="p-in" class="col-md-4 col-xs-3 label-heading">img_id </label>
-                <div class="col-md-12 col-xs-12">
-                    <input type="text" readonly class="form-control" name="ei_id" id="ei_id" required>
-                </div>
-        </div>
     
-            <input type="text" name="eventid" id="event_id" value="0" />
+            <input type="hidden" name="eventid" id="event_id" value="0" />
       </div>
       <div class="modal-footer">
       <div class="col-md-12">
+        <button type="button" id="seeimg" name="seeimg" class="btn btn-success">SeeImg</button>
         <button type="button" id="delete" name="delete" class="btn btn-danger">Delete</button>
         <input type="button" class="btn btn-primary" value="Update Event" id="editsave">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

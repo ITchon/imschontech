@@ -8,7 +8,7 @@
             $data  = $query->result(); 
         }
         // ,$class_id ,$th_id
-        public function insert_cp($company_name,$address,$province,$zipcode,$tel)
+        public function insert_cp($company_name,$address,$province,$zipcode,$tel,$latlng)
         {
            
             $sql ="INSERT INTO  company (
@@ -16,10 +16,11 @@
                         address,
                         province,
                         zipcode,
-                        tel
+                        tel,
+                        latlong
 
                         )
-                VALUES ('$company_name','$address','$province','$zipcode','$tel');";          
+                VALUES ('$company_name','$address','$province','$zipcode','$tel','$latlng');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {
@@ -40,14 +41,15 @@
         
         }
 
-        public function edit_cp($company_name,$address,$province,$zipcode,$tel,$company_id)
+        public function edit_cp($company_name,$address,$province,$zipcode,$tel,$company_id,$latlng)
         {
             $sqlEdt="UPDATE  company SET 
                              company_name    = '$company_name',
                              address         = '$address',
                              province        = '$province',
                              zipcode         = '$zipcode',
-                             tel             = '$tel'
+                             tel             = '$tel',
+                             latlong         = '$latlng'
                             
                      WHERE company_id = '$company_id'";
             $exc_cp = $this->db->query($sqlEdt);

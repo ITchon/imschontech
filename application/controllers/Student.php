@@ -21,6 +21,7 @@
       $this->load->view('student/header');
       $this->load->view('student/menu');
       $this->load->view('student/calendar');
+      $this->load->view('student/modal_img');
 
     }
     function profile(){
@@ -54,15 +55,19 @@
       $query = $this->db->query($sql); 
       $data['result_test'] = $query->result();
 
+      $latlong = $data['train_detail'][0]->latlong;
+      if($latlong == null){
+        $latlong = ',';
+      }
+
       $this->load->library('Googlemaps');
-      $config['center'] = '37.4419, -122.1419';
-      $config['zoom'] = 'auto';
+      $config['center'] = $latlong;
+      $config['zoom'] = '10';
       $this->googlemaps->initialize($config);
 
       $marker = array();
-      $lat = $data['train_detail'][0]->latitude;
-      $long = $data['train_detail'][0]->longitude; 
-      $marker['position'] = $lat.','.$long;
+    
+      $marker['position'] =  $latlong;
       $this->googlemaps->add_marker($marker);
       $data['map'] = $this->googlemaps->create_map();
       

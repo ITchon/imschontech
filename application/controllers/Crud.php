@@ -42,6 +42,9 @@ class Crud Extends CI_controller{
          $sql =  "SELECT * FROM `events` where DATE(start_event) =  '$date' and std_id = $std_id ORDER BY `events`.`start_event` ASC";
          $query = $this->db->query($sql); 
          $data['result'] = $query->result();
+         $sql =  "SELECT * FROM event_img ";
+         $query = $this->db->query($sql); 
+         $data['result_img'] = $query->result();
 		 $this->load->view('teacher/modal_data',$data);
         
     }
@@ -58,6 +61,9 @@ class Crud Extends CI_controller{
          $sql =  "SELECT * FROM `events` where DATE(start_event) =  '$date' and std_id = $std_id ORDER BY `events`.`start_event` ASC";
          $query = $this->db->query($sql); 
          $data['result'] = $query->result();
+         $sql =  "SELECT * FROM event_img ";
+         $query = $this->db->query($sql); 
+         $data['result_img'] = $query->result();
 		 $this->load->view('contact/modal_data',$data);
         
     }

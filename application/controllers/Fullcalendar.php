@@ -34,8 +34,7 @@ class Fullcalendar extends CI_Controller {
     'color' => $row['color'],
     'start' => $row['start_event'],
     'end' => $row['end_event']
-    'ei_id' => $row['ei_id']
-    'img_code' => $row['img_code']
+
    );
   }
   echo json_encode($data);
@@ -129,6 +128,15 @@ class Fullcalendar extends CI_Controller {
   {
    $this->fullcalendar_model->delete_event($this->input->post('eventid'));
   }
+ }
+
+ function seeimg()
+ {
+  $event_id = $this->input->post('event_id');
+   $data['result'] = $this->fullcalendar_model->get_img($this->input->post('event_id'));
+  
+  //  echo json_encode($result);
+   $this->load->view('student/data_img',$data);
  }
 
  public function edit_event()
