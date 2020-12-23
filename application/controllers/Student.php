@@ -55,12 +55,15 @@
       $data['result_test'] = $query->result();
 
       $this->load->library('Googlemaps');
-      $config['center'] = '37.4419, -122.1419';
       $config['zoom'] = 'auto';
       $this->googlemaps->initialize($config);
 
       $marker = array();
-      $marker['position'] =  $data['train_detail'][0]->latlong;
+      $latlong = $data['train_detail'][0]->latlong;
+      if($latlong == null){
+        $latlong = ',';
+      }
+      $marker['position'] =  $latlong;
       $this->googlemaps->add_marker($marker);
       $data['map'] = $this->googlemaps->create_map();
       
