@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Avant">
 	<meta name="author" content="The Red Team">
-
+    <link rel="icon" href="<?php echo base_url('assets/img/icon-ims.png') ?>" type="image/icon type">
     <!-- <link href="<?php echo base_url(); ?>assets/less/styles.less" rel="stylesheet/less" media="all">  -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/styles.css?=140">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
@@ -16,12 +16,6 @@
     <link href='<?php echo base_url(); ?>assets/demo/variations/default.css' rel='stylesheet' type='text/css' media='all' id='headerswitcher'> 
     
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
-	<!--[if lt IE 9]>
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/ie8.css">
-		<script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/plugins/charts-flot/excanvas.min.js"></script>
-	<![endif]-->
 
 	<!-- The following CSS are included as plugins and can be removed if unused-->
 
@@ -33,94 +27,27 @@
 
 <!-- <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/less.js"></script> -->
 </head>
+<style>
+.navbar-inverse{background-color:#434343}.navbar-inverse .navbar-collapse,.navbar-inverse .navbar-form{border-color:#434343}.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.active>a:focus,.navbar-inverse .navbar-nav>.open>a:focus,.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>.open>a:hover{background-color:#434343}header .toolbar .dropdown,header #headerbardropdown,header #rightmenu-trigger{border-left:1px solid #434343}header #leftmenu-trigger{border-right:1px solid #434343}@media (max-width:480px){ul.toolbar{background-color:#434343}}
 
+</style>
 <body class="">
-
-    <!-- <div id="headerbar"  >
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-6 col-sm-2">
-                    <a href="#" class="shortcut-tiles tiles-brown">
-                        <div class="tiles-body">
-                            <div class="pull-left"><i class="fa fa-pencil"></i></div>
-                        </div>
-                        <div class="tiles-footer">
-                            Create Post
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xs-6 col-sm-2">
-                    <a href="#" class="shortcut-tiles tiles-grape">
-                        <div class="tiles-body">
-                            <div class="pull-left"><i class="fa fa-group"></i></div>
-                            <div class="pull-right"><span class="badge">2</span></div>
-                        </div>
-                        <div class="tiles-footer">
-                            Contacts
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xs-6 col-sm-2">
-                    <a href="#" class="shortcut-tiles tiles-primary">
-                        <div class="tiles-body">
-                            <div class="pull-left"><i class="fa fa-envelope-o"></i></div>
-                            <div class="pull-right"><span class="badge">10</span></div>
-                        </div>
-                        <div class="tiles-footer">
-                            Messages
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xs-6 col-sm-2">
-                    <a href="#" class="shortcut-tiles tiles-inverse">
-                        <div class="tiles-body">
-                            <div class="pull-left"><i class="fa fa-camera"></i></div>
-                            <div class="pull-right"><span class="badge">3</span></div>
-                        </div>
-                        <div class="tiles-footer">
-                            Gallery
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-xs-6 col-sm-2">
-                    <a href="#" class="shortcut-tiles tiles-midnightblue">
-                        <div class="tiles-body">
-                            <div class="pull-left"><i class="fa fa-cog"></i></div>
-                        </div>
-                        <div class="tiles-footer">
-                            Settings
-                        </div>
-                    </a>
-                </div>
-                <div class="col-xs-6 col-sm-2">
-                    <a href="#" class="shortcut-tiles tiles-orange">
-                        <div class="tiles-body">
-                            <div class="pull-left"><i class="fa fa-wrench"></i></div>
-                        </div>
-                        <div class="tiles-footer">
-                            Plugins
-                        </div>
-                    </a>
-                </div>
-                            
-            </div>
-        </div>
-    </div> -->
 
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner" >
         <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
         <!-- <a id="rightmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="left" title="Toggle Infobar"></a> -->
         <div class="navbar-header pull-right">
+		<button type="button" class="btn btn-danger" style="padding-top:15px; padding-right:15px" ><i class="fa fa-sign-out" ></i></button>            <!-- <a href="#" ><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span> -->
+
             <!-- <a href="#" ><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span> -->
         </div>
             <!-- <a  href="<?php echo base_url(); ?>main"></a> -->
         
-
+		
 
 
             <!--###################################### -->
-        <ul class="nav navbar-nav pull-right toolbar"> 
+        <!-- <ul class="nav navbar-nav pull-right toolbar"> 
         	<li class="dropdown">
         		<a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span>
                     <img src="<?php echo base_url(); ?>assets/demo/avatar/dangerfield.png" alt="Dangerfield" /></a>
@@ -143,7 +70,7 @@
         		</ul>
         	</li>
         
-		</ul>
+		</ul> -->
     </header>
 
 

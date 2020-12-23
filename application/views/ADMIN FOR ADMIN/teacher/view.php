@@ -9,19 +9,6 @@
             </ol>
 
             <h1>Data Teacher</h1>
-            <!-- <div class="options">
-                <div class="btn-toolbar">
-                    <div class="btn-group hidden-xs">
-                        <a href='#' class="btn btn-default dropdown-toggle" data-toggle='dropdown'><i class="fa fa-cloud-download"></i><span class="hidden-sm"> Export as  </span><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Text File (*.txt)</a></li>
-                            <li><a href="#">Excel File (*.xlsx)</a></li>
-                            <li><a href="#">PDF File (*.pdf)</a></li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn btn-default"><i class="fa fa-cog"></i></a>
-                </div>
-            </div> -->
         </div>
 
 

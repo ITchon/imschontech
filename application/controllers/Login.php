@@ -30,9 +30,10 @@ class Login extends CI_Controller {
 				if($data != true){
 					$data= $this->model->chk_contact($user,$pass);
 					if($data != true){
-						$this->session->set_flashdata('success','<div class="alert alert-danger hide-it">  
-						<span> Wrong username or password </span>
-					  </div> ');
+						$this->session->set_flashdata('success','<div class="alert alert-danger">
+																	<span>  
+																		<b> Incorrect !!</b> - Plese try again.</span> 
+																	</div>');
 						  redirect('login');  
 					}
 				}
