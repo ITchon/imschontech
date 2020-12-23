@@ -54,15 +54,18 @@
       $query = $this->db->query($sql); 
       $data['result_test'] = $query->result();
 
-      $this->load->library('Googlemaps');
-      $config['zoom'] = 'auto';
-      $this->googlemaps->initialize($config);
-
-      $marker = array();
       $latlong = $data['train_detail'][0]->latlong;
       if($latlong == null){
         $latlong = ',';
       }
+
+      $this->load->library('Googlemaps');
+      $config['center'] = $latlong;
+      $config['zoom'] = '10';
+      $this->googlemaps->initialize($config);
+
+      $marker = array();
+    
       $marker['position'] =  $latlong;
       $this->googlemaps->add_marker($marker);
       $data['map'] = $this->googlemaps->create_map();

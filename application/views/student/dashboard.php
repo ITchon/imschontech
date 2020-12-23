@@ -110,8 +110,9 @@
 	              	                    				</tr>
 	              	                    			</thead>
 	              	                    			<tbody>
-													  <?php 
-
+										<?php 
+												$num = 0;
+												$chk =0;
 											foreach($result_test as $row){
 												$dt = new DateTime($row->date);
 												$date = $dt->format('Y-m-d');
@@ -144,7 +145,8 @@
 												}
 												
 												if (in_array("1", $a))
-												  {
+												  { 
+													  $chk++;
 													echo "<span style='color:#44c748'>ยืนยันเรียบร้อย</span>";
 												  }
 												  else if(in_array("2", $a)){
@@ -190,8 +192,10 @@
 												</td>
 												</tr>
 												<?php
+												$num++;
 													}
-														  ?> 
+														echo $chk."/".$num; 
+													  ?> 
                                                     
 	              	                    			</tbody>
                                                 </table>

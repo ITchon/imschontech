@@ -1,9 +1,5 @@
 <style>
-    .container{
-        padding-left:50px;
-        padding-right:50px;
-        padding-top:100px;
-    }
+
     .student_detail{
         padding-left:50px;
         padding-right:50px;
@@ -16,9 +12,14 @@
         color: red;
     }
 </style>
-<div class="container">
-    <div class="text-center">
-    <div class="row">
+<div class="row">
+				<div class="col-md-12">
+               
+					<div class="panel panel-midnightblue">
+						<div class="panel-body">
+
+							<div class="row">
+								<div class="col-md-6 ">
         <!-- <?php  if(isset($result)){
             if($result != null){
 
@@ -69,7 +70,7 @@
                  echo $class->class_name.$class->class_group; }else{
                      echo "No Data";
                  } ?></h1>
-        <form target = '_blank' action="<?php echo base_url()?>teacher/std_data" method="get">
+        <form target = '_blank' class="container " action="<?php echo base_url()?>teacher/std_data" method="get">
             <input type="text" class="form-control" name="student_search" placeholder="รหัสนักศึกษา">
         </form>
     </div>
