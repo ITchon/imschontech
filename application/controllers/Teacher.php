@@ -182,16 +182,19 @@ class Teacher Extends CI_controller{
     $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' AND teacher_confirm = 0 ORDER BY `events`.`start_event` DESC";
       $query = $this->db->query($sql); 
       $data['result_test'] = $query->result();
-      
+      $latlong = $data['train_detail'][0]->latlong;
+      if($latlong == null){
+        $latlong = ',';
+      }
+
+
       $this->load->library('Googlemaps');
-      $config['center'] = '37.4419, -122.1419';
-      $config['zoom'] = 'auto';
+      $config['center'] = $latlong;
+      $config['zoom'] = '10';
       $this->googlemaps->initialize($config);
   
       $marker = array();
-      $lat = $data['train_detail'][0]->latitude;
-      $long = $data['train_detail'][0]->longitude; 
-      $marker['position'] = $lat.','.$long;
+      $marker['position'] = $latlong;
       $this->googlemaps->add_marker($marker);
       $data['map'] = $this->googlemaps->create_map();
   

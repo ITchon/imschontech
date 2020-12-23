@@ -85,7 +85,13 @@
 								<div class="col-md-12">
 									<div class="tab-container tab-midnightblue">
 										<ul class="nav nav-tabs">
-											<li class="active"><a href="#home1" data-toggle="tab">Timeline</a></li>
+											<li class="active" style="font-size:18px"><a href="#home1" data-toggle="tab">Timeline</a></li>
+											<li class="active"  style="float:right;font-size:18px">	
+												<a id="overall-contact"></a>
+											</li>
+											<li class="active"  style="float:right;font-size:18px">	
+												<a id="overall-teacher"></a>
+											</li>
 										</ul>
                                         <div class="panel panel-sky">
                                             <div class="panel-body collapse in">
@@ -111,8 +117,9 @@
 	              	                    			</thead>
 	              	                    			<tbody>
 										<?php 
-												$num = 0;
-												$chk =0;
+												$sum = 0;
+												$tch_chk =0;
+												$contact_chk =0;
 											foreach($result_test as $row){
 												$dt = new DateTime($row->date);
 												$date = $dt->format('Y-m-d');
@@ -146,7 +153,7 @@
 												
 												if (in_array("1", $a))
 												  { 
-													  $chk++;
+													$tch_chk++;
 													echo "<span style='color:#44c748'>ยืนยันเรียบร้อย</span>";
 												  }
 												  else if(in_array("2", $a)){
@@ -173,6 +180,7 @@
 												} 
 												if (in_array("1", $a))
 												  {
+													$contact_chk++;
 													echo "<span style='color:#44c748'>ยืนยันเรียบร้อย</span>";
 												  }
 												  else if(in_array("2", $a)){
@@ -192,12 +200,18 @@
 												</td>
 												</tr>
 												<?php
-												$num++;
+												$sum++;
 													}
-														echo $chk."/".$num; 
+														
 													  ?> 
                                                     
 	              	                    			</tbody>
+													  <!-- Overall Chk -->
+													<input type="hidden" id="teacher" value="<?php echo $tch_chk ?>">
+													<input type="hidden" id="company" value="<?php echo $contact_chk ?>">
+													<input type="hidden" id="sum" value="<?php echo $sum ?>">
+													  <!---------------------------- -->
+
                                                 </table>
 
                                                 </div>
@@ -217,6 +231,13 @@
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+ 	var teacher_chk = $('#teacher').val();
+ 	var company_chk = $('#company').val();
+ 	var sum = $('#sum').val();
+	 $('#overall-teacher').html("Teacher : "+teacher_chk+"/"+sum);
+	 $('#overall-contact').html("Company : "+company_chk+"/"+sum);
+});
 $(".open-modal").click(function() {
 	var date = $(this).val();
 	 $.ajax({
