@@ -74,11 +74,11 @@ if($query) {
 //     }
 // }
 
-public function get_stdid_bycode($student_search) {
+public function get_stdid_bycode($student_search){
   $sql ="SELECT * FROM student
   WHERE std_code = '$student_search'";
 $query = $this->db->query($sql);
-$result =  $query->result()[0];
+$result =  $query->result();
 if($query) {
     return $result;  
     }
