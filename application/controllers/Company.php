@@ -31,7 +31,20 @@ class Company Extends CI_controller{
 
     public function insert_company()
 	{
-		$this->load->view('ADMIN FOR ADMIN/company/insert');
+		$this->load->library('googlemaps');
+
+		$config['center'] = '13.739330088358768, 100.50712938157314';
+		$config['zoom'] = '9';
+		$this->googlemaps->initialize($config);
+			
+		$marker = array();
+		$marker['position'] = '13.739330088358768, 100.50712938157314';
+		$marker['draggable'] = true;
+
+		$marker['ondragend'] = 'document.getElementById(\'position\').value = event.latLng.lat() + \', \' + event.latLng.lng()';
+		$this->googlemaps->add_marker($marker);
+		$data['map'] = $this->googlemaps->create_map();
+		$this->load->view('ADMIN FOR ADMIN/company/insert',$data);
 	}
 
 
@@ -42,17 +55,32 @@ class Company Extends CI_controller{
         $province        = $this->input->post('province'); 
         $zipcode         = $this->input->post('zipcode'); 
         $tel             = $this->input->post('tel'); 
+        $latlng          = $this->input->post('latlng'); 
        
 	  
-        $this->company_model->insert_cp($company_name,$address,$province,$zipcode,$tel ); 
+        $this->company_model->insert_cp($company_name,$address,$province,$zipcode,$tel,$latlng ); 
         redirect('Company');
 	}
 
 	public function edit_company()
 	{
+		
 		$id = $this->uri->segment('3'); 
-        $data['result'] = $this->company_model->selectOnecompany($id);
-    
+		$data_company = $this->company_model->selectOnecompany($id);
+		$data['result'] = $data_company;
+		$this->load->library('googlemaps');
+
+		$config['center'] = $data_company[0]->latlong;
+		$config['zoom'] = '9';
+		$this->googlemaps->initialize($config);
+			
+		$marker = array();
+		$marker['position'] = $data_company[0]->latlong;
+		$marker['draggable'] = true;
+
+		$marker['ondragend'] = 'document.getElementById(\'position\').value = event.latLng.lat() + \', \' + event.latLng.lng()';
+		$this->googlemaps->add_marker($marker);
+		$data['map'] = $this->googlemaps->create_map();
 		$this->load->view('ADMIN FOR ADMIN/company/edit',$data);
 	}
 
@@ -64,9 +92,10 @@ class Company Extends CI_controller{
         $zipcode         = $this->input->post('zipcode'); 
         $tel             = $this->input->post('tel'); 
         $company_id      = $this->input->post('company_id'); 
+        $latlng      = $this->input->post('latlng'); 
      
         
-        $this->company_model->edit_cp($company_name,$address,$province,$zipcode,$tel,$company_id); 
+        $this->company_model->edit_cp($company_name,$address,$province,$zipcode,$tel,$company_id,$latlng); 
         redirect('Company');
 	}
 

@@ -1,4 +1,4 @@
-
+<head><?php echo $map['js']; ?></head>
 <div id="page-content">
     <div id='wrap'>
         <div id="page-heading">
@@ -59,8 +59,9 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <input type="hidden" id="position" name="latlng" value="" />
+                                  <?php echo $map['html'];?>
                                 </div>
-                                
                                 
                             </div>
                         </div>
