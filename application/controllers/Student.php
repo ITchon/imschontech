@@ -21,6 +21,7 @@
       $this->load->view('student/header');
       $this->load->view('student/menu');
       $this->load->view('student/calendar');
+      $this->load->view('student/modal_img');
 
     }
     function profile(){
