@@ -1,20 +1,4 @@
-<style>
-    .student_detail{
-        padding-left:50px;
-        padding-right:50px;
-        padding-top:100px;
-    }
-    .fa-check{
-        color: green;
-    }
-    .fa-ban{
-        color: red;
-    }
-	#form {
-  display: inline-block;
-	}
-</style>
-<head><?php echo $map['js']; ?></head>
+<head><?php echo $map['js'];?></head>
 
 			<div class="row">
 				<div class="col-md-12">
@@ -63,7 +47,16 @@
 												</tr>
 												<tr>
 													<td><b>Train Duration</b></td>
-													<td><?php echo $train_detail[0]->start_date." ถึง ".$train_detail[0]->end_date ?></td>
+													<td>
+													<?php echo $train_detail[0]->start_date." ถึง ".$train_detail[0]->end_date ;
+														$today =date("Y-m-d");
+														if($train_detail[0]->end_date < $today){
+															echo "<span class='text-danger'> (สิ้นสุดการฝึกงานแล้ว) </span>";
+														}else if(($today >= $train_detail[0]->start_date) && ($today <= $train_detail[0]->end_date)){
+															echo "<span class='text-success'> (กำลังฝึกงาน) </span>";
+														}	
+													
+													?></td>
 												</tr>
 												<tr>
 														<td><b>Train Location</b></td>
@@ -92,35 +85,47 @@
 								<div class="col-md-12">
 									<div class="tab-container tab-midnightblue">
 										<ul class="nav nav-tabs">
-											<li class="active"><a href="#home1" data-toggle="tab">Timeline</a></li>
+											<li class="active" style="font-size:18px"><a href="#home1" data-toggle="tab">Timeline</a></li>
+											<li class="active"  style="float:right;font-size:18px">	
+												<a id="overall-teacher"></a>
+											</li>
 										</ul>
                                         <div class="panel panel-sky">
                                             <div class="panel-body collapse in">
+												
+   													
+											
                                                 <div class="table-responsive">
+												<!-- <div class="pull-right text-right">
+														
+														<a href="<?php echo base_url()?>Student/export_excel" class="btn btn-success btn-lg" data-toggle="tooltip" title="ส่งออกข้อมูล">
+															<i class="fas fa-file-excel"></i></span> Excel
+														</a>
+													</div> -->
                                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
 	              	                    				<tr>
-														  	<th width="20%">Date</th>
-	              	                    					<th width="30%">Title</th>
+	              	                    					<th>Date</th>
+	              	                    					<th width="40%">Title</th>
 	              	                    					<th width="3%"> - </th>
 	              	                    				</tr>
 	              	                    			</thead>
 	              	                    			<tbody>
-													  <?php 
-
+										<?php 
+												$sum = 0;
+												$std_chk =0;
+												$contact_chk =0;
 											foreach($result_test as $row){
-												
-												$s = $row->date;
-												$dt = new DateTime($s);
+												$dt = new DateTime($row->date);
 												$date = $dt->format('Y-m-d');
 												$time = $dt->format('H:i:s');
+												$std_chk++;
 												?>
 												<tr>
 												<td><?php echo $date ?></td>
 												<td>
 												<?php foreach($result as $r){
-														$s = $r->start_event;
-														$dt = new DateTime($s);
+														$dt = new DateTime($r->start_event);
 														$date_event = $dt->format('Y-m-d');
 														$time = $dt->format('H:i:s');
 														if($date == $date_event){
@@ -128,7 +133,8 @@
 														}
 												} ?>
 												</td>
-												<input id="std_id" type="hidden" name="std_id" value="<?php echo $r->std_id?>">
+
+												
 												<td>
 												<button type="button" value='<?php echo $date ?>' class="btn btn-xs btn-warning open-modal">
 															<i class="ace-icon fa fa-search bigger-120"></i>
@@ -136,11 +142,20 @@
 												</td>
 												</tr>
 												<?php
+												$sum++;
 													}
-														  ?> 
+														
+													  ?> 
                                                     
 	              	                    			</tbody>
+													  <!-- Overall Chk -->
+													<input type="hidden" id="teacher" value="<?php echo $std_chk ?>">
+													<input type="hidden" id="sum" value="<?php echo $sum ?>">
+													<input id="std_id" type="hidden" name="std_id" value="<?php echo $r->std_id?>">
+													  <!---------------------------- -->
+
                                                 </table>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -153,18 +168,23 @@
 					</div>
 				</div>
 			</div>
-			
-
 </body>
-</html>
 
+</html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+ 	var teacher_chk = $('#teacher').val();
+
+ 	var sum = $('#sum').val();
+	 $('#overall-teacher').html("Total : "+teacher_chk);
+	//  $('#overall-contact').html("Company : "+company_chk+"/"+sum);
+});
 $(".open-modal").click(function() {
 	var date = $(this).val();
 	var std_id = document.getElementById("std_id").value;
 	 $.ajax({
-				url: "<?php
+		url: "<?php
 					 echo base_url("crud/event_forteacher/");
 					 ?>",  
     			type: "POST",
