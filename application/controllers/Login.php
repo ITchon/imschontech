@@ -44,7 +44,6 @@ class Login extends CI_Controller {
 				$arrData = array('teacher_id'=> $data['teacher_id'],
 								'password'=> $data['password'],
 								'username'=> $data['username'],
-								'class_id'=>$data['class_id'],
 								'login' => "OK" ,
 								'fname'=>$data['fname'] ,
 								'lname' =>$data['lname']);	
