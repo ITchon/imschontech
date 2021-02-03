@@ -58,47 +58,6 @@
 
 
             <div class="row">
-                <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-12 clearfix">
-                                    <h4 class="pull-left" style="margin: 0 0 20px;">User Report <small>(weekly)</small></h4>
-                                    <div class="btn-group pull-right">
-                                        <a href="javascript:;" class="btn btn-default btn-sm active">this week</a>
-                                        <a href="javascript:;" class="btn btn-default btn-sm ">previous week</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div id="site-statistics" style="height:250px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-grape">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-12 clearfix">
-                                    <h4 class="pull-left" style="margin: 0 0 20px;">Annual Sales <small>(by quarter)</small></h4>
-                                    <div class="btn-group pull-right">
-                                        <a href="javascript:;" class="btn btn-default btn-sm active">2012</a>
-                                        <a href="javascript:;" class="btn btn-default btn-sm ">2011</a>
-                                        <a href="javascript:;" class="btn btn-default btn-sm ">2010</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div id="budget-variance" style="height:250px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
                 <div class="col-xs-12 col-md-3 col-sm-6 col-lg-3">
                     <a class="info-tiles tiles-alizarin" href="#">
                         <div class="tiles-heading">
@@ -107,7 +66,7 @@
                         </div>
                         <div class="tiles-body">
                             <div class="pull-left"><i class="fa fa-comments-o"></i></div>
-                            <div class="pull-right"><div id="indexinfocomments" style="margin-top: 10px; margin-bottom: -10px;"></div></div>
+                            <div class="pull-right">37<div id="indexinfocomments" style="margin-top: 10px; margin-bottom: -10px;"></div></div>
                         </div>
                     </a>
                 </div>
@@ -119,7 +78,7 @@
                         </div>
                         <div class="tiles-body">
                             <div class="pull-left"><i class="fa fa-thumbs-o-up"></i></div>
-                            <div class="pull-right"><div id="indexinfolikes" style="margin-top: 10px; margin-bottom: -10px;"></div></div>
+                            <div class="pull-right">37<div id="indexinfolikes" style="margin-top: 10px; margin-bottom: -10px;"></div></div>
                         </div>
                     </a>
                 </div>

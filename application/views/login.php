@@ -18,24 +18,28 @@
 <style>
 #grad1 {
 
-  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(0,55,170,1) 100%);
+  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(213, 117, 72, 1) 100%);
 }
 </style>
 <body class="focusedform" id="grad1" >
 
 <div class="verticalcenter">
-	<a href=""><img src="assets/img/icon-ims.png" alt="Logo" class="brand" /></a>
-	  
+<!-- <div class="col-sm-6"> -->
+		<img src="assets/img/logochpng.png" alt="Logo" class="brand" />
+	<!-- </div> -->
+<!-- <div class="col-sm-6">
+		<a href=""><img src="assets/img/icon-ims.png" alt="Logo" class="brand" /></a>
+</div> -->
 	<div class="panel panel-primary">
 		<div class="panel-body">
 			
-			<h4 class="text-center" style="margin-bottom: 25px;"><i class="fa fa-sign-in">  </i>&nbsp;&nbsp; Sign in to start your session.</h4>
+			<h4 class="text-center" style="margin-bottom: 25px;"> ล็อคอินเพื่อเข้าสู่ระบบ </h4>
             <form action="<?php echo base_url() ?>Login/chklogin" method="post">
 						<div class="form-group">
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user"></i></span>
-									<input type="text" class="form-control" placeholder="Username" name="username">
+									<input type="text" class="form-control" placeholder="Username (รหัสนักเรืยน,นักศึกษา,อาจารย์)" name="username">
 								</div>
 							</div>
 						</div>
@@ -43,15 +47,24 @@
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-									<input type="password" class="form-control" placeholder="Password" name ="password">
+									<input type="password" class="form-control" placeholder="Password (เบอร์โทรศัพท์)" name ="password">
 								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+							<br>
+								<p style="font-size:6px">- Username ให้ใส่รหัสนักเรียน , นักศึกษา </p>    
+								<p style="font-size:6px">- password เบอร์โทรศัพท์ </p>    
+									
+								                                             
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
 								<br>
 								<?php echo $this->session->flashdata("success"); ?> 
-								
+								 
 							</div>
 						</div>
 		</div>
@@ -61,7 +74,7 @@
 			
 			<div class="pull-right">
                 <!-- <a href="#" class="btn btn-default">Reset</a> -->
-                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="submit" class="btn btn-success">ยืนยัน</button>
 			</div>
 		</div>
 	</div>
