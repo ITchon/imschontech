@@ -32,7 +32,7 @@ class Login extends CI_Controller {
 					if($data != true){
 						$this->session->set_flashdata('success','<div class="alert alert-danger">
 																	<span>  
-																		<b> Incorrect !!</b> - Plese try again.</span> 
+																		<b> รหัสผิดพลาด !!</b> - กรุณาตรวจสอบรหัสไหม่ </span> 
 																	</div>');
 						  redirect('login');  
 					}

@@ -25,7 +25,7 @@
 
 <div class="verticalcenter">
 <!-- <div class="col-sm-6"> -->
-		<a href=""><img src="assets/img/logochpng.png" alt="Logo" class="brand" /></a>
+		<img src="assets/img/logochpng.png" alt="Logo" class="brand" />
 	<!-- </div> -->
 <!-- <div class="col-sm-6">
 		<a href=""><img src="assets/img/icon-ims.png" alt="Logo" class="brand" /></a>
@@ -39,7 +39,7 @@
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user"></i></span>
-									<input type="text" class="form-control" placeholder="Username" name="username">
+									<input type="text" class="form-control" placeholder="Username (รหัสนักเรืยน,นักศึกษา,อาจารย์)" name="username">
 								</div>
 							</div>
 						</div>
@@ -47,8 +47,17 @@
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-									<input type="password" class="form-control" placeholder="Password" name ="password">
+									<input type="password" class="form-control" placeholder="Password (เบอร์โทรศัพท์)" name ="password">
 								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+							<br>
+								<p style="font-size:6px">- Username ให้ใส่รหัสนักเรียน , นักศึกษา </p>    
+								<p style="font-size:6px">- password เบอร์โทรศัพท์ </p>    
+									
+								                                             
 							</div>
 						</div>
 						<div class="form-group">
@@ -65,7 +74,7 @@
 			
 			<div class="pull-right">
                 <!-- <a href="#" class="btn btn-default">Reset</a> -->
-                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="submit" class="btn btn-success">ยืนยัน</button>
 			</div>
 		</div>
 	</div>
