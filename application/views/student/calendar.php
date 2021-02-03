@@ -166,6 +166,7 @@ today = yyyy + '-' + mm + '-' + dd;
                       insert_issue(res);
                         calendar.fullCalendar('refetchEvents');
                         $('#addModal').modal('hide');
+                        $("#form")[0].reset();
                     }
                   
             });
