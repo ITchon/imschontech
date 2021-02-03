@@ -49,7 +49,7 @@ class Login extends CI_Controller {
 								'lname' =>$data['lname']);	
 				$this->session->set_userdata($arrData);
 				$username = $this->session->userdata('username');
-				redirect('teacher/dashboard');
+				redirect('teacher/division');
 				 }
 				 else if($data['contact_id']){
 					$arrData = array('contact_id'=> $data['contact_id'],
@@ -57,7 +57,7 @@ class Login extends CI_Controller {
 									'name' =>$data['name']);	
 					$this->session->set_userdata($arrData);
 					$username = $this->session->userdata('username');
-					redirect('contact/dashboard');
+					redirect('contact/trainer');
 					 }
 				else if($data['std_id']){
 				$arrData = array('std_id'=> $data['std_id'],
