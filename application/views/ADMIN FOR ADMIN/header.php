@@ -40,7 +40,7 @@
 		<!-- <button type="button" class="btn btn-danger" style="padding-top:15px; padding-right:15px" ><i class="fa fa-sign-out" ></i></button>            <a href="#" ><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span> -->
 			<!-- <a   href="<?php echo base_url()?>/logout" class="text-right margin-bottom: 25px;">Sign Out</a>	 -->
 			
-			<a  href="<?php echo base_url()?>/logout" class="text-right username dropdown-toggle"><i class="fas fa fa-sign-out"></i></a>
+			<!-- <a  href="<?php echo base_url()?>/logout" class="text-right username dropdown-toggle"><i class="fas fa fa-sign-out"></i></a> -->
             <!-- <a href="#" ><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span> -->
         </div>
             <a  href="<?php echo base_url(); ?>main"></a>
@@ -49,16 +49,20 @@
 
 
             <!--###################################### -->
-        <!-- <ul class="nav navbar-nav pull-right toolbar"> 
+        <ul class="nav navbar-nav pull-right toolbar"> 
         	<li class="dropdown">
         		<a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span>
         		
         				<ul class="dropdown-menu">
+                        <li><a href="#">Edit Profile <i class="pull-right fa fa-pencil"></i></a></li>
+        					<li><a href="#">Account <i class="pull-right fa fa-cog"></i></a></li>
+        					<li><a href="#">Help <i class="pull-right fa fa-question-circle"></i></a></li>
+        					<li class="divider"></li>
         					<li><a  href="<?php echo base_url()?>/logout" class="text-right">Sign Out</a></li>
         				</ul>
         		
         	</li>
-		</ul> -->
+		</ul>
     </header>
 
 

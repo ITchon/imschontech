@@ -18,20 +18,22 @@
 <style>
 #grad1 {
 
-  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(213, 117, 72, 1) 100%);
+ 
+}
+#sheder{
+	-webkit-box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
+-moz-box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
+box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 }
 </style>
 <body class="focusedform" id="grad1" >
 
 <div class="verticalcenter">
-<!-- <div class="col-sm-6"> -->
-		<img src="assets/img/logochpng.png" alt="Logo" class="brand" />
-	<!-- </div> -->
-<!-- <div class="col-sm-6">
-		<a href=""><img src="assets/img/icon-ims.png" alt="Logo" class="brand" /></a>
-</div> -->
-	<div class="panel panel-primary">
+	<div class="panel panel-primary " id="sheder">
 		<div class="panel-body">
+		<img src="assets/img/logochpng.png" alt="Logo" class="brand" />
+
+
 			
 			<h4 class="text-center" style="margin-bottom: 25px;"> ล็อคอินเพื่อเข้าสู่ระบบ </h4>
             <form action="<?php echo base_url() ?>Login/chklogin" method="post">
@@ -53,9 +55,23 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-							<br>
-								<p style="font-size:6px">- Username ให้ใส่รหัสนักเรียน , นักศึกษา </p>    
-								<p style="font-size:6px">- password เบอร์โทรศัพท์ </p>    
+							
+							<div class="box-text-login">
+								<table class="table 
+text-navy
+no-border">
+							<tbody><tr><td>
+							<table width="100%" align="center">
+								<tbody><tr valign="top"><td colspan="2"><hr size="1"></td>
+									</tr><tr valign="top"><td colspan="2"><b><big>การเข้าใช้งานระบบ</big></b></td>
+									</tr><tr valign="top"><td><b>นักเรียน - นักศึกษา</b></td><td>เข้าสู่ระบบโดยใช้ รหัสประจำตัวนักเรียน<br>รหัสผ่านคือ เบอร์โทรศัพท์</td>
+									</tr><tr valign="top">
+									</tr>
+								</tbody>
+							</table>
+							</td>
+							</tr></tbody></table>
+							</div>  
 									
 								                                             
 							</div>
@@ -74,7 +90,7 @@
 			
 			<div class="pull-right">
                 <!-- <a href="#" class="btn btn-default">Reset</a> -->
-                <button type="submit" class="btn btn-success">ยืนยัน</button>
+                <button type="submit" class="btn btn-danger">ยืนยัน</button>
 			</div>
 		</div>
 	</div>
@@ -83,3 +99,6 @@
 
 </body>
 </html>
+
+
+
