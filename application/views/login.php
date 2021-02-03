@@ -18,18 +18,22 @@
 <style>
 #grad1 {
 
-  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(0,55,170,1) 100%);
+  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(213, 117, 72, 1) 100%);
 }
 </style>
 <body class="focusedform" id="grad1" >
 
 <div class="verticalcenter">
-	<a href=""><img src="assets/img/icon-ims.png" alt="Logo" class="brand" /></a>
-	  
+<!-- <div class="col-sm-6"> -->
+		<a href=""><img src="assets/img/logochpng.png" alt="Logo" class="brand" /></a>
+	<!-- </div> -->
+<!-- <div class="col-sm-6">
+		<a href=""><img src="assets/img/icon-ims.png" alt="Logo" class="brand" /></a>
+</div> -->
 	<div class="panel panel-primary">
 		<div class="panel-body">
 			
-			<h4 class="text-center" style="margin-bottom: 25px;"><i class="fa fa-sign-in">  </i>&nbsp;&nbsp; Sign in to start your session.</h4>
+			<h4 class="text-center" style="margin-bottom: 25px;"> ล็อคอินเพื่อเข้าสู่ระบบ </h4>
             <form action="<?php echo base_url() ?>Login/chklogin" method="post">
 						<div class="form-group">
 							<div class="col-sm-12">
@@ -51,7 +55,7 @@
 							<div class="col-sm-12">
 								<br>
 								<?php echo $this->session->flashdata("success"); ?> 
-								
+								 
 							</div>
 						</div>
 		</div>
