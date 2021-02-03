@@ -29,7 +29,7 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 <body class="focusedform" id="grad1" >
 
 <div class="verticalcenter">
-	<div class="panel panel-primary " id="sheder">
+	<div class="panel panel-dark " id="sheder">
 		<div class="panel-body">
 		<img src="assets/img/logochpng.png" alt="Logo" class="brand" />
 
@@ -44,8 +44,7 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 									<input type="text" class="form-control" placeholder="Username (รหัสนักเรืยน,นักศึกษา,อาจารย์)" name="username">
 								</div>
 							</div>
-						</div>
-						<div class="form-group">
+				
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
@@ -57,9 +56,7 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 							<div class="col-sm-12">
 							
 							<div class="box-text-login">
-								<table class="table 
-text-navy
-no-border">
+								<table class="table text-navyno-border">
 							<tbody><tr><td>
 							<table width="100%" align="center">
 								<tbody><tr valign="top"><td colspan="2"><hr size="1"></td>
