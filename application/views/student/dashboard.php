@@ -15,6 +15,7 @@
 											<label class="control-label col-sm-6 col-xs-6" for="train">
 												<h3><strong><?php echo ucfirst($train_detail[0]->fname."  ".$train_detail[0]->lname) ?></strong></h3>
 											</label>
+											เลือกปี
     										<div class="col-sm-3 col-xs-3">
 											<?php
 												$optName = array();

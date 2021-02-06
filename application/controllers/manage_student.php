@@ -5,6 +5,7 @@ class manage_student Extends CI_controller{
 	function __construct(){
 		parent::__construct();
 
+		$this->load->model('model');
 		$this->load->model('student_model');
 		$this->load->helper('url');
 		$this->load->helper('form');
@@ -62,8 +63,8 @@ class manage_student Extends CI_controller{
 		$std_code = $this->input->post('std_code');
 		$birth_date = $this->input->post('birth_date');
         $class_id = $this->input->post('class_id');
-	  
-        $this->student_model->insert_student($title ,$fname ,$lname,$gender ,$tel ,$email,$status ,$std_code ,$birth_date ,$class_id); 
+        $user_id = $this->student_model->insert_student($title ,$fname ,$lname,$gender ,$tel ,$email,$status ,$std_code ,$birth_date ,$class_id); 
+		$this->model->insert_user($user_id,"student",$std_code,$birth_date,0);
         redirect('manage_student');
 	}
 

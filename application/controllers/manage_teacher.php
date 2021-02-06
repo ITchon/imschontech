@@ -56,7 +56,8 @@ class manage_teacher Extends CI_controller{
 		$th_birth_date = $this->input->post('th_birth_date');
         $class_id = $this->input->post('class_id');
 	    $th_id 	  = $this->input->post('teacher_id');
-        $this->teacher_model->insert_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$class_id ,$th_id); 
+		$user_id=$this->teacher_model->insert_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$class_id ,$th_id); 
+		$this->model->insert_user($user_id,"student",$citizen_id,$birth_date,0);
         redirect('manage_teacher');
 	}
 

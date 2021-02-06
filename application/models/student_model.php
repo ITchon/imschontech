@@ -39,6 +39,7 @@
         }
 
         // ,$class_id ,$th_id
+
         public function insert_student($title ,$fname ,$lname,$gender ,$tel ,$email,$status ,$std_code ,$birth_date ,$class_id)
         {
            
@@ -59,7 +60,7 @@
                 $query = $this->db->query($sql);  
                 if($query)
                 {
-                return true;
+                return $this->db->insert_id();
                 }
                 else{
                 return false;

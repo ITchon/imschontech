@@ -21,27 +21,20 @@ class Login extends CI_Controller {
     {
         $user = $this->input->post('username');
         $pass = $this->input->post('password');
-  
-		$data= $this->model->chk_student($user,$pass);
-		if($data != true){
-			$data= $this->model->chk_teacher($user,$pass);
-			if($data != true){
-				$data= $this->model->chk_admin($user,$pass);
-				if($data != true){
-					$data= $this->model->chk_contact($user,$pass);
+		$data= $this->model->chk_user($user,$pass);
 					if($data != true){
-						$this->session->set_flashdata('success','<div class="alert alert-danger">
-																	<span>  
-																		<b> รหัสผิดพลาด !!</b> - กรุณาตรวจสอบรหัสไหม่ </span> 
-																	</div>');
+						$this->session->set_flashdata
+						('success','<div class="alert alert-danger">
+												<span>  
+									<b> รหัสผิดพลาด !!</b> - กรุณาตรวจสอบรหัสไหม่ </span> 
+						</div>');
 						  redirect('login');  
 					}
-				}
-			}
-		}
-         if($data != null){
-				if($data['teacher_id']){
-				$arrData = array('teacher_id'=> $data['teacher_id'],
+         else{
+				if($data['usergroup']=="teacher"){
+					$condition = "teacher_id = ".$data['user_id'];
+					$data = $this->model->GetUserData("teacher",$condition);
+					$arrData = array('teacher_id'=> $data['teacher_id'],
 								'password'=> $data['password'],
 								'username'=> $data['username'],
 								'login' => "OK" ,
@@ -51,7 +44,9 @@ class Login extends CI_Controller {
 				$username = $this->session->userdata('username');
 				redirect('teacher/division');
 				 }
-				 else if($data['contact_id']){
+				 else if($data['usergroup']=="contact"){
+					$condition = "contact_id = ".$data['user_id'];
+					$data = $this->model->GetUserData("contact",$condition);
 					$arrData = array('contact_id'=> $data['contact_id'],
 									'tel'=> $data['tel'],
 									'name' =>$data['name']);	
@@ -59,8 +54,10 @@ class Login extends CI_Controller {
 					$username = $this->session->userdata('username');
 					redirect('contact/trainer');
 					 }
-				else if($data['std_id']){
-				$arrData = array('std_id'=> $data['std_id'],
+				else if($data['usergroup']=="student"){
+					$condition = "std_id = ".$data['user_id'];
+					$data = $this->model->GetUserData("student",$condition);
+					$arrData = array('std_id'=> $data['std_id'],
 								'tel'=> $data['tel'],
 								'birth_date'=> $data['birth_date'],
 								'class_id'=>$data['class_id'],
@@ -71,8 +68,8 @@ class Login extends CI_Controller {
 				$username = $this->session->userdata('username');
 				redirect('student');
 				 }
-				else if($data['admin_id']){
-			 	$arrData = array('admin_id'=> $data['admin_id'],'password'=> $data['password'],'username'=> $data['username'],'class_id'=>$data['class_id'],'login' => "OK" ,'fname'=>$data['fname'] , 'lname' =>$data['lname']);	
+				else if($data['usergroup']=="admin"){
+			 	$arrData = array('admin_id'=> $data['user_id'],'password'=> $data['password'],'username'=> $data['username'],'login' => "OK" );	
              	$this->session->set_userdata($arrData);
 			 	$username = $this->session->userdata('username');
 			 	redirect('main');

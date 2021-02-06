@@ -11,11 +11,22 @@ public function chk_session() {
 
        }else{    return TRUE;    }
 }
-public function chk_student($user,$pass) {  
+public function chk_user($user,$pass) {  
         // $pass = base64_encode(trim($pass));
-        $sql ="SELECT * FROM student WHERE std_code='$user' and tel='$pass'";
+        $sql ="SELECT * FROM user WHERE username='$user' and password='$pass'";
       $query = $this->db->query($sql);
       if($query->num_rows()!=0) {
+        $result = $query->result_array();
+          return $result[0];  
+          }
+        else{       
+        return false;
+          }
+}
+public function GetUserData($group,$condition) {  
+        $sql ="SELECT * FROM $group WHERE $condition";
+        $query = $this->db->query($sql);
+        if($query->num_rows()!=0) {
         $result = $query->result_array();
           return $result[0];  
           }
@@ -42,43 +53,20 @@ public function block_for_contact() {
         }
 }
 
-public function chk_teacher($user,$pass) {  
-    // $pass = base64_encode(trim($pass));
-    $sql ="SELECT * FROM teacher WHERE th_code='$user' and tel='$pass'";
-  $query = $this->db->query($sql);
-  if($query->num_rows()!=0) {
-    $result = $query->result_array();
-      return $result[0];  
-      }
-    else{       
-    return false;
-      }
-}
 
-public function chk_admin($user,$pass) {  
-    // $pass = base64_encode(trim($pass));
-    $sql ="SELECT * FROM admin WHERE username='$user' and password='$pass'";
-  $query = $this->db->query($sql);
-  if($query->num_rows()!=0) {
-    $result = $query->result_array();
-      return $result[0];  
-      }
-    else{       
-    return false;
-      }
-}
 
-public function chk_contact($user,$pass) {  
-    // $pass = base64_encode(trim($pass));
-    $sql ="SELECT * FROM contact WHERE username='$user' and password='$pass'";
-  $query = $this->db->query($sql);
-  if($query->num_rows()!=0) {
-    $result = $query->result_array();
-      return $result[0];  
-      }
-    else{       
-    return false;
-      }
+public function insert_user($user_id,$usergroup ,$username,$password ,$status_login)
+{
+    $sql ="INSERT INTO user(user_id,usergroup,username,password,status_login)
+        VALUES ($user_id,'$usergroup','$username','$password','$status_login');";          
+        $query = $this->db->query($sql);  
+        if($query)
+        {
+        return true;
+        }
+        else{
+        return false;
+        } 
 }
 
 public function CheckSession()        

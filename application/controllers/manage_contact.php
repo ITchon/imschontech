@@ -6,6 +6,7 @@ class manage_contact Extends CI_controller{
 		parent::__construct();
 
 		$this->load->model('contact_model');
+		$this->load->model('model');
 		$this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->database();
@@ -38,8 +39,8 @@ class manage_contact Extends CI_controller{
         $tel    = $this->input->post('tel');
         $username    = $this->input->post('username');
         $password      = $this->input->post('password');
-		
-        $this->contact_model->insert_p($name ,$tel ,$username ,$password); 
+		$user_id = $this->contact_model->insert_p($name ,$tel); 
+		$this->model->insert_user($user_id,"contact",$username,$password,0);
         redirect('manage_contact');
 	}
 

@@ -8,19 +8,17 @@
             $data  = $query->result(); 
         }
         // ,$class_id ,$th_id
-        public function insert_p($name ,$tel ,$username ,$password)
+        public function insert_p($name ,$tel )
         {
             $sql ="INSERT INTO  contact (
                         name,
                         tel,
-                        username,
-                        password
                         )
-                VALUES ('$name','$tel','$username','$password');";          
+                VALUES ('$name','$tel');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {
-                return true;
+                return $this->db->insert_id();
                 }
                 else{
                 return false;
