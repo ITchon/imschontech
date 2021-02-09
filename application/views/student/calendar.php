@@ -167,6 +167,7 @@ today = yyyy + '-' + mm + '-' + dd;
                         calendar.fullCalendar('refetchEvents');
                         $('#addModal').modal('hide');
                         $("#form")[0].reset();
+                        $("#file").reset();
                     }
                   
             });
@@ -400,6 +401,7 @@ today = yyyy + '-' + mm + '-' + dd;
 </div>
 </div>
 <script>
+
     Dropzone.autoDiscover = false;
 
     var myDropzone = new Dropzone(".dropzone", {
@@ -432,7 +434,8 @@ today = yyyy + '-' + mm + '-' + dd;
           'file':array,
           'id':data
         },
-        success : function(data) {   
+        success : function(data) { 
+          $('.dz-preview').empty();
           console.log(data);
         }
     });

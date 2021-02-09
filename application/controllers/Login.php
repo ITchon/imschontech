@@ -67,7 +67,7 @@ class Login extends CI_Controller {
 								'lname' =>$userdata['lname']);	
 				$this->session->set_userdata($arrData);
 				$username = $this->session->userdata('username');
-				redirect('teacher/division');
+				redirect('main');
 				 }
 				 else if($data['usergroup']=="contact"){
 					$condition = "contact_id = ".$data['user_id'];
@@ -80,7 +80,7 @@ class Login extends CI_Controller {
 									'name' =>$userdata['name']);	
 					$this->session->set_userdata($arrData);
 					$username = $this->session->userdata('username');
-					redirect('contact/trainer');
+					redirect('main');
 					 }
 				else if($data['usergroup']=="student"){
 
