@@ -54,12 +54,14 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-							
+							<?php echo $this->session->flashdata("success"); ?> 
 							<div class="box-text-login">
+							
 								<table class="table text-navyno-border">
 							<tbody><tr><td>
 							<table width="100%" align="center">
-								<tbody><tr valign="top"><td colspan="2"><hr size="1"></td>
+								<tbody>
+								<tr valign="top"><td colspan="2"><hr size="1"></td>
 									</tr><tr valign="top"><td colspan="2"><b><big>การเข้าใช้งานระบบ</big></b></td>
 									</tr><tr valign="top"><td><b>นักเรียน - นักศึกษา</b></td><td>เข้าสู่ระบบโดยใช้ รหัสประจำตัวนักเรียน<br>รหัสผ่านคือ เบอร์โทรศัพท์</td>
 									</tr><tr valign="top">
@@ -76,7 +78,7 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 						<div class="form-group">
 							<div class="col-sm-12">
 								<br>
-								<?php echo $this->session->flashdata("success"); ?> 
+							
 								 
 							</div>
 						</div>

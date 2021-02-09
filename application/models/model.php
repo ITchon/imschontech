@@ -34,6 +34,16 @@ public function GetUserData($group,$condition) {
         return false;
           }
 }
+public function save_new_pass($pass,$id) {  
+        $sql ="update user set password = '$pass', status_login = 1 where id = '$id'";
+        $query = $this->db->query($sql);
+        if($query) {
+          return true;  
+          }
+        else{       
+          return false;
+          }
+}
 
 public function block_for_teacher() {  
         if($this->session->userdata('std_id') || $this->session->userdata('contact_id')){

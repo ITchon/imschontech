@@ -66,6 +66,7 @@ class manage_contact Extends CI_controller{
 
 	public function delete_p($contact_id)
 	{
+		
 		$result = $this->contact_model->del_p($contact_id);
 		if($result!=FALSE)
 		{
@@ -79,4 +80,5 @@ class manage_contact Extends CI_controller{
 
 	}
 }
+
 ?>

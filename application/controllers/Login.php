@@ -16,6 +16,28 @@ class Login extends CI_Controller {
 		$this->session->sess_destroy();
 		$this->load->view('login');
 	}
+	public function save_new_pass()
+	{
+        $pass1 = $this->input->post('password1');
+		$pass2 = $this->input->post('password2');
+		if($pass1 == $pass2){
+			$id = $this->session->userdata('id');
+			$this->model->save_new_pass($pass1,$id);
+			$this->session->set_flashdata
+			('success','<div class="alert alert-success">
+									<span>  
+						<b> กรุณากรอกรหัสใหม่เพื่อเข้าสู่ระบบ !!</b> </span> 
+			</div>');
+			  redirect('login');  
+		}else{
+			$this->session->set_flashdata
+			('failed','<div class="alert alert-danger">
+									<span>  
+						<b> รหัสผิดพลาด !!</b> - กรุณาตรวจสอบรหัสไหม่ </span> 
+			</div>');
+			redirect('main');  
+		}
+	}
 
 	public function chklogin()
     {
@@ -33,43 +55,54 @@ class Login extends CI_Controller {
          else{
 				if($data['usergroup']=="teacher"){
 					$condition = "teacher_id = ".$data['user_id'];
-					$data = $this->model->GetUserData("teacher",$condition);
-					$arrData = array('teacher_id'=> $data['teacher_id'],
-								'password'=> $data['password'],
-								'username'=> $data['username'],
+					$userdata = $this->model->GetUserData("teacher",$condition);
+					$arrData = array(
+								'id' => $data['id'],
+								'teacher_id'=> $userdata['teacher_id'],
+								'password'=> $userdata['password'],
+								'username'=> $userdata['username'],
 								'login' => "OK" ,
-								'fname'=>$data['fname'] ,
-								'lname' =>$data['lname']);	
+								'status_login' => $data['status_login'] ,
+								'fname'=>$userdata['fname'] ,
+								'lname' =>$userdata['lname']);	
 				$this->session->set_userdata($arrData);
 				$username = $this->session->userdata('username');
 				redirect('teacher/division');
 				 }
 				 else if($data['usergroup']=="contact"){
 					$condition = "contact_id = ".$data['user_id'];
-					$data = $this->model->GetUserData("contact",$condition);
-					$arrData = array('contact_id'=> $data['contact_id'],
-									'tel'=> $data['tel'],
-									'name' =>$data['name']);	
+					$userdata = $this->model->GetUserData("contact",$condition);
+					$arrData = array(
+									'id' => $data['id'],
+									'contact_id'=> $userdata['contact_id'],
+									'status_login' => $data['status_login'] ,
+									'tel'=> $userdata['tel'],
+									'name' =>$userdata['name']);	
 					$this->session->set_userdata($arrData);
 					$username = $this->session->userdata('username');
 					redirect('contact/trainer');
 					 }
 				else if($data['usergroup']=="student"){
+
 					$condition = "std_id = ".$data['user_id'];
-					$data = $this->model->GetUserData("student",$condition);
-					$arrData = array('std_id'=> $data['std_id'],
-								'tel'=> $data['tel'],
-								'birth_date'=> $data['birth_date'],
-								'class_id'=>$data['class_id'],
+					$userdata = $this->model->GetUserData("student",$condition);
+				
+					$arrData = array(
+								'id' => $data['id'],
+								'std_id'=> $userdata['std_id'],
+								'tel'=> $userdata['tel'],
+								'birth_date'=> $userdata['birth_date'],
+								'class_id'=>$userdata['class_id'],
 								'login' => "OK" ,
-								'fname'=>$data['fname'] ,
-								'lname' =>$data['lname']);	
+								'status_login' => $data['status_login'] ,
+								'fname'=>$userdata['fname'] ,
+								'lname' =>$userdata['lname']);	
             	$this->session->set_userdata($arrData);
 				$username = $this->session->userdata('username');
-				redirect('student');
+				redirect('main');
 				 }
 				else if($data['usergroup']=="admin"){
-			 	$arrData = array('admin_id'=> $data['user_id'],'password'=> $data['password'],'username'=> $data['username'],'login' => "OK" );	
+			 	$arrData = array('id' => $data['id'],'admin_id'=> $data['user_id'],'password'=> $data['password'],'username'=> $data['username'],'login' => "OK",'status_login' => $data['status_login'] );	
              	$this->session->set_userdata($arrData);
 			 	$username = $this->session->userdata('username');
 			 	redirect('main');
