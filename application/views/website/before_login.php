@@ -16,22 +16,7 @@
 </head>
 
 <style>
-#grad1 {
 
- 
-}
-#rcorners1 {
-    border-radius: 25px;
-    background: #85C744;
-    padding: 20px; 
-    width: 600px;
-    height: 100px;    
-}
-
-.hov{
-    background-color: #78BA38;
-
-}
 </style>
 <body class="focusedform" id="grad1" >
 <!-- <div id="page-content"> -->
@@ -52,7 +37,7 @@
                             </a>
                         </div> -->
                         <div class="col-md-6 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-toyo" href="<?php echo base_url()?>ADMINdashborad">
+                            <a class="info-tiles tiles-toyo" href="<?php echo base_url()?>website/view_student">
                                 <div class="tiles-heading">Student</div>
                                 <div class="tiles-body-alt">
                                
