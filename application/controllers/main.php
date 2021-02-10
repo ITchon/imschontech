@@ -33,7 +33,7 @@ class main Extends CI_controller{
 			$this->load->view('ADMIN FOR ADMIN/header');
 			$this->load->view('ADMIN FOR ADMIN/nevbar');
 
-			$this->load->view('ADMIN FOR ADMIN/index');
+			$this->load->view('ADMIN FOR ADMIN/dashboard/index');
 			$this->load->view('ADMIN FOR ADMIN/footer_2020');
 		}
 

@@ -22,10 +22,10 @@
                 $query = $this->db->query($sql);  
                 if($query)
                 {
-                return true;
+                    return true;
                 }
                 else{
-                return false;
+                    return false;
                 } 
         }
 

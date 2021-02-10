@@ -8,20 +8,20 @@
             $data  = $query->result(); 
         }
         // ,$class_id ,$th_id
-        public function insert_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$class_id ,$th_id)
+        public function insert_teacher($username,$title ,$fname ,$lname ,$tel ,$email ,$th_code ,$password ,$th_id)
         {
             $sql ="INSERT INTO  teacher (
+                        citizen_id,
                         title,
                         fname,
                         lname,
                         tel,
                         email,
                         th_code,
-                        th_birth_date,
-                        class_id
+                        th_birth_date
                         
                         )
-                VALUES ('$title','$fname','$lname','$tel','$email','$th_code','$th_birth_date','$class_id');";          
+                VALUES ('$username','$title','$fname','$lname','$tel','$email','$th_code','$password');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {
@@ -42,7 +42,7 @@
 
         }
 
-        public function update_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$class_id ,$th_id)
+        public function update_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$th_id)
         {
             $sqlEdt="UPDATE  teacher SET 
                              title   = '$title',
@@ -51,8 +51,7 @@
                              tel     = '$tel',
                              email   = '$email' ,
                              th_code  = '$th_code',
-                             th_birth_date  = '$th_birth_date',
-                             class_id = '$class_id'
+                             th_birth_date  = '$th_birth_date'
                             
                      WHERE teacher_id = '$th_id'";
             $exc_teacher = $this->db->query($sqlEdt);

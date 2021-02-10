@@ -76,7 +76,7 @@
                                     </div>
                                 
                                 
-                                    <div class="col-md-7">
+                                    <div class="col-md-4">
                                         
                                         <div class="form-group">
                                             <label for="th_birth_date">วันเกิด</label>
@@ -84,26 +84,24 @@
                                             
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="class_id">สอนระดับชั้น</label>
-                                            <select name="class_id" class="form-control">
-                                                <!-- <option value="<?php echo $result_cl[0]->class_id ?>"><?php echo $result_cl[0]->class_name ?></option> -->
-                                                <?php foreach ($result_cl as $cl) {
-                                                        echo " <option value=".$cl->class_id."> ".$cl->class_name." </option> ";
-                                                                                 }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
                                 
-                                    <div class="col-md-6">
+                                
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="th_code">รหัสครู</label>
                                             <input type="number" name="th_code" class="form-control">
                                             </select>
+                                        </div>
+                                    </div>
+                                </div>   
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="citizen_id">รหัสประชาชน</label>
+                                                <input type="number" name="citizen_id" class="form-control">
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     
