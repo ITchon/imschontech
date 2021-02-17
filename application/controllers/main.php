@@ -13,7 +13,10 @@ class main Extends CI_controller{
 
 	public function index() 	
 	{
-		if($this->session->userdata('status_login') == 0){
+		if($this->session->userdata('id') == null){
+			redirect('login');
+		}
+		else if($this->session->userdata('status_login') == 0){
 			$this->load->view('changepassword');
 		}else if($this->session->userdata('std_id')){
 			redirect('student');
@@ -29,10 +32,6 @@ class main Extends CI_controller{
 			$this->load->view('ADMIN FOR ADMIN/footer_2020');
 		}
 
-
-		 
-		 
-	
 	}
 
 

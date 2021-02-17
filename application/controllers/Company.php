@@ -30,15 +30,15 @@ class Company Extends CI_controller{
     }
 
     public function insert_company()
-	{
+	{		
 		$this->load->library('googlemaps');
 
-		$config['center'] = '13.739330088358768, 100.50712938157314';
+		$config['center'] = '13.293138436413784, 101.16568806575013';
 		$config['zoom'] = '9';
 		$this->googlemaps->initialize($config);
 			
 		$marker = array();
-		$marker['position'] = '13.739330088358768, 100.50712938157314';
+		$marker['position'] = '13.293138436413784, 101.16568806575013';
 		$marker['draggable'] = true;
 
 		$marker['ondragend'] = 'document.getElementById(\'position\').value = event.latLng.lat() + \', \' + event.latLng.lng()';
@@ -56,7 +56,9 @@ class Company Extends CI_controller{
         $zipcode         = $this->input->post('zipcode'); 
         $tel             = $this->input->post('tel'); 
         $latlng          = $this->input->post('latlng'); 
-       
+       if($latlng == null){
+		$latlng          = "13.293138436413784, 101.16568806575013";
+	   }
 	  
         $this->company_model->insert_cp($company_name,$address,$province,$zipcode,$tel,$latlng ); 
         redirect('Company');

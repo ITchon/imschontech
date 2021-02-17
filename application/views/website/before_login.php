@@ -92,11 +92,11 @@
                             
                         </div>
                         <div class="col-md-4 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-danger" href="<?php echo base_url()?>login">
+                            <a class="info-tiles tiles-primary" href="<?php echo base_url()?>login">
                                 <!-- <div class="tiles-heading">Teacher</div> -->
                                     <div class="tiles-body-alt">
                                
-                                        <div class="text-center" ><span class="text-top"></span>เข้าสู่เว็บไซต์</div>
+                                        <div class="text-center" ><span class="text-top"></span>เข้าสู่หน้าล็อคอิน</div>
                                     <!-- <small>ดูรายชื่อคุณครู</small> -->
                                 </div>
                                 <!-- <div class="tiles-footer">more info</div> -->
