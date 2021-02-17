@@ -73,7 +73,7 @@
                     <a class="info-tiles tiles-alizarin" href="#">
                         <div class="tiles-heading">
                             <div class="pull-left">Comments</div>
-                            <div class="pull-right">+15.6%</div>
+                            <div class="pull-right"></div>
                         </div>
                         <div class="tiles-body">
                             <div class="pull-left"><i class="fa fa-comments-o"></i></div>
