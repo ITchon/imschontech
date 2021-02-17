@@ -92,7 +92,7 @@
                             
                         </div>
                         <div class="col-md-4 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-primary" href="<?php echo base_url()?>login">
+                            <a class="info-tiles tiles-success" href="<?php echo base_url()?>login">
                                 <!-- <div class="tiles-heading">Teacher</div> -->
                                     <div class="tiles-body-alt">
                                

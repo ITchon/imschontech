@@ -1,5 +1,5 @@
 <?php 
-    class teacher_model extends CI_Model {
+    class Teacher_model extends CI_Model {
 
 
         public function teacher() {  
