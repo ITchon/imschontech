@@ -1,5 +1,5 @@
 <?php 
-    class train_model extends CI_Model {
+    class Train_model extends CI_Model {
 
 
         // public function train() {  

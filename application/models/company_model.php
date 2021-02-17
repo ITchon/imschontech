@@ -1,5 +1,5 @@
 <?php 
-    class company_model extends CI_Model {
+    class Company_model extends CI_Model {
 
 
         public function company() {  
