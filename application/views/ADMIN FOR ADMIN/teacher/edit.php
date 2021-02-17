@@ -86,7 +86,7 @@
                                     </div>
                                 </div>    
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <!-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="class_id">สอนระดับชี้น</label>
                                             <select name="class_id" class="form-control">
@@ -97,7 +97,7 @@
                                                 ?>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 
                                 
                                     <div class="col-md-6">

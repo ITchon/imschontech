@@ -77,7 +77,7 @@
         
         }
 
-        public function update_student($title ,$fname ,$lname ,$gender ,$tel ,$email,$status ,$std_code ,$birth_date     ,$class_id ,$std_id)
+        public function update_student($title ,$fname ,$lname ,$gender ,$tel ,$email ,$status ,$std_code ,$birth_date ,$class_id ,$std_id)
         {
             $sqlEdt="UPDATE  student SET 
                              title   = '$title',
@@ -89,7 +89,7 @@
                              status  = '$status',
                              std_code  = '$std_code',
                              birth_date   = '$birth_date ',
-                             class_id  = ''
+                             class_id  = '$class_id'
                             
                      WHERE std_id = '$std_id'";
             $exc_teacher = $this->db->query($sqlEdt);

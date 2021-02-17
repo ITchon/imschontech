@@ -6,6 +6,7 @@ class manage_teacher Extends CI_controller{
 		parent::__construct();
 
 		$this->load->model('teacher_model');
+		$this->load->model('model');
 		$this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->database();
@@ -20,7 +21,7 @@ class manage_teacher Extends CI_controller{
 	public function index() 	
 	{
 		$qry_inp =  "SELECT 	
-						cl.class_id,
+						-- cl.class_id,
 						cl.class_name,
 						th.teacher_id,
 						th.title,
@@ -53,11 +54,14 @@ class manage_teacher Extends CI_controller{
         $tel      = $this->input->post('tel');
 		$email    = $this->input->post('email');
 		$th_code = $this->input->post('th_code');
-		$th_birth_date = $this->input->post('th_birth_date');
-        $class_id = $this->input->post('class_id');
+		$password = $this->input->post('th_birth_date');
+        $username = $this->input->post('citizen_id');
 	    $th_id 	  = $this->input->post('teacher_id');
-		$user_id=$this->teacher_model->insert_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$class_id ,$th_id); 
-		$this->model->insert_user($user_id,"student",$citizen_id,$birth_date,0);
+		$usergroup = "teacher";
+		$status_login = "0";
+		$user_id=$this->teacher_model->insert_teacher($username, $title ,$fname ,$lname ,$tel ,$email ,$th_code ,$password  ,$th_id); 
+
+				 $this->model->insert_user($user_id, $usergroup, $username, $password, $status_login);
         redirect('manage_teacher');
 	}
 
@@ -80,9 +84,9 @@ class manage_teacher Extends CI_controller{
 		$email    = $this->input->post('email');
 		$th_code = $this->input->post('th_code');
 		$th_birth_date = $this->input->post('th_birth_date');
-        $class_id = $this->input->post('class_id');
+        // $class_id = $this->input->post('class_id');
 	    $th_id 	  = $this->input->post('teacher_id');
-        $this->teacher_model->update_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$class_id ,$th_id); 
+        $this->teacher_model->update_teacher($title ,$fname ,$lname ,$tel ,$email ,$th_code ,$th_birth_date ,$th_id); 
         redirect('manage_teacher');
 	}
 

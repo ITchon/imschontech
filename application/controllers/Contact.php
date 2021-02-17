@@ -113,7 +113,6 @@ class Contact Extends CI_controller{
     }
 
 	}
-	
 
 	public function confirm()
     {

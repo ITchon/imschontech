@@ -6,26 +6,37 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-3 col-xs-12 col-sm-6">
+                        <!-- <div class="col-md-3 col-xs-12 col-sm-6">
                             <a class="info-tiles tiles-toyo" href="<?php echo base_url()?>Teacher/list">
                                 <div class="tiles-heading">Teacher</div>
                                 <div class="tiles-body-alt">
-                                    <!--i class="fa fa-bar-chart-o"></i-->
+                               
                                     <div class="text-center"><span class="text-top"></span>Student</div>
+                                    <small>ดูรายชื่อนักเรียน</small>
+                                </div>
+                                <div class="tiles-footer">more info</div>
+                            </a>
+                        </div> -->
+                        <div class="col-md-3 col-xs-12 col-sm-6">
+                            <a class="info-tiles tiles-toyo" href="<?php echo base_url()?>ADMINdashborad">
+                                <div class="tiles-heading">Student</div>
+                                <div class="tiles-body-alt">
+                               
+                                    <div class="text-center"><span class="text-top"></span>รายชื่อนักเรียน</div>
                                     <small>ดูรายชื่อนักเรียน</small>
                                 </div>
                                 <div class="tiles-footer">more info</div>
                             </a>
                         </div>
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-success" href="#">
-                                <div class="tiles-heading">Revenue</div>
+                            <a class="info-tiles tiles-toyo" href="<?php echo base_url()?>ADMINdashborad/index_t">
+                                <div class="tiles-heading">Teacher</div>
                                 <div class="tiles-body-alt">
                                     <!--i class="fa fa-money"></i-->
-                                    <div class="text-center"><span class="text-top">$</span>22.7<span class="text-smallcaps">k</span></div>
-                                    <small>-13.5% from last week</small>
+                                    <div class="text-center"><span class="text-top"></span>รายชื่อครู</div>
+                                    <small>ดูรายชื่อครู</small>
                                 </div>
-                                <div class="tiles-footer">go to accounts</div>
+                                <div class="tiles-footer">more info</div>
                             </a>
                         </div>
                         <div class="col-md-3 col-xs-12 col-sm-6">
@@ -62,7 +73,7 @@
                     <a class="info-tiles tiles-alizarin" href="#">
                         <div class="tiles-heading">
                             <div class="pull-left">Comments</div>
-                            <div class="pull-right">+15.6%</div>
+                            <div class="pull-right"></div>
                         </div>
                         <div class="tiles-body">
                             <div class="pull-left"><i class="fa fa-comments-o"></i></div>

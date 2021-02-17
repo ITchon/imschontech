@@ -103,7 +103,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <!-- <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="status">สถานะ</label>
                                             <select name="status" class="form-control">
@@ -111,7 +111,7 @@
                                                 <option value="1">ผ่าน</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">

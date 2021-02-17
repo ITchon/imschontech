@@ -41,30 +41,38 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user"></i></span>
-									<input type="text" class="form-control" placeholder="Username (รหัสนักเรืยน,นักศึกษา,อาจารย์)" name="username">
+									<input type="text" class="form-control" placeholder="Username " name="username">
 								</div>
 							</div>
 				
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-									<input type="password" class="form-control" placeholder="Password (เบอร์โทรศัพท์)" name ="password">
+									<input type="password" class="form-control" placeholder="Password" name ="password">
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-							<?php echo $this->session->flashdata("success"); ?> 
-							<div class="box-text-login">
 							
+							<div class="box-text-login">
 								<table class="table text-navyno-border">
 							<tbody><tr><td>
 							<table width="100%" align="center">
 								<tbody>
-								<tr valign="top"><td colspan="2"><hr size="1"></td>
-									</tr><tr valign="top"><td colspan="2"><b><big>การเข้าใช้งานระบบ</big></b></td>
-									</tr><tr valign="top"><td><b>นักเรียน - นักศึกษา</b></td><td>เข้าสู่ระบบโดยใช้ รหัสประจำตัวนักเรียน<br>รหัสผ่านคือ เบอร์โทรศัพท์</td>
-									</tr><tr valign="top">
+									<tr valign="top">
+										<td colspan="2"><hr size="1"></td>
+									</tr>
+									<tr valign="top">
+										<td colspan="2"><b><big>การเข้าใช้งานระบบ</big></b></td>
+									</tr>
+									<tr valign="top">
+										<td><b>นักเรียน - นักศึกษา</b></td>
+										<td>เข้าสู่ระบบโดยใช้ รหัสประจำตัวนักเรียน<br>รหัสผ่านคือ เบอร์โทรศัพท์</td>
+									</tr>
+									<tr valign="top">
+										<td><b>อาจารย์</b></td>
+										<td>เข้าสู่ระบบโดยใช้ รหัสประชาชน <br>รหัสผ่านคือ วันเกิดเช่น DD-MM-YYYY</td>
 									</tr>
 								</tbody>
 							</table>
@@ -78,7 +86,7 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 						<div class="form-group">
 							<div class="col-sm-12">
 								<br>
-							
+								<?php echo $this->session->flashdata("success"); ?> 
 								 
 							</div>
 						</div>
@@ -88,13 +96,18 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 			<!-- <a href="extras-forgotpassword.htm" class="pull-left btn btn-link" style="padding-left:0">Forgot password?</a> -->
 			
 			<div class="pull-right">
-                <!-- <a href="#" class="btn btn-default">Reset</a> -->
+               
                 <button type="submit" class="btn btn-danger">ยืนยัน</button>
+			</div>
+			</form>
+			<div class="pull-left">
+				<!-- <input type="submit" class="btn btn-danger" > -->
+                <a href="<?php echo base_url() ?>website" class="text-light"><button type="submit" href="" class="btn btn-danger">กลับสู่เว็บไซต์</button></a>
 			</div>
 		</div>
 	</div>
  </div>
- </form>
+ 
 
 </body>
 </html>
