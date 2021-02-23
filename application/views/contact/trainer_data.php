@@ -27,23 +27,11 @@
 									<img src="assets/demo/avatar/johansson.png" alt="" class="pull-left" style="margin: 0 20px 20px 0">
 									<div class="table-responsive">
 										<table class="table table-condensed ">
-										<form action="" method="post" >
 											<label class="control-label col-sm-6 col-xs-6" for="train">
 												<h3><strong><?php echo ucfirst($train_detail[0]->fname."  ".$train_detail[0]->lname) ?></strong></h3>
 											</label>
-    										<div class="col-sm-3 col-xs-3">
-											<?php
-												$optName = array();
-												foreach($train_select as $r){
-												    $optName[$r->t_id] = $r->start_date;   
-												}
-												$selected = $train_id ;
-												echo form_dropdown('train_id', $optName ,$selected,'class="form-control" ');
-											 ?>
-									
-    										</div>
-											<input type="submit" class="btn btn-primary" value="Submit">
-											</form>
+    										
+
 											
 											<!-- <thead>
 												<tr>
@@ -130,6 +118,7 @@
 												</td>
 												<input id="std_id" type="hidden" name="std_id" value="<?php echo $r->std_id?>">
 												<td>
+												
 												<button type="button" value='<?php echo $date ?>' class="btn btn-xs btn-warning open-modal">
 															<i class="ace-icon fa fa-search bigger-120"></i>
 												</button>
