@@ -44,8 +44,8 @@ class manage_asm Extends CI_controller{
         $data['result_sub'] = $this->assessment_model->selectOnesubject($id);
         $data['result_glist'] = $this->assessment_model->getsubgrouplist($id);
 
-		$this->load->view('ADMIN FOR ADMIN/assessment/edit',$data);
-		$this->load->view('ADMIN FOR ADMIN/assessment/edit_modal',$data);
+		$this->load->view('ADMIN FOR ADMIN/assessment/edit_subject',$data);
+		// $this->load->view('ADMIN FOR ADMIN/assessment/edit_modal',$data);
 		// $this->load->view('ADMIN FOR ADMIN/footer_2020');
 	}
 
@@ -78,11 +78,19 @@ class manage_asm Extends CI_controller{
     }
     public function add_grouplist()
 	{
-        $subject_id 	  = $this->input->post('subject_id');
+        $sub_id 	  = $this->input->post('sub_id');
 		$g_list    = $this->input->post('g_list'); 
         $last_id = $this->assessment_model->add_grouplist($g_list);
-        $this->assessment_model->add_glist_sub($subject_id,$last_id);
-        redirect('manage_asm/edit_subject/'.$subject_id.'','refresh');
+        $res = $this->assessment_model->add_glist_sub($sub_id,$last_id);
+        if($res != false){
+            echo json_encode(array(
+            "statusCode"=>200
+        ));
+       }else{
+            echo json_encode(array(
+            "statusCode"=>100
+        ));
+       }
 	}
     public function get_onegrouplist()
     {
@@ -93,7 +101,6 @@ class manage_asm Extends CI_controller{
             $arr = array('success' => true, 'data' => $data);
             }
         echo json_encode($arr);
-
     }
     public function delete_subglist()
 	{
@@ -101,6 +108,31 @@ class manage_asm Extends CI_controller{
         {
           $this->assessment_model->del_sub_glist($this->input->post('sub_id'),$this->input->post('glist_id')); 
           $res = $this->assessment_model->del_glist($this->input->post('glist_id')); 
+          if($res != false){
+               echo json_encode(array(
+               "statusCode"=>200
+           ));
+          }else{
+               echo json_encode(array(
+               "statusCode"=>100
+           ));
+          }
+   
+        }
+    }
+    public function edit_glist()
+	{
+        $id = $this->uri->segment('3'); 
+        $data['result_glist'] = $this->assessment_model->selectOneglist($id);
+        $data['result_list'] = $this->assessment_model->getlist($id);
+
+		$this->load->view('ADMIN FOR ADMIN/assessment/edit_glist',$data);
+    }
+    public function update_glist()
+	{
+        if($this->input->post('glist_id'))
+        {
+          $res = $this->assessment_model->del_glist($this->input->post('glist_name')); 
           if($res != false){
                echo json_encode(array(
                "statusCode"=>200
