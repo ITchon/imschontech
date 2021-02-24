@@ -28,20 +28,23 @@
 <!-- <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/less.js"></script> -->
 </head>
 <style>
-.navbar-inverse{background-color:#434343}.navbar-inverse .navbar-collapse,.navbar-inverse .navbar-form{border-color:#434343}.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.active>a:focus,.navbar-inverse .navbar-nav>.open>a:focus,.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>.open>a:hover{background-color:#434343}header .toolbar .dropdown,header #headerbardropdown,header #rightmenu-trigger{border-left:1px solid #434343}header #leftmenu-trigger{border-right:1px solid #434343}@media (max-width:480px){ul.toolbar{background-color:#434343}}
+.navbar-inverse{background-color:#434343}
+.navbar-inverse .navbar-collapse,.navbar-inverse .navbar-form{border-color:#434343}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.active>a:focus,.navbar-inverse .navbar-nav>.open>a:focus,.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>.open>a:hover{background-color:#434343}header .toolbar .dropdown,header #headerbardropdown,header #rightmenu-trigger{border-left:1px solid #434343}header #leftmenu-trigger{border-right:1px solid #434343}@media (max-width:480px){ul.toolbar{background-color:#434343}}
 
 </style>
 <body class="">
 
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner" >
         <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
-        <!-- <a id="rightmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="left" title="Toggle Infobar"></a> -->
-        <div class="navbar-header pull-right toolbar">
-		<!-- <button type="button" class="btn btn-danger" style="padding-top:15px; padding-right:15px" ><i class="fa fa-sign-out" ></i></button>            <a href="#" ><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span> -->
-			<!-- <a   href="<?php echo base_url()?>/logout" class="text-right margin-bottom: 25px;">Sign Out</a>	 -->
-			
-			<!-- <a  href="<?php echo base_url()?>/logout" class="text-right username dropdown-toggle"><i class="fas fa fa-sign-out"></i></a> -->
-            <!-- <a href="#" ><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span> -->
+
+        <div class="navbar-header pull-left toolbar">
+		
+			<!-- <a class="nav navbar-nav pull-left toolbar">  -->
+        	<a class="hidden-xs" > <?php echo $this->session->userdata('username'); ?></a>
+        		<!-- <a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span> -->
+
+			<!-- -->
         </div>
             <a  href="<?php echo base_url(); ?>main"></a>
         

@@ -54,12 +54,11 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 							</div> -->
 
 							<!-- <input type="password" id="password-field" > -->
-        					
 
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-									<input type="password" value="" id="password-field" class="form-control">
+									<input type="password" value="" name="password" id="password-field" class="form-control" placeholder="Password">
                                     <span class="input-group-addon"><i id="pass-status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword()"></i></span> 
 								</div>
 							</div>
