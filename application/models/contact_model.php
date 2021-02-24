@@ -59,7 +59,6 @@
         {
             $sqlEdt = "DELETE FROM contact WHERE contact_id = '$contact_id';";
 
-
             $exc_contact = $this->db->query($sqlEdt);
            
             if ($exc_contact){

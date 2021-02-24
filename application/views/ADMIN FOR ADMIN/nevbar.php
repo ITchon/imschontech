@@ -24,6 +24,7 @@
                 <li><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>Student</span></a></li>
                 <li><a href="<?php echo base_url(); ?>manage_teacher"><i class="fa fa-user"></i><span>Teacher</span></a></li>
                 <li><a href="<?php echo base_url(); ?>manage_user"><i class="fa fa-user"></i><span>User</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_asm"><i class="fa fa-user"></i><span>assessment sheet</span></a></li>
                 <!-- <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
                     <ul class="acc-menu">
                         <li><a href="<?php echo base_url(); ?>manage_contact"> Contact</a></li>
