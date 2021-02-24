@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <div class="panel panel-sky">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
                             <h4>Data Division</h4>
                             <div class="options">   
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="panel panel-sky">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
                             <h4>Division</h4>
                             <div class="options">   
