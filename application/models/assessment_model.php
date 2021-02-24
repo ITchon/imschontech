@@ -44,7 +44,7 @@
                 $query = $this->db->query($sql);
                 $last_id = $this->db->insert_id();
                 if($query){
-                return $last_id;
+                return true;
                 }
                 else{
                 return false;
@@ -66,6 +66,28 @@
             $sql="SELECT gl.glist_id,gl.glist_name FROM subject_grouplist as sgl
             inner join group_list as gl on gl.glist_id = sgl.glist_id
             WHERE sgl.subject_id = '$id'";
+            $query = $this->db->query($sql); 
+            $data  = $query->result(); 
+         
+            return $data;
+        
+        }
+
+        public function selectOneglist($id)
+        {
+            $sql="SELECT * FROM group_list WHERE glist_id = '$id' ";
+            $query = $this->db->query($sql); 
+            $data  = $query->result(); 
+         
+            return $data;
+        
+        }
+
+        public function getlist($id)
+        {
+            $sql="SELECT l.list_id,l.list_name FROM group_list as gl
+            inner join list as l on l.glist_id = gl.glist_id
+            WHERE gl.glist_id = '$id'";
             $query = $this->db->query($sql); 
             $data  = $query->result(); 
          
