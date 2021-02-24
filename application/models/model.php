@@ -63,13 +63,55 @@ public function block_for_contact() {
         }
 }
 
+public function selectuser($id)
+{
+    $sql="SELECT * FROM user WHERE id = '$id' ";
+    $query = $this->db->query($sql); 
+    $data  = $query->result(); 
+ 
+    return $data;
 
+}
 
-public function insert_user($user_id,$usergroup ,$username,$password ,$status_login)
+public function insert_user($user_id,$usergroup ,$username ,$password ,$status_login)
 {
     $sql ="INSERT INTO user(user_id,usergroup,username,password,status_login)
         VALUES ($user_id,'$usergroup','$username','$password','$status_login');";          
         $query = $this->db->query($sql);  
+        if($query)
+        {
+        return true;
+        }
+        else{
+        return false;
+        } 
+}
+
+public function update_user($user_id ,$username ,$password ,$id)
+        {
+            $sqlEdt="UPDATE user SET 
+                             user_id    = '$user_id',
+                             username   = '$username',
+                             password   = '$password' 
+                     WHERE id = '$id';";
+            $exc_teacher = $this->db->query($sqlEdt);
+            if ($exc_teacher)
+            {
+            return true;  
+            }
+            else
+            {
+            return false;
+            }
+        }
+
+public function delete_user($id)
+{
+ 
+      $sql ="DELETE FROM user WHERE user_id = '$id' ;";          
+        $query = $this->db->query($sql); 
+    
+  
         if($query)
         {
         return true;

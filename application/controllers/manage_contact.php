@@ -68,6 +68,11 @@ class manage_contact Extends CI_controller{
 	{
 		
 		$result = $this->contact_model->del_p($contact_id);
+
+		$id = $contact_id;
+
+			$result = $this->model->delete_user($id);	
+		
 		if($result!=FALSE)
 		{
             redirect('manage_contact','refresh');

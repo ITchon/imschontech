@@ -1,11 +1,24 @@
+<style>
+    .field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+    }
 
+    .container{
+    padding-top:50px;
+    margin: auto;
+    }
+</style>
 <div id="page-content">
     <div id='wrap'>
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="index.htm">Dashboard</a></li>
-                <li>Advanced Tables</li>
-                <li class="active">Data Tables</li>
+                <li>Insert Data</li>
+                <li class="active">Insert</li>
             </ol>
 
             <h1>Data Tables</h1>
@@ -28,90 +41,48 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-sky">
                         <div class="panel-heading">
                             <h4>Data Tables</h4>
                         </div>
                         <div class="panel-body collapse in">
-                                <?php echo form_open('manage_teacher/insert_p');?>
+                                <?php echo form_open('manage_user/insert_p');?>
                               
                                 <div class="row">
-                                    <div class="col-md-1">
-                                        <div class="form-group">
-                                            <label for="title">คำนำหน้า</label>
-                                            <select name="title" class="form-control">
-                                                <option value="นาย">นาย</option>
-                                                <option value="นาง">นาง</option>
-                                                <option value="นางสาว">นางสาว</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="fname">ชื่อ</label>
-                                            <input type="text" name="fname" class="form-control">
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="lname">นามสกุล</label>
-                                            <input type="text" name="lname" class="form-control">
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="tel">เบอร์ติดต่อ</label>
-                                            <input type="number" name="tel" class="form-control">
-                                            
-                                        </div>
-                                    </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="email">อีเมล</label>
-                                            <input type="text" name="email" class="form-control">
-                                           
+                                            <label for="title">Username</label>
+                                           <input type="text" class="form-control">
                                         </div>
                                     </div>
-                                
-                                
-                                    <div class="col-md-4">
-                                        
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="th_birth_date">วันเกิด</label>
-                                            <input type="date" name="th_birth_date" class="form-control">
-                                            
+                                            <label for="title">Password</label>
+                                            <input type="password" id="password-field" class="form-control">
+                                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> 
                                         </div>
                                     </div>
-                                
-                                
-                                    <div class="col-md-3">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="th_code">รหัสครู</label>
-                                            <input type="number" name="th_code" class="form-control">
-                                            </select>
+                                            <label for="usergroup">Group user</label>
+                                             <Select name="usergroup" class="form-control" require>
+                                                <option value="student">student</option>
+                                                <option value="admin">admin</option>
+                                                <option value="teacher">teacher</option>
+                                                <option value="contact">contact</option>
+                                             </Select>
                                         </div>
                                     </div>
-                                </div>   
-                                    <div class="row">
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="citizen_id">รหัสประชาชน</label>
-                                                <input type="number" name="citizen_id" class="form-control">
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php echo $this->session->flashdata("success"); ?> 
                                 </div>
                             </div>
-                            <?php echo form_submit(array('teacher_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
+                        </div>
+                        <?php echo form_submit(array('teacher_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
                               echo anchor(base_url().'manage_teacher', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
-                        </div>
-                       
          
                         </div>
                     </div>
@@ -156,6 +127,19 @@
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/placeholdr.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/application.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo.js'></script> 
+
+<script>
+    $(".toggle-password").click(function() {
+
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+    input.attr("type", "text");
+    } else {
+    input.attr("type", "password");
+    }
+    });
+</script>
 
 </body>
 </html>

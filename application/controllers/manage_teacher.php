@@ -62,7 +62,11 @@ class manage_teacher Extends CI_controller{
 		$user_id=$this->teacher_model->insert_teacher($username, $title ,$fname ,$lname ,$tel ,$email ,$th_code ,$password  ,$th_id); 
 
 				 $this->model->insert_user($user_id, $usergroup, $username, $password, $status_login);
-        redirect('manage_teacher');
+				 $this->session->set_flashdata
+			('success','<div class="alert alert-success">
+									<span><b> กรอกข้อมูลสำเร๊จ !!</b> </span> 
+						</div>');
+        redirect('manage_teacher/insert_teacher');
 	}
 
 	public function edit_teacher()
@@ -93,6 +97,13 @@ class manage_teacher Extends CI_controller{
 	public function delete_teacher_p($teacher_id)
 	{
 		$result = $this->teacher_model->del_teacher_p($teacher_id);
+
+		$id = $teacher_id;
+
+			$result = $this->model->delete_user($id);	
+		
+
+
 		if($result!=FALSE)
 		{
             redirect('manage_teacher','refresh');

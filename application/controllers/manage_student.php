@@ -99,6 +99,11 @@ class manage_student Extends CI_controller{
 	public function delete_student_p($std_id)
 	{
 		$result = $this->student_model->del_std_p($std_id);
+
+		$id = $std_id;
+
+			$result = $this->model->delete_user($id);	
+
 		if($result!=FALSE)
 		{
             redirect('manage_student','refresh');
