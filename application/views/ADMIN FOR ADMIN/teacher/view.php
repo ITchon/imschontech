@@ -37,7 +37,7 @@
                                             <th>อีเมล</th>
                                             <th>รหัสครูผู้สอน</th>
                                             <th>ปีเกิด</th>
-                                            <th>ระดับชั้น</th>
+                                            <!-- <th>ระดับชั้น</th> -->
                                             <th  width="15%">Manage</th>
                                         </tr>
                                     </thead>
@@ -51,7 +51,7 @@
                                             <td><?php echo $r->email ?></td>
                                             <td><?php echo $r->th_code ?></td>
                                             <td><?php echo $r->th_birth_date ?></td>
-                                            <td><?php echo $r->class_name ?></td>
+                                            <!-- <td><?php echo $r->class_name ?></td> -->
                                             <td>
                                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_teacher/edit_teacher/' . $r->teacher_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
                                                 <?php echo "<a type='button' href='".base_url()."manage_teacher/delete_teacher_p/".$r->teacher_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 

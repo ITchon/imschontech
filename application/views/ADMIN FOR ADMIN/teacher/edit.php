@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-sky">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h4>Edit Teacher</h4>
                         </div>
@@ -111,10 +111,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php echo form_submit(array('teacher_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
+                            <?php echo form_submit(array('teacher_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
                               echo anchor(base_url().'manage_teacher', 'Cancel',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
+                        </div>
+                        
          
                         </div>
                     </div>

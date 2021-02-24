@@ -66,6 +66,7 @@ class manage_student Extends CI_controller{
         $user_id = $this->student_model->insert_student($title ,$fname ,$lname,$gender ,$tel ,$email,$status ,$std_code ,$birth_date ,$class_id); 
 		$this->model->insert_user($user_id,"student",$std_code,$birth_date,0);
         redirect('manage_student');
+		
 	}
 
 	public function edit_student()
@@ -99,6 +100,11 @@ class manage_student Extends CI_controller{
 	public function delete_student_p($std_id)
 	{
 		$result = $this->student_model->del_std_p($std_id);
+
+		$id = $std_id;
+
+			$result = $this->model->delete_user($id);	
+
 		if($result!=FALSE)
 		{
             redirect('manage_student','refresh');

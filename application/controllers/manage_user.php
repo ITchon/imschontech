@@ -21,64 +21,50 @@ class manage_user Extends CI_controller{
 	public function index() 	
 	{
 		$qry_inp =  "SELECT * FROM user ";
-        $query = $this->db->query($qry_inp); 
+        $query = $this->db->query($qry_inp);
         $data['result'] = $query->result();
 		$this->load->view('ADMIN FOR ADMIN/user/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
 	
     }
     
-	public function insert_student()
-	{
-		$qry_inp =  "SELECT * FROM class";
-        $query = $this->db->query($qry_inp); 
-        $data['result_cl'] = $query->result();
-		$this->load->view('ADMIN FOR ADMIN/student/insert',$data);
-	}
+	// public function insert_user()
+	// {
+	
+	// 	$this->load->view('ADMIN FOR ADMIN/user/insert');
+	// }
 
-	public function insert_student_p()
-	{
-		$title    = $this->input->post('title'); 
-        $fname    = $this->input->post('fname');
-        $lname    = $this->input->post('lname');
-        $gender   = $this->input->post('gender');
-        $tel      = $this->input->post('tel');
-        $email    = $this->input->post('email');
-        $status    = $this->input->post('status');
-		$std_code = $this->input->post('std_code');
-		$birth_date = $this->input->post('birth_date');
-        $class_id = $this->input->post('class_id');
-        $user_id = $this->student_model->insert_student($title ,$fname ,$lname,$gender ,$tel ,$email,$status ,$std_code ,$birth_date ,$class_id); 
-		$this->model->insert_user($user_id,"student",$std_code,$birth_date,0);
-        redirect('manage_student');
-	}
+	// public function insert_p()
+	// {
+	// 	$username    = $this->input->post('title'); 
+    //     $password    = $this->input->post('fname');
+    //     $usergroup    = $this->input->post('lname');
+      
+	// 	$this->model->insert_user($usergroup,$std_code,$birth_date,0);
+    //     redirect('manage_student');
+	// }
 
-	public function edit_student()
+	public function edit_user()
 	{
 		$id = $this->uri->segment('3'); 
-        $data['result'] = $this->student_model->selectOnestudent($id);
-        $qry_inp =  "SELECT * FROM class";
-        $query = $this->db->query($qry_inp); 
-        $data['result_cl'] = $query->result();
-		$this->load->view('ADMIN FOR ADMIN/student/edit',$data);
+        $data['result'] = $this->model->selectuser($id);
+        // $qry_inp =  "SELECT * FROM class";
+        // $query = $this->db->query($qry_inp); 
+        // $data['result_cl'] = $query->result();
+		$this->load->view('ADMIN FOR ADMIN/user/edit',$data);
 		
 	}
 
-	public function edit_student_p()
+	public function edit_p()
 	{
-		$title    = $this->input->post('title'); 
-        $fname    = $this->input->post('fname');
-        $lname    = $this->input->post('lname');
-        $gender   = $this->input->post('gender');
-        $tel      = $this->input->post('tel');
-        $email    = $this->input->post('email');
-        $status    = $this->input->post('status');
-		$std_code = $this->input->post('std_code');
-		$birth_date = $this->input->post('birth_date');
-        $class_id = $this->input->post('class_id');
-	    $std_id 	  = $this->input->post('std_id');
-        $this->student_model->update_student($title ,$fname ,$lname,$gender ,$tel ,$email,$status ,$std_code ,$birth_date ,$class_id ,$std_id); 
-        redirect('manage_student');
+		$user_id    = $this->input->post('user_id'); 
+        $username    = $this->input->post('username');
+        $password    = $this->input->post('password');
+        
+        
+	    $id 	  = $this->input->post('id');
+        $this->model->update_user($user_id ,$username ,$password ,$id); 
+        redirect('manage_user');
 	}
 
 	public function delete_student_p($std_id)

@@ -39,21 +39,15 @@
                         </div>
                         <div class="panel-body collapse in">
                             <div class="table-responsive">
-                                <a class="btn btn-success pull-right" href="<?php echo base_url(); ?>manage_student/insert_student">เพิ่ม</a>
+                                <!-- <a class="btn btn-success pull-right" href="<?php echo base_url(); ?>manage_user/insert_user">เพิ่ม</a> -->
                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                     <thead>
                                         <tr>
-                                            <!-- <th width="10%">user_id</th> -->
+                                        
                                             <th width="12%">usergroup</th>
                                             <th width="11%">username</th>
-                                            <!-- <th width="15%">password</th> -->
-                                            <!-- <th>นามสกุล</th> -->
-                                            <!-- <th>เพศ</th>
-                                            <th>เบอร์ติดต่อ</th>
-                                            <th>อีเมล</th>
-                                            <th width="11%">ระดับชั้น</th>
-                                            <th width="11%">กลุ่ม</th>
-                                            <th width="19%">สถานะ</th> -->
+                                          
+                                            <th width="19%">สถานะ</th>
                                             <th  width="15%">Manage</th>
                                         </tr>
                                     </thead>
@@ -62,36 +56,28 @@
                                         <?php foreach($result as $r){ ?>
                                         <?php 
 
-                        //    if($r->status == 1 ){ 
+                           if($r->status_login == 1 ){ 
                             
-                        //       $txt_status = 'ลงทะเบียนแล้ว'; 
-                        //       $txt_color = '#0EC952';
+                              $txt_status = 'เปลี่ยนรหัสผ่านแล้ว'; 
+                              $txt_color = '#0EC952';
                             
-                        //     }else{
+                            }else{
                              
-                        //     $txt_status = 'ยังไม่ลงทะเบียน'; 
-                        //       $txt_color = '#FF0000'; 
+                            $txt_status = 'ยังไม่เปลี่ยนรหัสผ่าน'; 
+                              $txt_color = '#FF0000'; 
                             
-                        //     }
+                            }
                       
 
                    ?>
                                     <tr>
-                                        <!-- <td><?php echo $r->user_id ?></td> -->
+                                     
                                         <td><?php echo $r->usergroup ?></td>
                                         <td><?php echo $r->username ?></td>
-                                        <!-- <td><?php echo $r->password ?></td> -->
-                                    
-                                        <!-- <td><?php echo $r->gender ?></td>
-                                        <td><?php echo $r->tel ?></td>
-                                        <td><?php echo $r->email ?></td>
-                                        
-                                        
-                                        <td><?php echo $r->class_name ?></td>
-                                        <td><?php echo $r->class_group ?></td>
-                                        <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td> -->
+                                       
+                                         <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td> 
                                         <td>
-                                        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_student/edit_student/' . $r->id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
+                                        <a type ='button' onclick="javascript:window.location='<?php echo base_url() . 'manage_user/edit_user/' . $r->id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
                                             <?php echo "<a type='button' href='".base_url()."manage_student/delete_student_p/".$r->id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
                                         </td>
                                         <?php } ?> 
