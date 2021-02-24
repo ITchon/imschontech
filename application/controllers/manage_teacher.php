@@ -63,7 +63,7 @@ class manage_teacher Extends CI_controller{
 
 				 $this->model->insert_user($user_id, $usergroup, $username, $password, $status_login);
 				 $this->session->set_flashdata
-			('success','<div class="alert alert-success">
+			('success','<div class="alert alert-success　">
 									<span><b> กรอกข้อมูลสำเร๊จ !!</b> </span> 
 						</div>');
         redirect('manage_teacher/insert_teacher');

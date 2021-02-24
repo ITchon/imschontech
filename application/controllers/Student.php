@@ -62,7 +62,7 @@
 
       $this->load->library('Googlemaps');
       $config['center'] = $latlong;
-      $config['zoom'] = '10';
+      $config['zoom'] = '15';
       $this->googlemaps->initialize($config);
 
       $marker = array();

@@ -58,7 +58,7 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-									<input type="password" value="" name="password" id="password-field" class="form-control" placeholder="Password">
+									<input type="password" name="password" value="" placeholder="Password" id="password-field" class="form-control">
                                     <span class="input-group-addon"><i id="pass-status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword()"></i></span> 
 								</div>
 							</div>
@@ -80,16 +80,16 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 									<?php echo $this->session->flashdata("success"); ?>
 									<hr>
 									</tr>
-									<tr valign="top">
+									<tr valign="top" >
 										<td colspan="2"><b><big>การเข้าใช้งานระบบ</big></b></td>
 									</tr>
 									<tr valign="top">
-										<td><b>นักเรียน</b></td>
-										<td style="border-color: grey;">เข้าสู่ระบบโดยใช้ รหัสประจำตัวนักเรียน<br>รหัสผ่านคือ เบอร์โทรศัพท์</td>
+										<td><b>นักเรียน/นักศึกษา</b></td>
+										<td style="border-color: grey;">Username รหัสประจำตัวนักเรียน<br>Password วัน/เดือน/ปีเกิด</td>
 									</tr>
 									<tr valign="top">
 										<td><b>อาจารย์</b></td>
-										<td>เข้าสู่ระบบโดยใช้ รหัสประชาชน <br>รหัสผ่านคือ วันเกิดเช่น DD-MM-YYYY</td>
+										<td>Username รหัสประจำตัวประชาชน <br>Password วัน/เดือน/ปีเกิด</td>
 									</tr>
 								</tbody>
 							</table>
@@ -99,12 +99,6 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 							</div>  
 									
 								                                             
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-12">
-								<br>
-							
 							</div>
 						</div>
 		</div>

@@ -63,7 +63,7 @@
                                 <div class="tiles-heading">Teacher</div>
                                 <div class="tiles-body-alt">
                                
-                                    <div class="text-center"><span class="text-top"></span>รายชื่อคุณครู</div>
+                                    <div class="text-center"><span class="text-top"></span>ติดต่อผู้ดูแลระบบ</div>
                                     <small>ดูรายชื่อคุณครู</small>
                                 </div>
                                 <div class="tiles-footer">more info</div>
@@ -96,7 +96,7 @@
                                 <!-- <div class="tiles-heading">Teacher</div> -->
                                     <div class="tiles-body-alt">
                                
-                                        <div class="text-center" ><span class="text-top"></span>เข้าสู่หน้าล็อคอิน</div>
+                                        <div class="text-center" ><span class="text-top"></span>เข้าสู่หน้าล็อกอิน</div>
                                     <!-- <small>ดูรายชื่อคุณครู</small> -->
                                 </div>
                                 <!-- <div class="tiles-footer">more info</div> -->

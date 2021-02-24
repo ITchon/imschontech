@@ -12,13 +12,17 @@
 									<div class="table-responsive">
 										<table class="table table-condensed ">
 										<form action="" method="post" >
+										
 											<label class="control-label col-sm-6 col-xs-6" for="train">
-												<h3><strong><?php echo ucfirst($train_detail[0]->fname."  ".$train_detail[0]->lname) ?></strong></h3>
+												<h3><strong><?php echo ucfirst($train_detail[0]->fname."  ".$train_detail[0]->lname) ?></strong> </h3>
 											</label>
-											เลือกปี
     										<div class="col-sm-3 col-xs-3">
 											<?php
 												$optName = array();
+												$categories['0'] = '(Select Category)';
+												$categories['1'] = 'Category 1';
+												$categories['2" disabled="disabled'] = 'Restricted Category';
+												$categories['3'] = 'Category 3';
 												foreach($train_select as $r){
 												    $optName[$r->t_id] = $r->start_date;   
 												}
