@@ -57,18 +57,23 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 							
 							<div class="box-text-login">
 								<table class="table text-navyno-border">
+								
 							<tbody><tr><td>
-							<table width="100%" align="center">
+							<div class="" >
+							 
+								 
+							<table width="100%" align="center" class="">
 								<tbody>
 									<tr valign="top">
-										<td colspan="2"><hr size="1"></td>
+									<?php echo $this->session->flashdata("success"); ?>
+									<hr>
 									</tr>
 									<tr valign="top">
 										<td colspan="2"><b><big>การเข้าใช้งานระบบ</big></b></td>
 									</tr>
 									<tr valign="top">
-										<td><b>นักเรียน - นักศึกษา</b></td>
-										<td>เข้าสู่ระบบโดยใช้ รหัสประจำตัวนักเรียน<br>รหัสผ่านคือ เบอร์โทรศัพท์</td>
+										<td><b>นักเรียน</b></td>
+										<td style="border-color: grey;">เข้าสู่ระบบโดยใช้ รหัสประจำตัวนักเรียน<br>รหัสผ่านคือ เบอร์โทรศัพท์</td>
 									</tr>
 									<tr valign="top">
 										<td><b>อาจารย์</b></td>
@@ -76,6 +81,7 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 									</tr>
 								</tbody>
 							</table>
+							</div>
 							</td>
 							</tr></tbody></table>
 							</div>  
@@ -86,8 +92,7 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 						<div class="form-group">
 							<div class="col-sm-12">
 								<br>
-								<?php echo $this->session->flashdata("success"); ?> 
-								 
+							
 							</div>
 						</div>
 		</div>
@@ -97,12 +102,12 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 			
 			<div class="pull-right">
                
-                <button type="submit" class="btn btn-danger">ยืนยัน</button>
+                <button type="submit" class="btn btn-success">เข้าสู่ระบบ</button>
 			</div>
 			</form>
 			<div class="pull-left">
 				<!-- <input type="submit" class="btn btn-danger" > -->
-                <a href="<?php echo base_url() ?>website" class="text-light"><button type="submit" href="" class="btn btn-danger">กลับสู่เว็บไซต์</button></a>
+                <a href="<?php echo base_url() ?>website" class="text-light"><button type="submit" href="" class="btn btn-danger">กลับสู่หน้าหลัก</button></a>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,5 @@
 <?php 
-    class division_model extends CI_Model {
+    class Division_model extends CI_Model {
 
 
         public function division() {  

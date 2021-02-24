@@ -48,7 +48,7 @@ class Contact Extends CI_controller{
 	
 	public function trainer_data() 	
 	{
-        $contact_id = $this->session->userdata('contact_id');
+        // $contact_id = $this->session->userdata('contact_id');
 
     if($this->uri->segment('3')){
     $std_id =  $this->uri->segment('3');
@@ -96,21 +96,21 @@ class Contact Extends CI_controller{
     $this->googlemaps->initialize($config);
 
     $marker = array();
-    $lat = $data['train_detail'][0]->latitude;
-    $long = $data['train_detail'][0]->longitude; 
-    $marker['position'] = $lat.','.$long;
+    $latlong = $data['train_detail'][0]->latlong;
+    $marker['position'] = $latlong;
     $this->googlemaps->add_marker($marker);
     $data['map'] = $this->googlemaps->create_map();
 
     $contact_chk = $data['train_detail'][0]->contact_id;
-    if($contact_chk == $contact_id){
+
+    // if($contact_chk == $contact_id){
         $this->load->view('contact/modal');
         $this->load->view('contact/trainer_data',$data);
         $this->load->view('contact/footer');
-    }else{
-        echo "who this";
-        die();
-    }
+    // }else{
+    //     echo "who this";
+    //     die();
+    // }
 
 	}
 

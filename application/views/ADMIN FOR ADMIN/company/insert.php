@@ -26,7 +26,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="company_name">ชื่อบริษัท</label>
-                                            <input type="text" name="company_name" class="form-control">
+                                            <input type="text" name="company_name" class="form-control" required>
                                             </select>
                                         </div>
                                     </div>
@@ -34,32 +34,33 @@
                                         <div class="form-group">
                                             <label for="address">ที่อยู่</label>
                                            
-                                                <textarea name="address" class="form-control"></textarea>
+                                                <textarea name="address" class="form-control"></textarea required>
                                          
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="province">อำเภอ</label>
-                                            <input type="text" name="province" class="form-control">
+                                            <input type="text" name="province" class="form-control" required>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="zipcode">รหัสไปรษณีย์</label>
-                                            <input type="text" name="zipcode" class="form-control">
+                                            <input type="text" name="zipcode" class="form-control" required>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="tel">เบอร์ติดต่อ</label>
-                                            <input type="text" name="tel" class="form-control">
+                                            <input type="text" name="tel" class="form-control" >
                                             </select>
                                         </div>
                                     </div>
-                                    <input type="hidden" id="position" name="latlng" value="" />
+                                    
+                                    <h4>ลากหมุดไปยังตำแหน่งของสถานที่</h4>
                                   <?php echo $map['html'];?>
                                 </div>
                                 

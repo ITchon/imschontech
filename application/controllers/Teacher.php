@@ -231,18 +231,20 @@ class Teacher Extends CI_controller{
       $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' AND teacher_confirm = 0 ORDER BY `events`.`start_event` DESC";
       $query = $this->db->query($sql); 
       $data['result_test'] = $query->result();
+      $latlong = $data['train_detail'][0]->latlong;
+      if($latlong == null){
+        $latlong = ',';
+      }
         
-    $this->load->library('Googlemaps');
-    $config['center'] = '37.4419, -122.1419';
-    $config['zoom'] = 'auto';
-    $this->googlemaps->initialize($config);
+      $this->load->library('Googlemaps');
+      $config['center'] = $latlong;
+      $config['zoom'] = '10';
+      $this->googlemaps->initialize($config);
 
-    $marker = array();
-    $lat = $data['train_detail'][0]->latitude;
-    $long = $data['train_detail'][0]->longitude; 
-    $marker['position'] = $lat.','.$long;
-    $this->googlemaps->add_marker($marker);
-    $data['map'] = $this->googlemaps->create_map();
+      $marker = array();
+      $marker['position'] = $latlong;
+      $this->googlemaps->add_marker($marker);
+      $data['map'] = $this->googlemaps->create_map();
 
     $class_chk = $data['train_detail'][0]->class_id;
     
@@ -256,7 +258,6 @@ class Teacher Extends CI_controller{
     $this->load->view('teacher/footer');
 }
 }
- 
 
     }
 

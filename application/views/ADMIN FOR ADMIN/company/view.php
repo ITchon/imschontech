@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="panel-body collapse in">
-                            <div class="table-responsive">
+                            <div class="table-responsive ">
                                 <a class="btn btn-success pull-right" href="<?php echo base_url(); ?>Company/insert_company">เพิ่ม</a>
                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                     <thead>

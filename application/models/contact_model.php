@@ -1,5 +1,5 @@
 <?php 
-    class contact_model extends CI_Model {
+    class Contact_model extends CI_Model {
 
 
         public function contact() {  
@@ -58,7 +58,6 @@
         public function del_p($contact_id)
         {
             $sqlEdt = "DELETE FROM contact WHERE contact_id = '$contact_id';";
-
 
             $exc_contact = $this->db->query($sqlEdt);
            
