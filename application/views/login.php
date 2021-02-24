@@ -41,16 +41,29 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user"></i></span>
-									<input type="text" class="form-control" placeholder="Username " name="username">
+									<input type="text"  class="form-control" placeholder="Username " name="username" placeholder="  ">
 								</div>
 							</div>
 				
+							<!-- <div class="col-sm-12">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+									<input type="password" value="" id="myInput" class="form-control">
+                                    <span class="input-group-addon"><input type="checkbox" onclick="myFunction()"></span> 
+								</div>
+							</div> -->
+
+							<!-- <input type="password" id="password-field" > -->
+        					
+
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-									<input type="password" class="form-control" placeholder="Password" name ="password">
+									<input type="password" value="" id="password-field" class="form-control">
+                                    <span class="input-group-addon"><i id="pass-status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword()"></i></span> 
 								</div>
 							</div>
+
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
@@ -116,6 +129,26 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 
 </body>
 </html>
+
+<script>
+ 
+
+function viewPassword()
+{
+  var passwordInput = document.getElementById('password-field');
+  var passStatus = document.getElementById('pass-status');
+ 
+  if (passwordInput.type == 'password'){
+    passwordInput.type='text';
+    passStatus.className='fa fa-eye-slash';
+    
+  }
+  else{
+    passwordInput.type='password';
+    passStatus.className='fa fa-eye';
+  }
+}
+</script>
 
 
 

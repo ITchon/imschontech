@@ -66,6 +66,7 @@ class manage_student Extends CI_controller{
         $user_id = $this->student_model->insert_student($title ,$fname ,$lname,$gender ,$tel ,$email,$status ,$std_code ,$birth_date ,$class_id); 
 		$this->model->insert_user($user_id,"student",$std_code,$birth_date,0);
         redirect('manage_student');
+		
 	}
 
 	public function edit_student()
