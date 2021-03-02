@@ -275,34 +275,39 @@ today = yyyy + '-' + mm + '-' + dd;
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header bg-primary">
-        <h4 class="modal-title">ADD EVENT</h4>
+        <span class="text-white" style="font-size:24px">เพิ่มข้อมูลการปฎิบัติงาน</span>
       </div>
       <div class="modal-body">
-
+      <div class="text-center">
+      <a class="btn btn-info" href="#">ลากิจ</a>
+      <a class="btn btn-green" href="#">ลาป่วย</a>
+      <a class="btn btn-danger" href="#">ขาด</a>
+      </div>
+      <hr>
      <form name="form" id="form" class='form' method="post" enctype="multipart/form-data">
       <div class="form-group">
-                <label for="p-in" class="col-md-4 label-heading">Event Name</label>
+                <label for="p-in" class="col-md-4 ">ชื่อหัวข้อการปฎิบัติงาน</label>
                 <div class="col-md-8 ui-front">
                     <input type="text" class="form-control" name="title" value=""><br>
                 </div>
         </div>
         <div class="form-group">
-                <label for="p-in" class="col-md-4 label-heading">Description</label>
+                <label for="p-in" class="col-md-4 ">รายละเอียดการปฎิบัติงาน</label>
                 <div class="col-md-8 ui-front">
 
                     <textarea name="description" id="" class="form-control" cols="20" rows="3"></textarea><br>
                 </div>
         </div>
-        <div class="form-group">
-        <label for="p-in" class="col-md-4 label-heading">Color</label>
+        <!-- <div class="form-group">
+        <label for="p-in" class="col-md-4 ">Color</label>
                 <div class="col-md-8 ui-front">
                     <input type="color" class="form-control" name="color" value="#0071c5"><br>
                 </div>              
-        </div>
+        </div> -->
 
        
         <div class="form-group">
-                <label for="p-in" class="col-md-4 col-xs-3 label-heading">Start Date</label>
+                <label for="p-in" class="col-md-4 col-xs-3 ">เวลาที่เริ่มปฎิบัติ</label>
                 <div class="col-md-4 col-xs-5">
                     <input type="date" readonly class="form-control" name="start_day" id="start_date" required>
                 </div>
@@ -312,13 +317,13 @@ today = yyyy + '-' + mm + '-' + dd;
         </div>
 
         <div class="form-group">
-                <label for="p-in" class="col-md-4 col-xs-3 label-heading">Image</label>
+                <label for="p-in" class="col-md-4 col-xs-3 ">เพิ่มรูปภาพ</label>
                 <div class="col-md-12 col-xs-5">
                                   
        <div class='content'>
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label class=""><b> Attach file</b></label>
+                          <label class=""><b></b></label>
                         </div>
                       </div>
                       <div id="file" class="dropzone" name="file" action="<?= base_url()?>">
@@ -326,7 +331,7 @@ today = yyyy + '-' + mm + '-' + dd;
       <div class="dz-message">
       <div class="fallback">
     </div>
-        <h3>Drop files here</h3> or <strong>click</strong> to upload
+        <h3>ลากรูปมาใส่ที่ช่อง</h3> หรือ <strong>คลิกที่ช่อง</strong> เพื่อเพิ่มรูปภาพ
       </div>
     </div>
                       
@@ -336,11 +341,11 @@ today = yyyy + '-' + mm + '-' + dd;
         </div>
 
       </div>
-      
+
  
-            <div class="modal-footer" >
-                <input type="button" class="btn btn-primary" style="margin-top:20px" id="insert" value="Add Event">
-              <button type="button" class="btn btn-default" style="margin-top:20px" data-dismiss="modal">Close</button>
+            <div class="modal-footer text-right" style="padding:10px" >
+                <input type="button" class="btn btn-primary" style="margin-top:20px" id="insert" value="บันทึกข้อมูล">
+              <button type="button" class="btn btn-default" style="margin-top:20px" data-dismiss="modal">ยกเลิก</button>
       </div>
         </form>
     </div>
@@ -359,25 +364,25 @@ today = yyyy + '-' + mm + '-' + dd;
       <form name="form2" id="form2" class='form2' method="post">
       <div class="modal-body">
       <div class="form-group">
-                <label for="p-in" class="col-md-4 label-heading">Event Title</label>
+                <label for="p-in" class="col-md-4 ">Event Title</label>
                 <div class="col-md-8 ui-front">
                     <input type="text" class="form-control" name="title" value="" id="name"><br>
                 </div>
         </div>
         <div class="form-group">
-                <label for="p-in" class="col-md-4 label-heading">Description</label>
+                <label for="p-in" class="col-md-4 ">Description</label>
                 <div class="col-md-8 ui-front">
                 <textarea name="description" id="description" class="form-control" cols="20" rows="3"></textarea><br>
                 </div>
         </div>
         <div class="form-group">
-                <label for="p-in" class="col-md-4 label-heading">Color</label>
+                <label for="p-in" class="col-md-4 ">Color</label>
                 <div class="col-md-8 ui-front">
                     <input type="color" class="form-control" name="color" id="color"><br>
                 </div>
         </div>
         <div class="form-group">
-              <label for="p-in" class="col-md-4 col-xs-3 label-heading">Start Date</label>
+              <label for="p-in" class="col-md-4 col-xs-3 ">Start Date</label>
                 <div class="col-md-4 col-xs-5">
                     <input type="date" readonly class="form-control" name="start_day" id="edit_start_date" required>
                 </div>
