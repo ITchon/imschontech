@@ -30,26 +30,26 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Edit Division</h4>
+                            <h4>Edit List Name</h4>
                         </div>
                         <div class="panel-body collapse in">
-                                <?php echo form_open('manage_division/edit_p');?>
-                                <?php echo form_hidden('dv_id',$result_ed[0]->dv_id);  ?>
+                                <?php echo form_open('manage_asm/edit_list_name');?>
+                                <?php echo form_hidden('list_id',$result_list[0]->list_id);  ?>
+                                <?php echo $this->session->flashdata("success"); ?>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="dv_name">ชื่อบริษัท</label>
-                                            <input type="text" name="dv_name" value="<?php echo $result_ed[0]->dv_name  ?>" class="form-control">
-                                            </select>
+                                            <label for="list_name">List Name</label>
+                                            <input type="text" name="list_name" value="<?php echo $result_list[0]->list_name  ?>" class="form-control"><br>
+                                            <?php echo form_submit(array('list_id'=>'submit','value'=>' Confirm ','class'=>'btn-success btn')); 
+                              echo form_close(); ?>
                                         </div>
                                     </div>
                                     
                             </div>
                         </div>
                         </div>
-                        <?php echo form_submit(array('dv_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
-                              echo form_close(); ?>
+                        <?php echo anchor(base_url().'manage_asm', 'Cancel',array('class'=>'btn btn-dark')); ?>
          
                         </div>
                     </div>

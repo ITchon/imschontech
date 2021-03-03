@@ -222,6 +222,33 @@
               
             }else{  return false; }
         }
+
+        public function selectOnelist($id)
+        {
+            $sql="SELECT * FROM list WHERE list_id = '$id' ";
+            $query = $this->db->query($sql); 
+            $data  = $query->result(); 
+         
+            return $data;
+        
+        }
+
+        public function update_list_name($list_name ,$list_id)
+        {
+            $sqlEdt="UPDATE  list SET 
+                             list_name   = '$list_name'
+                     WHERE list_id = '$list_id'";
+            $exc_teacher = $this->db->query($sqlEdt);
+            if ($exc_teacher)
+            {
+            return true;  
+            }
+            else
+            {
+            return false;
+            }
+        }
+
     }
         
 

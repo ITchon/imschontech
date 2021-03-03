@@ -63,7 +63,7 @@
                                         <td><b><?php echo $i?></b></td>
                                         <td><div class="edit"><?php echo $rl->list_name ?><div></td>
                                         <td class="text-center">
-                                        <a type ='button' onclick="javascript:window.location='<?php echo base_url() . 'manage_asm/edit_glist/' . $rl->list_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
+                                        <a type ='button' onclick="javascript:window.location='<?php echo base_url() . 'manage_asm/edit_list/' . $rl->list_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
                                         <a data-id="<?php echo $rl->list_id;?>" id="del_glist"><i class="btn-danger btn-sm fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>

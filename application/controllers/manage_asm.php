@@ -195,6 +195,26 @@ class manage_asm Extends CI_controller{
    
         }
     }
+    public function edit_list()
+	{
+        $id = $this->uri->segment('3'); 
+        $data['result_list'] = $this->assessment_model->selectOnelist($id);
+
+		$this->load->view('ADMIN FOR ADMIN/assessment/edit_list',$data);
+    }
+
+    public function edit_list_name()
+	{
+		$list_name    = $this->input->post('list_name'); 
+	    $list_id 	  = $this->input->post('list_id');
+        $this->assessment_model->update_list_name($list_name ,$list_id); 
+        $this->session->set_flashdata('success','<div class="alert alert-success hide-it">  
+          <span> Change Success</span>
+        </div> ');
+		    echo "<script>";
+            echo 'history.go(-1);';
+            echo '</script>';
+	}
 }
 
 ?>
