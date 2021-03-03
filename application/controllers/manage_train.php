@@ -49,7 +49,12 @@ class manage_train Extends CI_controller{
 		$qry_inp1 =  "SELECT * FROM contact";
 		$query1 = $this->db->query($qry_inp1); 
 		$data['result_ct'] = $query1->result();
+		$qry_inp1 =  "SELECT * FROM teacher";
+		$query1 = $this->db->query($qry_inp1); 
+		$data['result_th'] = $query1->result();
 		$this->load->view('ADMIN FOR ADMIN/train/insert',$data);
+		$this->load->view('ADMIN FOR ADMIN/footer_2020');
+
 	}
 
 	public function insert_p()
