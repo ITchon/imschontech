@@ -8,7 +8,7 @@
                 <li class="active">Data assessment sheet</li>
             </ol>
 
-            <h1>รายชื่อใบประเมิน</h1>
+            <h1>รายชื่อแบบประเมิน</h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,7 +30,7 @@
                 <div class="col-md-7">
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>รายชื่อใบประเมิน</h4>
+                            <h4>รายชื่อแบบประเมิน</h4>
                             <div class="options">   
                                 <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a> -->
                                 <!-- <a data-toggle="modal" href="#myModal" ><i class="fa fa-plus"></i></a> -->
@@ -43,7 +43,7 @@
                                 <thead>
                                     <tr>
                                         <!-- <th>division id</th> -->
-                                        <th >รายชื่อใบประเมิน</th>
+                                        <th >รายชื่อแบบประเมิน</th>
                                         <th width="35%">Manage</th>
                                     </tr>
                                 </thead>
@@ -71,7 +71,7 @@
                 <div class="col-md-5">
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>เพิ่มใบประเมิน</h4>
+                            <h4>เพิ่มแบบประเมิน</h4>
                             <div class="options">   
                                 <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a> -->
                                 <!-- <a data-toggle="modal" href="#myModal" ><i class="fa fa-plus"></i></a> -->
@@ -84,7 +84,7 @@
                                 <?php echo form_open('manage_asm/insert_sub');?>
                                       
                                         <div class="form-group">
-                                            <label for="sub_name">ชื่อใบประเมิน</label>
+                                            <label for="sub_name">ชื่อแบบประเมิน</label>
                                             <input type="text" name="sub_name" class="form-control">
                                         </div>
                                     

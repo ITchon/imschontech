@@ -23,7 +23,7 @@
                 <li><a href="<?php echo base_url(); ?>manage_contact"><i class="fa fa-user"></i> <span>ผู้คุมการฝึกงาน</span></a></li>
                 <li><a href="<?php echo base_url(); ?>Company"><i class="fa fa-building"></i><span>สถานประกอบการ</span></a></li>
                 <li><a href="<?php echo base_url(); ?>manage_train"><i class="fa fa-suitcase"></i><span>การฝึกงาน</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_asm"><i class="fa fa-user"></i><span>ใบประเมินผล</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_asm"><i class="fa fa-user"></i><span>แบบประเมินผล</span></a></li>
                 <li><a href="<?php echo base_url(); ?>manage_user"><i class="fa fa-user"></i><span>ผู้ใช้งานในระบบ</span></a></li>
                 <li><a class="btn btn-default" href="<?php echo base_url(); ?>logout"><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
                 <!-- <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>

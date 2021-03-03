@@ -4,8 +4,8 @@
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="index.htm">Dashboard</a></li>
-                <li>Table Division</li>
-                <li class="active">Edit Division</li>
+                <li>Table assessment sheet</li>
+                <li class="active">Edit assessment</li>
             </ol>
 
             <h1></h1>
@@ -36,7 +36,7 @@
                         <?php $id_form = array('id' => 'example1'); ?>
                                 <?php echo form_open('manage_asm/edit_subname', $id_form);?>
                                 <?php echo form_hidden('subject_id',$result_sub[0]->subject_id);  ?>
-                                <?php echo $this->session->flashdata("success"); ?>
+                                
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -47,6 +47,7 @@
                                     
                               echo form_close(); ?></div>
                                             </div>
+                                            <?php echo $this->session->flashdata("success"); ?>
                                         </div>
                                     </div>
                                     </div>
@@ -63,8 +64,8 @@
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
                             <thead>
                                     <tr>
-                                        <th>No.</th>
-                                        <th class="text-center">list</th>
+                                        <th  width="15%">อันดับ</th>
+                                        <th class="text-center">รายการประเมิน</th>
                                         <th width="15%" class="text-center">manage</th>
                                     </tr>
                                 </thead>
@@ -83,7 +84,7 @@
                                     </tr>
                                 <?php $i++; } ?>
                                     <tr>
-                      <td><button class="btn btn-success" type="button" id="add"><i class="fa fa-plus"> ADD</i></button>
+                      <td><button class="btn btn-success" type="button" id="add"><i class="fa fa-plus"> เพิ่ม</i></button>
                     <button type="button" class="btn btn-danger btn_remove hidden"><i class="fa fa-trash-o"> Del</i></button><br></td>
                       <td>
                       <div id="dynamic_field"></div>

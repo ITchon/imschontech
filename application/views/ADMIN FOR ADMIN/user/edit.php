@@ -82,8 +82,8 @@
                                 </div>
                             </div>
                         </div>
-                        <?php echo form_submit(array('id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_user', 'Cancel',array('class'=>'btn btn-dark'));
+                        <?php echo form_submit(array('id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 
+                              echo anchor(base_url().'manage_user', 'ยกเลิก',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>
