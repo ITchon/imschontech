@@ -36,11 +36,10 @@
                                 <?php echo form_open('manage_train/insert_p');?>
                               
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="Company">ชื่อบริษัท</label>
-                                            <select name="company_id" class="form-control itemName">
-                                                <option value="">-select-</option>
+                                            <select name="company_id" class="selectpicker form-control" data-container="body" data-live-search="true" title="เลือกบริษัท..." data-hide-disabled="true">
                                                 <?php foreach ($result_cp as $cp) {
                                                         echo " <option value=".$cp->company_id."> ".$cp->company_name." </option> ";
                                                                                  }
@@ -51,11 +50,10 @@
                                             </select> -->
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="std_id">นักเรียน</label>
-                                            <select id="e1" name="std_id" class="form-control">
-                                                <option value="">-select-</option>
+                                            <select id="e1" name="std_id" class="selectpicker form-control" data-container="body" data-live-search="true" title="เลือกนักเรียน..." data-hide-disabled="true">
                                                 <?php foreach ($result_std as $std) {
                                                         echo " <option value=".$std->std_id."> ".$std->fname." ".$std->lname." </option> ";
                                                                                  }
@@ -69,11 +67,28 @@
                                             </select> -->
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="teacher_id">อาจารย์นิเทศก์</label>
+                                
+                                            <select name="teacher_id" class="selectpicker form-control" data-container="body" data-live-search="true" title="เลือกอาจารย์นิเทศ..." data-hide-disabled="true" >
+                                                <?php foreach ($result_th as $th) {
+                                                        echo " <option value=".$th->teacher_id."> ".$th->fname." &nbsp;&nbsp;&nbsp;&nbsp; ".$th->lname." </option> ";
+                                                                                 }
+                                                ?>
+                                            </select>
+                                            <!-- <div class="form-group">
+                                                <label class="col-sm-3 control-label">Dropdown with Search</label>
+                                                <div class="col-sm-6">
+                                                    <select id="e1" style="width:100%" class="populate"></select>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="contact_id">ผู้คุมการฝึกงาน</label>
-                                            <select  class="itemName form-control" name="contact_id">
-                                                <option value="">-select-</option>
+                                            <select name="contact_id" class="selectpicker form-control"  data-container="body" data-live-search="true" title="เลือกครูฝึก..." data-hide-disabled="true" >
                                                 <?php foreach ($result_ct as $ct) {
                                                         echo " <option value=".$ct->contact_id."> ".$ct->name." </option> ";
                                                                                  }
@@ -89,14 +104,14 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="start_date">เวลาเรื่มฝึกงาน</label>
                                             <input type="date" name="start_date" class="form-control">
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="end_date">เวลาจบฝึกงาน</label>
                                             <input type="date" name="end_date" class="form-control">
@@ -151,41 +166,5 @@ $('.e1').select2({
         </div>
     </footer>
 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jquery-1.10.2.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jqueryui-1.10.3.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/bootstrap.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/enquire.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jquery.cookie.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jquery.nicescroll.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/codeprettifier/prettify.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/easypiechart/jquery.easypiechart.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/sparklines/jquery.sparklines.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-toggle/toggle.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/placeholdr.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/application.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo.js'></script> 
-
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/fullcalendar/fullcalendar.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-daterangepicker/daterangepicker.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-daterangepicker/moment.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/charts-flot/jquery.flot.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/charts-flot/jquery.flot.resize.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/charts-flot/jquery.flot.orderBars.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/pulsate/jQuery.pulsate.min.js'></script> 
-<!-- <script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo-index.js'></script>  -->
-
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/quicksearch/jquery.quicksearch.min.js'></script>
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-typeahead/typeahead.min.js'></script>
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-select2/select2.min.js'></script>
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-autosize/jquery.autosize-min.js'></script>
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-colorpicker/js/bootstrap-colorpicker.min.js'></script>
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/jqueryui-timepicker/jquery.ui.timepicker.min.js'></script>
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-daterangepicker/daterangepicker.min.js'></script>
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-datepicker/js/bootstrap-datepicker.js'></script>
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-daterangepicker/moment.min.js'></script>
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-fseditor/jquery.fseditor-min.js'></script>
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-jasnyupload/fileinput.js'></script>
-    <script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-tokenfield/bootstrap-tokenfield.min.js'></script>
-    <!-- <script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo-formcomponents.js'></script> -->
 </body>
 </html>
