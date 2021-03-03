@@ -4,8 +4,8 @@
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="index.htm">Dashboard</a></li>
-                <li>Table Division</li>
-                <li class="active">Edit Division</li>
+                <li>Table Group List</li>
+                <li class="active">Edit Group List</li>
             </ol>
 
             <h1></h1>
@@ -29,17 +29,17 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Edit Subject</h4>
+                            <h4>Edit Group List</h4>
                         </div>
                         <div class="panel-body collapse in">
                         <?php $id_form = array('id' => 'example1'); ?>
-                                <?php echo form_open('manage_asm/edit_subname', $id_form);?>
+                                <?php echo form_open('manage_asm/edit_glist_name', $id_form);?>
                                 <?php echo form_hidden('glist_id',$result_glist[0]->glist_id);  ?>
                                 <?php echo $this->session->flashdata("success"); ?>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="glist_name">Subject Name</label>
+                                            <label for="glist_name">Group List Name</label>
                                             <input type="text" name="glist_name" value="<?php echo $result_glist[0]->glist_name  ?>" class="form-control"><br>
                                     <?php echo form_submit(array('glist_id'=>'submit','value'=>' Confirm ','class'=>'btn-success btn')); 
                               echo form_close(); ?>
@@ -61,10 +61,10 @@
                                     ?>
                                     <tr>
                                         <td><b><?php echo $i?></b></td>
-                                        <td><div class="edit"><?php echo $rl->glist_name ?><div></td>
+                                        <td><div class="edit"><?php echo $rl->list_name ?><div></td>
                                         <td class="text-center">
-                                        <a type ='button' onclick="javascript:window.location='<?php echo base_url() . 'manage_asm/edit_glist/' . $rl->glist_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                        <a data-id="<?php echo $rl->glist_id;?>" id="del_glist"><i class="btn-danger btn-sm fa fa-trash-o"></i></a>
+                                        <a type ='button' onclick="javascript:window.location='<?php echo base_url() . 'manage_asm/edit_glist/' . $rl->list_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
+                                        <a data-id="<?php echo $rl->list_id;?>" id="del_glist"><i class="btn-danger btn-sm fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
                                 <?php $i++; } ?>
@@ -136,7 +136,7 @@ $(document).ready(function() {
   var i = 1;
   $('#add').click(function() {
     if (i <= 99) {
-      $('#dynamic_field').append('<div id="row' + i + '"><h5>' + num + '</h5><input type="text" class="form-control" id="g_list" name="g_list" value="" required><br></div>')
+      $('#dynamic_field').append('<div id="row' + i + '"><h5>' + num + '</h5><input type="text" class="form-control" id="list" name="list" value="" required><br></div>')
       //$('#dynamic_field').append('<div id="row' + i + '"><label for="email-2">Part No (' + i + ')</label><input type="text" class="form-control" name="p_no[]" value=""></div></div><div class="form-group"><label class="col-sm-3 col-md-4 control-label">Part Name (' + i + ')</label><div class="col-sm-6 col-md-4"><input type="text" class="form-control" name="p_name[]" value=""></div></div><br><hr style="height:2px;border-width:0;color:gray;background-color:red"></div>')
       i++;
       $('.btn_remove').removeClass('hidden');
@@ -183,14 +183,14 @@ $(document).on('click', '#del_glist', function() {
       var r = confirm("Confirm delete?");
       if (r == true) {
     	var $ele = $(this).parent().parent();//?????
-        var glist_id = $(this).attr("data-id");
-        var sub_id = <?php echo $this->uri->segment('3')?>;
+        var list_id = $(this).attr("data-id");
+        var glist_id = <?php echo $this->uri->segment('3')?>;
     		$.ajax({
-    			url: "<?php echo base_url("manage_asm/delete_subglist");?>",
+    			url: "<?php echo base_url("manage_asm/delete_glist_list");?>",
     			type: "POST",
     			cache: false,
     			data:{
-    				glist_id: glist_id,sub_id:sub_id
+    				glist_id: glist_id,list_id:list_id
     			},
     			success: function(data){
     				location.reload();
@@ -203,17 +203,15 @@ $(document).on('click', '#del_glist', function() {
     });
 $(document).on('click', '#confirm', function() {
     	var $ele = $(this).parent().parent();//?????
-        var glist_id = $(this).attr("data-id");
-        var g_list = $('#g_list').val();
-        var sub_id = <?php echo $this->uri->segment('3')?>;
+        var list = $('#list').val();
+        var glist_id = <?php echo $this->uri->segment('3')?>;
     		$.ajax({
-    			url: "<?php echo base_url("manage_asm/add_grouplist");?>",
+    			url: "<?php echo base_url("manage_asm/add_list");?>",
     			type: "POST",
     			cache: false,
     			data:{
     				glist_id: glist_id,
-                    sub_id:sub_id,
-                    g_list:g_list
+                    list:list
     			},
     			success: function(data){
     				location.reload();
