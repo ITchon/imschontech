@@ -17,7 +17,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Edit Class</h4>
+                            <h4>แก้ไข ชั้นเรียน</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('classs/Edit_process');?>
@@ -64,8 +64,8 @@
                                 
                             </div>
                         </div>
-                        <?php echo form_submit(array('class_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'Classs', 'Cancel',array('class'=>'btn btn-dark'));
+                        <?php echo form_submit(array('class_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 
+                              echo anchor(base_url().'Classs', 'ยกเลิก',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>

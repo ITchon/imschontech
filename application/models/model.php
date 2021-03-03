@@ -72,6 +72,15 @@ public function selectuser($id)
     return $data;
 
 }
+public function selectusercont($id)
+{
+    $sql="SELECT * FROM user WHERE user_id = '$id' ";
+    $query = $this->db->query($sql); 
+    $data  = $query->result(); 
+ 
+    return $data;
+
+}
 
 public function insert_user($user_id,$usergroup ,$username ,$password ,$status_login)
 {

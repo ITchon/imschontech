@@ -30,7 +30,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Edit Contact</h4>
+                            <h4>แก้ไข ผู้คุมการฝึกงาน</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('manage_contact/edit_p');?>
@@ -50,23 +50,23 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <!-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="username">username</label>
-                                            <input type="text" name="username" value="<?php echo $result[0]->username ?>" class="form-control">
+                                            <input type="text" name="username" value="<?php echo $result_ct[0]->username ?>" class="form-control">
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="password">password</label>
-                                            <input type="password" name="password" value="<?php echo $result[0]->password ?>" class="form-control">
+                                            <input type="password" name="password" value="<?php echo $result_ct[0]->password ?>" class="form-control">
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> -->
                             </div>
                         </div>
                     </div>
-                        <?php echo form_submit(array('contact_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_contact', 'Cancel',array('class'=>'btn btn-dark'));
+                        <?php echo form_submit(array('contact_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 
+                              echo anchor(base_url().'manage_contact', 'ยกเลิก',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>
