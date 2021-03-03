@@ -1,20 +1,17 @@
 <style>
-
 #modal_img {
-	position: absolute;
-   bottom: 0;
-   padding-left: 1200px ;
-   z-index: 10040;
-   overflow: auto;
-   overflow-y: auto;
+
+   padding-right: 14px ;
+
 }
+
 </style>
 <div class="modal fade" id="modal_img" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-primary">
-    
-        <h4 class="modal-title" id="myModalLabel">Images Event</h4>
+      <div class="modal-header ">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4></h4>
       </div>
 
       <div class="modal-body">

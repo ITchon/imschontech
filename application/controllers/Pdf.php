@@ -14,9 +14,9 @@ class Pdf extends CI_Controller {
 
 	public function index()
 	{
-		$std_id = 15; 
-		$train_id =8;
-		$data['twd'] = $this->model_pdf->total_work_day($std_id,$train_id);
+		// $std_id = 15; 
+		// $train_id =8;
+		// $data['twd'] = $this->model_pdf->total_work_day($std_id,$train_id);
 
 		require_once(APPPATH.'../vendor/autoload.php');	
 

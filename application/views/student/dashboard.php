@@ -16,6 +16,7 @@
 											<label class="control-label col-sm-6 col-xs-6" for="train">
 												<h3><strong><?php echo ucfirst($train_detail[0]->fname."  ".$train_detail[0]->lname) ?></strong> </h3>
 											</label>
+											
     										<div class="col-sm-3 col-xs-3">
 											<?php
 												$optName = array();
@@ -31,7 +32,7 @@
 											 ?>
 									
     										</div>
-											<input type="submit" class="btn btn-primary" value="Submit">
+											<input type="submit" class="btn btn-primary" value="เลือกภาคเรียน">
 											</form>
 											
 											<!-- <thead>
@@ -43,15 +44,15 @@
 											<tbody>
 
 												<tr>
-													<td><b>Class</b></td>
+													<td><b>ชั้นเรียน</b></td>
 													<td><?php echo $train_detail[0]->class_name." ". $train_detail[0]->class_group  ?></td>
 												</tr>
 												<tr>
-													<td><b>Division</b></td>
+													<td><b>แผนก</b></td>
 													<td><?php echo $train_detail[0]->dv_name ?></td>
 												</tr>
 												<tr>
-													<td><b>Train Duration</b></td>
+													<td><b>ระยะเวลาการปฎิบัติงาน</b></td>
 													<td>
 													<?php echo $train_detail[0]->start_date." ถึง ".$train_detail[0]->end_date ;
 														$today =date("Y-m-d");
@@ -64,13 +65,13 @@
 													?></td>
 												</tr>
 												<tr>
-														<td><b>Train Location</b></td>
+														<td><b>สถานที่ฝึกงาน</b></td>
 														<td><?php echo $train_detail[0]->company_name." <br>".$train_detail[0]->address." ". $train_detail[0]->province ." ". $train_detail[0]->zipcode." <br>(".$train_detail[0]->tel.") " ?></td>
 															
 												</tr>
 												
 												<tr>
-													<td><b>Contact Person</b></td>
+													<td><b>ผู้ควบคุมการปฎิบัติงาน</b></td>
 													<td><?php echo $train_detail[0]->name." (".$train_detail[0]->tel.") " ?></td>
 												</tr>
 											</tbody>
@@ -79,7 +80,7 @@
 									</div>
 								</div>
 								<div class="col-md-6">
-									<h3>Position of : <b><?php echo $train_detail[0]->company_name ?><b></h3>
+									<h3>ตำแหน่งสถานที่ปฎิบัติงาน : <b><?php echo $train_detail[0]->company_name ?><b></h3>
 				
            							        <?php echo $map['html']; ?>
     
@@ -90,7 +91,7 @@
 								<div class="col-md-12">
 									<div class="tab-container tab-midnightblue">
 										<ul class="nav nav-tabs">
-											<li class="active" style="font-size:18px"><a href="#home1" data-toggle="tab">Timeline</a></li>
+											<li class="active" style="font-size:18px"><a href="#home1" data-toggle="tab">รายการปฎิบัติงาน</a></li>
 											<li class="active"  style="float:right;font-size:18px">	
 												<a id="overall-contact"></a>
 											</li>
@@ -113,10 +114,10 @@
                                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
 	              	                    				<tr>
-	              	                    					<th>Date</th>
-	              	                    					<th width="40%">Title</th>
-	              	                    					<th width="10%">Teacher</th>
-	              	                    					<th width="10%">Company</th>
+	              	                    					<th>วันที่</th>
+	              	                    					<th width="40%">หัวข้อการปฎิบัติงาน</th>
+	              	                    					<th width="10%">อาจารย์นิเทศ</th>
+	              	                    					<th width="10%">ผู้ควบคุมการฝึก</th>
 	              	                    					<th width="3%"> - </th>
 	              	                    				</tr>
 	              	                    			</thead>
