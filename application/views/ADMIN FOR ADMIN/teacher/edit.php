@@ -28,9 +28,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Edit Teacher</h4>
+                            <h4>แก้ไขรายชื่ออาจารย์</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('manage_teacher/edit_teacher_p');?>

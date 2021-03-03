@@ -17,11 +17,11 @@
         <div id="page-heading">
             <ol class="breadcrumb">
                 <li><a href="index.htm">Dashboard</a></li>
-                <li>Insert Data</li>
-                <li class="active">Insert</li>
+                <li>Data user</li>
+                <li class="active">edit user</li>
             </ol>
 
-            <h1>Data Tables</h1>
+            <h1></h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -41,9 +41,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-sky">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Data Tables</h4>
+                            <h4>แก้ไชผู้ใช้งานในระบบ</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('manage_user/edit_p');?>

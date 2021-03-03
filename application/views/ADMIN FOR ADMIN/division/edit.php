@@ -28,9 +28,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-sky">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Edit Division</h4>
+                            <h4>แก้ไข สถานประกอบการ</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('manage_division/edit_p');?>
@@ -38,7 +38,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="dv_name">ชื่อบริษัท</label>
+                                            <label for="dv_name">ชื่อสถานประกอบการ</label>
                                             <input type="text" name="dv_name" value="<?php echo $result_ed[0]->dv_name  ?>" class="form-control">
                                             </select>
                                         </div>

@@ -8,7 +8,7 @@
                 <li class="active">Data Tables</li>
             </ol>
 
-            <h1>Data Tables</h1>
+            <h1></h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -28,9 +28,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Data Tables</h4>
+                            <h4>เพิ่มรายชื่ออาจารย์</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('manage_teacher/insert_p');?>

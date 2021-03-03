@@ -8,7 +8,7 @@
                 <li class="active">Data Student</li>
             </ol>
 
-            <h1>Data Student</h1>
+            <h1>รายชื่อนักเรียน</h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">

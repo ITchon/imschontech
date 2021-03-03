@@ -8,7 +8,7 @@
                 <li class="active">Data Contact</li>
             </ol>
 
-            <h1>Data Contact</h1>
+            <h1>รายชื่อผู้คุมการฝึกงาน</h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,7 +30,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Data Contact</h4>
+                            <h4>รายชื่อผู้คุมการฝึกงาน</h4>
                             <div class="options">   
                                 <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a>
                                 <a href="<?php echo base_url(); ?>manage_contact/insert"><i class="fa fa-plus"></i></a>

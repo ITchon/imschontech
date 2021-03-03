@@ -8,7 +8,7 @@
                 <li class="active">Data Division</li>
             </ol>
 
-            <h1>Data Division</h1>
+            <h1>รายชื่อแผนก</h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,7 +30,7 @@
                 <div class="col-md-7">
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Data Division</h4>
+                            <h4>รายชื่อแผนก</h4>
                             <div class="options">   
                                 <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a> -->
                                 <!-- <a data-toggle="modal" href="#myModal" ><i class="fa fa-plus"></i></a> -->
@@ -71,7 +71,7 @@
                 <div class="col-md-5">
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Division</h4>
+                            <h4>เพิ่มรายชื่อแผนก</h4>
                             <div class="options">   
                                 <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a> -->
                                 <!-- <a data-toggle="modal" href="#myModal" ><i class="fa fa-plus"></i></a> -->
@@ -88,7 +88,7 @@
                                             <input type="text" name="dv_name" class="form-control">
                                         </div>
                                     
-                                        <?php echo form_submit(array('division_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
+                                        <?php echo form_submit(array('division_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 
                                             //   echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
                                               echo form_close(); ?>
                             </div>

@@ -8,7 +8,7 @@
                 <li class="active">Data Company</li>
             </ol>
 
-            <h1>Data Company</h1>
+            <h1>รายชื่อสถานประกอบการ</h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,7 +30,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Data Company</h4>
+                            <h4>รายชื่อสถานประกอบการ</h4>
                             <div class="options">   
                                 <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a>
                                 <a href="<?php echo base_url(); ?>Company/insert_company"><i class="fa fa-plus"></i></a>

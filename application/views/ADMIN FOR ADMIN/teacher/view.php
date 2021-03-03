@@ -8,7 +8,7 @@
                 <li class="active">Data Teacher</li>
             </ol>
 
-            <h1>Data Teacher</h1>
+            <h1>รายชื่ออาจารย์</h1>
         </div>
 
 
@@ -17,7 +17,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Data Teacher</h4>
+                            <h4>รายชื่ออาจารย์</h4>
                             <div class="options">   
                                 <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a>
                                 <a href="<?php echo base_url(); ?>manage_teacher/insert_teacher"><i class="fa fa-plus"></i></a>

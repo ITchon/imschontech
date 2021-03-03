@@ -28,9 +28,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-sky">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Insert Train</h4>
+                            <h4>เพื่มรายชื่อการฝึกงาน</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('manage_train/insert_p');?>
