@@ -33,7 +33,7 @@ if($query) {
 }
 
 public function get_eid($std_id,$date) {
-  $sql ="SELECT id FROM events WHERE std_id = '$std_id' AND start_event = '$date'";
+  $sql ="SELECT id FROM events WHERE std_id = '$std_id' AND start_event RLIKE('$date')";
 $query = $this->db->query($sql);
 $result =  $query->result();
 if($query) {
