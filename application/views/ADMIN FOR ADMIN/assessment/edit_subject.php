@@ -28,9 +28,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-sky">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Edit Subject</h4>
+                            <h4>แก้ไขชื่อการประเมิน</h4>
                         </div>
                         <div class="panel-body collapse in">
                         <?php $id_form = array('id' => 'example1'); ?>
@@ -40,13 +40,26 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="sub_name">Subject Name</label>
-                                            <input type="text" name="sub_name" value="<?php echo $result_sub[0]->subject_name  ?>" class="form-control"><br>
-                                    <?php echo form_submit(array('subject_id'=>'submit','value'=>' Confirm ','class'=>'btn-success btn')); 
-                              echo form_close(); ?>
+                                            <label for="sub_name">ชื่อการประเมิน</label>
+                                            <div class="form-inline">
+                                            <input type="text" name="sub_name" value="<?php echo $result_sub[0]->subject_name  ?>" class="form-control">
+                                    <?php echo form_submit(array('subject_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-success btn')); 
+                                    
+                              echo form_close(); ?></div>
+                                            </div>
                                         </div>
                                     </div>
-                            </div>
+                                    </div>
+            </div>
+        </div> <!-- container -->
+    </div> <!--wrap -->
+           <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <h4>รายชื่อหัวข้อการประเมิน</h4>
+                        </div>
+                        <div class="panel-body collapse in">
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
                             <thead>
                                     <tr>

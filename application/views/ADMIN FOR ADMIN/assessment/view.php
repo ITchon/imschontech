@@ -5,10 +5,10 @@
             <ol class="breadcrumb">
                 <li><a href="<?php echo base_url();?>main">Dashboard</a></li>
                 <li>Admin</li>
-                <li class="active">Data Division</li>
+                <li class="active">Data assessment sheet</li>
             </ol>
 
-            <h1>Data Division</h1>
+            <h1>รายชื่อใบประเมิน</h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -28,9 +28,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <div class="panel panel-sky">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Data Division</h4>
+                            <h4>รายชื่อใบประเมิน</h4>
                             <div class="options">   
                                 <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a> -->
                                 <!-- <a data-toggle="modal" href="#myModal" ><i class="fa fa-plus"></i></a> -->
@@ -43,7 +43,7 @@
                                 <thead>
                                     <tr>
                                         <!-- <th>division id</th> -->
-                                        <th >Subject Name</th>
+                                        <th >รายชื่อใบประเมิน</th>
                                         <th width="35%">Manage</th>
                                     </tr>
                                 </thead>
@@ -69,9 +69,9 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="panel panel-sky">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Add Subject</h4>
+                            <h4>เพิ่มใบประเมิน</h4>
                             <div class="options">   
                                 <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a> -->
                                 <!-- <a data-toggle="modal" href="#myModal" ><i class="fa fa-plus"></i></a> -->
@@ -84,11 +84,11 @@
                                 <?php echo form_open('manage_asm/insert_sub');?>
                                       
                                         <div class="form-group">
-                                            <label for="sub_name">Subject Name</label>
+                                            <label for="sub_name">ชื่อใบประเมิน</label>
                                             <input type="text" name="sub_name" class="form-control">
                                         </div>
                                     
-                                        <?php echo form_submit(array('division_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
+                                        <?php echo form_submit(array('division_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 
                                             //   echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
                                               echo form_close(); ?>
                             </div>

@@ -5,10 +5,10 @@
             <ol class="breadcrumb">
                 <li><a href="<?php echo base_url();?>main">Dashboard</a></li>
                 <li>Admin</li>
-                <li class="active">Data Student</li>
+                <li class="active">Data user</li>
             </ol>
 
-            <h1>Data Student</h1>
+            <h1>รายชื่อผู้ใช้งานระบบ</h1>
             <!-- <div class="options">
                 <div class="btn-toolbar">
                     <div class="btn-group hidden-xs">
@@ -30,7 +30,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h4>Data Student</h4>
+                            <h4>รายชื่อผู้ใช้งานระบบ</h4>
                             <div class="options">   
                                 <!-- <a href="javascript:;"><i class="fa fa-cog"></i></a>
                                 <a href="<?php echo base_url(); ?>manage_student/insert_student"><i class="fa fa-plus"></i></a>
