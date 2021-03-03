@@ -86,7 +86,8 @@
         public function getlist($id)
         {
             $sql="SELECT l.list_id,l.list_name FROM group_list as gl
-            inner join list as l on l.glist_id = gl.glist_id
+            inner join grouplist_list as gll on gll.glist_id = gl.glist_id
+            inner join list as l on l.list_id = gll.list_id
             WHERE gl.glist_id = '$id'";
             $query = $this->db->query($sql); 
             $data  = $query->result(); 
@@ -141,6 +142,7 @@
               
             }else{  return false; }
         }
+
         public function del_sub_glist($subject_id,$glist_id)
         {
             $sql = "DELETE FROM subject_grouplist WHERE subject_id = '$subject_id' AND glist_id = '$glist_id'";
@@ -152,6 +154,101 @@
               
             }else{  return false; }
         }
+
+        public function update_glist_name($glist_name ,$glist_id)
+        {
+            $sqlEdt="UPDATE  group_list SET 
+                             glist_name   = '$glist_name'
+                     WHERE glist_id = '$glist_id'";
+            $exc_teacher = $this->db->query($sqlEdt);
+            if ($exc_teacher)
+            {
+            return true;  
+            }
+            else
+            {
+            return false;
+            }
+        }
+
+        public function add_list($list)
+        {
+           
+            $sql ="INSERT INTO list (list_name) VALUES ('$list');";          
+                $query = $this->db->query($sql);
+                $last_id = $this->db->insert_id();
+                if($query){
+                return $last_id;
+                }
+                else{
+                return false;
+                } 
+        }
+
+        public function add_glist_list($glist_id,$id)
+        {
+           
+            $sql ="INSERT INTO grouplist_list (glist_id,list_id) VALUES ('$glist_id','$id');";          
+                $query = $this->db->query($sql);
+                $last_id = $this->db->insert_id();
+                if($query){
+                return true;
+                }
+                else{
+                return false;
+                } 
+        }
+
+        public function del_glist_list($glist_id,$list_id)
+        {
+            $sql = "DELETE FROM grouplist_list WHERE glist_id = '$glist_id' AND list_id = '$list_id'";
+            $exc_dv = $this->db->query($sql);
+           
+            if ($exc_dv ){
+              
+              return true;  
+              
+            }else{  return false; }
+        }
+
+        public function del_list($list_id)
+        {
+            $sql = "DELETE FROM list WHERE list_id = '$list_id';";
+            $exc_dv = $this->db->query($sql);
+           
+            if ($exc_dv ){
+              
+              return true;  
+              
+            }else{  return false; }
+        }
+
+        public function selectOnelist($id)
+        {
+            $sql="SELECT * FROM list WHERE list_id = '$id' ";
+            $query = $this->db->query($sql); 
+            $data  = $query->result(); 
+         
+            return $data;
+        
+        }
+
+        public function update_list_name($list_name ,$list_id)
+        {
+            $sqlEdt="UPDATE  list SET 
+                             list_name   = '$list_name'
+                     WHERE list_id = '$list_id'";
+            $exc_teacher = $this->db->query($sqlEdt);
+            if ($exc_teacher)
+            {
+            return true;  
+            }
+            else
+            {
+            return false;
+            }
+        }
+
     }
         
 

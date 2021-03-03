@@ -20,7 +20,10 @@ class website Extends CI_controller{
 	public function index() 	
 	{
 
-		$this->load->view('website/before_login');
+		$this->load->view('ADMIN FOR ADMIN/header');
+		$this->load->view('nevbar');
+		$this->load->view('ADMIN FOR ADMIN/dashboard/index');
+		$this->load->view('ADMIN FOR ADMIN/footer_2020');
         // $this->load->view('ADMIN FOR ADMIN/footer_2020');
         
     }

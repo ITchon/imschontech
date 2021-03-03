@@ -145,6 +145,76 @@ class manage_asm Extends CI_controller{
    
         }
     }
+
+    public function edit_glist_name()
+	{
+		$glist_name    = $this->input->post('glist_name'); 
+	    $glist_id 	  = $this->input->post('glist_id');
+
+        $this->assessment_model->update_glist_name($glist_name ,$glist_id); 
+        $this->session->set_flashdata('success','<div class="alert alert-success hide-it">  
+          <span> Change Success</span>
+        </div> ');
+		    echo "<script>";
+            echo 'history.go(-1);';
+            echo '</script>';
+	}
+
+    public function add_list()
+	{
+        $glist_id 	  = $this->input->post('glist_id');
+		$list    = $this->input->post('list'); 
+        $last_id = $this->assessment_model->add_list($list);
+        $res = $this->assessment_model->add_glist_list($glist_id,$last_id);
+        if($res != false){
+            echo json_encode(array(
+            "statusCode"=>200
+        ));
+       }else{
+            echo json_encode(array(
+            "statusCode"=>100
+        ));
+       }
+	}
+
+    public function delete_glist_list()
+	{
+        if($this->input->post('glist_id'))
+        {
+          $this->assessment_model->del_glist_list($this->input->post('glist_id'),$this->input->post('list_id')); 
+          $res = $this->assessment_model->del_list($this->input->post('list_id')); 
+          if($res != false){
+               echo json_encode(array(
+               "statusCode"=>200
+           ));
+          }else{
+               echo json_encode(array(
+               "statusCode"=>100
+           ));
+          }
+   
+        }
+    }
+    public function edit_list()
+	{
+        $id = $this->uri->segment('3'); 
+        $data['result_list'] = $this->assessment_model->selectOnelist($id);
+
+		$this->load->view('ADMIN FOR ADMIN/assessment/edit_list',$data);
+    }
+
+    public function edit_list_name()
+	{
+		$list_name    = $this->input->post('list_name'); 
+	    $list_id 	  = $this->input->post('list_id');
+        $this->assessment_model->update_list_name($list_name ,$list_id); 
+        $this->session->set_flashdata('success','<div class="alert alert-success hide-it">  
+          <span> Change Success</span>
+        </div> ');
+		    echo "<script>";
+            echo 'history.go(-1);';
+            echo '</script>';
+	}
 }
 
 ?>

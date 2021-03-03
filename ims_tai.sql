@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2021 at 09:29 AM
+-- Generation Time: Mar 03, 2021 at 02:57 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -208,6 +208,26 @@ INSERT INTO `event_img` (`ei_id`, `id`, `img_code`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `grouplist_list`
+--
+
+CREATE TABLE `grouplist_list` (
+  `gll_id` int(11) NOT NULL,
+  `glist_id` int(11) NOT NULL,
+  `list_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `grouplist_list`
+--
+
+INSERT INTO `grouplist_list` (`gll_id`, `glist_id`, `list_id`) VALUES
+(1, 14, 1),
+(3, 14, 3);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `group_list`
 --
 
@@ -221,9 +241,8 @@ CREATE TABLE `group_list` (
 --
 
 INSERT INTO `group_list` (`glist_id`, `glist_name`) VALUES
-(14, 'wowowowoow'),
+(14, 'wow'),
 (16, 'sdfghjkl.'),
-(17, 'ไอกากอั้ม'),
 (25, 'test'),
 (26, ''),
 (27, ''),
@@ -234,7 +253,9 @@ INSERT INTO `group_list` (`glist_id`, `glist_name`) VALUES
 (32, 'asdfghjk,'),
 (33, 'asdad'),
 (34, 'test10'),
-(38, 'test');
+(38, 'test'),
+(43, ''),
+(44, '');
 
 -- --------------------------------------------------------
 
@@ -244,9 +265,16 @@ INSERT INTO `group_list` (`glist_id`, `glist_name`) VALUES
 
 CREATE TABLE `list` (
   `list_id` int(11) NOT NULL,
-  `list_name` varchar(50) NOT NULL,
-  `glist_id` int(11) NOT NULL
+  `list_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `list`
+--
+
+INSERT INTO `list` (`list_id`, `list_name`) VALUES
+(1, 'qwert'),
+(3, 'asdfghjh');
 
 -- --------------------------------------------------------
 
@@ -300,8 +328,9 @@ CREATE TABLE `subject` (
 
 INSERT INTO `subject` (`subject_id`, `subject_name`) VALUES
 (4, 'wow'),
-(7, 'woohoo'),
-(8, 'ควยอั้ม');
+(7, 'woohoossss'),
+(8, 'ควยอั้ม'),
+(10, 'test');
 
 -- --------------------------------------------------------
 
@@ -323,7 +352,6 @@ INSERT INTO `subject_grouplist` (`sgl_id`, `subject_id`, `glist_id`) VALUES
 (1, 4, 1),
 (14, 7, 14),
 (16, 7, 16),
-(17, 8, 17),
 (25, 8, 25),
 (26, 0, 26),
 (27, 0, 27),
@@ -334,7 +362,9 @@ INSERT INTO `subject_grouplist` (`sgl_id`, `subject_id`, `glist_id`) VALUES
 (32, 0, 32),
 (33, 0, 33),
 (34, 8, 34),
-(38, 7, 38);
+(38, 7, 38),
+(43, 0, 43),
+(44, 0, 44);
 
 -- --------------------------------------------------------
 
@@ -483,6 +513,12 @@ ALTER TABLE `event_img`
   ADD PRIMARY KEY (`ei_id`);
 
 --
+-- Indexes for table `grouplist_list`
+--
+ALTER TABLE `grouplist_list`
+  ADD PRIMARY KEY (`gll_id`);
+
+--
 -- Indexes for table `group_list`
 --
 ALTER TABLE `group_list`
@@ -571,16 +607,22 @@ ALTER TABLE `event_img`
   MODIFY `ei_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
+-- AUTO_INCREMENT for table `grouplist_list`
+--
+ALTER TABLE `grouplist_list`
+  MODIFY `gll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `group_list`
 --
 ALTER TABLE `group_list`
-  MODIFY `glist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `glist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `list`
 --
 ALTER TABLE `list`
-  MODIFY `list_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `list_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student`
@@ -592,13 +634,13 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `subject_grouplist`
 --
 ALTER TABLE `subject_grouplist`
-  MODIFY `sgl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `sgl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `teacher`

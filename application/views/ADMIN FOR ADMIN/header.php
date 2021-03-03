@@ -41,7 +41,7 @@
         <div class="navbar-header pull-left toolbar">
 		
 			<!-- <a class="nav navbar-nav pull-left toolbar">  -->
-        	<a class="hidden-xs" > <?php echo $this->session->userdata('username'); ?></a>
+        	<!-- <a class="hidden-xs" > <?php echo $this->session->userdata('username'); ?></a> -->
         		<!-- <a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span> -->
 
 			<!-- -->
