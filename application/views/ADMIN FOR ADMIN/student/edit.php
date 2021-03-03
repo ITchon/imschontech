@@ -137,8 +137,8 @@
                                 
                             </div>
                         </div>
-                        <?php echo form_submit(array('teacher_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_student', 'Cancel',array('class'=>'btn btn-dark'));
+                        <?php echo form_submit(array('teacher_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 
+                              echo anchor(base_url().'manage_student', 'ยกเลิก',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>

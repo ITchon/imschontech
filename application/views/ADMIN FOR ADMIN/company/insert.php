@@ -17,7 +17,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-sky">
                         <div class="panel-heading">
-                            <h4>Insert Company</h4>
+                            <h4>เพิ่ม สถานประกอบการ</h4>
                         </div>
                         <div class="panel-body collapse in">
                                 <?php echo form_open('Company/insert_cp_p');?>
@@ -66,8 +66,8 @@
                                 
                             </div>
                         </div>
-                        <?php echo form_submit(array('company_id'=>'submit','value'=>' Confirm ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'company', 'Cancel',array('class'=>'btn btn-dark'));
+                        <?php echo form_submit(array('company_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 
+                              echo anchor(base_url().'company', 'ยกเลิก',array('class'=>'btn btn-dark'));
                               echo form_close(); ?>
          
                         </div>

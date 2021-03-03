@@ -48,8 +48,9 @@ class manage_contact Extends CI_controller{
 	{
 		$id = $this->uri->segment('3'); 
         $data['result'] = $this->contact_model->selectOneContact($id);
-        // $data['result_g'] = $this->contact_model->select();
+        $data['result_ct'] = $this->model->selectusercont($id);
 		$this->load->view('ADMIN FOR ADMIN/contact/edit',$data);
+
 	}
 
 	public function edit_p()
@@ -60,7 +61,11 @@ class manage_contact Extends CI_controller{
         $password      = $this->input->post('password');
 		
 	    $ct_id 	  = $this->input->post('contact_id');
-        $this->contact_model->edit_p($name ,$tel ,$username ,$password ,$ct_id); 
+        $user_id =$this->contact_model->edit_p($name ,$tel ,$username ,$password ,$ct_id); 
+
+		//  $this->student_model->insert_student($title ,$fname ,$lname,$gender ,$tel ,$email,$status ,$std_code ,$birth_date ,$class_id); 
+		$this->model->insert_user($user_id,"contact",$username,$password,0);
+
         redirect('manage_contact');
 	}
 

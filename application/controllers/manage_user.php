@@ -48,9 +48,7 @@ class manage_user Extends CI_controller{
 	{
 		$id = $this->uri->segment('3'); 
         $data['result'] = $this->model->selectuser($id);
-        // $qry_inp =  "SELECT * FROM class";
-        // $query = $this->db->query($qry_inp); 
-        // $data['result_cl'] = $query->result();
+        // $data['result_ct'] = $this->model->selectusercont($id);
 		$this->load->view('ADMIN FOR ADMIN/user/edit',$data);
 		
 	}
