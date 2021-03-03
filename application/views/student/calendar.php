@@ -233,7 +233,7 @@ today = yyyy + '-' + mm + '-' + dd;
                 <div class="panel panel-midnightblue calendar" >
                     <div class="panel-heading">
 
-                        <h4><i class="fa fa-calendar"></i> Calendar</h4>
+                        <h4><i class="fa fa-calendar"></i> ปฎิทินการปฎิบัติงาน</h4>
                         <div class="options">
                             
                         </div>
@@ -356,33 +356,33 @@ today = yyyy + '-' + mm + '-' + dd;
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header bg-primary">
-    
-        <h4 class="modal-title" id="myModalLabel">Update Calendar Event</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <span class="text-white" style="font-size:24px">แก้ไขข้อมูลการปฎิบัติงาน</span>
       </div>
 
 
       <form name="form2" id="form2" class='form2' method="post">
       <div class="modal-body">
       <div class="form-group">
-                <label for="p-in" class="col-md-4 ">Event Title</label>
+                <label for="p-in" class="col-md-4 ">ชื่อหัวข้อการปฎิบัติงาน</label>
                 <div class="col-md-8 ui-front">
                     <input type="text" class="form-control" name="title" value="" id="name"><br>
                 </div>
         </div>
         <div class="form-group">
-                <label for="p-in" class="col-md-4 ">Description</label>
+                <label for="p-in" class="col-md-4 ">รายละเอียดการปฎิบัติงาน</label>
                 <div class="col-md-8 ui-front">
                 <textarea name="description" id="description" class="form-control" cols="20" rows="3"></textarea><br>
                 </div>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
                 <label for="p-in" class="col-md-4 ">Color</label>
                 <div class="col-md-8 ui-front">
                     <input type="color" class="form-control" name="color" id="color"><br>
                 </div>
-        </div>
+        </div> -->
         <div class="form-group">
-              <label for="p-in" class="col-md-4 col-xs-3 ">Start Date</label>
+              <label for="p-in" class="col-md-4 col-xs-3 ">เวลาที่เริ่มปฎิบัติ</label>
                 <div class="col-md-4 col-xs-5">
                     <input type="date" readonly class="form-control" name="start_day" id="edit_start_date" required>
                 </div>
@@ -390,15 +390,19 @@ today = yyyy + '-' + mm + '-' + dd;
                     <input type="time" class="form-control" name="start_time" id="edit_start_time" required><br>
                 </div>
         </div>
+        <div class="text-center">
+          
+        <button type="button" id="seeimg" name="seeimg" class="btn btn-default"><i class="fa fa-search"></i>  ดูรูปภาพ</button>
+        </div>
     
             <input type="hidden" name="eventid" id="event_id" value="0" />
       </div>
       <div class="modal-footer">
       <div class="col-md-12">
-        <button type="button" id="seeimg" name="seeimg" class="btn btn-success">SeeImg</button>
-        <button type="button" id="delete" name="delete" class="btn btn-danger">Delete</button>
-        <input type="button" class="btn btn-primary" value="Update Event" id="editsave">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+        <button type="button" id="delete" name="delete" class="btn btn-danger">ลบ</button>
+        <input type="button" class="btn btn-primary" value="บันทึกการแก้ไข" id="editsave">
+        <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
       </div>
 </button>
 </div>

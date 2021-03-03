@@ -4,7 +4,7 @@
             <!-- <ol class="breadcrumb">
                 <li class='active'><a href="<?php echo base_url(); ?>main">Dashboard</a></li>
             </ol> -->
-            <h1><?php echo ucfirst($this->uri->segment('2')) ?></h1>
+            <!-- <h1><?php echo ucfirst($this->uri->segment('2')) ?></h1> -->
            
         </div>
 
@@ -36,11 +36,11 @@
                         </div>
 
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-orange" href="#">
+                            <a class="info-tiles tiles-orange"href="<?php echo base_url(); ?>Student/file">
                                 <!-- <div class="tiles-heading">Members</div> -->
                                 <div class="tiles-body-alt">
-                                    <i class="fa fa-comments-o"></i>
-                                    <div class="text-center" style="font-size:33px">แชท</div>
+                                    <!-- <i class="fa fa-comments-o"></i> -->
+                                    <div class="text-center" style="font-size:33px"> ดาวน์โหลดเอกสาร</div>
                                 </div>
                                 <!-- <div class="tiles-footer">manage members</div> -->
                             </a>
