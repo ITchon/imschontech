@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         
-                        <?php if($result !=null){ ?>
+
 
                             <div class="col-md-3 col-xs-12 col-sm-6">
                             <a class="info-tiles tiles-success" href="<?php echo base_url(); ?>teacher/division">
@@ -38,7 +38,7 @@
                             <!-- <div class="tiles-footer">more info</div> -->
                             </a>
                             </div>
-                         <?php } ?>
+
 
                         <div class="col-md-3 col-xs-12 col-sm-6">
                             <a class="info-tiles tiles-orange" href="#">

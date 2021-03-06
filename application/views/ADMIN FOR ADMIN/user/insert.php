@@ -46,43 +46,55 @@
                             <h4>Data Tables</h4>
                         </div>
                         <div class="panel-body collapse in">
-                                <?php echo form_open('manage_user/insert_p');?>
-                              
+                            <form action="<?php echo base_url(); ?>manage_user/insert_p" method="post">
                                 <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-                                            <label for="title">Username</label>
-                                           <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-                                            <label for="title">Password</label>
-                                            <input type="password" id="password-field" class="form-control">
-                                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="usergroup">Group user</label>
-                                             <Select name="usergroup" class="form-control" require>
+                                             <Select id="usergroup" name="usergroup" class="selectpicker form-control" data-container="body" data-live-search="true" title="เลือกประเภทผู้ใช้..." data-hide-disabled="true">
                                                 <option value="student">student</option>
                                                 <option value="admin">admin</option>
                                                 <option value="teacher">teacher</option>
                                                 <option value="contact">contact</option>
                                              </Select>
+
                                         </div>
                                     </div>
+                                    <div class="col-md-4" id="select">
+                                        <div class="form-group">
+                                            <label for="usergroup">Select user</label>
+                                            <Select id="user" name="user" class="selectpicker form-control" data-container="body" data-live-search="true" title="เลือกผู้ใช้..." data-hide-disabled="true">
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="form">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="title">Username</label>
+                                                <input type="text" name="username" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="title">Password</label>
+                                                <input type="password"  name="password" id="password-field" class="form-control">
+                                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> 
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
+									<?php echo $this->session->flashdata("success"); ?>
+
+                                <input type="submit" class="btn btn-primary" value="บันทีกข้อมูล">
+                                </form>
+
                             </div>
                         </div>
-                        <?php echo form_submit(array('teacher_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 
-                              echo anchor(base_url().'manage_teacher', 'ยกเลิก',array('class'=>'btn btn-dark'));
-                              echo form_close(); ?>
+
          
                         </div>
                     </div>
@@ -100,8 +112,6 @@
             <button class="pull-right btn btn-inverse-alt btn-xs hidden-print" id="back-to-top"><i class="fa fa-arrow-up"></i></button>
         </div>
     </footer>
-
-
 
 <!--
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -127,6 +137,12 @@
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/placeholdr.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/application.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo.js'></script> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
 
 <script>
     $(".toggle-password").click(function() {
@@ -140,6 +156,35 @@
     }
     });
 </script>
+<script>
+$( document ).ready(function() {
+    $('#select').hide();
+    $('#form').hide();
+});
+    $('#usergroup').change(function(){
+  var usergroup = $('#usergroup').val();
+  if(usergroup != "admin" && usergroup != "contact"){
+    $('#select').show();
+    $('#form').hide();
 
+     $.ajax({
+    url:"<?php echo base_url(); ?>ajax/get_by_usergroup",
+    method:"POST",
+    data:{usergroup:usergroup},
+    success:function(data)
+    {
+      console.log(data);
+     $('#user').empty();
+     $('#user').html(data);
+     $('.selectpicker').selectpicker('refresh');
+    }
+   });
+  }else{
+    $('#select').hide();
+    $('#form').show();
+  }
+});
+
+</script>
 </body>
 </html>

@@ -8,18 +8,19 @@
         //     $data  = $query->result(); 
         // }
         // ,$class_id ,$th_id
-        public function insert_p($company_id ,$std_id ,$contact_id ,$start_date ,$end_date ,$status ,$note)
+        public function insert_p($company_id ,$std_id,$teacher_id  ,$contact_id,$start_date ,$end_date ,$status ,$note)
         {
             $sql ="INSERT INTO  train (
                         company_id,
                         std_id,
+                        teacher_id,
                         contact_id,
                         start_date,
                         end_date,
                         status,
                         note
                         )
-                VALUES ('$company_id','$std_id','$contact_id','$start_date','$end_date','$status','$note');";          
+                VALUES ('$company_id','$std_id','$teacher_id','$contact_id','$start_date','$end_date','$status','$note');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {

@@ -28,21 +28,78 @@ class manage_user Extends CI_controller{
 	
     }
     
-	// public function insert_user()
-	// {
+	public function insert_user()
+	{
 	
-	// 	$this->load->view('ADMIN FOR ADMIN/user/insert');
-	// }
+		$this->load->view('ADMIN FOR ADMIN/user/insert');
+		
+	}
 
-	// public function insert_p()
-	// {
-	// 	$username    = $this->input->post('title'); 
-    //     $password    = $this->input->post('fname');
-    //     $usergroup    = $this->input->post('lname');
-      
-	// 	$this->model->insert_user($usergroup,$std_code,$birth_date,0);
-    //     redirect('manage_student');
-	// }
+	public function insert_p()//insert user แบ่งตามกลุ่ม
+	{
+
+		$usergroup    = $this->input->post('usergroup');
+		$user_id = $this->input->post('user');
+		if($usergroup == null) {
+			$this->session->set_flashdata
+			('success','<div id="hide" class="alert alert-warning">
+									<span>  
+						<b>กรุณาเลือกข้อมูล</b> </span> 
+			</div>');
+			redirect('manage_user/insert_user');
+
+		}
+		else if($usergroup != "admin"){
+			$status_login = 0;
+			if($usergroup == "student"){
+				$qry_inp1 =  "SELECT * FROM student where std_id = '$user_id'";
+				$query1 = $this->db->query($qry_inp1); 
+				$data = $query1->result();
+				$username = $data[0]->std_code;
+				$password = $data[0]->birth_date;
+			}
+			if($usergroup == "teacher"){
+				$qry_inp1 =  "SELECT * FROM teacher where teacher_id = '$user_id'";
+				$query1 = $this->db->query($qry_inp1); 
+				$data = $query1->result();
+				$username = $data[0]->citizen_id;
+				$password = $data[0]->th_birth_date;
+			}
+			if($usergroup == "contact"){
+				$user_id = 1;
+				$username= $this->input->post('username');
+				$password= $this->input->post('password');
+			}
+		
+		}else{
+			$user_id = 1;
+			$username= $this->input->post('username');
+			$password= $this->input->post('password');
+			$status_login = 1;
+		} 
+		$result =  $this->model->insert_user($user_id,$usergroup ,$username ,$password ,$status_login);
+		if($result==1){
+			$this->session->set_flashdata
+			('success','<div id="hide" class="alert alert-success">
+									<span>  
+						<b>เพิ่มผู้ใช้งานแล้ว</b> </span> 
+			</div>');
+		}else if($result == 2){
+			$this->session->set_flashdata
+			('success','<div id="hide" class="alert alert-danger">
+									<span>  
+						<b>มี username นี้แล้ว</b> </span> 
+			</div>');
+		}else{
+			$this->session->set_flashdata
+			('success','<div id="hide" class="alert alert-danger">
+									<span>  
+						<b>Error</b> </span> 
+			</div>');
+		}
+		 redirect('manage_user/insert_user');
+
+	}
 
 	public function edit_user()
 	{
@@ -50,7 +107,7 @@ class manage_user Extends CI_controller{
         $data['result'] = $this->model->selectuser($id);
         // $data['result_ct'] = $this->model->selectusercont($id);
 		$this->load->view('ADMIN FOR ADMIN/user/edit',$data);
-		
+        $this->model->update_user($user_id ,$username ,$password ,$id); 
 	}
 
 	public function edit_p()

@@ -71,7 +71,7 @@
                                         <div class="form-group">
                                             <label for="teacher_id">อาจารย์นิเทศก์</label>
                                 
-                                            <select name="teacher_id" class="selectpicker form-control" data-container="body" data-live-search="true" title="เลือกอาจารย์นิเทศ..." data-hide-disabled="true" >
+                                            <select required name="teacher_id" class="selectpicker form-control" data-container="body" data-live-search="true" title="เลือกอาจารย์นิเทศ..." data-hide-disabled="true" >
                                                 <?php foreach ($result_th as $th) {
                                                         echo " <option value=".$th->teacher_id."> ".$th->fname." &nbsp;&nbsp;&nbsp;&nbsp; ".$th->lname." </option> ";
                                                                                  }
@@ -88,7 +88,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="contact_id">ผู้คุมการฝึกงาน</label>
-                                            <select name="contact_id" class="selectpicker form-control"  data-container="body" data-live-search="true" title="เลือกครูฝึก..." data-hide-disabled="true" >
+                                            <select required name="contact_id" class="selectpicker form-control"  data-container="body" data-live-search="true" title="เลือกครูฝึก..." data-hide-disabled="true" >
                                                 <?php foreach ($result_ct as $ct) {
                                                         echo " <option value=".$ct->contact_id."> ".$ct->name." </option> ";
                                                                                  }

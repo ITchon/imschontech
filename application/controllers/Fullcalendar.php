@@ -102,6 +102,7 @@ class Fullcalendar extends CI_Controller {
  {
    $id = $this->input->post('id');
    $file =$this->input->post('file');
+   if($file == null) exit;
    foreach($file as $f){
              $this->fullcalendar_model->insert_img($id,$f);
      }

@@ -19,18 +19,7 @@ class manage_train Extends CI_controller{
 
 	public function index() 	
 	{
-		$qry_inp =  "SELECT tn.t_id , 
-							cp.company_name , 
-							std.fname , 
-							std.lname , 
-							ct.name , 
-							tn.start_date , 
-							tn.end_date , 
-							tn.status , 
-							tn.note FROM train AS tn
-					INNER JOIN company AS cp ON cp.company_id = tn.company_id
-					INNER JOIN student AS std ON   std.std_id = tn.std_id
-					INNER JOIN contact AS ct ON ct.contact_id = tn.contact_id";
+		$qry_inp =  "SELECT * from student_train_detail";
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
         // $data['result_g'] = $this->train_model->train();
@@ -61,13 +50,14 @@ class manage_train Extends CI_controller{
 	{
 		$company_id    = $this->input->post('company_id'); 
         $std_id    = $this->input->post('std_id');
+        $teacher_id    = $this->input->post('teacher_id');
         $contact_id    = $this->input->post('contact_id');
         $start_date      = $this->input->post('start_date');
 		$end_date      = $this->input->post('end_date');
 		$status      = $this->input->post('status');
 		$note      = $this->input->post('note');
 
-        $this->train_model->insert_p($company_id ,$std_id ,$contact_id ,$start_date ,$end_date ,$status ,$note); 
+        $this->train_model->insert_p($company_id ,$std_id ,$teacher_id,$contact_id ,$start_date ,$end_date ,$status ,$note); 
         redirect('manage_train');
 	}
 

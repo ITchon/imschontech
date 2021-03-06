@@ -59,39 +59,11 @@ class Teacher Extends CI_controller{
         $teacher_id =  $this->session->userdata('teacher_id');
         $result = $this->model_teacher->get_division($teacher_id);
         
-        $data['dv_class_list'] = $this->model_teacher->get_division_class($teacher_id);
-        $dv_id = [];
-        if($result != null){
-            $data['division_list']  = $result;
-            foreach($result as $r){
-                $num =  $r->dv_id;
-                array_push($dv_id,$num);
-            }
-        }
-            
-        $class_data = [];
-        foreach($dv_id as $d){
-            $sql = "SELECT * FROM class WHERE dv_id = $d";
-            $query = $this->db->query($sql);
-            $class = $query->result();
-            array_push($class_data,$class);
-        }
-        $data['class']  = $class_data;
-
-    //     $class_name = [];
-    //     $dv_chk = [];
-    //     foreach($class_data as $class){
-    //         foreach($class as $c){
-    //             $class =  $c->class_name.$c->class_group;
-    //             $dv_id =  $c->dv_id;
-    //             array_push($class_name,$class);
-    //             array_push($dv_chk,$dv_id);
-    //         }
-    //     }
-    
-    //  $data['class_list'] = array_combine($class_name, $dv_chk);
-
-        
+        $data['division_list'] = $this->model_teacher->get_dv_class($teacher_id);
+        $data['class_list'] = $this->model_teacher->get_dv_class_group($teacher_id);
+        // print_r($data['division_list']);
+        // print_r($data['class_list']);
+        // exit;
 		$this->load->view('teacher/division',$data);
 		$this->load->view('footer');
 

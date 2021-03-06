@@ -81,19 +81,26 @@ public function selectusercont($id)
     return $data;
 
 }
-
 public function insert_user($user_id,$usergroup ,$username ,$password ,$status_login)
-{
-    $sql ="INSERT INTO user(user_id,usergroup,username,password,status_login)
-        VALUES ($user_id,'$usergroup','$username','$password','$status_login');";          
-        $query = $this->db->query($sql);  
-        if($query)
-        {
-        return true;
+{ 
+      $sql ="SELECT username From user where username = '$username'";
+      $query = $this->db->query($sql);  
+      $data  = $query->result(); 
+        if($data == null){
+          $sql ="INSERT INTO user(user_id,usergroup,username,password,status_login)
+          VALUES ($user_id,'$usergroup','$username','$password','$status_login');";          
+          $query = $this->db->query($sql);  
+          if($query)
+          {
+           return 1;
+          }
+          else{
+           return 3;
+          } 
+        }else{
+          return 2;
         }
-        else{
-        return false;
-        } 
+
 }
 
 public function update_user($user_id ,$username ,$password ,$id)
