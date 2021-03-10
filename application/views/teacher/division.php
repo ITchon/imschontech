@@ -6,7 +6,7 @@
             <div class="col-md-12">
                     <div class="panel panel-green">
                         <div class="panel-heading">
-                            <h4>User Accounts</h4>
+                            <h4>บันทึกการปฏิบัติงานของนักศึกษาทั้งหมด</h4>
                             <div class="options">
                                 <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
                             </div>
@@ -17,16 +17,54 @@
                                     <thead>
                                         <tr>
                                             <th class="col-xs-1 col-sm-1"><input type="checkbox" id="select-all"></th>
-                                            <th class="col-xs-9 col-sm-3">User ID</th>
-                                            <th class="col-sm-6 hidden-xs">Email Address</th>
-                                            <th class="col-xs-2 col-sm-2">Status</th>
+                                            <th class="col-xs-9 col-sm-3">ชื่อ</th>
+                                            <th class="col-xs-9 col-sm-3">รายการ</th>
+                                            <th class="col-sm-6 hidden-xs">วันที่</th>
+                                            <th class="col-xs-2 col-sm-2">จัดการ</th>
                                         </tr>
                                     </thead>
                                     <tbody class="selects">
-                                        <tr>
-                                            
-                                        </tr>
-                                    </tbody>
+                                    <?php 
+												$sum = 0;
+												$std_chk =0;
+												$contact_chk =0;
+											foreach($result_test as $row){
+                                                $name = $row->title.$row->fname." ".$row->lname;
+												$dt = new DateTime($row->date);
+												$date = $dt->format('Y-m-d');
+												$time = $dt->format('H:i:s');
+												$std_chk++;
+												?>
+												<tr>
+                                                <td><input type="checkbox" id="select-all"></td>
+                                                <td><?php echo $name ?></td>
+												<td>
+												<?php foreach($result as $r){
+                                                    $dt = new DateTime($r->start_event);
+                                                    $date_event = $dt->format('Y-m-d');
+                                                    $time = $dt->format('H:i:s');
+                                                    if($date == $date_event){
+                                                        echo $r->title."  ";
+                                                    }
+												} ?>
+												</td>
+                                                <td><?php echo $date ?></td>
+
+												
+												<td>
+												<button data-id='<?php echo $row->std_id?>' type="button" value='<?php echo $date ?>' class="btn btn-xs btn-warning open-modal">
+															<i class="ace-icon fa fa-search bigger-120"></i>
+												</button>
+                                                <!-- <input id="std_id" type="text" name="std_id" value="<?php echo $row->std_id?>"> -->
+												</td>
+												</tr>
+												<?php
+												$sum++;
+													}
+														
+													  ?> 
+                                                    
+	              	                    			</tbody>
                                 </table>
                             </div>
                         </div>
@@ -101,4 +139,45 @@
     $('.itemName').select2({
     placeholder: '--- Select Item ---',
     });
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+ 	var teacher_chk = $('#teacher').val();
+
+ 	var sum = $('#sum').val();
+	 $('#overall-teacher').html("Total : "+teacher_chk);
+	//  $('#overall-contact').html("Company : "+company_chk+"/"+sum);
+});
+$(".open-modal").click(function() {
+	var date = $(this).val();
+    var std_id = $(this).data("id") 
+	 $.ajax({
+		url: "<?php
+					 echo base_url("crud/event_forteacher/");
+					 ?>",  
+    			type: "POST",
+    			cache: false,
+    			data:{
+					date: date,
+					std_id:std_id
+    			},
+    			success: function(data){		
+     			 $('#event_detail').modal();
+     			 $('#data_body').html(data);
+     			 $('#text_header').html($("#Textheader").val());//modal head
+
+				  
+	 			//  console.log(data);
+    			},
+          error:function(data){
+			// console.log(data);
+			// $('#event_detail').modal();
+
+			
+          }
+    });
+});
+
+   
+
 </script>
