@@ -50,6 +50,23 @@ public function get_events_date($start_date,$end_date,$std_id,$class_id) {
   WHERE start_event >= '$start_date' AND end_event <= '$end_date' and e.std_id = '$std_id' AND class_id = '$class_id' AND e.teacher_confirm = 0";
 $query = $this->db->query($sql);
 $result =  $query->result();
+
+if($query) {
+    return $result;  
+    }
+  else{       
+  return false;
+    }
+}
+
+
+public function get_events_date2($teacher_id) {
+  $sql =  "SELECT e.id, e.title, e.description, e.color, e.start_event, e.end_event, e.std_id ,e.teacher_confirm, e.contact_confirm FROM `events` as e
+  inner join train as t on t.std_id = e.std_id
+  WHERE t.teacher_id = '$teacher_id' AND e.teacher_confirm = 0";
+$query = $this->db->query($sql);
+$result =  $query->result();
+
 if($query) {
     return $result;  
     }
@@ -230,6 +247,36 @@ if($query) {
   else{       
   return false;
     }
+}
+public function get_student($teacher_id,$train_id) {  
+  if($train_id == null){
+  $sql =  "SELECT * FROM student s 
+  inner join class c on c.class_id = s.class_id
+  inner join division d on d.dv_id = c.dv_id
+  inner join train t on t.std_id = s.std_id
+  inner join company cy on cy.company_id = t.company_id
+  inner join contact ct on ct.contact_id = t.contact_id
+   where t.teacher_id = '$teacher_id' and t.start_date = (SELECT max(start_date) FROM `train` where teacher_id = $teacher_id ) ";
+  }else{
+  $sql =  "SELECT * FROM student s 
+  inner join class c on c.class_id = s.class_id
+  inner join division d on d.dv_id = c.dv_id
+  inner join train t on t.std_id = s.std_id
+  inner join company cy on cy.company_id = t.company_id
+  inner join contact ct on ct.contact_id = t.contact_id
+   where t.teacher_id = '$teacher_id' and t.t_id = $train_id ";
+  }
+  $query = $this->db->query($sql); 
+  $data = $query->result();
+  return $data;
+}
+public function get_train() {  
+            
+  $sql =  "SELECT * FROM train ORDER BY `train`.`end_date` DESC";
+  $query = $this->db->query($sql); 
+  $data = $query->result();
+
+  return $data;
 }
 
 

@@ -58,12 +58,24 @@ class Teacher Extends CI_controller{
 	{
         $teacher_id =  $this->session->userdata('teacher_id');
         $result = $this->model_teacher->get_division($teacher_id);
+
+        $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date,student.std_id,student.title,fname,lname FROM events
+        inner join train on train.std_id = events.std_id
+        inner join student on student.std_id = events.std_id
+        WHERE train.teacher_id = '$teacher_id' and teacher_confirm = 0 ORDER BY events.start_event DESC";
+        $query = $this->db->query($sql); 
+        $data['result_test'] = $query->result();
+
+        $train_id = $this->input->post('train_id'); 
+
+        $data['result'] = $this->model_teacher->get_events_date2($teacher_id);
         
         $data['division_list'] = $this->model_teacher->get_dv_class($teacher_id);
         $data['class_list'] = $this->model_teacher->get_dv_class_group($teacher_id);
         // print_r($data['division_list']);
         // print_r($data['class_list']);
         // exit;
+        $this->load->view('teacher/modal');
 		$this->load->view('teacher/division',$data);
 		$this->load->view('footer');
 
