@@ -34,6 +34,9 @@
                                                     </div>  
                                                         <div class="panel-body">
                                                                 <div class="col-md-12">
+                                                                    <span>วันที่ประเมิน <?php echo $rs->approve_date ?></span>
+                                                                </div>
+                                                                <div class="col-md-12">
                                                                     <span>ระยะเวลาฝึกงาน <?php echo $rs->start_date." ถึง ".$rs->end_date ?></span>
                                                                 </div>
                                                                 <div class="col-md-12">
@@ -42,11 +45,11 @@
                                                                 <div class="col-md-12">
                                                                     <span>ผู้ประเมิน <?php echo $rs->spv_title." ".$rs->spv_fname." ".$rs->spv_lname ?></span>
                                                                 </div>
-                                                                <div class="col-md-12 text-right">
+                                                                <div class="col-md-12 text-right" style="padding-top:20px">
                                                                     <a href="<?php 
                                                                     $spv_id = $rs->spv_contact_id ; 
                                                                     echo base_url()."teacher/supervision_view/$spv_id" ?>">
-                                                                    <button class="btn btn-info">SEE</button>
+                                                                    <button class="btn btn-brown">ดูการประเมิน</button>
                                                                     </a>
                                                                 </div>
 

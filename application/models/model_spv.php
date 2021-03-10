@@ -60,7 +60,7 @@
 
         public function get_spv($std)
         { 
-            $sql="SELECT sc.spv_contact_id,std.company_name,std.std_code,std.dv_name,std.start_date,std.end_date,std.spv_title,std.spv_fname,std.spv_lname,s.subject_name FROM supervision_contact sc 
+            $sql="SELECT sc.spv_contact_id,std.company_name,std.std_code,std.dv_name,std.start_date,std.end_date,std.spv_title,std.spv_fname,std.spv_lname,s.subject_name,sc.approve_date FROM supervision_contact sc 
             inner join student_train_detail std on std.t_id = sc.t_id 
             inner join subject s on s.subject_id = sc.subject_id
             where std.std_id = $std";

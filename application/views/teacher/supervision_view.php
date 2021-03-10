@@ -33,6 +33,34 @@ display:inline-block;
                             <h4>ประเมินการฝึกงาน </h4>
                     </div>
                      <div class="panel-body" style="padding: 10px;">
+                     <div class="panel-body" style="padding: 20px;">
+                                <div class="row">
+                                     <div class="col-md-12 text-center" >
+                                            <h4>ข้อมูลนักเรียน</h4>
+                                     </div>
+                                        <div class="col-md-2 header"></div>
+                                        <div class="col-md-5 col-sm-6 header" >
+                                        <?php  echo "ชื่อ ".$std_detail->title." ".$std_detail->fname." ".$std_detail->lname ?>
+                                        </div>
+                                        <div class="col-md-5 col-sm-6 header" >
+                                            <?php echo "รหัสประจำตัวนักศึกษา ".$std_detail->std_code ?>
+                                        </div>
+                                        <div class="col-md-2 header"></div>
+                                        <div class="col-md-5 col-sm-6 header" >
+                                        <?php echo "ระดับชั้น ".$std_detail->class_name." ".$std_detail->class_group ?>
+                                      </div>          
+                                      <div class="col-md-5 col-sm-6 header" >
+                                        <?php  echo "แผนกวิชาช่าง ".$std_detail->dv_name ?>
+                                        </div>          
+                                        <div class="col-md-2 header"></div>
+                                        <div class="col-md-5 col-sm-6 header" >
+                                        <?php echo "ระยะเวลาฝึกงาน ".$std_detail->start_date." ถึง ".$std_detail->end_date ?>
+                                        </div>   
+                                        <div class="col-md-5 col-sm-6 header" >
+                                            <?php echo "สถานที่ฝึกงาน ".$std_detail->company_name ?>
+                                        </div>     
+                                </div>
+                              </div>
                           <br>
                           <?php 
                           $url = $this->uri->segment('3');
@@ -71,8 +99,8 @@ display:inline-block;
       
                                 </table>
                                 <div class="text-center">
-                                    <button class="btn btn-default">กลับ</button>
-                                    <button class="btn btn-primary">ดาวน์โหลดเอกสาร</button>
+                                    <button onclick="window.history.back();" class="btn btn-default">กลับ</button>
+                                    <button class="btn btn-green">ดาวน์โหลดเอกสาร</button>
                                 </div>
                         <?php } ?>
                     </div>

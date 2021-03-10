@@ -25,7 +25,7 @@ public function total_work_day($std_id,$train_id){
 public function get_train_detail($train_id){
    $sql = "SELECT * FROM student_train_detail where t_id = '$train_id'";
    $query = $this->db->query($sql); 
-   $result = $query->result();
+   $result = $query->row();
    if($query){
       return $result;
     }else{

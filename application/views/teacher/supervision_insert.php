@@ -1,6 +1,8 @@
 
 <style>
-
+    .header{
+        padding:10px;
+    }
     th{
         text-align:center;
     }
@@ -36,11 +38,14 @@
                         <div class="panel-body" style="padding: 10px;">
                               <form action="" method="post">
                                 <div class="form-group">
-                                    <span>เลือกแบบประเมิน </span>
+                                    <span>เลือกปีการศึกษา </span>
                                     <select name="train_id" class="selectpicker form-control" id="subject_id">
-                                    <?php foreach($result_train as $rt){ 
+                                    <?php 
+                                  
+                                    foreach($result_train as $rt){ 
+                                        $year = substr($rt->start_date,0,4)+543;
                                         ?>
-                                                <option value="<?php echo $rt->t_id ?>"><?php echo $rt->end_date ?></option>
+                                                <option value="<?php echo $rt->t_id ?>"><?php echo $year ?></option>
                                     <?php
                                         }
                                         ?>
@@ -60,8 +65,38 @@
                                     <input type="submit" class="btn btn-primary" value="ค้นหา">
                               </form>
                               </div>
-
                               <br>
+                      <?php if($std_detail != null) { ?>
+                        <div class="panel-body" style="padding: 20px;">
+                        <div class="row">
+                                     <div class="col-md-12 text-center" >
+                                            <h4>ข้อมูลนักเรียน</h4>
+                                     </div>
+                                        <div class="col-md-2 header"></div>
+                                        <div class="col-md-5 col-sm-6 header" >
+                                        <?php  echo "ชื่อ ".$std_detail->title." ".$std_detail->fname." ".$std_detail->lname ?>
+                                        </div>
+                                        <div class="col-md-5 col-sm-6 header" >
+                                            <?php echo "รหัสประจำตัวนักศึกษา ".$std_detail->std_code ?>
+                                        </div>
+                                        <div class="col-md-2 header"></div>
+                                        <div class="col-md-5 col-sm-6 header" >
+                                        <?php echo "ระดับชั้น ".$std_detail->class_name." ".$std_detail->class_group ?>
+                                      </div>          
+                                      <div class="col-md-5 col-sm-6 header" >
+                                        <?php  echo "แผนกวิชาช่าง ".$std_detail->dv_name ?>
+                                        </div>          
+                                        <div class="col-md-2 header"></div>
+                                        <div class="col-md-5 col-sm-6 header" >
+                                        <?php echo "ระยะเวลาฝึกงาน ".$std_detail->start_date." ถึง ".$std_detail->end_date ?>
+                                        </div>   
+                                        <div class="col-md-5 col-sm-6 header" >
+                                            <?php echo "สถานที่ฝึกงาน ".$std_detail->company_name ?>
+                                        </div>     
+                                </div>
+                              </div>
+                              <br>
+                              <?php } ?>
                               <?php 
                               $url = $this->uri->segment('3');
                               if($result != null) { ?>
@@ -70,7 +105,7 @@
                                 <input type="hidden" name="train_id" value="<?php echo $train_id ?>">
                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                     <thead class="text-center">
-                                        <th colspan="6" ><?php echo $subject_name ?></th>
+                                        <th colspan="6" ><h4><?php echo $subject_name ?></h4></th>
                                         <tr>
                                             <th colspan="2" >รายการประเมินผล</th>
                                             <th width="120px">ดีมาก</th>
@@ -86,10 +121,10 @@
                                     <tr>
                                     <td width='25px'><?php echo $i ?></td>
                                     <td><?php echo $r->glist_name?></td>
-                                    <td  class="text-center"><input type="radio" value="4<?php echo $r->glist_id?>" name="<?php echo $i?>" id=""></td>
-                                    <td  class="text-center"><input type="radio" value="3<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
-                                    <td  class="text-center"><input type="radio" value="2<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
-                                    <td  class="text-center"><input type="radio" value="1<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
+                                    <td  class="text-center"><input required type="radio" value="4<?php echo $r->glist_id?>" name="<?php echo $i?>" id=""></td>
+                                    <td  class="text-center"><input required type="radio" value="3<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
+                                    <td  class="text-center"><input required type="radio" value="2<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
+                                    <td  class="text-center"><input required type="radio" value="1<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
                                     </tr>
 
                                       <?php

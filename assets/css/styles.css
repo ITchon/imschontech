@@ -1451,7 +1451,7 @@ th {
 .table > tfoot > tr > td {
   padding: 10px;
   line-height: 1.428571429;
-  vertical-align: top;
+  /* vertical-align: top; */
   border-top: 1px solid #e6e7e8;
 }
 .table > thead > tr > th {

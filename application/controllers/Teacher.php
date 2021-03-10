@@ -11,6 +11,7 @@ class Teacher Extends CI_controller{
         $this->load->model('model');
         $this->load->model('model_teacher');
         $this->load->model('model_spv');
+        $this->load->model('model_pdf');
         $this->load->model('student_model');
         
         $teacher_id =  $this->session->userdata('teacher_id');
@@ -62,7 +63,7 @@ class Teacher Extends CI_controller{
         $query = $this->db->query($sql); 
         $data['result_spv']  = $query->row(); 
         $data['result'] = $this->model_spv->get_spv_data($spv_id);
-
+        $data['std_detail'] = $this->model_pdf->get_train_detail($data['result_spv']->t_id);
         // print_r($data['result']);exit;
 		$this->load->view('teacher/supervision_view',$data);
 		$this->load->view('footer');
@@ -71,12 +72,14 @@ class Teacher Extends CI_controller{
     public function supervision_insert() 	
 	{   
         $std_id =  $this->uri->segment('3');
+        $data['std_detail'] = null;
         if($this->input->post('subject_id')!=null && $this->input->post('train_id')!=null){
             $data['result'] = $this->model_spv->get_subject_data($this->input->post('subject_id'));
             if($data['result']!=null){
                 $data['subject_name'] = $data['result'][0]->subject_name;
                 $data['subject_id'] = $data['result'][0]->subject_id;
                 $data['train_id'] = $this->input->post('train_id');
+                $data['std_detail'] = $this->model_pdf->get_train_detail($this->input->post('train_id'));
             }
             // print_r($data['result'][0]->subject_name);
         }
