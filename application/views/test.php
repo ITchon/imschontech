@@ -45,53 +45,45 @@ td{
             <p>แบบประเมินผลการฝึกงาน</p>
         </div>
         <div class="content" >
-               <p>
-               นาย ศุภโชค  วาจาคำ  
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               รหัสประจำตัวนักศึกษา  6239010019
-               </p>       
-               <p>
-               ระดับชั้น ปวส 2/1
-               กลุ่ม 2
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               แผนกวิชาช่าง   เทคโนโลยีสารสนเทศ
-               </p>            
-               <p>  
-               ระยะเวลาฝึกงาน 
-               &nbsp;&nbsp;&nbsp;&nbsp;
-                24/12/2563
-               &nbsp;&nbsp;&nbsp;&nbsp;
-               ถึง
-               &nbsp;&nbsp;&nbsp;&nbsp;
-                24/12/2564
-               </p>       
-               <p>  
-               สถานที่ฝึกงาน 
-               &nbsp;&nbsp;&nbsp;&nbsp;
-               บริษัทยูนิมิตจำกัดมหาชน
-               </p>       
-               <p>  
-               รวมระยะเวลาฝึกงาน
-               &nbsp;&nbsp;&nbsp;
-                80 วัน
-               &nbsp;&nbsp;&nbsp;
-               ลาป่วย 70 วัน
-               &nbsp;&nbsp;&nbsp;
-               ลากิจ  10 วัน
-               &nbsp;&nbsp;&nbsp;
-               มาสาย 0 ครั้ง
-               </p>
+            <p>
+                   <?php  echo "ชื่อ ".$std_detail[0]->title." ".$std_detail[0]->fname." ".$std_detail[0]->lname ?>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <?php echo "รหัสประจำตัวนักศึกษา ".$std_detail[0]->std_code ?>
+                    </p>       
+                    <p>
+                   <?php echo "ระดับชั้น ".$std_detail[0]->class_name." ".$std_detail[0]->class_group ?>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                   <?php  echo "แผนกวิชาช่าง ".$std_detail[0]->dv_name ?>
+                    </p>            
+                    <p>  
+                   <?php echo "ระยะเวลาฝึกงาน ".$std_detail[0]->start_date." ถึง ".$std_detail[0]->end_date ?>
+                    </p>     
+                    <p>
+                    <?php echo "สถานที่ฝึกงาน ".$std_detail[0]->company_name ?>
+                    </p>       
+                    <p>  
+                    รวมระยะเวลาฝึกงาน
+                    &nbsp;&nbsp;&nbsp;
+                    <?php  echo $twd[0]->total_work_day ?>
+                    &nbsp;&nbsp;&nbsp;
+                    ลาป่วย 70 วัน
+                    &nbsp;&nbsp;&nbsp;
+                    ลากิจ  10 วัน
+                    &nbsp;&nbsp;&nbsp;
+                    มาสาย 0 ครั้ง
+            </p>
                <table id="bg-table" width="100%" style="border-collapse: collapse;font-size:10pt;margin-top:8px;">
                 <tr>
                     <th  width="80px" colspan="2">รายการประเมินผล</th>

@@ -35,7 +35,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <!-- <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/less.js"></script> -->
 </head>
-
+<script>
+$(document).ready(function() {
+          $(".alert").fadeOut(3000);
+});
+    </script>
 <body class="">
     <div id="headerbar"  >
         <div class="container">

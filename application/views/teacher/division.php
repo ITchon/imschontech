@@ -42,7 +42,6 @@
                     <option value="<?php echo $d->class_id ?>"><?php echo $d->class_name.$d->class_group ?></option>
             <?php  }
                   } 
-                }
             ?>
             </select>
             </form>
@@ -84,7 +83,9 @@
                         
 
 
-                    <?php } ?>
+                    <?php } 
+                 }
+                 ?>
 
                         
                                 <!-- <div class="tiles-footer">manage orders</div> -->

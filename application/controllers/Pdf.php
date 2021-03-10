@@ -14,14 +14,15 @@ class Pdf extends CI_Controller {
 
 	public function index()
 	{
-		// $std_id = 15; 
-		// $train_id =8;
-		// $data['twd'] = $this->model_pdf->total_work_day($std_id,$train_id);
-
+		$std_id = $this->session->userdata('std_id');
+		$train_id = 13;
+		$data['twd'] = $this->model_pdf->total_work_day($std_id,$train_id);
+		$data['std_detail'] = $this->model_pdf->get_train_detail($train_id);
+		// exit;
 		require_once(APPPATH.'../vendor/autoload.php');	
 
 		$mpdf = new \Mpdf\Mpdf();
-		$html = $this->load->view('test',[],true);
+		$html = $this->load->view('test',$data,true);
 		$mpdf->WriteHTML($html);
 		$mpdf->Output();
 	}

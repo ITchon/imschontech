@@ -22,18 +22,14 @@ public function total_work_day($std_id,$train_id){
     }
 }
 
-public function get_mytrainer($contact_id){
-    $sql="SELECT DISTINCT(t.std_id) as std_id , std.title, std.fname, std.lname, std.tel, std.email,std.status,std.std_code,std.class_id, std.gender,d.dv_name FROM student as std
-    INNER JOIN train as t on t.std_id = std.std_id
-    INNER JOIN class as c on c.class_id = std.class_id
-    INNER JOIN division as d on d.dv_id = c.dv_id
-    WHERE t.contact_id = '$contact_id'";
-    $query = $this->db->query($sql);
-    $result = $query->result();
-    if($query){
-        return $result;
+public function get_train_detail($train_id){
+   $sql = "SELECT * FROM student_train_detail where t_id = '$train_id'";
+   $query = $this->db->query($sql); 
+   $result = $query->result();
+   if($query){
+      return $result;
     }else{
-        return false;
+      return false;
     }
 }
 
