@@ -1,6 +1,8 @@
 
 <style>
-
+   .formfield * {
+  vertical-align: top;
+}
 th{
     text-align:center;
 }
@@ -98,10 +100,16 @@ display:inline-block;
                                 </tbody>
       
                                 </table>
-                                <div class="text-center">
-                                    <button onclick="window.history.back();" class="btn btn-default">กลับ</button>
-                                    <button class="btn btn-green">ดาวน์โหลดเอกสาร</button>
-                                </div>
+                                <div class="footer">
+                                    <b>ข้อเสนอแนะ/ติชม</b>
+                                    <span><?php echo $result_spv->suggestion ?></span>
+                                        <div class="text-center">
+                                        <p>ผู้ประเมิน <?php echo $std_detail->name ?></p>
+                                        <p>ตำแหน่ง CEO</p>
+                                        <p>วันที่ <?php echo $date ?></p>
+                                        </div>
+                                    </div>
+
                         <?php } ?>
                     </div>
             </div>

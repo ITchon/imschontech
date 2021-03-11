@@ -1,5 +1,8 @@
 
 <style>
+   .formfield * {
+  vertical-align: top;
+}
     .header{
         padding:10px;
     }
@@ -132,11 +135,22 @@
                                   }
                                     ?>
                                     </tbody>
-          
                                     </table>
                                     <div class="text-center">
-                                    <input type="hidden" name="max" value="<?php echo $i-1?>">
-                                    <input type="submit" class="btn btn-primary" value="บันทึก">
+                                         <div class="form-group">
+                                             <div class="col-md-12">
+                                            <label for="textarea"><h4>ข้อเสนอแนะ / ติชม</h4> </label><br>
+                                            <textarea id="textarea" name="suggest" class="form-control" cols="50" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="position"><h4>ตำแหน่ง</h4> </label>
+                                            <input type="text" class="form-control" name="position" id="position">
+                                        </div>
+                                        <div class="form-group">
+                                        <input type="hidden" name="max" value="<?php echo $i-1?>">
+                                        <input type="submit" class="btn btn-primary" value="บันทึก">
+                                      </div>
                                     </div>
                                 </form>
                             <?php } ?>

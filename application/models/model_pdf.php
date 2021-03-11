@@ -6,14 +6,14 @@ class Model_pdf extends CI_Model
 public function total_work_day($std_id,$train_id){
     $sql = "SELECT * FROM train where t_id = '$train_id'";
     $query = $this->db->query($sql); 
-    $result = $query->result();
+    $result = $query->row();
 
-    $start_date =  $result[0]->start_date;
-    $end_date = $result[0]->end_date;
+    $start_date =  $result->start_date;
+    $end_date = $result->end_date;
 
     $sql =  "SELECT DISTINCT COUNT(start_event) AS total_work_day FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' ORDER BY `events`.`start_event` DESC";
     $query = $this->db->query($sql); 
-    $result = $query->result();
+    $result = $query->row();
 
     if($query){
         return $result;

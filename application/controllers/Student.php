@@ -52,6 +52,8 @@
       if($data['train_detail'] == null){
         redirect("student/error"); 
       }
+      if($train_id == null)$data['train_id'] = $data['train_detail'][0]->t_id;
+      
       $data['train_select'] = $this->student_model->get_train($std_id);
 
       $start_date = $data['train_detail'][0]->start_date;
@@ -63,6 +65,8 @@
       $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' ORDER BY `events`.`start_event` DESC";
       $query = $this->db->query($sql); 
       $data['result_test'] = $query->result();
+
+
 
       $latlong = $data['train_detail'][0]->latlong;
       if($latlong == null){
@@ -79,7 +83,7 @@
       $marker['position'] =  $latlong;
       $this->googlemaps->add_marker($marker);
       $data['map'] = $this->googlemaps->create_map();
-      
+
       $this->load->view('student/modal');
       $this->load->view('student/dashboard', $data);
       $this->load->view('student/footer');

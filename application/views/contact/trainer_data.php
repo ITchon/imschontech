@@ -75,17 +75,17 @@
     
 								</div>
 							</div>
-							<hr>
-							<div class="row">
+							<hr><div class="row">
 								<div class="col-md-12">
-									<div class="tab-container tab-midnightblue">
+									<div class="tab-container tab-success">
 										<ul class="nav nav-tabs">
-											<li class="active"><a href="#home1" data-toggle="tab">Timeline</a></li>
+											<li class="active"><a href="#home1" data-toggle="tab">รายการปฎิบัติงาน</a></li>
+											<li class=""><a href="#profile1" data-toggle="tab">เวลาการปฎิบัติงาน</a></li>
 										</ul>
-                                        <div class="panel panel-sky">
-                                            <div class="panel-body collapse in">
-                                                <div class="table-responsive">
-                                                <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
+										<div class="tab-content">
+											<div class="tab-pane active clearfix" id="home1">
+												<div class="col-md-12">
+												<table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
 	              	                    				<tr>
 														  	<th width="20%">Date</th>
@@ -130,12 +130,20 @@
                                                     
 	              	                    			</tbody>
                                                 </table>
-                                                </div>
-                                            </div>
-                                        </div>
+												</div>
+
+												
+											</div>
+											
+	              							<div class="tab-pane" id="profile1">
+												<input type="hidden" name="" id="t_id" value="<?php echo $train_id ?>">
+												<div id="work-time-data"></div>
+	              							</div>
+					  					</div>
 									</div>
 								</div>
-							</div>
+									</div>
+							
 
 
 						</div>
@@ -149,6 +157,35 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+	var t_id = $('#t_id').val();
+		$.ajax({
+			url: "<?php
+				$std_id = $this->session->userdata('std_id');
+					 echo base_url("crud/C_std_work_time/$std_id");
+					 ?>",  
+    			type: "POST",
+    			cache: false,
+    			data:{
+    				t_id: t_id
+    			},
+				success: function(data){		
+					console.log(data);
+					$('#work-time-data').html(data);
+    			},
+          error:function(data){
+			console.log(data);
+			// $('#event_detail').modal();
+
+			
+          }
+		});
+		var teacher_chk = $('#teacher').val();
+		var company_chk = $('#company').val();
+		var sum = $('#sum').val();
+		$('#overall-teacher').html("อาจารย์นิเทศ : "+teacher_chk+"/"+sum);
+		$('#overall-contact').html("ผู้ควบคุมการฝึกงาน : "+company_chk+"/"+sum);
+});
 $(".open-modal").click(function() {
 	var date = $(this).val();
 	var std_id = document.getElementById("std_id").value;

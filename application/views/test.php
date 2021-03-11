@@ -46,17 +46,17 @@ td{
         </div>
         <div class="content" >
             <p>
-                   <?php  echo "ชื่อ ".$std_detail[0]->title." ".$std_detail[0]->fname." ".$std_detail[0]->lname ?>
+                   <?php  echo "ชื่อ ".$std_detail->title." ".$std_detail->fname." ".$std_detail->lname ?>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <?php echo "รหัสประจำตัวนักศึกษา ".$std_detail[0]->std_code ?>
+                    <?php echo "รหัสประจำตัวนักศึกษา ".$std_detail->std_code ?>
                     </p>       
                     <p>
-                   <?php echo "ระดับชั้น ".$std_detail[0]->class_name." ".$std_detail[0]->class_group ?>
+                   <?php echo "ระดับชั้น ".$std_detail->class_name." ".$std_detail->class_group ?>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -65,18 +65,18 @@ td{
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     
-                   <?php  echo "แผนกวิชาช่าง ".$std_detail[0]->dv_name ?>
+                   <?php  echo "แผนกวิชาช่าง ".$std_detail->dv_name ?>
                     </p>            
                     <p>  
-                   <?php echo "ระยะเวลาฝึกงาน ".$std_detail[0]->start_date." ถึง ".$std_detail[0]->end_date ?>
+                   <?php echo "ระยะเวลาฝึกงาน ".$std_detail->start_date." ถึง ".$std_detail->end_date ?>
                     </p>     
                     <p>
-                    <?php echo "สถานที่ฝึกงาน ".$std_detail[0]->company_name ?>
+                    <?php echo "สถานที่ฝึกงาน ".$std_detail->company_name ?>
                     </p>       
                     <p>  
                     รวมระยะเวลาฝึกงาน
                     &nbsp;&nbsp;&nbsp;
-                    <?php  echo $twd[0]->total_work_day ?>
+                    <?php  echo $twd->total_work_day ?>
                     &nbsp;&nbsp;&nbsp;
                     ลาป่วย 70 วัน
                     &nbsp;&nbsp;&nbsp;
@@ -93,107 +93,71 @@ td{
                     <th width="90px" style="line-height:20px">ต้องปรับปรุง<br>(1)</th>
                 </tr>       
            <tbody>
-                <tr>
-                    <td width="30px">1</td>
-                    <td>การแต่งกายเหมาะสมหฟกฟหกๅ</td>
-                    <td style="text-align:center" >/</td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                </tr>
-                <tr>
-                    <td width="30px" >1</td>
-                    <td>การแต่งกายเหมาะสมหฟกฟหกๅ</td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" >/</td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                </tr>
-                <tr>
-                    <td width="30px" >1</td>
-                    <td>ปฎิบัติตามกฎระเบียบข้อบังคับที่กำหนดไว้อย่างเคร่งครัด</td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" >/</td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                </tr>
-                <tr>
-                    <td width="30px" >1</td>
-                    <td></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" >/</td>
-                </tr>
-                <tr>
-                    <td width="30px" >1</td>
-                    <td></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" >/</td>
-                </tr>
-                <tr>
-                    <td width="30px" >1</td>
-                    <td></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" >/</td>
-                </tr>
-                <tr>
-                    <td width="30px" >1</td>
-                    <td></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" >/</td>
-                </tr>
-                <tr>
-                    <td width="30px" >1</td>
-                    <td></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" >/</td>
-                </tr>
-                <tr>
-                    <td width="30px" >1</td>
-                    <td></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" >/</td>
-                </tr>
-                <tr>
-                    <td width="30px" >1</td>
-                    <td></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" ></td>
-                    <td style="text-align:center" >/</td>
-                </tr>
-                <tr>
-                <td style="text-align:right" colspan="2">รวมคะแนน</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                </tr>
-                <tr>
-                <td style="text-align:right" colspan="2">รวมคะแนนทั้งหมด</td>
-                <td colspan="4"></td>
-                </tr>
+                <?php           
+                                $verygood=null;
+                                $good=null;
+                                $fair=null;
+                                $bad=null;
+                                $i = 1;
+                              foreach($result as $r){ 
+                                  ?> 
+                                <tr>
+                                    <td width='25px'><?php echo $i ?></td>
+                                    <td><?php echo $r->glist_name?></td>
+                                    <td style="text-align:center"><?php 
+                                    if($r->score == 4){
+                                        $verygood +=4;
+                                        echo "/" ;
+                                    }?>
+                                    </td>
+                                    <td style="text-align:center">
+                                    <?php if($r->score == 3){
+                                        $good +=3;
+                                        echo "/" ;
+                                    } ?>
+                                    </td>
+                                    <td style="text-align:center">
+                                    <?php if($r->score == 2){
+                                        $fair +=2;
+                                        echo "/" ;
+                                    }
+                                    ?>
+                                    </td>
+                                    <td style="text-align:center">
+                                    <?php if($r->score == 1){
+                                        $bad +=1;
+                                        echo "/" ;
+                                    }
+                                    ?>
+                                    </td>
+                                </tr>
+
+                                  <?php
+                                $i++;
+                              }
+                              $total = $verygood+$good+$fair+$bad;
+                                ?>
+                                <tr>
+                            <td style="text-align:center" colspan="2">รวมคะแนน</td>
+                            <td style="text-align:center"><?php echo $verygood ?></td>
+                            <td style="text-align:center"><?php echo $good ?></td>
+                            <td style="text-align:center"><?php echo $fair ?></td>
+                            <td style="text-align:center"><?php echo $bad ?></td>
+                            </tr>
+                            <tr>
+                            <td style="text-align:right" colspan="2">รวมคะแนนทั้งหมด</td>
+                            <td style="text-align:center" colspan="4"> <?php echo $total ?></td>
+                            </tr>
             </tbody>
     </table>  
         </div>
         <div class="footer">
         <b>ข้อเสนอแนะ/ติชม</b>
-        <span>ปฎิบัติตามกฎระเบียบข้อบังคับที่กำหนดไว้อย่างเคร่งครัด</span>
+        <span><?php echo $result_spv->suggestion ?></span>
             <div class="end">
-            <p>ผู้ประเมิน นาย ศุภโชค วาจาคำ</p>
+            <p>ผู้ประเมิน <?php echo $std_detail->name ?></p>
             <p>ตำแหน่ง CEO</p>
-            <p>วันที่ 30 ตุลาคม พ.ศ.2563</p>
+            <p>วันที่ <?php echo $date ?></p>
             </div>
         </div>
     </div>

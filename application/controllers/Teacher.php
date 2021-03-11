@@ -62,6 +62,7 @@ class Teacher Extends CI_controller{
         where spv_contact_id = '$spv_id'";
         $query = $this->db->query($sql); 
         $data['result_spv']  = $query->row(); 
+        $data['date'] = $this->model->Thai_date($data['result_spv']->approve_date);
         $data['result'] = $this->model_spv->get_spv_data($spv_id);
         $data['std_detail'] = $this->model_pdf->get_train_detail($data['result_spv']->t_id);
         // print_r($data['result']);exit;
@@ -94,6 +95,7 @@ class Teacher Extends CI_controller{
        $std_id =  $this->uri->segment('3');
        $train_id = $this->input->post('train_id');
        $subject_id = $this->input->post('subject_id');
+       $suggest = $this->input->post('suggest');
        $max = $this->input->post('max');
       //Store data in array 2 dimension 
        $a= [];
@@ -104,7 +106,7 @@ class Teacher Extends CI_controller{
           $data= array ("glist_id"=>$g_id,"score"=>$score);
           array_push($a,$data);
        }
-       $result = $this->model_spv->supervision_save($train_id,$subject_id,$a);
+       $result = $this->model_spv->supervision_save($train_id,$subject_id,$suggest,$a);
        if($result){
             $this->session->set_flashdata('success','<div class="alert alert-success"><span> บันทึกข้อมูลเรียบร้อย</span></div>');
             redirect("teacher/supervision/$std_id");  

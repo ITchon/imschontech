@@ -40,9 +40,9 @@
             return $data;
         }
 
-        public function supervision_save($train_id,$subject_id,$data_score)
+        public function supervision_save($train_id,$subject_id,$suggest,$data_score)
         { 
-                $sql ="INSERT INTO  supervision_contact (t_id,subject_id,approve_date ) VALUES ('$train_id','$subject_id',CURDATE());";          
+                $sql ="INSERT INTO  supervision_contact (t_id,subject_id,approve_date,suggestion ) VALUES ('$train_id','$subject_id',CURDATE(),'$suggest');";          
                 $query = $this->db->query($sql);  
                 $last_id = $this->db->insert_id();
                 $chk ;
