@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         </div>
-                        <?php echo anchor(base_url().'manage_asm', 'Cancel',array('class'=>'btn btn-dark')); ?>
+                        <button onclick="window.history.back();" class="btn btn-default">ย้อนกลับ</button>
          
                         </div>
                     </div>

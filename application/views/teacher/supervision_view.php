@@ -105,10 +105,16 @@ display:inline-block;
                                     <span><?php echo $result_spv->suggestion ?></span>
                                         <div class="text-center">
                                         <p>ผู้ประเมิน <?php echo $std_detail->name ?></p>
-                                        <p>ตำแหน่ง CEO</p>
+                                        <p>ตำแหน่ง <?php echo $result_spv->position ?></p>
                                         <p>วันที่ <?php echo $date ?></p>
                                         </div>
-                                    </div>
+                                </div>
+                                <?php $url = $this->uri->segment('3'); ?>
+                                </table>
+                                <div class="text-center">
+                                    <button onclick="window.history.back();" class="btn btn-default">กลับ</button>
+                                    <a href="<?php echo base_url()."pdf/view/$url"?>"><button class="btn btn-green">ดาวน์โหลดเอกสาร</button></a>
+                                </div>
 
                         <?php } ?>
                     </div>

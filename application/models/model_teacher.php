@@ -158,10 +158,10 @@ if($query->num_rows()!=0) {
 }
 
 
-public function get_student_by($class_id) {
-        $sql ="SELECT std.std_id, std.title, std.fname, std.lname, std.gender, std.tel, std.email, std.class_id, c.class_name,c.class_group FROM student as std
+public function get_student_by($class_id,$teacher_id) {
+        $sql ="SELECT std.std_id, std.title, std.fname, std.lname, std.gender, std.tel, std.email, std.class_id, std.class_name,std.class_group FROM student_train_detail as std
         left join class as c on c.class_id = std.class_id
-        WHERE c.class_id='$class_id'";
+        WHERE c.class_id='$class_id' and std.spv_id = '$teacher_id'";
       $query = $this->db->query($sql);
       if($query->num_rows()!=0) {
         $result =  $query->result();

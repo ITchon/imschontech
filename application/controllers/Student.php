@@ -36,9 +36,9 @@
     function file(){
       $this->load->view('student/header');
       $this->load->view('student/menu');
-      $train_id =null ;
-      $std_id =  $this->session->userdata('std_id');
-      $data['result'] = $this->student_model->get_student($std_id,$train_id);
+      $sql="SELECT  * FROM  subject s ";
+      $query = $this->db->query($sql); 
+      $data['result_subject']  = $query->result(); 
       $this->load->view('student/file',$data);
 
     }

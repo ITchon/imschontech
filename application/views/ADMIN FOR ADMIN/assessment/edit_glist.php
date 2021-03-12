@@ -41,9 +41,11 @@
                                         <div class="form-group">
                                             <label for="glist_name">Group List Name</label>
                                             <input type="text" name="glist_name" value="<?php echo $result_glist[0]->glist_name  ?>" class="form-control"><br>
-                                    <?php echo form_submit(array('glist_id'=>'submit','value'=>' Confirm ','class'=>'btn-success btn')); 
+                                    <?php echo form_submit(array('glist_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-success btn')); 
                               echo form_close(); ?>
+                                              <a onclick="window.history.back();" class="btn btn-default">ย้อนกลับ</a>
                                         </div>
+
                                     </div>
                             </div>
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
@@ -82,7 +84,6 @@
                         </div>
                         </div>
                         <input type="hidden" id="num" value="<?php echo $i ?>">
-         <?php echo anchor(base_url().'manage_asm', 'Cancel',array('class'=>'btn btn-dark')); ?>
                         </div>
                     </div>
                 </div>

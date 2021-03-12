@@ -96,6 +96,7 @@ class Teacher Extends CI_controller{
        $train_id = $this->input->post('train_id');
        $subject_id = $this->input->post('subject_id');
        $suggest = $this->input->post('suggest');
+       $position = $this->input->post('position');
        $max = $this->input->post('max');
       //Store data in array 2 dimension 
        $a= [];
@@ -106,7 +107,7 @@ class Teacher Extends CI_controller{
           $data= array ("glist_id"=>$g_id,"score"=>$score);
           array_push($a,$data);
        }
-       $result = $this->model_spv->supervision_save($train_id,$subject_id,$suggest,$a);
+       $result = $this->model_spv->supervision_save($train_id,$subject_id,$suggest,$position,$a);
        if($result){
             $this->session->set_flashdata('success','<div class="alert alert-success"><span> บันทึกข้อมูลเรียบร้อย</span></div>');
             redirect("teacher/supervision/$std_id");  
@@ -156,12 +157,12 @@ class Teacher Extends CI_controller{
 
 	public function list() 	
 	{
+        $teacher_id =  $this->session->userdata('teacher_id');
         $class_id = $this->input->post('class_id');
         if($this->uri->segment('3')){
             $class_id =  $this->uri->segment('3');
         }
-
-        $data['student_list'] = $this->model_teacher->get_student_by($class_id);
+        $data['student_list'] = $this->model_teacher->get_student_by($class_id,$teacher_id);
         $data['class'] = $this->model_teacher->show_class($class_id);
 
     //      if($this->uri->segment('3')){
