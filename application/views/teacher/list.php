@@ -5,6 +5,15 @@
         padding-right:50px;
         padding-top:100px;
     }
+    .panel-heading-bigger{
+        
+        font-size: 30px;
+        border-bottom: 1px solid #dddddd;
+        border-top-right-radius: 1px;
+        border-top-left-radius: 1px;
+        height: 90px;
+        line-height: 3em;
+    }
     .fa-check{
         color: green;
     }
@@ -66,10 +75,7 @@
                                 }
                             }?> -->
                             </div>
-                <h1><?php if(isset($class)){
-                 echo $class->class_name.$class->class_group; }else{
-                     echo "No Data";
-                 } ?></h1>
+        
         <form target = '_blank' class="container " action="<?php echo base_url()?>teacher/std_data" method="get">
             <input type="text" class="form-control" name="student_search" placeholder="รหัสนักศึกษา">
         </form>
@@ -78,10 +84,17 @@
             <div class="row">
               <div class="col-xs-12">
                 <div class="panel panel-primary">
+                    <div class="panel-heading-bigger">
+                    <span><?php if(isset($class)){
+                     echo "ระดับชั้น ".$class->class_name.$class->class_group; }else{
+                     echo "No Data";
+                 } ?></span>
+                            <button onclick="window.history.back();" class="btn btn-default">ย้อนกลับ</button>
+                     </div>
                     <div class="panel-body">
                     <div class="table-responsive">
-                    <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
-                          <thead class="bg-primary">
+                    <table cellpadding="0" cellspacing="0" border="0" class="table  datatables" id="example">
+                          <thead >
                             <tr>
                               <th>No.</th>
                               <th>Title</th>
@@ -91,7 +104,7 @@
                               <th>Tel</th>
                               <th>Email</th>
                               <th>Class_id</th>
-                              <th>-</th>
+                              <th class="text-center">-</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -105,7 +118,11 @@
                               <td><?php echo $std->tel ?></td>
                               <td><?php echo $std->email ?></td>
                               <td><?php echo $std->class_name ?></td>
-                              <?php echo "<td><a target = '_blank' href='".base_url()."Teacher/std_data/".$std->std_id."'>look</a></td>";  ?>
+                              <?php echo "<td class='text-center'>
+                              <a target = '_blank' href='".base_url()."Teacher/std_data/".$std->std_id."'><button class='btn btn-info'>ดูรายละเอียด</button></a>
+                              <a target = '_blank' href='".base_url()."Teacher/supervision/".$std->std_id."'><button class='btn btn-brown'>ประเมิน</button></a>
+                            
+                              </td>";  ?>
                             </tr>
                               <?php }}else{
                                   echo "No Data";
@@ -114,6 +131,7 @@
                           </tbody>
                         </table>
                     </div>
+                    
                     </div>
                 </div>
             </div>

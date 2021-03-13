@@ -17,11 +17,12 @@
 												</tr>
 											</thead> -->
 											<tbody>
-												<tr>
-													<td>ใบนิเทศสถานประกอบการ </td>
-													<td><a class="info-tiles tiles-toyo" href="<?php echo base_url(); ?>pdf"> <button class="btn btn-primary">Download</button></a></td>
+												<?php foreach($result_subject as $rs){ ?>
+												<tr> 
+													<td><?php echo $rs->subject_name ?> </td>
+													<td><a class="info-tiles tiles-toyo" href="<?php echo base_url()."pdf/traing_form/$rs->subject_id" ?>"> <button class="btn btn-primary">Download</button></a></td>
 												</tr>
-
+												<?php } ?>
 											</tbody>
 										</table>
 									</div>

@@ -30,7 +30,7 @@ public function get_mytrainer($contact_id){
 }
 
 public function get_events_date($start_date,$end_date,$std_id,$class_id) {
-    $sql =  "SELECT e.id, e.title, e.description, e.color, e.start_event, e.end_event, e.std_id, e.t_id ,e.contact_confirm, e.contact_confirm FROM `events` as e
+    $sql =  "SELECT e.id, e.title, e.description, e.color, e.start_event, e.end_event, e.std_id ,e.contact_confirm, e.contact_confirm FROM `events` as e
     inner join student as std on std.std_id = e.std_id
     WHERE start_event >= '$start_date' AND end_event <= '$end_date' and e.std_id = '$std_id' AND class_id = '$class_id' AND e.contact_confirm = 0";
   $query = $this->db->query($sql);

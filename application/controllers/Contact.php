@@ -102,11 +102,12 @@ class Contact Extends CI_controller{
     $data['map'] = $this->googlemaps->create_map();
 
     $contact_chk = $data['train_detail'][0]->contact_id;
-
+     if($train_id == null ) $data['train_id'] = $data['train_detail'][0]->t_id;
     // if($contact_chk == $contact_id){
         $this->load->view('contact/modal');
         $this->load->view('contact/trainer_data',$data);
         $this->load->view('contact/footer');
+        
     // }else{
     //     echo "who this";
     //     die();

@@ -29,6 +29,71 @@ class Crud Extends CI_controller{
 		 $this->load->view('student/modal_data',$data);
         
     }
+	public function C_std_work_time() 	
+    {   
+        $t_id = $this->input->post('t_id');
+        if($this->uri->segment('3')){
+            $std_id = $this->uri->segment('3');
+        }
+        $sql =  "SELECT * FROM `std_work_time` WHERE  t_id = '$t_id'";
+        $query = $this->db->query($sql); 
+        $data['result_date'] = $query->result();
+        // print_r($data['result_date']);exit;
+		 $this->load->view('contact/std_work_time',$data);
+        
+    }
+	public function std_work_time() 	
+    {   
+        $t_id = $this->input->post('t_id');
+        if($this->uri->segment('3')){
+            $std_id = $this->uri->segment('3');
+        }
+        $sql =  "SELECT * FROM `std_work_time` WHERE  t_id = '$t_id'";
+        $query = $this->db->query($sql); 
+        $data['result_date'] = $query->result();
+        // print_r($data['result_date']);exit;
+		 $this->load->view('student/std_work_time',$data);
+        
+    }
+	public function save_confirm() 	
+    {   
+        $swt_id = $this->uri->segment('3');
+        $sql =  "UPDATE `std_work_time` SET `confirm`='1' WHERE  swt_id = '$swt_id'";
+        $query = $this->db->query($sql); 
+    }
+	public function save_arrive_time() 	
+    {   
+        $swt_id = $this->uri->segment('3');
+        $data = $this->input->post('data');
+        $sql =  "UPDATE `std_work_time` SET `arrive_time`='$data' WHERE  swt_id = '$swt_id'";
+        $query = $this->db->query($sql); 
+    }
+	public function save_depart_time() 	
+    {   
+        $swt_id = $this->uri->segment('3');
+        $data = $this->input->post('data');
+        $sql =  "UPDATE `std_work_time` SET `depart_time`='$data' WHERE  swt_id = '$swt_id'";
+        $query = $this->db->query($sql); 
+    }
+	public function save_note() 	
+    {   
+        $swt_id = $this->uri->segment('3');
+        $data = $this->input->post('data');
+        $sql =  "UPDATE `std_work_time` SET `note`='$data' WHERE  swt_id = '$swt_id'";
+        $query = $this->db->query($sql); 
+    }
+	public function reset_time() 	
+    {   
+        $swt_id = $this->uri->segment('3');
+        $sql =  "UPDATE `std_work_time` SET `arrive_time`='',`depart_time`='' WHERE  swt_id = '$swt_id'";
+        $query = $this->db->query($sql); 
+    }
+	public function reset_note() 	
+    {   
+        $swt_id = $this->uri->segment('3');
+        $sql =  "UPDATE `std_work_time` SET `note`='' WHERE  swt_id = '$swt_id'";
+        $query = $this->db->query($sql); 
+    }
 
     public function event_forteacher() 	
     {   

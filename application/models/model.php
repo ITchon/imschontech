@@ -3,6 +3,7 @@
 class Model extends CI_Model
 {
 
+
 public function chk_session() {  
        if($this->session->userdata('std_id')=="") {
          echo "<script>alert('Please Login')</script>";
@@ -136,7 +137,23 @@ public function delete_user($id)
         return false;
         } 
 }
+  public function Thai_date($date)
+  {
+    list($year,$month,$day) = explode('-',$date);
+  if($day <10){
+    $day = substr($day,1,1);
+  }
 
+    $thMonth = array("มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน",     
+                              "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
+  if($month<10){
+    $month = substr($month,1,1);
+  }
+
+    $year +=543;
+
+  return $day."&nbsp;".$thMonth[$month-1]."&nbsp;".$year;  
+  }
 public function CheckSession()        
 {
   if($this->session->userdata('std_id')){

@@ -57,7 +57,9 @@ class manage_train Extends CI_controller{
 		$status      = $this->input->post('status');
 		$note      = $this->input->post('note');
 
-        $this->train_model->insert_p($company_id ,$std_id ,$teacher_id,$contact_id ,$start_date ,$end_date ,$status ,$note); 
+		$this->train_model->insert_p($company_id ,$std_id ,$teacher_id,$contact_id ,$start_date ,$end_date ,$status ,$note); 
+		
+		
         redirect('manage_train');
 	}
 
