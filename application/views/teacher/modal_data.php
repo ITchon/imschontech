@@ -46,21 +46,25 @@
 				</div>
           
                 <?php } ?>
-
+                <div class="col-md-6">
 				<form id="form" action="<?php echo base_url()?>teacher/confirm" method="post">
 						<!-- <?php echo "<a href='".base_url()."teacher/confirm/".$date ."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-check'></i></a>";   ?> -->
 							<input id="std_id" type="hidden" name="std_id" value="<?php echo $std_id?>">
 							<input type="hidden" name="date" value="<?php echo $date?>">
 						<?php echo "<button class='btn btn-success' type='submit' onclick='return confirm(\"Confirm this work?\")' >ยืนยัน</button>";?>
 					</form>
+					</div>
 
+					<div class="col-md-6">
 					<form id="form" action="<?php echo base_url()?>teacher/no_confirm" method="post">
 						<!-- <?php echo "<a href='".base_url()."teacher/no_confirm/".$date ."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='fa fa-ban'></i></a>";   ?> -->
 							<input type="hidden" name="std_id" value="<?php echo $std_id?>">
 							<input type="hidden" name="date" value="<?php echo $date?>">
-						<?php echo "<button class='btn btn-danger' type='submit' onclick='return confirm(\"Not confirm this work\")' >นอนยัน</button>";?>
+						<?php echo "<button class='btn btn-danger' type='submit' onclick='return confirm(\"Not confirm this work\")' >ไม่ยืนยัน</button>";?>
 					</form>
+					</div>
 			</div>
+			
 
 
 		</div> <!-- container -->

@@ -56,15 +56,18 @@ class Teacher Extends CI_controller{
 
     public function division() 	
 	{
+        if($this->input->post('std_id')){
+            $std_id = $this->input->post('std_id'); 
+            $text = "and student.std_id = '$std_id'";
+        }else{
+            $text = '';
+        }
+
         $teacher_id =  $this->session->userdata('teacher_id');
         $result = $this->model_teacher->get_division($teacher_id);
 
-        $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date,student.std_id,student.title,fname,lname FROM events
-        inner join train on train.std_id = events.std_id
-        inner join student on student.std_id = events.std_id
-        WHERE train.teacher_id = '$teacher_id' and teacher_confirm = 0 ORDER BY events.start_event DESC";
-        $query = $this->db->query($sql); 
-        $data['result_test'] = $query->result();
+        $data['result_test'] = $this->model_teacher->get_std_data($teacher_id,$text);
+        $data['result_search'] = $this->model_teacher->get_std_data1($teacher_id);
 
         $train_id = $this->input->post('train_id'); 
 
@@ -77,7 +80,7 @@ class Teacher Extends CI_controller{
         // exit;
         $this->load->view('teacher/modal');
 		$this->load->view('teacher/division',$data);
-		$this->load->view('footer');
+        $this->load->view('teacher/footer');
 
 	}
 

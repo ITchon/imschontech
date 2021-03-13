@@ -75,6 +75,48 @@ if($query) {
     }
 }
 
+public function get_std_data($teacher_id,$text) {
+  $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date,student.std_id,student.title,fname,lname,student.std_code,company_name,
+  class.class_name,class.class_group,division.dv_name
+  FROM events 
+  inner join train on train.std_id = events.std_id
+  inner join student on student.std_id = events.std_id 
+  inner join company on company.company_id = train.company_id
+  inner join class on class.class_id = student.class_id
+  inner join division on division.dv_id = class.dv_id
+  WHERE train.teacher_id = '$teacher_id' and teacher_confirm = 0 $text ORDER BY events.start_event DESC";
+$query = $this->db->query($sql);
+$result =  $query->result();
+
+if($query) {
+    return $result;  
+    }
+  else{       
+  return false;
+    }
+}
+
+public function get_std_data1($teacher_id) {
+  $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date,student.std_id,student.title,fname,lname,student.std_code,company_name,
+  class.class_name,class.class_group,division.dv_name
+  FROM events 
+  inner join train on train.std_id = events.std_id
+  inner join student on student.std_id = events.std_id 
+  inner join company on company.company_id = train.company_id
+  inner join class on class.class_id = student.class_id
+  inner join division on division.dv_id = class.dv_id
+  WHERE train.teacher_id = '$teacher_id' and teacher_confirm = 0 ORDER BY events.start_event DESC";
+$query = $this->db->query($sql);
+$result =  $query->result();
+
+if($query) {
+    return $result;  
+    }
+  else{       
+  return false;
+    }
+}
+
 // public function get_events_date($start_date,$end_date,$std_id,$class_id) {
 //   $sql = "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date ,e.id, e.title, e.description, e.color, e.start_event, e.end_event, e.std_id, e.t_id ,e.teacher_confirm, e.contact_confirm
 //   FROM `events` as e
