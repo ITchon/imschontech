@@ -183,6 +183,7 @@ $(document).ready(function(){
 $(".open-modal").click(function() {
 	var date = $(this).val();
     var std_id = $(this).data("id") 
+    alert(std_id);
 	 $.ajax({
 		url: "<?php
 					 echo base_url("crud/event_forteacher/");
