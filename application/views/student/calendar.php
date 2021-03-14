@@ -49,6 +49,10 @@ today = yyyy + '-' + mm + '-' + dd;
                 right:'month,agendaWeek,agendaDay',
              
             },
+            validRange: {
+                start: '<?php echo $start_date ?>',
+                end: '<?php echo $end_date ?>'
+            },
             timeFormat: 'HH:mm',
             slotLabelFormat:'HH:mm',
             minTime:'00:00',
@@ -139,9 +143,9 @@ today = yyyy + '-' + mm + '-' + dd;
             {
 
               var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-             var str = start; 
-            var time = str.slice(11, 20);
-            var start = str.slice(0, 10);
+              var str = start; 
+              var time = str.slice(11, 20);
+              var start = str.slice(0, 10);
 
                 $('#name').val(event.title);
                 $('#description').val(event.description);
@@ -163,11 +167,11 @@ today = yyyy + '-' + mm + '-' + dd;
                      data: data,
                     success:function(res)
                     {           
+                        console.log(res);
                       insert_issue(res);
                         calendar.fullCalendar('refetchEvents');
                         $('#addModal').modal('hide');
                         $("#form")[0].reset();
-                        $("#file").reset();
                     }
                   
             });
@@ -228,14 +232,13 @@ today = yyyy + '-' + mm + '-' + dd;
     
     </script>
 </head>
+</div>
     <div class="row">
          <div class="col-xs-12" >
                 <div class="panel panel-midnightblue calendar" >
                     <div class="panel-heading">
-
                         <h4><i class="fa fa-calendar"></i> ปฎิทินการปฎิบัติงาน</h4>
                         <div class="options">
-                            
                         </div>
                     </div>
                     <div class="panel-body" >
@@ -278,13 +281,8 @@ today = yyyy + '-' + mm + '-' + dd;
         <span class="text-white" style="font-size:24px">เพิ่มข้อมูลการปฎิบัติงาน</span>
       </div>
       <div class="modal-body">
-      <div class="text-center">
-      <a class="btn btn-info" href="#">ลากิจ</a>
-      <a class="btn btn-green" href="#">ลาป่วย</a>
-      <a class="btn btn-danger" href="#">ขาด</a>
-      </div>
-      <hr>
      <form name="form" id="form" class='form' method="post" enctype="multipart/form-data">
+     <input type="hidden" name="t_id" value="<?php echo $this->uri->segment('3') ?>">
       <div class="form-group">
                 <label for="p-in" class="col-md-4 ">ชื่อหัวข้อการปฎิบัติงาน</label>
                 <div class="col-md-8 ui-front">

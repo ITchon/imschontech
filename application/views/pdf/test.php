@@ -57,7 +57,7 @@ tr{
                     </tr>    
                     <tr>     
                     <td>  
-                   <?php echo "ระยะเวลาฝึกงาน ".$std_detail->start_date." ถึง ".$std_detail->end_date ?>
+                   <?php echo "ระยะเวลาฝึกงาน ".$start_date." ถึง ".$end_date ?>
                     </td> 
                     </tr>      
                     <tr> 

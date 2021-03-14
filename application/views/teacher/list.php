@@ -119,8 +119,8 @@
                               <td><?php echo $std->email ?></td>
                               <td><?php echo $std->class_name ?></td>
                               <?php echo "<td class='text-center'>
-                              <a target = '_blank' href='".base_url()."Teacher/std_data/".$std->std_id."'><button class='btn btn-info'>ดูรายละเอียด</button></a>
-                              <a target = '_blank' href='".base_url()."Teacher/supervision/".$std->std_id."'><button class='btn btn-brown'>ประเมิน</button></a>
+                              <a href='".base_url()."Teacher/std_data/".$std->std_id."'><button class='btn btn-info'>ดูรายละเอียด</button></a>
+                              <a href='".base_url()."Teacher/supervision/".$std->std_id."'><button class='btn btn-brown'>ดูเอกสาร</button></a>
                             
                               </td>";  ?>
                             </tr>

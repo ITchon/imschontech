@@ -1,3 +1,4 @@
+<?php $uri = ($this->uri->segment('3')) ?>
 <div id="">
     <div id='wrap' >
         <div id="page-heading">
@@ -14,7 +15,7 @@
                     <div class="row">
                         
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-success" href="<?php echo base_url(); ?>Student/view">
+                            <a class="info-tiles tiles-success" href="<?php echo base_url()."student/view/$uri" ?>">
                                 <!-- <div class="tiles-heading">Revenue</div> -->
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-4x fa-eye"></i>
@@ -25,7 +26,7 @@
                         </div>
 
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-toyo" href="<?php echo base_url(); ?>Student/calendar">
+                            <a class="info-tiles tiles-toyo" href="<?php echo base_url()."student/calendar/$uri" ?>">
                                 <!-- <div class="tiles-heading">Profit</div> -->
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-calendar"></i>
@@ -36,7 +37,7 @@
                         </div>
 
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-orange"href="<?php echo base_url(); ?>Student/file">
+                            <a class="info-tiles tiles-orange"href="<?php echo base_url()."student/file/$uri" ?>">
                                 <!-- <div class="tiles-heading">Members</div> -->
                                 <div class="tiles-body-alt">
                                     <!-- <i class="fa fa-comments-o"></i> -->
@@ -47,7 +48,7 @@
                         </div>
 
                         <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-alizarin" href="<?php echo base_url(); ?>Student/profile">
+                            <a class="info-tiles tiles-alizarin" href="<?php echo base_url()."student/profile/$uri" ?>">
                                 <!-- <div class="tiles-heading">Orders</div> -->
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-group"></i>

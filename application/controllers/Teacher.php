@@ -49,7 +49,10 @@ class Teacher Extends CI_controller{
         $std_id =  $this->uri->segment('3');
         $teacher_id =  $this->session->userdata('teacher_id');
         $data['result_spv'] = $this->model_spv->get_spv($std_id);
-        // print_r($data['result_spv']);exit;
+        $sql="SELECT  * FROM student_train_detail
+        where std_id = '$std_id'";
+        $query = $this->db->query($sql); 
+        $data['result_train'] = $query->result();
 		$this->load->view('teacher/supervision',$data);
 		$this->load->view('footer');
 
@@ -155,8 +158,6 @@ class Teacher Extends CI_controller{
         $this->load->view('teacher/footer');
 
 	}
-
-
 
 	public function list() 	
 	{
