@@ -17,16 +17,38 @@
                     </ul>
                 </li> -->
                
-                <li><a href="<?php echo base_url(); ?>manage_division"><i class="fa fa-home"></i><span>แผนก</span></a></li>
+                <?php if($this->session->userdata('usergroup') == 'admin'){ ?>
+                <li><a href="<?php echo base_url(); ?>manage_officer"><i class="fa fa-user"></i><span>เจ้าหน้าที่</span></a></li>
                 <li><a href="<?php echo base_url(); ?>manage_teacher"><i class="fa fa-user"></i><span>อาจารย์</span></a></li>
-                <li><a href="<?php echo base_url(); ?>Classs"><i class="fa fa-circle"></i><span>ชั้นเรียน</span></a></li>
                 <li><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>นักเรียน</span></a></li>
+                
                 <li><a href="<?php echo base_url(); ?>manage_contact"><i class="fa fa-user"></i> <span>ผู้คุมการฝึกงาน</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_division"><i class="fa fa-home"></i><span>แผนก</span></a></li>
+                <li><a href="<?php echo base_url(); ?>Classs"><i class="fa fa-circle"></i><span>ชั้นเรียน</span></a></li>
                 <li><a href="<?php echo base_url(); ?>Company"><i class="fa fa-building"></i><span>สถานประกอบการ</span></a></li>
                 <li><a href="<?php echo base_url(); ?>manage_train"><i class="fa fa-suitcase"></i><span>การฝึกงาน</span></a></li>
                 <li><a href="<?php echo base_url(); ?>manage_asm"><i class="fa fa-user"></i><span>แบบประเมินผล</span></a></li>
                 <li><a href="<?php echo base_url(); ?>manage_user"><i class="fa fa-user"></i><span>ผู้ใช้งานในระบบ</span></a></li>
                 <li><a class="btn btn-default" href="<?php echo base_url(); ?>logout"><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
+                <?php } ?>
+
+                <?php if($this->session->userdata('usergroup') == 'bilateral'){ ?>
+                <li><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>นักเรียน</span></a></li>
+                
+                <li><a href="<?php echo base_url(); ?>manage_contact"><i class="fa fa-user"></i> <span>ผู้คุมการฝึกงาน</span></a></li>
+                <li><a href="<?php echo base_url(); ?>Company"><i class="fa fa-building"></i><span>สถานประกอบการ</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_train"><i class="fa fa-suitcase"></i><span>การฝึกงาน</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_asm"><i class="fa fa-user"></i><span>แบบประเมินผล</span></a></li>
+                <li><a class="btn btn-default" href="<?php echo base_url(); ?>logout"><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
+                <?php } ?>
+
+                <?php if($this->session->userdata('usergroup') == 'course'){ ?>
+                <li><a href="<?php echo base_url(); ?>manage_teacher"><i class="fa fa-user"></i><span>อาจารย์</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_division"><i class="fa fa-home"></i><span>แผนก</span></a></li>
+                <li><a href="<?php echo base_url(); ?>Classs"><i class="fa fa-circle"></i><span>ชั้นเรียน</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_user"><i class="fa fa-user"></i><span>ผู้ใช้งานในระบบ</span></a></li>
+                <li><a class="btn btn-default" href="<?php echo base_url(); ?>logout"><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
+                <?php } ?>
                 <!-- <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
                     <ul class="acc-menu">
                         <li><a href="<?php echo base_url(); ?>manage_contact"> Contact</a></li>
@@ -39,7 +61,7 @@
                     </ul>
                 </li> -->
                 
-               
+                
                                         </li>
                                     </ul>
                                 </li>

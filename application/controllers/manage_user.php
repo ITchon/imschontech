@@ -65,18 +65,31 @@ class manage_user Extends CI_controller{
 				$username = $data[0]->citizen_id;
 				$password = $data[0]->th_birth_date;
 			}
+			if($usergroup == "bilateral"){
+				$qry_inp1 =  "SELECT * FROM officer where officer_id = '$user_id'";
+				$query1 = $this->db->query($qry_inp1); 
+				$data = $query1->result();
+				$username = $data[0]->citizen_id;
+				$password = $data[0]->of_birth_date;
+			}
+			if($usergroup == "course"){
+				$qry_inp1 =  "SELECT * FROM officer where officer_id = '$user_id'";
+				$query1 = $this->db->query($qry_inp1); 
+				$data = $query1->result();
+				$username = $data[0]->citizen_id;
+				$password = $data[0]->of_birth_date;
+			}
 			if($usergroup == "contact"){
 				$user_id = 1;
 				$username= $this->input->post('username');
 				$password= $this->input->post('password');
 			}
-		
 		}else{
 			$user_id = 1;
 			$username= $this->input->post('username');
 			$password= $this->input->post('password');
 			$status_login = 1;
-		} 
+		}
 		$result =  $this->model->insert_user($user_id,$usergroup ,$username ,$password ,$status_login);
 		if($result==1){
 			$this->session->set_flashdata
@@ -107,7 +120,7 @@ class manage_user Extends CI_controller{
         $data['result'] = $this->model->selectuser($id);
         // $data['result_ct'] = $this->model->selectusercont($id);
 		$this->load->view('ADMIN FOR ADMIN/user/edit',$data);
-        $this->model->update_user($user_id ,$username ,$password ,$id); 
+        // $this->model->update_user($user_id ,$username ,$password ,$id); 
 	}
 
 	public function edit_p()

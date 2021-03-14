@@ -34,6 +34,28 @@ class Model_ajax extends CI_Model
             
                  return $output;
                 break;
+                case "bilateral":
+                    $sql ="SELECT officer_id ,of_code,title,fname,lname from officer ";
+                    $query = $this->db->query($sql); 
+                    $output = '';
+                    foreach($query->result() as $row)
+                    {       
+                        $output .= '<option  value="'.$row->officer_id.'">'.$row->of_code." | ".$row->title." ".$row->fname." ".$row->lname.'</option>.';
+                    }
+            
+                 return $output;
+                break;
+                case "course":
+                    $sql ="SELECT officer_id ,of_code,title,fname,lname from officer ";
+                    $query = $this->db->query($sql); 
+                    $output = '';
+                    foreach($query->result() as $row)
+                    {       
+                        $output .= '<option  value="'.$row->officer_id.'">'.$row->of_code." | ".$row->title." ".$row->fname." ".$row->lname.'</option>.';
+                    }
+            
+                 return $output;
+                break;
                 case "contact":
                     $sql ="SELECT contact_id as id ,name as fname  from contact ";
                     $query = $this->db->query($sql); 

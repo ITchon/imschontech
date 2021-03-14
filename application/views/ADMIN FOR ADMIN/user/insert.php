@@ -56,6 +56,8 @@
                                                 <option value="admin">admin</option>
                                                 <option value="teacher">teacher</option>
                                                 <option value="contact">contact</option>
+                                                <option value="bilateral">bilateral</option>
+                                                <option value="course">course</option>
                                              </Select>
 
                                         </div>
