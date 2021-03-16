@@ -42,7 +42,7 @@ class manage_officer Extends CI_controller{
         $username = $this->input->post('citizen_id');
         $usergroup = $this->input->post('usergroup');
 		$status_login = "0";
-		$user_id=$this->officer_model->insert_officer($username, $title ,$fname ,$lname ,$tel ,$email ,$of_code ,$password); 
+		$user_id=$this->officer_model->insert_officer($username, $title ,$fname ,$lname ,$tel ,$email ,$of_code ,$password,$usergroup); 
 
 				 $this->model->insert_user($user_id, $usergroup, $username, $password, $status_login);
 				 $this->session->set_flashdata

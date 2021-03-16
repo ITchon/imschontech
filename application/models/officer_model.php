@@ -1,9 +1,10 @@
 <?php 
     class Officer_model extends CI_Model {
 
-        public function insert_officer($username,$title ,$fname ,$lname ,$tel ,$email ,$of_code ,$password)
+        public function insert_officer($username,$title ,$fname ,$lname ,$tel ,$email ,$of_code ,$password,$usergroup)
         {
             $sql ="INSERT INTO  officer (
+                        officer_type,
                         citizen_id,
                         title,
                         fname,
@@ -14,7 +15,7 @@
                         of_birth_date
                         
                         )
-                VALUES ('$username','$title','$fname','$lname','$tel','$email','$of_code','$password');";          
+                VALUES ('$usergroup','$username','$title','$fname','$lname','$tel','$email','$of_code','$password');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {

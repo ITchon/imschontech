@@ -59,6 +59,7 @@ class Login extends CI_Controller {
 					$arrData = array(
 								'id' => $data['id'],
 								'teacher_id'=> $userdata['teacher_id'],
+								'usergroup'=> $data['usergroup'],
 								'password'=> $userdata['password'],
 								'username'=> $userdata['username'],
 								'login' => "OK" ,
@@ -109,6 +110,7 @@ class Login extends CI_Controller {
 					$arrData = array(
 									'id' => $data['id'],
 									'contact_id'=> $userdata['contact_id'],
+									'usergroup'=> $data['usergroup'],
 									'status_login' => $data['status_login'] ,
 									'tel'=> $userdata['tel'],
 									'name' =>$userdata['name']);	
@@ -124,6 +126,7 @@ class Login extends CI_Controller {
 					$arrData = array(
 								'id' => $data['id'],
 								'std_id'=> $userdata['std_id'],
+								'usergroup'=> $data['usergroup'],
 								'tel'=> $userdata['tel'],
 								'birth_date'=> $userdata['birth_date'],
 								'class_id'=>$userdata['class_id'],

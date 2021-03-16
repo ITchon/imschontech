@@ -6,7 +6,6 @@
 </style>
 <div id="">
     <div id='wrap' >
-
         <div class="container" style="background-color: #ffffff;" >
             <div class="row">
                 <div class="col-md-12">
@@ -71,7 +70,9 @@
                                                     $date_event = $dt->format('Y-m-d');
                                                     $time = $dt->format('H:i:s');
                                                     if($date == $date_event){
-                                                        echo $r->title."  ";
+                                                        if($row->std_id == $r->std_id){
+                                                            echo $r->title."  ";
+                                                          }
                                                     }
 												} ?>
 												</td>
@@ -183,7 +184,6 @@ $(document).ready(function(){
 $(".open-modal").click(function() {
 	var date = $(this).val();
     var std_id = $(this).data("id") 
-    alert(std_id);
 	 $.ajax({
 		url: "<?php
 					 echo base_url("crud/event_forteacher/");

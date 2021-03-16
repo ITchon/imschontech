@@ -35,7 +35,7 @@ class Model_ajax extends CI_Model
                  return $output;
                 break;
                 case "bilateral":
-                    $sql ="SELECT officer_id ,of_code,title,fname,lname from officer ";
+                    $sql ="SELECT officer_id ,of_code,title,fname,lname from officer where officer_type ='$usergroup'";
                     $query = $this->db->query($sql); 
                     $output = '';
                     foreach($query->result() as $row)
@@ -46,7 +46,7 @@ class Model_ajax extends CI_Model
                  return $output;
                 break;
                 case "course":
-                    $sql ="SELECT officer_id ,of_code,title,fname,lname from officer ";
+                    $sql ="SELECT officer_id ,of_code,title,fname,lname from officer where officer_type ='$usergroup'";
                     $query = $this->db->query($sql); 
                     $output = '';
                     foreach($query->result() as $row)
