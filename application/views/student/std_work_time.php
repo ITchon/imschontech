@@ -74,7 +74,7 @@
 																		</td>
 																		<td class="text-center">
 																		<?php
-																		 if($rd->confirm == "0")echo "<span class='text-danger'>ยังไม่ได้รับการยืนยัน</span>";
+																		 if($rd->confirm == "0")echo "<span class='text-danger'></span>";
 																		 else echo "<span class='text-success'>ได้รับการยืนยันแล้ว</span>";
 																		 ?></td>
 																	</tr>

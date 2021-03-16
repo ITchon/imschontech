@@ -86,11 +86,12 @@ class Fullcalendar extends CI_Controller {
    $des = $this->input->post('description');
    $color = $this->input->post('color');
     $s_day = $this->input->post('start_day');
-    $s_time= $this->input->post('start_time');
+    $s_time = $this->input->post('start_time');
     $e_day =$this->input->post('end_day');
-    $e_time= $this->input->post('etime');
+    $e_time = $this->input->post('etime');
+    $t_id = $this->input->post('t_id');
     $std_id =  $this->session->userdata('std_id');
-    $last_id = $this->fullcalendar_model->insert_event( $title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id);
+    $last_id = $this->fullcalendar_model->insert_event( $title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id,$t_id);
      
      echo json_encode($last_id);
 

@@ -137,6 +137,16 @@ public function delete_user($id)
         return false;
         } 
 }
+  public function Thai_date_all($result_date)
+  {
+    $result = [];
+    foreach($result_date as $rd){
+      // echo $rd->date;
+      $date =  $this->model->Thai_date($rd->date);
+      array_push($result,$date);
+    }
+    return $result;
+  }
   public function Thai_date($date)
   {
     list($year,$month,$day) = explode('-',$date);

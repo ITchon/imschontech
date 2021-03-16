@@ -44,7 +44,7 @@ class Login extends CI_Controller {
         $user = $this->input->post('username');
         $pass = $this->input->post('password');
 		$data= $this->model->chk_user($user,$pass);
-					if($data != true){
+		if($data != true){
 						$this->session->set_flashdata
 						('success','<div class="alert alert-danger">
 												<span>  
