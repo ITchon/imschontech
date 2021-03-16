@@ -136,7 +136,8 @@ class Login extends CI_Controller {
 				redirect('main');
 				 }
 				else if($data['usergroup']=="admin"){
-			 	$arrData = array('id' => $data['id'],'admin_id'=> $data['user_id'],'password'=> $data['password'],'username'=> $data['username'],'login' => "OK",'status_login' => $data['status_login'] );	
+			 	$arrData = array('id' => $data['id'],'admin_id'=> $data['user_id'],'password'=> $data['password'],'username'=> $data['username'],'login' => "OK",'status_login' => $data['status_login'],
+				 'usergroup'=> $data['usergroup']);	
              	$this->session->set_userdata($arrData);
 			 	$username = $this->session->userdata('username');
 			 	redirect('main');
