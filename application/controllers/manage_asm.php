@@ -26,7 +26,8 @@ class manage_asm Extends CI_controller{
         // $data['result_g'] = $this->contact_model->teacher();
 		$this->load->view('ADMIN FOR ADMIN/assessment/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
-	
+        $this->load->view('ADMIN FOR ADMIN/script');
+        $this->load->view('ADMIN FOR ADMIN/modal');
 	}
     public function insert_sub()
 	{
@@ -45,6 +46,8 @@ class manage_asm Extends CI_controller{
         $data['result_glist'] = $this->assessment_model->getsubgrouplist($id);
 
 		$this->load->view('ADMIN FOR ADMIN/assessment/edit_subject',$data);
+        $this->load->view('ADMIN FOR ADMIN/script');
+        $this->load->view('ADMIN FOR ADMIN/modal');
 		// $this->load->view('ADMIN FOR ADMIN/assessment/edit_modal',$data);
 		// $this->load->view('ADMIN FOR ADMIN/footer_2020');
 	}
@@ -52,7 +55,6 @@ class manage_asm Extends CI_controller{
 	public function edit_subname()
 	{
 		$sub_name    = $this->input->post('sub_name'); 
-       
 	    $subject_id 	  = $this->input->post('subject_id');
         $this->assessment_model->update_subname($sub_name ,$subject_id); 
         $this->session->set_flashdata('success','<div class="alert alert-success hide-it">  
@@ -63,7 +65,7 @@ class manage_asm Extends CI_controller{
             echo '</script>';
 	}
 
-	public function delete_subject($subject_id)
+	public function delete($subject_id)
 	{
 		$result = $this->assessment_model->del_sub($subject_id);
 		if($result!=FALSE)
@@ -102,7 +104,7 @@ class manage_asm Extends CI_controller{
             }
         echo json_encode($arr);
     }
-    public function delete_subglist()
+    public function sj_delete()
 	{
         if($this->input->post('sub_id'))
         {
