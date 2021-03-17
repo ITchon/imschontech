@@ -9907,7 +9907,7 @@ body.show-rightbar #chatarea .chatmsg.sent:after {
   padding: 5px 10px 5px 37px;
 }
 #sidebar ul li.active:not(.open) > a {
-  font-weight: 600;
+  /* font-weight: 600; */
   color: #3f444c;
 }
 #sidebar li ul {
@@ -9993,10 +9993,10 @@ body.collapse-leftbar #sidebar > li.hasChild:hover > a:before {
 }
 /* Sidebar Layout + Responsive */
 #page-leftbar {
-  width: 230px;
+  width: 270px;
 }
 #page-content {
-  margin-left: 230px;
+  margin-left: 270px;
 }
 #wrap {
   overflow: hidden;

@@ -31,44 +31,17 @@
     display:inline-block;
     }
 </style>
-		<div class="container">
+<div id="wrap">
 			<div class="row">
+            <div class="col-md-12">
+			<div class="panel panel-default" >
+			<div class="panel-body" style="min-height: 752px;">
 					<div class="panel panel-1">
                         <div class="panel-heading">
                                 <h4>ประเมินการฝึกงาน </h4>
                         </div>
                         <div class="panel-body" style="padding: 10px;">
-                        <div class="panel-body" style="padding: 10px;">
-                              <form action="" method="post">
-                                <div class="form-group">
-                                    <span>เลือกปีการศึกษา </span>
-                                    <select name="train_id" class="selectpicker form-control" id="subject_id">
-                                    <?php 
-                                  
-                                    foreach($result_train as $rt){ 
-                                        $year = substr($rt->start_date,0,4)+543;
-                                        ?>
-                                                <option value="<?php echo $rt->t_id ?>"><?php echo $year ?></option>
-                                    <?php
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <span>เลือกแบบประเมิน </span>
-                                    <select name="subject_id" class="selectpicker form-control" id="subject_id">
-                                    <?php foreach($result_spv as $rp){ 
-                                        ?>
-                                                <option value="<?php echo $rp->subject_id ?>"><?php echo $rp->subject_name ?></option>
-                                    <?php
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                    <input type="submit" class="btn btn-primary" value="ค้นหา">
-                              </form>
-                              </div>
-                              <br>
+                       
                       <?php if($std_detail != null) { ?>
                         <div class="panel-body" style="padding: 20px;">
                         <div class="row">

@@ -16,8 +16,10 @@ class Teacher Extends CI_controller{
         
         $teacher_id =  $this->session->userdata('teacher_id');
         $data['result'] = $this->model_teacher->get_division($teacher_id);
+        $data['result_subject'] = $this->model_spv->get_subject_teacher($teacher_id);
+        
         $this->load->view('teacher/header');
-        $this->load->view('teacher/nevbar');
+        $this->load->view('teacher/nevbar',$data);
         // $this->load->view('teacher/menu',$data);
 
 		$this->model->CheckSession();
@@ -35,14 +37,15 @@ class Teacher Extends CI_controller{
 
     }
 
-    public function profile() 	
+    public function subject() 	
 	{
         $teacher_id =  $this->session->userdata('teacher_id');
-        $data['result'] = $this->model_teacher->get_teacher_profile($teacher_id);
-
-        
-		$this->load->view('teacher/profile',$data);
-		$this->load->view('footer');
+        $class_id =  $this->uri->segment('3');
+        $sql="SELECT  * FROM student_train_detail ";
+        $query = $this->db->query($sql); 
+        $data['result'] = $query->result(); ;
+        $this->load->view('teacher/std_list',$data);
+        $this->load->view('teacher/footer');
 
     }
     public function supervision() 	
@@ -93,19 +96,18 @@ class Teacher Extends CI_controller{
     public function supervision_insert() 	
 	{   
         $std_id =  $this->uri->segment('3');
+        $subject_id =  $this->uri->segment('4');
+        
         $data['std_detail'] = null;
-        if($this->input->post('subject_id')!=null && $this->input->post('train_id')!=null){
-            $data['result'] = $this->model_spv->get_subject_data($this->input->post('subject_id'));
+            $data['result'] = $this->model_spv->get_subject_data($subject_id);
             if($data['result']!=null){
                 $data['subject_name'] = $data['result'][0]->subject_name;
                 $data['subject_id'] = $data['result'][0]->subject_id;
                 $data['train_id'] = $this->input->post('train_id');
-                $data['std_detail'] = $this->model_pdf->get_train_detail($this->input->post('train_id'));
+                $data['std_data'] = $this->model_spv->get_train($std_id);
+                $data['std_detail'] = $this->model_pdf->get_train_detail($data['std_data'][0]->t_id);
             }
             // print_r($data['result'][0]->subject_name);
-        }
-        $data['result_spv'] = $this->model_spv->get_subject_teacher();
-        $data['result_train'] = $this->model_spv->get_train($std_id);
 		$this->load->view('teacher/supervision_insert',$data);
 		$this->load->view('footer');
 
