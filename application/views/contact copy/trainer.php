@@ -150,10 +150,7 @@
                               <td><?php echo $std->tel ?></td>
                               <td><?php echo $std->email ?></td>
                               <td><?php echo $std->dv_name ?></td>
-                              <?php echo "<td> 
-                              <a href='".base_url()."contact/trainer_data/".$std->std_id."'><button class='btn btn-info'>ดูรายละเอียด</button></a>
-                              <a href='".base_url()."contact/supervision/".$std->std_id."'><button class='btn btn-brown'>ดูเอกสาร</button></a>
-                              </td>";  ?>
+                              <?php echo "<td><a target = '_blank' href='".base_url()."contact/trainer_data/".$std->std_id."'>ดูรายละเอียด</a></td>";  ?>
                             </tr>
                               <?php }}else{
                                   echo "No Data";

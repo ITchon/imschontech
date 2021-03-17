@@ -35,11 +35,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <!-- <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/less.js"></script> -->
 </head>
-<script>
-$(document).ready(function() {
-          $(".alert").fadeOut(3000);
-});
-    </script>
+
 <body class="">
     <div id="headerbar"  >
         <div class="container">
@@ -114,9 +110,9 @@ $(document).ready(function() {
     </div>
 
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner" >
-    <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
+
         <div class="navbar-header pull-left">
-            <a class="navbar-brand" href="<?php echo base_url(); ?>teacher/dashboard">Avant</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>contact/dashboard">Avant</a>
         </div>
 
         <ul class="nav navbar-nav pull-right toolbar">

@@ -27,46 +27,7 @@
 					<div class="panel panel-1">
 						<div class="panel-body" >
                             <h4>ชื่อ : Suphachok  </h4>
-                                <div class="panel panel-1" >
-                                    <div class="panel-heading">
-                                    <h4>เอกสารการฝึกงาน</h4>
-                                    </div>
-                                    <div class="panel-body" >
-                                            <div class="col-md-6 col-sm-6">
-                                                 <div class="panel panel-0">
-                                                    <div class="panel-heading">
-                                                        <h4>บันทึกการฝึกปฏิบัติงาน </h4>
-                                                    </div>  
-                                                        <div class="panel-body" >
-                                                        <?php  foreach($result_train as $rs){?>
-                                                            <a href="<?php 
-                                                                    $t_id = $rs->t_id ; 
-                                                                    echo base_url()."pdf/std_worklist_form/$t_id" ?>">
-                                                                    <button class="btn btn-brown"><?php echo $rs->start_date ?></button>
-                                                                    </a>
-                                                            <?php } ?>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6">
-                                                 <div class="panel panel-4">
-                                                    <div class="panel-heading">
-                                                        <h4>ตารางเวลาการปฏิบัติงาน</h4>
-                                                    </div>  
-                                                        <div class="panel-body" >
-                                                        <?php  foreach($result_train as $rs){?>
-                                                            <a href="<?php 
-                                                                    $t_id = $rs->t_id ; 
-                                                                    echo base_url()."pdf/std_work_form/$t_id" ?>">
-                                                                    <button class="btn btn-brown"><?php echo $rs->start_date ?></button>
-                                                                    </a>
-                                                            <?php } ?>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                         
-                                             </div>
-                                    </div>
+                               
                                 <div class="panel panel-1">
                                     <div class="panel-heading">
                                     <h4>อาจารย์นิเทศ</h4>
@@ -95,8 +56,8 @@
                                                                 </div>
                                                                 <div class="col-md-12 text-right" style="padding-top:20px">
                                                                     <a href="<?php 
-                                                                    $spv_id = $rs->spv_teacher_id ; 
-                                                                    echo base_url()."teacher/supervision_view_th/$spv_id" ?>">
+                                                                    $spv_id = $rs->spv_contact_id ; 
+                                                                    echo base_url()."contact/supervision_view/$spv_id" ?>">
                                                                     <button class="btn btn-brown">ดูแบบประเมิน</button>
                                                                     </a>
                                                                 </div>
@@ -111,7 +72,7 @@
                                                                 <div class="col-md-12 text-center">
                                                                    <a href="<?php
                                                                     $url = $this->uri->segment('3');
-                                                                    echo base_url()."teacher/supervision_insert/$url" 
+                                                                    echo base_url()."contact/supervision_insert/$url" 
                                                                     ?>"><button class="btn btn-primary"> เพิ่มการประเมิน</button></a>
 
                                                                 </div>

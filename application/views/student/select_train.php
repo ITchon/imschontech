@@ -5,12 +5,13 @@
                                                                                 
     										<div class="col-sm-3 col-xs-3">
 											<select name="train_id" class="form-control">
+											<option value="">--เลือกภาคเรียน--</option>
 											<?php
 												foreach($train_select as $r){
 													if($t_id == $r->t_id)$selected= "selected";
 													else $selected= "";
 													?>
-													<option <?php echo $selected ?> value="<?php echo $r->t_id ?>"><?php echo $r->start_date ?></option>		
+													<option <?php echo $selected ?> value="<?php echo $r->t_id ?>"><?php echo $r->term ?></option>		
 												<?php
 												}
 											 ?>

@@ -33,6 +33,8 @@ class Fullcalendar extends CI_Controller {
     'description' => $row['description'],
     'color' => $row['color'],
     'start' => $row['start_event'],
+    'teacher_confirm' => $row['teacher_confirm'],
+    'contact_confirm' => $row['contact_confirm'],
     'end' => $row['end_event']
 
    );

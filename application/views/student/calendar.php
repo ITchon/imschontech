@@ -63,15 +63,13 @@ today = yyyy + '-' + mm + '-' + dd;
             eventTextColor: '#FFFFFF',
             nextDayThreshold : "24:00:00",
             displayEventTime: true,
-			displayEventEnd:false,
+	      		displayEventEnd:false,
             editable:true,
  
             events:"<?php echo base_url(); ?>fullcalendar/load",
                     eventRender: function (event, element, view) {
-                if (event.allDay === 'true') {
-                    event.allDay = true;
-                } else {
-                    event.allDay = false;
+                      if(event.teacher_confirm == 1 && event.contact_confirm == 1){
+                      element.find('.fc-content').css("background-color","#16a037"); 
                 }
             },
 
@@ -146,7 +144,13 @@ today = yyyy + '-' + mm + '-' + dd;
               var str = start; 
               var time = str.slice(11, 20);
               var start = str.slice(0, 10);
-
+                if(event.teacher_confirm == 1 && event.contact_confirm == 1){
+                  $('input,select,textarea, #delete').prop("disabled", "disabled");
+                  $('#check-confirm').html("<h4 class='text-danger'>ได้รับการยืนยันแล้ว</h4>");
+                }else{
+                  $('input,select,textarea, #delete').prop("disabled", false);;
+                  $('#check-confirm').html("");
+                }
                 $('#name').val(event.title);
                 $('#description').val(event.description);
                 $('#color').val(event.color);
@@ -167,8 +171,8 @@ today = yyyy + '-' + mm + '-' + dd;
                      data: data,
                     success:function(res)
                     {           
-                        console.log(res);
-                      insert_issue(res);
+                      //   console.log(res);
+                      // insert_issue(res);
                         calendar.fullCalendar('refetchEvents');
                         $('#addModal').modal('hide');
                         $("#form")[0].reset();
@@ -361,6 +365,9 @@ today = yyyy + '-' + mm + '-' + dd;
 
       <form name="form2" id="form2" class='form2' method="post">
       <div class="modal-body">
+        <div class="text-center">
+          <span id="check-confirm"></span>
+          </div>
       <div class="form-group">
                 <label for="p-in" class="col-md-4 ">ชื่อหัวข้อการปฎิบัติงาน</label>
                 <div class="col-md-8 ui-front">

@@ -13,8 +13,6 @@ class manage_train Extends CI_controller{
         $this->load->view('ADMIN FOR ADMIN/nevbar');
 
 
-
-
 	}
 
 	public function index() 	
@@ -52,14 +50,12 @@ class manage_train Extends CI_controller{
         $std_id    = $this->input->post('std_id');
         $teacher_id    = $this->input->post('teacher_id');
         $contact_id    = $this->input->post('contact_id');
+        $term    = $this->input->post('term');
         $start_date      = $this->input->post('start_date');
 		$end_date      = $this->input->post('end_date');
 		$status      = $this->input->post('status');
 		$note      = $this->input->post('note');
-
-		$this->train_model->insert_p($company_id ,$std_id ,$teacher_id,$contact_id ,$start_date ,$end_date ,$status ,$note); 
-		
-		
+		$this->train_model->insert_p($company_id ,$std_id ,$teacher_id,$contact_id,$term,$start_date ,$end_date ,$status ,$note); 
         redirect('manage_train');
 	}
 
@@ -73,24 +69,30 @@ class manage_train Extends CI_controller{
 		$qry_inp2 =  "SELECT * FROM company";
 		$query1 = $this->db->query($qry_inp2); 
 		$data['result_cp'] = $query1->result();
+		$qry =  "SELECT * FROM teacher";
+		$query = $this->db->query($qry); 
+		$data['result_th'] = $query->result();
 		$qry_inp1 =  "SELECT * FROM contact";
 		$query1 = $this->db->query($qry_inp1); 
 		$data['result_ct'] = $query1->result();
 		$this->load->view('ADMIN FOR ADMIN/train/edit',$data);
+		$this->load->view('ADMIN FOR ADMIN/footer_2020');
+
 	}
 
 	public function edit_p()
 	{
 		$company_id    = $this->input->post('company_id'); 
         $std_id    = $this->input->post('std_id');
+        $teacher_id    = $this->input->post('teacher_id');
         $contact_id    = $this->input->post('contact_id');
+        $term    = $this->input->post('term');
         $start_date      = $this->input->post('start_date');
 		$end_date      = $this->input->post('end_date');
 		$status      = $this->input->post('status');
 		$note      = $this->input->post('note');
-		
 	    $t_id 	  = $this->input->post('t_id');
-        $this->train_model->edit_p($company_id ,$std_id ,$contact_id ,$start_date ,$end_date ,$status ,$note ,$t_id); 
+		$this->train_model->edit_p($company_id ,$std_id ,$teacher_id,$contact_id,$term,$start_date ,$end_date ,$status ,$note,$t_id); 
         redirect('manage_train');
 	}
 

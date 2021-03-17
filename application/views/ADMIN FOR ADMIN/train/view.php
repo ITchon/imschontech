@@ -48,6 +48,7 @@
                                             <th>อาจารย์นิเทศ</th>
                                             <th>อาจารย์ที่ปรึกษา</th>
                                             <th>ผู้คุมการฝึกงาน</th>
+                                            <th>ปีการศึกษา</th>
                                             <th>เวลาเรื่มฝึกงาน</th>
                                             <th>เวลาจบฝึกงาน</th>
                                             <th>สถานะ</th>
@@ -59,8 +60,11 @@
                                     <tbody>
                                             <?php foreach($result as $r){ ?>
                                             <?php 
-
-                                                if($r->status == 1 ){ 
+                                                if($r->status == null){
+                                                    $txt_status = ''; 
+                                                    $txt_color = '';
+                                                }
+                                               else if($r->status == 1 ){ 
                                                 
                                                 $txt_status = 'ผ่าน'; 
                                                 $txt_color = '#0EC952';
@@ -80,6 +84,7 @@
                                             <td><?php echo $r->spv_title.$r->spv_fname." ".$r->spv_lname ?></td>
                                             <td><?php echo $r->cth_title.$r->cth_fname." ".$r->cth_lname ?></td>
                                             <td><?php echo $r->name ?></td>
+                                            <td><?php echo $r->term ?></td>
                                             <td><?php echo $r->start_date ?></td>
                                             <td><?php echo $r->end_date ?></td>
                                             <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td>

@@ -113,7 +113,7 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 			</form>
 			<div class="pull-left">
 				<!-- <input type="submit" class="btn btn-danger" > -->
-                <a href="<?php echo base_url() ?>website" class="text-light"><button type="submit" href="" class="btn btn-danger">กลับสู่หน้าหลัก</button></a>
+                <!-- <a href="<?php echo base_url() ?>website" class="text-light"><button type="submit" href="" class="btn btn-danger">กลับสู่หน้าหลัก</button></a> -->
 			</div>
 		</div>
 	</div>

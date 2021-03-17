@@ -8,13 +8,13 @@
             $data  = $query->result(); 
         }
      
-        public function insert_sub($sub_name)
+        public function insert_sub($sub_name,$sub_type)
         {
            
             $sql ="INSERT INTO  subject (
-                        subject_name
+                        subject_name,subject_type
                         )
-                VALUES ('$sub_name');";          
+                VALUES ('$sub_name','$sub_type');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {

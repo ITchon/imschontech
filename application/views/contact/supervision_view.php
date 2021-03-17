@@ -113,7 +113,7 @@ display:inline-block;
                                 </table>
                                 <div class="text-center">
                                     <button onclick="window.history.back();" class="btn btn-default">กลับ</button>
-                                    <a href="<?php echo base_url()."pdf/view_teacher/$url"?>"><button class="btn btn-green">ดาวน์โหลดเอกสาร</button></a>
+                                    <a href="<?php echo base_url()."pdf/view/$url"?>"><button class="btn btn-green">ดาวน์โหลดเอกสาร</button></a>
                                 </div>
 
                         <?php } ?>

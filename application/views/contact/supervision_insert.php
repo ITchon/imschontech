@@ -102,8 +102,8 @@
                               <?php } ?>
                               <?php 
                               $url = $this->uri->segment('3');
-                              if($result != null) { ?>
-                              <form action="<?php echo base_url()."teacher/supervision_save_th/$url" ?>" method="post">
+                              if(isset($result)) { ?>
+                              <form action="<?php echo base_url()."contact/supervision_save/$url" ?>" method="post">
                                 <input type="hidden" name="subject_id" value="<?php echo $subject_id ?>">
                                 <input type="hidden" name="train_id" value="<?php echo $train_id ?>">
                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
@@ -137,7 +137,16 @@
                                     </tbody>
                                     </table>
                                     <div class="text-center">
- 
+                                         <div class="form-group">
+                                             <div class="col-md-12">
+                                            <label for="textarea"><h4>ข้อเสนอแนะ / ติชม</h4> </label><br>
+                                            <textarea id="textarea" name="suggest" class="form-control" cols="50" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="position"><h4>ตำแหน่ง</h4> </label>
+                                            <input type="text" class="form-control" name="position" id="position">
+                                        </div>
                                         <div class="form-group">
                                         <input type="hidden" name="max" value="<?php echo $i-1?>">
                                         <input type="submit" class="btn btn-primary" value="บันทึก">

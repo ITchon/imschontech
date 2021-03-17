@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="contact_id">ผู้คุมการฝึกงาน</label>
+                                            <label for="contact_id">ผู้ควบคุมการฝึกงาน</label>
                                             <select required name="contact_id" class="selectpicker form-control"  data-container="body" data-live-search="true" title="เลือกครูฝึก..." data-hide-disabled="true" >
                                                 <?php foreach ($result_ct as $ct) {
                                                         echo " <option value=".$ct->contact_id."> ".$ct->name." </option> ";
@@ -104,19 +104,40 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12"> 
+                                    <div class="panel-body collapse in">
+                                        <h4>ระยะเวลาการฝึกงาน</h4>
+                                   
+                                    
+                                        <div class="col-md-2">
+                                           <div class="form-group">
+                                            <label for="term">เลือกภาคเรียน</label>
+                                             <select name="term" id="term" class="form-control">
+                                             <option value="1/2562">1/2562</option>
+                                             <option value="2/2562">2/2562</option>
+                                             <option value="1/2562">1/2563</option>
+                                             <option value="2/2562">2/2563</option>
+                                             <option value="1/2564">1/2564</option>
+                                             <option value="2/2564">2/2564</option>
+                                             </select>                                       
+                                    
+                                            </div>
+                                        </div>
+
+                                    <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="start_date">เวลาเรื่มฝึกงาน</label>
                                             <input type="date" name="start_date" class="form-control">
-                                            </select>
+                                            
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="end_date">เวลาจบฝึกงาน</label>
                                             <input type="date" name="end_date" class="form-control">
-                                            </select>
+                                            
                                         </div>
+
                                     </div>
                                     <!-- <div class="col-md-4">
                                         <div class="form-group">
@@ -128,8 +149,10 @@
                                         </div>
                                     </div> -->
                                 </div>
+                                </div>
+                                </div>
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" style="padding-top:20px">
                                         <div class="form-group">
                                             <label for="note">หมายเหตุ</label>
                                             <textarea name="note" class="form-control"></textarea>
@@ -137,6 +160,7 @@
                                         </div>
                                     </div>
                                 </div>
+                        </div>
                         </div>
                         </div>
                         <?php echo form_submit(array('t_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 

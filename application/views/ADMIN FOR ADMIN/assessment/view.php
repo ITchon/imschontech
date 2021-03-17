@@ -44,6 +44,7 @@
                                     <tr>
                                         <!-- <th>division id</th> -->
                                         <th >รายชื่อแบบประเมิน</th>
+                                        <th >ประเภทแบบประเมิน</th>
                                         <th width="35%">Manage</th>
                                     </tr>
                                 </thead>
@@ -52,6 +53,7 @@
                                     <tr>
                                         <!-- <td><?php echo $r->subject_id ?></td> -->
                                         <td><?php echo $r->subject_name ?></td>
+                                        <td><?php echo $r->subject_type ?></td>
 
                                       
                                         <!-- <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td> -->
@@ -85,7 +87,15 @@
                                       
                                         <div class="form-group">
                                             <label for="sub_name">ชื่อแบบประเมิน</label>
-                                            <input type="text" name="sub_name" class="form-control">
+                                            <input type="text" required name="sub_name" class="form-control">
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                            <label for="sub_type">ประเภทแบบประเมิน</label>
+                                            <select class="form-control" required name="sub_type" id="sub_type">
+                                            <option value="อาจารย์นิเทศ">อาจารย์นิเทศ</option>
+                                            <option value="ผู้ควบคุมการฝึกงาน">ผู้ควบคุมการฝึกงาน</option>
+                                            </select>
                                         </div>
                                     
                                         <?php echo form_submit(array('division_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 

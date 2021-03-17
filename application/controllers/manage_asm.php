@@ -31,8 +31,9 @@ class manage_asm Extends CI_controller{
     public function insert_sub()
 	{
 		$sub_name    = $this->input->post('sub_name'); 
+		$sub_type    = $this->input->post('sub_type'); 
         
-        $this->assessment_model->insert_sub($sub_name); 
+        $this->assessment_model->insert_sub($sub_name,$sub_type); 
         redirect('manage_asm');
 	}
     public function edit_subject()

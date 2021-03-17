@@ -23,7 +23,7 @@
                 </div>
             </div> -->
         </div>
-
+<!-- <?php print_r($result) ?> -->
 
         <div class="container">
             <div class="row">
@@ -36,72 +36,121 @@
                                 <?php echo form_open('manage_train/edit_p');?>
                                 <?php echo form_hidden('t_id',$result[0]->t_id);  ?>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="Company">ชื่อบริษัท</label>
-                                            <select name="company_id" class="form-control">
-                                                <option value="<?php echo $result[0]->company_id ?>"><?php echo $result[0]->company_name  ?></option>
-                                                <?php foreach ($result_cp as $cp) {
-                                                        echo " <option value=".$cp->company_id."> ".$cp->company_name." </option> ";
-                                                                                 }
-                                                ?>
+                                            <select name="company_id" class="selectpicker form-control" data-container="body" data-live-search="true" title="เลือกบริษัท..." data-hide-disabled="true">
+                                                <?php 
+                                                foreach ($result_cp as $cp) {?>
+                                                         <option <?php if($result[0]->company_id == $cp->company_id)echo "selected" ?> value="<?php echo $cp->company_id ?>"><?php echo $cp->company_name ?></option> 
+                                                <?php    }  ?>
                                             </select> 
+                                            <!-- <select class="itemName form-control" style="width:500px" name="itemName">
+                                                <option value="">asd</option>
+                                            </select> -->
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="std_id">นักเรียน</label>
-                                            <select name="std_id" class="form-control">
-                                                <option value="<?php echo $result[0]->std_id ?>"><?php echo $result[0]->fname." ".$result[0]->lname ?></option>
-                                                <?php foreach ($result_std as $std) {
-                                                        echo " <option value=".$std->std_id."> ".$std->fname." ".$std->lname." </option> ";
-                                                                                 }
-                                                ?>
+                                            <select id="e1" name="std_id" class="selectpicker form-control" data-container="body" data-live-search="true" title="เลือกนักเรียน..." data-hide-disabled="true">
+                                                <?php foreach ($result_std as $std) { ?>
+                                                   <option <?php if($result[0]->std_id == $std->std_id)echo "selected" ?> value="<?php echo $std->std_id ?>"><?php echo $std->title." ".$std->fname."  ".$std->lname ?></option> 
+                                                   <?php    }  ?>
                                             </select>
+
+                                            <!-- <select class="js-example-basic-single" name="state">
+                                                <option value="AL">Alabama</option>
+                                                    ...
+                                                <option value="WY">Wyoming</option>
+                                            </select> -->
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="contact_id">ผู้คุมการฝึกงาน</label>
-                                            <select name="contact_id" class="form-control">
-                                                <option value="<?php echo $result[0]->contact_id ?>"><?php echo $result[0]->name ?></option>
-                                                <?php foreach ($result_ct as $ct) {
-                                                        echo " <option value=".$ct->contact_id."> ".$ct->name." </option> ";
-                                                                                 }
+                                            <label for="teacher_id">อาจารย์นิเทศก์</label>
+                                
+                                            <select required name="teacher_id" class="selectpicker form-control" data-container="body" data-live-search="true" title="เลือกอาจารย์นิเทศ..." data-hide-disabled="true" >
+                                                <?php foreach ($result_th as $th) { ?>
+                                                   <option <?php if($result[0]->spv_id == $th->teacher_id)echo "selected" ?> value="<?php echo $th->teacher_id ?>"><?php echo $th->title." ".$th->fname."  ".$th->lname ?></option> 
+                                                <?php
+                                                    }
                                                 ?>
                                             </select>
+                                            <!-- <div class="form-group">
+                                                <label class="col-sm-3 control-label">Dropdown with Search</label>
+                                                <div class="col-sm-6">
+                                                    <select id="e1" style="width:100%" class="populate"></select>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="contact_id">ผู้ควบคุมการฝึกงาน</label>
+                                            <select required name="contact_id" class="selectpicker form-control"  data-container="body" data-live-search="true" title="เลือกครูฝึก..." data-hide-disabled="true" >
+                                                <?php foreach ($result_ct as $ct) {?>
+                                                   <option <?php if($result[0]->contact_id == $ct->contact_id)echo "selected" ?> value="<?php echo $ct->contact_id ?>"><?php echo $ct->name ?></option> 
+                                                <?php
+                                                   }
+                                                ?>
+                                            </select>
+                                            <!-- <div class="form-group">
+                                                <label class="col-sm-3 control-label">Dropdown with Search</label>
+                                                <div class="col-sm-6">
+                                                    <select id="e1" style="width:100%" class="populate"></select>
+                                                </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-12"> 
+                                    <div class="panel-body collapse in">
+                                        <h4>ระยะเวลาการฝึกงาน</h4>
+                                   
+                                    
+                                        <div class="col-md-2">
+                                           <div class="form-group">
+                                            <label for="term">เลือกภาคเรียน</label>
+                                             <select name="term" id="term" class="form-control">
+                                             <option <?php if($result[0]->term == "1/2562")echo "selected" ?>value="1/2562">1/2562</option>
+                                             <option <?php if($result[0]->term == "2/2562")echo "selected" ?>value="2/2562">2/2562</option>
+                                             <option <?php if($result[0]->term == "1/2563")echo "selected" ?>value="1/2563">1/2563</option>
+                                             <option <?php if($result[0]->term == "2/2563")echo "selected" ?>value="2/2563">2/2563</option>
+                                             <option <?php if($result[0]->term == "1/2564")echo "selected" ?>value="1/2564">1/2564</option>
+                                             <option <?php if($result[0]->term == "2/2564")echo "selected" ?>value="2/2564">2/2564</option>
+                                             </select>                                       
+                                    
+                                            </div>
+                                        </div>
+
+                                    <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="start_date">เวลาเรื่มฝึกงาน</label>
-                                            <input type="date" name="start_date" value="<?php echo $result[0]->start_date ?>" class="form-control">
-                                            </select>
+                                            <input type="date" name="start_date" class="form-control" value="<?php echo $result[0]->start_date ?>">
+                                            
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="end_date">เวลาจบฝึกงาน</label>
-                                            <input type="date" name="end_date" value="<?php echo $result[0]->end_date ?>" class="form-control">
-                                            </select>
+                                            <input type="date" name="end_date" class="form-control" value="<?php echo $result[0]->end_date ?>">
+                                            
                                         </div>
+
                                     </div>
-                                    <div class="col-md-4">
+                                    <!-- <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="status">สถานะ</label>
                                             <select name="status" class="form-control">
-                                                <option value="<?php echo $result[0]->status ?>"><?php if($result[0]->status == '0'){
-                                                                                                    echo "ไม่ผ่าน";
-                                                                                                        }else{
-                                                                                                    echo "ผ่าน";        
-                                                                                                        } ?></option>
                                                 <option value="0">ไม่ผ่าน</option>
                                                 <option value="1">ผ่าน</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> -->
+                                </div>
+                                </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
