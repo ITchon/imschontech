@@ -44,7 +44,7 @@
                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                     <thead>
                                         <tr>
-                                            <th>ครู</th>
+                                            <th>อาจารย์</th>
                                             <th>แผนก</th>
                                             <th>ระดับชั้น</th>
                                             <th>กลุ่ม</th>
@@ -62,9 +62,10 @@
                                             <td><?php echo $r->class_group ?></td>
 
                                             <td>
-                                        
-                                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'Classs/edit_class/' . $r->class_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                                <?php echo "<a type='button' href='".base_url()."Classs/delete/".$r->class_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                                <div class="btn-group">
+                                                    <button type ="button" onclick="javascript:window.location='<?php echo base_url() . 'Classs/edit_class/' . $r->class_id; ?>';" style="width: 50px;" class="btn btn-sm btn-warning"><i class='fa fa-edit'></i></button>
+                                                    <button type ="button" value="<?php echo $r->class_id ?>" style="width: 50px;" class="btn btn-sm btn-danger delete"><i class='fa fa-trash-o'></i></button>
+                                                </div>
                                             </td>
                                         
                                         </tr> 

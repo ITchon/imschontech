@@ -40,6 +40,9 @@ class manage_student Extends CI_controller{
         $data['result'] = $query->result();
 		$this->load->view('ADMIN FOR ADMIN/student/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/script');
+        $this->load->view('ADMIN FOR ADMIN/modal',$data);
+
 	
     }
     
@@ -97,7 +100,7 @@ class manage_student Extends CI_controller{
         redirect('manage_student');
 	}
 
-	public function delete_student_p($std_id)
+	public function delete($std_id)
 	{
 		$result = $this->student_model->del_std_p($std_id);
 

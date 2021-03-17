@@ -36,6 +36,8 @@ class manage_teacher Extends CI_controller{
         $data['result_g'] = $this->teacher_model->teacher();
 		$this->load->view('ADMIN FOR ADMIN/teacher/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/script');
+        $this->load->view('ADMIN FOR ADMIN/modal',$data);
 	
 	}
 	public function insert_teacher()
@@ -94,7 +96,7 @@ class manage_teacher Extends CI_controller{
         redirect('manage_teacher');
 	}
 
-	public function delete_teacher_p($teacher_id)
+	public function delete($teacher_id)
 	{
 		$result = $this->teacher_model->del_teacher_p($teacher_id);
 

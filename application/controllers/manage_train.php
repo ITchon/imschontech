@@ -36,7 +36,8 @@ class manage_train Extends CI_controller{
         // $data['result_g'] = $this->train_model->train();
 		$this->load->view('ADMIN FOR ADMIN/train/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
-	
+		$this->load->view('ADMIN FOR ADMIN/script');
+        $this->load->view('ADMIN FOR ADMIN/modal',$data);
 	}
 	public function insert()
 	{
@@ -102,7 +103,7 @@ class manage_train Extends CI_controller{
         redirect('manage_train');
 	}
 
-	public function delete_p($t_id)
+	public function delete($t_id)
 	{
 		$result = $this->train_model->del_p($t_id);
 		if($result!=FALSE)

@@ -42,25 +42,23 @@
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                 <thead>
                                     <tr>
-                                        <!-- <th>division id</th> -->
                                         <th >รายชื่อแบบประเมิน</th>
-                                        <th width="35%">Manage</th>
+                                        <th width="25%">Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        <?php foreach($result as $r){ ?>
+                                <!-- onclick='return confirm(\"Confirm Delete Item\")' -->
+                                <?php foreach($result as $r){ ?>
                                     <tr>
-                                        <!-- <td><?php echo $r->subject_id ?></td> -->
                                         <td><?php echo $r->subject_name ?></td>
-
-                                      
-                                        <!-- <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td> -->
                                         <td>
-                                         <!-- onclick="javascript:window.location='<?php echo base_url() . 'manage_division/' . $r->subject_id; ?>';" -->
-                                         <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_asm/edit_subject/' . $r->subject_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."manage_asm/delete_subject/".$r->subject_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                        <div class="btn-group">
+                                         <button type ="button" onclick="javascript:window.location='<?php echo base_url() . 'manage_asm/edit_subject/' . $r->subject_id; ?>'; " style="width: 50px;" class="btn btn-sm btn-warning"><i class='fa fa-edit'></i></button>
+                                         <button type ="button" value="<?php echo $r->subject_id ?>" style="width: 50px;" class="btn btn-sm btn-danger delete"><i class='fa fa-trash-o'></i></button>
+                                         </div>
                                         </td>
-                                        <?php  } ?> 
+                                        
+                                <?php  } ?> 
                                     </tr>
                                 </tbody>
                             </table>
@@ -79,7 +77,6 @@
                             </div>
 
                         </div>
-                       
                             <div class="panel-body collapse in">
                                 <?php echo form_open('manage_asm/insert_sub');?>
                                       
@@ -91,11 +88,15 @@
                                         <?php echo form_submit(array('division_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 
                                             //   echo anchor(base_url().'manage_division', 'Cancel',array('class'=>'btn btn-dark'));
                                               echo form_close(); ?>
-                            </div>
+                            </div> 
                           
                         </div>
                 </div>
             </div>
+            <!-- <a href="#0" class="cd-popup-trigger">View Pop-up</a> -->
+
+	</div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
         </div> <!-- container -->
     </div> <!--wrap -->
 </div> <!-- page-content -->
@@ -109,13 +110,3 @@
         </div>
     </footer>
 				
-
-
-<!--
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-
-<script>!window.jQuery && document.write(unescape('%3Cscript src="assets/js/jquery-1.10.2.min.js"%3E%3C/script%3E'))</script>
-<script type="text/javascript">!window.jQuery.ui && document.write(unescape('%3Cscript src="assets/js/jqueryui-1.10.3.min.js'))</script>
--->
-

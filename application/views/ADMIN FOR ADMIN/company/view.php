@@ -61,8 +61,12 @@
                                             <td><?php echo $r->zipcode ?></td>
                                             <td>
                                         
-                                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'Company/edit_company/' . $r->company_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                                <?php echo "<a type='button' href='".base_url()."Company/delete_company_p/".$r->company_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                            <!-- <a type ='button'   ><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp  -->
+                                                <!-- <?php echo "<a type='button' href='".base_url()."Company/delete_company_p/".$r->company_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?>  -->
+                                                <div class="btn-group">
+                                                    <button type ="button" onclick="javascript:window.location='<?php echo base_url() . 'Company/edit_company/' . $r->company_id; ?>';" style="width: 50px;" class="btn btn-sm btn-warning"><i class='fa fa-edit'></i></button>
+                                                    <button type ="button" value="<?php echo $r->company_id ?>" style="width: 50px;" class="btn btn-sm btn-danger delete"><i class='fa fa-trash-o'></i></button>
+                                                </div>
                                             </td>
                                             <?php  } ?> 
                                         </tr>
