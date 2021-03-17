@@ -20,9 +20,10 @@ class Fullcalendar_model extends CI_Model
        } 
  }
 
- function insert_event($title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id)
- {
-    $sql = "INSERT INTO events ( title, description, color, start_event, end_event ,std_id) VALUES ('$title','$des','$color','$s_day $s_time','$e_day $e_time','$std_id')";
+ function insert_event($title, $des, $color,$s_day,$s_time,$e_day,$e_time,$std_id,$t_id)
+ {  
+
+    $sql = "INSERT INTO events ( title, description, color, start_event, end_event ,std_id,t_id) VALUES ('$title','$des','$color','$s_day $s_time','$e_day $e_time','$std_id','$t_id')";
       $exc = $this->db->query($sql);
       $last_id = $this->db->insert_id();
       if ($exc) { 

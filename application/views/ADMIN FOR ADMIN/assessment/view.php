@@ -82,7 +82,15 @@
                                       
                                         <div class="form-group">
                                             <label for="sub_name">ชื่อแบบประเมิน</label>
-                                            <input type="text" name="sub_name" class="form-control">
+                                            <input type="text" required name="sub_name" class="form-control">
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                            <label for="sub_type">ประเภทแบบประเมิน</label>
+                                            <select class="form-control" required name="sub_type" id="sub_type">
+                                            <option value="อาจารย์นิเทศ">อาจารย์นิเทศ</option>
+                                            <option value="ผู้ควบคุมการฝึกงาน">ผู้ควบคุมการฝึกงาน</option>
+                                            </select>
                                         </div>
                                     
                                         <?php echo form_submit(array('division_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-primary btn')); 

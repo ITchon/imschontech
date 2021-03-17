@@ -551,7 +551,7 @@ a.text-warning:hover {
   color: #614f06;
 }
 .text-danger {
-  color: #a81515;
+  color: #ff2f2f;
 }
 a.text-danger:hover {
   color: #7b0f0f;
@@ -1451,7 +1451,7 @@ th {
 .table > tfoot > tr > td {
   padding: 10px;
   line-height: 1.428571429;
-  vertical-align: top;
+  /* vertical-align: top; */
   border-top: 1px solid #e6e7e8;
 }
 .table > thead > tr > th {
@@ -11437,7 +11437,7 @@ a.shortcut-tiles {
   border-bottom-left-radius: 1px;
 }
 .info-tiles .tiles-body-alt {
-  font-size: 48px;
+  font-size: 30px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }

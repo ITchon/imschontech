@@ -44,7 +44,7 @@ class Login extends CI_Controller {
         $user = $this->input->post('username');
         $pass = $this->input->post('password');
 		$data= $this->model->chk_user($user,$pass);
-					if($data != true){
+		if($data != true){
 						$this->session->set_flashdata
 						('success','<div class="alert alert-danger">
 												<span>  
@@ -59,6 +59,7 @@ class Login extends CI_Controller {
 					$arrData = array(
 								'id' => $data['id'],
 								'teacher_id'=> $userdata['teacher_id'],
+								'usergroup'=> $data['usergroup'],
 								'password'=> $userdata['password'],
 								'username'=> $userdata['username'],
 								'login' => "OK" ,
@@ -69,12 +70,47 @@ class Login extends CI_Controller {
 				$username = $this->session->userdata('username');
 				redirect('main');
 				 }
+				 else if($data['usergroup']=="bilateral"){
+					$condition = "officer_id = ".$data['user_id'];
+					$userdata = $this->model->GetUserData("officer",$condition);
+					$arrData = array(
+						'id' => $data['id'],
+						'officer_id'=> $userdata['officer_id'],
+						'usergroup'=> $data['usergroup'],
+						'password'=> $userdata['password'],
+						'username'=> $userdata['username'],
+						'login' => "OK" ,
+						'status_login' => $data['status_login'] ,
+						'fname'=>$userdata['fname'] ,
+						'lname' =>$userdata['lname']);		
+					$this->session->set_userdata($arrData);
+					$username = $this->session->userdata('username');
+					redirect('main');
+					 }
+					 else if($data['usergroup']=="course"){
+						$condition = "officer_id = ".$data['user_id'];
+						$userdata = $this->model->GetUserData("officer",$condition);
+						$arrData = array(
+							'id' => $data['id'],
+							'officer_id'=> $userdata['officer_id'],
+							'usergroup'=> $data['usergroup'],
+							'password'=> $userdata['password'],
+							'username'=> $userdata['username'],
+							'login' => "OK" ,
+							'status_login' => $data['status_login'] ,
+							'fname'=>$userdata['fname'] ,
+							'lname' =>$userdata['lname']);		
+						$this->session->set_userdata($arrData);
+						$username = $this->session->userdata('username');
+						redirect('main');
+						 }
 				 else if($data['usergroup']=="contact"){
 					$condition = "contact_id = ".$data['user_id'];
 					$userdata = $this->model->GetUserData("contact",$condition);
 					$arrData = array(
 									'id' => $data['id'],
 									'contact_id'=> $userdata['contact_id'],
+									'usergroup'=> $data['usergroup'],
 									'status_login' => $data['status_login'] ,
 									'tel'=> $userdata['tel'],
 									'name' =>$userdata['name']);	
@@ -90,6 +126,7 @@ class Login extends CI_Controller {
 					$arrData = array(
 								'id' => $data['id'],
 								'std_id'=> $userdata['std_id'],
+								'usergroup'=> $data['usergroup'],
 								'tel'=> $userdata['tel'],
 								'birth_date'=> $userdata['birth_date'],
 								'class_id'=>$userdata['class_id'],
@@ -102,7 +139,8 @@ class Login extends CI_Controller {
 				redirect('main');
 				 }
 				else if($data['usergroup']=="admin"){
-			 	$arrData = array('id' => $data['id'],'admin_id'=> $data['user_id'],'password'=> $data['password'],'username'=> $data['username'],'login' => "OK",'status_login' => $data['status_login'] );	
+			 	$arrData = array('id' => $data['id'],'admin_id'=> $data['user_id'],'password'=> $data['password'],'username'=> $data['username'],'login' => "OK",'status_login' => $data['status_login'],
+				 'usergroup'=> $data['usergroup']);	
              	$this->session->set_userdata($arrData);
 			 	$username = $this->session->userdata('username');
 			 	redirect('main');

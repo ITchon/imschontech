@@ -7,15 +7,18 @@ class Teacher Extends CI_controller{
 
 		$this->load->helper('url');
 		$this->load->helper('form');
-        $this->load->view('teacher/header');
 		$this->load->database(); 
         $this->load->model('model');
         $this->load->model('model_teacher');
+        $this->load->model('model_spv');
+        $this->load->model('model_pdf');
         $this->load->model('student_model');
         
         $teacher_id =  $this->session->userdata('teacher_id');
         $data['result'] = $this->model_teacher->get_division($teacher_id);
-        $this->load->view('teacher/menu',$data);
+        $this->load->view('teacher/header');
+        $this->load->view('teacher/nevbar');
+        // $this->load->view('teacher/menu',$data);
 
 		$this->model->CheckSession();
 		$this->model->block_for_teacher();
@@ -42,13 +45,124 @@ class Teacher Extends CI_controller{
 		$this->load->view('footer');
 
     }
+    public function supervision() 	
+	{
+        $std_id =  $this->uri->segment('3');
+        $teacher_id =  $this->session->userdata('teacher_id');
+        $data['result_spv'] = $this->model_spv->get_spv_teacher($std_id);
+        $sql="SELECT  * FROM student_train_detail
+        where std_id = '$std_id'";
+        $query = $this->db->query($sql); 
+        $data['result_train'] = $query->result();
+		$this->load->view('teacher/supervision',$data);
+		$this->load->view('footer');
+
+    }
+    public function supervision_view() 	
+	{   
+        $spv_id =  $this->uri->segment('3');
+        $sql="SELECT  * FROM `supervision_contact` sc
+        inner join subject s on s.subject_id = sc.subject_id
+        where spv_contact_id = '$spv_id'";
+        $query = $this->db->query($sql); 
+        $data['result_spv']  = $query->row(); 
+        $data['date'] = $this->model->Thai_date($data['result_spv']->approve_date);
+        $data['result'] = $this->model_spv->get_spv_data($spv_id);
+        $data['std_detail'] = $this->model_pdf->get_train_detail($data['result_spv']->t_id);
+        // print_r($data['result']);exit;
+		$this->load->view('teacher/supervision_view',$data);
+		$this->load->view('footer');
+
+    }
+    public function supervision_view_th() 	
+	{   
+        $spv_id =  $this->uri->segment('3');
+        $sql="SELECT  * FROM `supervision_teacher` st
+        inner join subject s on s.subject_id = st.subject_id
+        where spv_teacher_id = '$spv_id'";
+        $query = $this->db->query($sql); 
+        $data['result_spv']  = $query->row(); 
+        $data['date'] = $this->model->Thai_date($data['result_spv']->approve_date);
+        $data['result'] = $this->model_spv->get_spv_data_th($spv_id);
+        $data['std_detail'] = $this->model_pdf->get_train_detail($data['result_spv']->t_id);
+        // print_r($data['result']);exit;
+		$this->load->view('teacher/supervision_view',$data);
+		$this->load->view('footer');
+
+    }
+    public function supervision_insert() 	
+	{   
+        $std_id =  $this->uri->segment('3');
+        $data['std_detail'] = null;
+        if($this->input->post('subject_id')!=null && $this->input->post('train_id')!=null){
+            $data['result'] = $this->model_spv->get_subject_data($this->input->post('subject_id'));
+            if($data['result']!=null){
+                $data['subject_name'] = $data['result'][0]->subject_name;
+                $data['subject_id'] = $data['result'][0]->subject_id;
+                $data['train_id'] = $this->input->post('train_id');
+                $data['std_detail'] = $this->model_pdf->get_train_detail($this->input->post('train_id'));
+            }
+            // print_r($data['result'][0]->subject_name);
+        }
+        $data['result_spv'] = $this->model_spv->get_subject_teacher();
+        $data['result_train'] = $this->model_spv->get_train($std_id);
+		$this->load->view('teacher/supervision_insert',$data);
+		$this->load->view('footer');
+
+    }
+    public function supervision_save() 	
+	{   
+       $std_id =  $this->uri->segment('3');
+       $train_id = $this->input->post('train_id');
+       $subject_id = $this->input->post('subject_id');
+       $max = $this->input->post('max');
+      //Store data in array 2 dimension 
+       $a= [];
+       for($i=1;$i<=$max;$i++){
+          $data = $this->input->post($i);
+          $g_id = substr($data, 1);
+          $score = substr($data, 0, 1);
+          $data= array ("glist_id"=>$g_id,"score"=>$score);
+          array_push($a,$data);
+       }
+       $result = $this->model_spv->supervision_save($train_id,$subject_id,$a);
+       if($result){
+            $this->session->set_flashdata('success','<div class="alert alert-success"><span> บันทึกข้อมูลเรียบร้อย</span></div>');
+            redirect("teacher/supervision/$std_id");  
+       }else{
+            $this->session->set_flashdata('success','<div class="alert alert-danger"><span> เกิดข้อผิดพลาด</span></div>');
+            redirect("teacher/supervision_insert/$std_id");  
+       }
+    }
+    public function supervision_save_th() 	
+	{   
+       $std_id =  $this->uri->segment('3');
+       $train_id = $this->input->post('train_id');
+       $subject_id = $this->input->post('subject_id');
+       $max = $this->input->post('max');
+      //Store data in array 2 dimension 
+       $a= [];
+       for($i=1;$i<=$max;$i++){
+          $data = $this->input->post($i);
+          $g_id = substr($data, 1);
+          $score = substr($data, 0, 1);
+          $data= array ("glist_id"=>$g_id,"score"=>$score);
+          array_push($a,$data);
+       }
+       $result = $this->model_spv->supervision_save_teacher($train_id,$subject_id,$a);
+       if($result){
+            $this->session->set_flashdata('success','<div class="alert alert-success"><span> บันทึกข้อมูลเรียบร้อย</span></div>');
+            redirect("teacher/supervision/$std_id");  
+       }else{
+            $this->session->set_flashdata('success','<div class="alert alert-danger"><span> เกิดข้อผิดพลาด</span></div>');
+            redirect("teacher/supervision_insert/$std_id");  
+       }
+    }
 
     public function student() 	
 	{
         $teacher_id =  $this->session->userdata('teacher_id');
         $data['result'] = $this->model_teacher->get_division($teacher_id);
-
-        
 		$this->load->view('teacher/student',$data);
 		$this->load->view('footer');
 
@@ -56,57 +170,42 @@ class Teacher Extends CI_controller{
 
     public function division() 	
 	{
+        if($this->input->post('std_id')){
+            $std_id = $this->input->post('std_id'); 
+            $text = "and student.std_id = '$std_id'";
+        }else{
+            $text = '';
+        }
+
         $teacher_id =  $this->session->userdata('teacher_id');
         $result = $this->model_teacher->get_division($teacher_id);
-        
-        $data['dv_class_list'] = $this->model_teacher->get_division_class($teacher_id);
-        $dv_id = [];
-        if($result != null){
-            $data['division_list']  = $result;
-            foreach($result as $r){
-                $num =  $r->dv_id;
-                array_push($dv_id,$num);
-            }
-        }
-            
-        $class_data = [];
-        foreach($dv_id as $d){
-            $sql = "SELECT * FROM class WHERE dv_id = $d";
-            $query = $this->db->query($sql);
-            $class = $query->result();
-            array_push($class_data,$class);
-        }
-        $data['class']  = $class_data;
 
-    //     $class_name = [];
-    //     $dv_chk = [];
-    //     foreach($class_data as $class){
-    //         foreach($class as $c){
-    //             $class =  $c->class_name.$c->class_group;
-    //             $dv_id =  $c->dv_id;
-    //             array_push($class_name,$class);
-    //             array_push($dv_chk,$dv_id);
-    //         }
-    //     }
-    
-    //  $data['class_list'] = array_combine($class_name, $dv_chk);
+        $data['result_test'] = $this->model_teacher->get_std_data($teacher_id,$text);
+        $data['result_search'] = $this->model_teacher->get_std_data1($teacher_id);
 
+        $train_id = $this->input->post('train_id'); 
+
+        $data['result'] = $this->model_teacher->get_events_date2($teacher_id);
         
+        $data['division_list'] = $this->model_teacher->get_dv_class($teacher_id);
+        $data['class_list'] = $this->model_teacher->get_dv_class_group($teacher_id);
+        // print_r($data['division_list']);
+        // print_r($data['class_list']);
+        // exit;
 		$this->load->view('teacher/division',$data);
-		$this->load->view('footer');
+        $this->load->view('teacher/modal');
+        $this->load->view('teacher/footer');
 
 	}
 
-
-
 	public function list() 	
 	{
+        $teacher_id =  $this->session->userdata('teacher_id');
         $class_id = $this->input->post('class_id');
         if($this->uri->segment('3')){
             $class_id =  $this->uri->segment('3');
         }
-
-        $data['student_list'] = $this->model_teacher->get_student_by($class_id);
+        $data['student_list'] = $this->model_teacher->get_student_by($class_id,$teacher_id);
         $data['class'] = $this->model_teacher->show_class($class_id);
 
     //      if($this->uri->segment('3')){

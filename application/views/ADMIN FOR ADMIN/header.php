@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	
 	<meta charset="utf-8">
 	<title>Internship Management</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -38,6 +39,8 @@
 .navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.active>a:focus,.navbar-inverse .navbar-nav>.open>a:focus,.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>.open>a:hover{background-color:#434343}header .toolbar .dropdown,header #headerbardropdown,header #rightmenu-trigger{border-left:1px solid #434343}header #leftmenu-trigger{border-right:1px solid #434343}@media (max-width:480px){ul.toolbar{background-color:#434343}}
 
 </style>
+<script>
+</script>
 <body class="">
 
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner" >

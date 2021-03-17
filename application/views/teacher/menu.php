@@ -13,9 +13,9 @@
                 <div class="col-md-12">
                     <div class="row">
                         
-                        <?php if($result !=null){ ?>
 
-                            <div class="col-md-3 col-xs-12 col-sm-6">
+
+                            <div class="col-md-4 col-xs-12 col-sm-6">
                             <a class="info-tiles tiles-success" href="<?php echo base_url(); ?>teacher/division">
                             <!-- <div class="tiles-heading">Revenue</div> -->
                             <div class="tiles-body-alt">
@@ -27,7 +27,7 @@
                             </a>
                             </div>
                             
-                            <div class="col-md-3 col-xs-12 col-sm-6">
+                            <div class="col-md-4 col-xs-12 col-sm-6">
                             <a class="info-tiles tiles-primary" href="<?php echo base_url(); ?>teacher/student">
                             <!-- <div class="tiles-heading">Profit</div> -->
                             <div class="tiles-body-alt">
@@ -38,21 +38,21 @@
                             <!-- <div class="tiles-footer">more info</div> -->
                             </a>
                             </div>
-                         <?php } ?>
+<!-- 
 
                         <div class="col-md-3 col-xs-12 col-sm-6">
                             <a class="info-tiles tiles-orange" href="#">
-                                <!-- <div class="tiles-heading">Members</div> -->
+                                <div class="tiles-heading">Members</div>
                                 <div class="tiles-body-alt">
                                     <i class="fa fa-comments-o"></i>
                                     <div class="text-center">แชท</div>
                                     <small></small>
                                 </div>
-                                <!-- <div class="tiles-footer">manage members</div> -->
+                                <div class="tiles-footer">manage members</div>
                             </a>
-                        </div>
+                        </div> -->
 
-                        <div class="col-md-3 col-xs-12 col-sm-6">
+                        <div class="col-md-4 col-xs-12 col-sm-6">
                             <a class="info-tiles tiles-alizarin" href="<?php echo base_url(); ?>teacher/profile">
                                 <!-- <div class="tiles-heading">Orders</div> -->
                                 <div class="tiles-body-alt">

@@ -26,6 +26,7 @@
 
 
         <div class="container">
+                        
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-inverse">
@@ -45,11 +46,14 @@
                                             <input type="text" name="sub_name" value="<?php echo $result_sub[0]->subject_name  ?>" class="form-control">
                                     <?php echo form_submit(array('subject_id'=>'submit','value'=>' ยืนยัน ','class'=>'btn-success btn')); 
                                     
-                              echo form_close(); ?></div>
+                              echo form_close(); ?>
                                             </div>
+                                            </div>
+
                                             <?php echo $this->session->flashdata("success"); ?>
                                         </div>
                                     </div>
+                                      <button onclick="window.history.back();" class="btn btn-default">ย้อนกลับ</button>
                                     </div>
             </div>
         </div> <!-- container -->
@@ -101,7 +105,6 @@
                         </div>
                         </div>
                         <input type="hidden" id="num" value="<?php echo $i ?>">
-         <?php echo anchor(base_url().'manage_asm', 'Cancel',array('class'=>'btn btn-dark')); ?>
                         </div>
                     </div>
                 </div>

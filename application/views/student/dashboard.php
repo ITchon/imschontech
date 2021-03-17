@@ -1,7 +1,7 @@
+
+
 <head><?php echo $map['js'];?></head>
 
-			<div class="row">
-				<div class="col-md-12">
                
 					<div class="panel panel-midnightblue">
 						<div class="panel-body">
@@ -11,29 +11,11 @@
 									<img src="assets/demo/avatar/johansson.png" alt="" class="pull-left" style="margin: 0 20px 20px 0">
 									<div class="table-responsive">
 										<table class="table table-condensed ">
-										<form action="" method="post" >
 										
 											<label class="control-label col-sm-6 col-xs-6" for="train">
 												<h3><strong><?php echo ucfirst($train_detail[0]->fname."  ".$train_detail[0]->lname) ?></strong> </h3>
 											</label>
-											
-    										<div class="col-sm-3 col-xs-3">
-											<?php
-												$optName = array();
-												$categories['0'] = '(Select Category)';
-												$categories['1'] = 'Category 1';
-												$categories['2" disabled="disabled'] = 'Restricted Category';
-												$categories['3'] = 'Category 3';
-												foreach($train_select as $r){
-												    $optName[$r->t_id] = $r->start_date;   
-												}
-												$selected = $train_id ;
-												echo form_dropdown('train_id', $optName ,$selected,'class="form-control" ');
-											 ?>
 									
-    										</div>
-											<input type="submit" class="btn btn-primary" value="เลือกภาคเรียน">
-											</form>
 											
 											<!-- <thead>
 												<tr>
@@ -89,35 +71,21 @@
 							<hr>
 							<div class="row">
 								<div class="col-md-12">
-									<div class="tab-container tab-midnightblue">
+									<div class="tab-container tab-success">
 										<ul class="nav nav-tabs">
-											<li class="active" style="font-size:18px"><a href="#home1" data-toggle="tab">รายการปฎิบัติงาน</a></li>
-											<li class="active"  style="float:right;font-size:18px">	
-												<a id="overall-contact"></a>
-											</li>
-											<li class="active"  style="float:right;font-size:18px">	
-												<a id="overall-teacher"></a>
-											</li>
+											<li class="active"><a href="#home1" data-toggle="tab">รายการปฎิบัติงาน</a></li>
+											<li class=""><a href="#profile1" data-toggle="tab">เวลาการปฎิบัติงาน</a></li>
 										</ul>
-                                        <div class="panel panel-sky">
-                                            <div class="panel-body collapse in">
-												
-   													
-											
-                                                <div class="table-responsive">
-												<!-- <div class="pull-right text-right">
-														
-														<a href="<?php echo base_url()?>Student/export_excel" class="btn btn-success btn-lg" data-toggle="tooltip" title="ส่งออกข้อมูล">
-															<i class="fas fa-file-excel"></i></span> Excel
-														</a>
-													</div> -->
-                                                <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
+										<div class="tab-content">
+											<div class="tab-pane active clearfix" id="home1">
+												<div class="col-md-12">
+												<table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
 	              	                    				<tr>
-	              	                    					<th>วันที่</th>
-	              	                    					<th width="40%">หัวข้อการปฎิบัติงาน</th>
-	              	                    					<th width="10%">อาจารย์นิเทศ</th>
-	              	                    					<th width="10%">ผู้ควบคุมการฝึก</th>
+	              	                    					<th width="100px">วันที่</th>
+	              	                    					<th width="200px">หัวข้อการปฎิบัติงาน</th>
+	              	                    					<th width="100px" class="text-center" id="overall-teacher"></th>
+	              	                    					<th width="100px" class="text-center" id="overall-contact"></th>
 	              	                    					<th width="3%"> - </th>
 	              	                    				</tr>
 	              	                    			</thead>
@@ -219,10 +187,18 @@
 													  <!---------------------------- -->
 
                                                 </table>
+												</div>
 
-                                                </div>
-                                            </div>
-                                        </div>
+												
+											</div>
+											
+	              							<div class="tab-pane" id="profile1">
+												<input type="hidden" name="" id="t_id" value="<?php echo $train_id ?>">
+												<div id="work-time-data"></div>
+	              							</div>
+					  					</div>
+									</div>
+								</div>
 									</div>
 								</div>
 							</div>
@@ -238,12 +214,35 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
- 	var teacher_chk = $('#teacher').val();
- 	var company_chk = $('#company').val();
- 	var sum = $('#sum').val();
-	 $('#overall-teacher').html("Teacher : "+teacher_chk+"/"+sum);
-	 $('#overall-contact').html("Company : "+company_chk+"/"+sum);
+	var t_id = $('#t_id').val();
+		$.ajax({
+			url: "<?php
+				$std_id = $this->session->userdata('std_id');
+					 echo base_url("crud/std_work_time/$std_id");
+					 ?>",  
+    			type: "POST",
+    			cache: false,
+    			data:{
+    				t_id: t_id
+    			},
+				success: function(data){		
+					console.log(data);
+					$('#work-time-data').html(data);
+    			},
+          error:function(data){
+			console.log(data);
+			// $('#event_detail').modal();
+
+			
+          }
+		});
+		var teacher_chk = $('#teacher').val();
+		var company_chk = $('#company').val();
+		var sum = $('#sum').val();
+		$('#overall-teacher').html("อาจารย์นิเทศ : "+teacher_chk+"/"+sum);
+		$('#overall-contact').html("ผู้ควบคุมการฝึกงาน : "+company_chk+"/"+sum);
 });
+
 $(".open-modal").click(function() {
 	var date = $(this).val();
 	 $.ajax({

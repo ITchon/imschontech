@@ -39,7 +39,7 @@
                         </div>
                         <div class="panel-body collapse in">
                             <div class="table-responsive">
-                                <!-- <a class="btn btn-success pull-right" href="<?php echo base_url(); ?>manage_user/insert_user">เพิ่ม</a> -->
+                                <a class="btn btn-success pull-right" href="<?php echo base_url(); ?>manage_user/insert_user">เพิ่ม</a>
                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                     <thead>
                                         <tr>

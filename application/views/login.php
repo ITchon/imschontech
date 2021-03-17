@@ -58,7 +58,7 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-									<input type="password" name="password" value="" placeholder="Password" id="password-field" class="form-control">
+									<input autocomplete type="password" name="password" value="" placeholder="Password" id="password-field" class="form-control">
                                     <span class="input-group-addon"><i id="pass-status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword()"></i></span> 
 								</div>
 							</div>
@@ -113,7 +113,7 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 			</form>
 			<div class="pull-left">
 				<!-- <input type="submit" class="btn btn-danger" > -->
-                <a href="<?php echo base_url() ?>website" class="text-light"><button type="submit" href="" class="btn btn-danger">กลับสู่หน้าหลัก</button></a>
+                <!-- <a href="<?php echo base_url() ?>website" class="text-light"><button type="submit" href="" class="btn btn-danger">กลับสู่หน้าหลัก</button></a> -->
 			</div>
 		</div>
 	</div>

@@ -3,6 +3,7 @@
 class Model extends CI_Model
 {
 
+
 public function chk_session() {  
        if($this->session->userdata('std_id')=="") {
          echo "<script>alert('Please Login')</script>";
@@ -81,19 +82,26 @@ public function selectusercont($id)
     return $data;
 
 }
-
 public function insert_user($user_id,$usergroup ,$username ,$password ,$status_login)
-{
-    $sql ="INSERT INTO user(user_id,usergroup,username,password,status_login)
-        VALUES ($user_id,'$usergroup','$username','$password','$status_login');";          
-        $query = $this->db->query($sql);  
-        if($query)
-        {
-        return true;
+{ 
+      $sql ="SELECT username From user where username = '$username'";
+      $query = $this->db->query($sql);  
+      $data  = $query->result(); 
+        if($data == null){
+          $sql ="INSERT INTO user(user_id,usergroup,username,password,status_login)
+          VALUES ($user_id,'$usergroup','$username','$password','$status_login');";          
+          $query = $this->db->query($sql);  
+          if($query)
+          {
+           return 1;
+          }
+          else{
+           return 3;
+          } 
+        }else{
+          return 2;
         }
-        else{
-        return false;
-        } 
+
 }
 
 public function update_user($user_id ,$username ,$password ,$id)
@@ -129,7 +137,33 @@ public function delete_user($id)
         return false;
         } 
 }
+  public function Thai_date_all($result_date)
+  {
+    $result = [];
+    foreach($result_date as $rd){
+      // echo $rd->date;
+      $date =  $this->model->Thai_date($rd->date);
+      array_push($result,$date);
+    }
+    return $result;
+  }
+  public function Thai_date($date)
+  {
+    list($year,$month,$day) = explode('-',$date);
+  if($day <10){
+    $day = substr($day,1,1);
+  }
 
+    $thMonth = array("มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน",     
+                              "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
+  if($month<10){
+    $month = substr($month,1,1);
+  }
+
+    $year +=543;
+
+  return $day."&nbsp;".$thMonth[$month-1]."&nbsp;".$year;  
+  }
 public function CheckSession()        
 {
   if($this->session->userdata('std_id')){
