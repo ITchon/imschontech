@@ -28,6 +28,8 @@ class Classs Extends CI_controller{
 		
 		$this->load->view('ADMIN FOR ADMIN/class/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/script');
+        $this->load->view('ADMIN FOR ADMIN/modal',$data);
     }
 
     public function insert_class()

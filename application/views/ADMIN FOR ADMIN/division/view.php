@@ -42,7 +42,6 @@
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                 <thead>
                                     <tr>
-                                        <!-- <th>division id</th> -->
                                         <th >ชื่อแผนก</th>
                                         <th width="35%">Manage</th>
                                     </tr>
@@ -50,15 +49,16 @@
                                 <tbody>
                                         <?php foreach($result as $r){ ?>
                                     <tr>
-                                        <!-- <td><?php echo $r->dv_id ?></td> -->
                                         <td><?php echo $r->dv_name ?></td>
-
-                                      
-                                        <!-- <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td> -->
                                         <td>
-                                         <!-- onclick="javascript:window.location='<?php echo base_url() . 'manage_division/' . $r->dv_id; ?>';" -->
-                                         <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_division/edit_division/' . $r->dv_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."manage_division/delete_division_p/".$r->dv_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                       
+                                            <!-- <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_division/edit_division/' . $r->dv_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp  -->
+                                            <!-- <?php echo "<a type='button' href='".base_url()."manage_division/delete_division_p/".$r->dv_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?>  -->
+                                            <div class="btn-group">
+                                         <button type ="button" onclick="javascript:window.location='<?php echo base_url() . 'manage_division/edit_division/' . $r->dv_id; ?>';" style="width: 50px;" class="btn btn-sm btn-warning"><i class='fa fa-edit'></i></button>
+                                         <button type ="button" value="<?php echo $r->dv_id ?>" style="width: 50px;" class="btn btn-sm btn-danger delete"><i class='fa fa-trash-o'></i></button>
+                                         </div>
+                                        
                                         </td>
                                         <?php  } ?> 
                                     </tr>

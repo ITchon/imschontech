@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-sky">
+                    <div class="panel panel-inverse">
                         <div class="panel-heading">
                             <h4>แก้ไข ชั้นเรียน</h4>
                         </div>
@@ -25,7 +25,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                        <label for="teacher_id">ครู</label>
+                                        <label for="teacher_id">อาจารย์</label>
                                             <select name="teacher_id" class="form-control">
                                                 <option value="<?php echo $result[0]->teacher_id ?>"><?php echo $result[0]->fname ." ".$result[0]->lname?></option>
                                                 <?php foreach ($result_th as $th) {

@@ -16,7 +16,7 @@
 
     <link href='<?php echo base_url(); ?>assets/demo/variations/default.css' rel='stylesheet' type='text/css' media='all' id='styleswitcher'> 
     <link href='<?php echo base_url(); ?>assets/demo/variations/default.css' rel='stylesheet' type='text/css' media='all' id='headerswitcher'> 
-    
+    <!-- <link rel='stylesheet' type='text/css' href='<?php echo base_url(); ?>assets/css/pop-up.css' />  -->
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
 
 	<!-- The following CSS are included as plugins and can be removed if unused-->
@@ -26,6 +26,10 @@
 <link rel='stylesheet' type='text/css' href='<?php echo base_url(); ?>assets/plugins/form-markdown/css/bootstrap-markdown.min.css' /> 
 <link rel='stylesheet' type='text/css' href='<?php echo base_url(); ?>assets/plugins/codeprettifier/prettify.css' /> 
 <link rel='stylesheet' type='text/css' href='<?php echo base_url(); ?>assets/plugins/form-toggle/toggles.css' /> 
+
+
+
+
 
 <!-- <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/less.js"></script> -->
 </head>
@@ -56,7 +60,7 @@
 
 
             <!--###################################### -->
-        <ul class="nav navbar-nav pull-right toolbar"> 
+        <!-- <ul class="nav navbar-nav pull-right toolbar"> 
         	<li class="dropdown">
         		<a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span>
         		
@@ -69,7 +73,7 @@
         				</ul>
         		
         	</li>
-		</ul>
+		</ul> -->
     </header>
 
 

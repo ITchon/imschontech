@@ -28,6 +28,8 @@ class manage_division Extends CI_controller{
 
 		$this->load->view('ADMIN FOR ADMIN/division/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/script');
+        $this->load->view('ADMIN FOR ADMIN/modal',$data);
 
     }
     
@@ -63,7 +65,7 @@ class manage_division Extends CI_controller{
 		redirect('manage_division');
 	}
 
-	public function delete_division_p($dv_id)
+	public function delete($dv_id)
 	{
 		$result = $this->division_model->del_dv_p($dv_id);
 		if($result!=FALSE)

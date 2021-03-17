@@ -25,7 +25,8 @@ class manage_user Extends CI_controller{
         $data['result'] = $query->result();
 		$this->load->view('ADMIN FOR ADMIN/user/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
-	
+		$this->load->view('ADMIN FOR ADMIN/script');
+        $this->load->view('ADMIN FOR ADMIN/modal',$data);
     }
     
 	public function insert_user()
@@ -135,7 +136,7 @@ class manage_user Extends CI_controller{
         redirect('manage_user');
 	}
 
-	public function delete_student_p($std_id)
+	public function delete($std_id)
 	{
 		$result = $this->student_model->del_std_p($std_id);
 		if($result!=FALSE)

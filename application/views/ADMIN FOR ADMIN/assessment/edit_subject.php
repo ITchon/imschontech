@@ -82,8 +82,12 @@
                                         <td><b><?php echo $i?></b></td>
                                         <td><div class="edit"><?php echo $rg->glist_name ?><div></td>
                                         <td class="text-center">
-                                        <a type ='button' onclick="javascript:window.location='<?php echo base_url() . 'manage_asm/edit_glist/' . $rg->glist_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                        <a data-id="<?php echo $rg->glist_id;?>" id="del_glist"><i class="btn-danger btn-sm fa fa-trash-o"></i></a>
+                                       
+                                        <div class="btn-group">
+                                            <button type ="button" onclick="javascript:window.location='<?php echo base_url() . 'manage_asm/edit_glist/' . $rg->glist_id; ?>';" style="width: 50px;" class="btn btn-sm btn-warning"><i class='fa fa-edit'></i></button>
+                                            <button type ="button" value="<?php echo $rg->glist_id ?>" id="del_glist" style="width: 50px;" class="btn btn-sm btn-danger delete"><i class='fa fa-trash-o'></i></button>
+                                        </div>
+                                        
                                         </td>
                                     </tr>
                                 <?php $i++; } ?>

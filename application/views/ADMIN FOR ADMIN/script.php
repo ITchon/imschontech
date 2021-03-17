@@ -1,22 +1,38 @@
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jquery-1.10.2.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jqueryui-1.10.3.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/bootstrap.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/enquire.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jquery.cookie.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jquery.nicescroll.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/codeprettifier/prettify.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/easypiechart/jquery.easypiechart.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/sparklines/jquery.sparklines.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/form-toggle/toggle.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/datatables/jquery.dataTables.min.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/plugins/datatables/dataTables.bootstrap.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo-datatables.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/placeholdr.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/application.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo.js'></script> 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<script type="text/javascript">
+ $(document).ready(function() {
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    $(document).on('click', '.delete', function() {
+				var r =  $('#modal-up').modal();
+				var id = $(this).val();
+				$(document).on('click', '.con', function() {
+					// alert(id);
+					// if(id == true){
 
-<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+					// }
+  			      window.location.href = "<?php echo base_url().$this->uri->segment("1")?>/delete/"+id;
+				
+				})
+  	})
+ });
+ 
+            
+</script>
+<script type="text/javascript">
+ $(document).ready(function() {
+
+    $(document).on('click', '.sj_delete', function() {
+				var r =  $('#modal-up').modal();
+				var id = $(this).val();
+				$(document).on('click', '.con', function() {
+					// alert(id);
+					// if(id == true){
+
+					// }
+  			      window.location.href = "<?php echo base_url().$this->uri->segment("1")?>/sj_delete/"+id;
+				
+				})
+  	})
+ });
+ 
+            
+</script>

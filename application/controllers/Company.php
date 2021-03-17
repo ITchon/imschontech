@@ -27,6 +27,9 @@ class Company Extends CI_controller{
         // $data['result_edit'] = $query->result();
 		$this->load->view('ADMIN FOR ADMIN/company/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/script');
+        $this->load->view('ADMIN FOR ADMIN/modal',$data);
+
     }
 
     public function insert_company()
@@ -101,7 +104,7 @@ class Company Extends CI_controller{
         redirect('Company');
 	}
 
-	public function delete_company_p($company_id)
+	public function delete($company_id)
 	{
 		$result = $this->company_model->del_cp_p($company_id);
 		if($result!=FALSE)

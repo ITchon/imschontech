@@ -17,38 +17,17 @@
                     </ul>
                 </li> -->
                
-                <?php if($this->session->userdata('usergroup') == 'admin'){ ?>
-                <li><a href="<?php echo base_url(); ?>manage_officer"><i class="fa fa-user"></i><span>เจ้าหน้าที่</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_teacher"><i class="fa fa-user"></i><span>อาจารย์</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>นักเรียน</span></a></li>
-                
-                <li><a href="<?php echo base_url(); ?>manage_contact"><i class="fa fa-user"></i> <span>ผู้คุมการฝึกงาน</span></a></li>
                 <li><a href="<?php echo base_url(); ?>manage_division"><i class="fa fa-home"></i><span>แผนก</span></a></li>
-                <li><a href="<?php echo base_url(); ?>Classs"><i class="fa fa-circle"></i><span>ชั้นเรียน</span></a></li>
                 <li><a href="<?php echo base_url(); ?>Company"><i class="fa fa-building"></i><span>สถานประกอบการ</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_train"><i class="fa fa-suitcase"></i><span>การฝึกงาน</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_asm"><i class="fa fa-user"></i><span>แบบประเมินผล</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_user"><i class="fa fa-user"></i><span>ผู้ใช้งานในระบบ</span></a></li>
-                <li><a class="btn btn-default" href="<?php echo base_url(); ?>logout"><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
-                <?php } ?>
-
-                <?php if($this->session->userdata('usergroup') == 'bilateral'){ ?>
-                <li><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>นักเรียน</span></a></li>
                 
-                <li><a href="<?php echo base_url(); ?>manage_contact"><i class="fa fa-user"></i> <span>ผู้คุมการฝึกงาน</span></a></li>
-                <li><a href="<?php echo base_url(); ?>Company"><i class="fa fa-building"></i><span>สถานประกอบการ</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_train"><i class="fa fa-suitcase"></i><span>การฝึกงาน</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_asm"><i class="fa fa-user"></i><span>แบบประเมินผล</span></a></li>
-                <li><a class="btn btn-default" href="<?php echo base_url(); ?>logout"><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
-                <?php } ?>
-
-                <?php if($this->session->userdata('usergroup') == 'course'){ ?>
                 <li><a href="<?php echo base_url(); ?>manage_teacher"><i class="fa fa-user"></i><span>อาจารย์</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_division"><i class="fa fa-home"></i><span>แผนก</span></a></li>
-                <li><a href="<?php echo base_url(); ?>Classs"><i class="fa fa-circle"></i><span>ชั้นเรียน</span></a></li>
                 <li><a href="<?php echo base_url(); ?>manage_user"><i class="fa fa-user"></i><span>ผู้ใช้งานในระบบ</span></a></li>
-                <li><a class="btn btn-default" href="<?php echo base_url(); ?>logout"><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
-                <?php } ?>
+                <li><a href="<?php echo base_url(); ?>manage_contact"><i class="fa fa-user"></i> <span>ผู้คุมการฝึกงาน</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>นักเรียน</span></a></li>
+                <li><a href="<?php echo base_url(); ?>Classs"><i class="fa fa-circle"></i><span>ชั้นเรียน</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_train"><i class="fa fa-suitcase"></i><span>การฝึกงาน</span></a></li>
+                <li><a href="<?php echo base_url(); ?>manage_asm"><i class="fa fa-list-ul"></i><span>การสร้างแบบประเมินผล</span></a></li>
+                <li><a class="btn btn-default" data-toggle='modal' href='#logoutModal' ><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
                 <!-- <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
                     <ul class="acc-menu">
                         <li><a href="<?php echo base_url(); ?>manage_contact"> Contact</a></li>
@@ -73,10 +52,32 @@
             <!-- END SIDEBAR MENU -->
         </nav>
 
+        
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title">TaiSoul Say Are u sure about that???</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        
+                                                        <h4>คุณต้องการที่จะออกจากระบบหรือไม่ ?</h4>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <?php echo "<a type='button' class='btn btn-danger' href='".base_url()."logout'>ยืนยัน</a>";?>
+                                                        <!-- <button type="button" class="btn btn-danger">ยืนยัน</button> -->
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div><!-- /.modal -->
         <!-- BEGIN RIGHTBAR -->
         
         <!-- END RIGHTBAR -->
+        
 
 
 
- 
+  

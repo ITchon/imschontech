@@ -26,6 +26,9 @@ class manage_contact Extends CI_controller{
         // $data['result_g'] = $this->contact_model->teacher();
 		$this->load->view('ADMIN FOR ADMIN/contact/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
+		$this->load->view('ADMIN FOR ADMIN/script');
+        $this->load->view('ADMIN FOR ADMIN/modal',$data);
+
 	
 	}
 	public function insert()
@@ -69,7 +72,7 @@ class manage_contact Extends CI_controller{
         redirect('manage_contact');
 	}
 
-	public function delete_p($contact_id)
+	public function delete($contact_id)
 	{
 		
 		$result = $this->contact_model->del_p($contact_id);

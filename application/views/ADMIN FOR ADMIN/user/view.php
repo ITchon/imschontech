@@ -43,10 +43,8 @@
                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="example">
                                     <thead>
                                         <tr>
-                                        
                                             <th width="12%">usergroup</th>
                                             <th width="11%">username</th>
-                                          
                                             <th width="19%">สถานะ</th>
                                             <th  width="15%">Manage</th>
                                         </tr>
@@ -75,10 +73,13 @@
                                         <td><?php echo $r->usergroup ?></td>
                                         <td><?php echo $r->username ?></td>
                                        
-                                         <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td> 
+                                        <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td> 
                                         <td>
-                                        <a type ='button' onclick="javascript:window.location='<?php echo base_url() . 'manage_user/edit_user/' . $r->id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."manage_student/delete_student_p/".$r->id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                        
+                                            <div class="btn-group">
+                                                <button type ="button" onclick="javascript:window.location='<?php echo base_url() . 'manage_user/edit_user/' . $r->id; ?>';" style="width: 50px;" class="btn btn-sm btn-warning"><i class='fa fa-edit'></i></button>
+                                                <button type ="button" value="<?php echo $r->id ?>" style="width: 50px;" class="btn btn-sm btn-danger delete"><i class='fa fa-trash-o'></i></button>
+                                            </div>
                                         </td>
                                         <?php } ?> 
                                     </tr>

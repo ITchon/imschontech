@@ -90,8 +90,11 @@
                                             <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td>
                                             <td><?php echo $r->note ?></td>
                                             <td>
-                                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'manage_train/edit/' . $r->t_id; ?>';"><i class='btn-warning btn-sm fa fa-edit'></i></a> &nbsp 
-                                                <?php echo "<a type='button' href='".base_url()."manage_train/delete_p/".$r->t_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn-danger btn-sm fa fa-trash-o'></i></a>";?> 
+                                          
+                                                <div class="btn-group">
+                                                    <button type ="button" onclick="javascript:window.location='<?php echo base_url() . 'manage_train/edit/' . $r->t_id; ?>';" style="width: 50px;" class="btn btn-sm btn-warning"><i class='fa fa-edit'></i></button>
+                                                    <button type ="button" value="<?php echo $r->t_id ?>" style="width: 50px;" class="btn btn-sm btn-danger delete"><i class='fa fa-trash-o'></i></button>
+                                                </div>
                                             </td>
                                             <?php  } ?> 
                                         </tr>
