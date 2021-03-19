@@ -1,26 +1,14 @@
 <style>
-    /* .container{
-        padding-left:50px;
-        padding-right:50px;
-        padding-top:100px;
-    } */
-    .student_detail{
-        padding-left:50px;
-        padding-right:50px;
-        padding-top:100px;
-    }
-    .fa-check{
-        color: green;
-    }
-    .fa-ban{
-        color: red;
-    }
 
+.select{
+  height: 38px
+}
 </style>
-</div>
-<div class="container" style="background-color: #ffffff;" >
+<div id="">
+    <div id='wrap' >
+    <div class="container" style="background-color: #ffffff;" >
     <div class="row">
-      <div class="col-xs-12">
+ <div class="col-xs-12">
         <div class="panel panel-brown">
                         <div class="panel-heading">
                             <h4>บันทึกการปฏิบัติงานของนักเรียนทั้งหมด</h4>
@@ -166,19 +154,31 @@
                 </div>
             </div>
         </div>
-        
+
+<script type="text/javascript">
+    $('.division').select2({
+    placeholder: '--- ค้นหาแผนก---',
+    });
+</script>
 <script type="text/javascript">
     $('.selectSTD').select2({
     placeholder: '--- ค้นหานักเรียน---',
     });
 </script>
 <script type="text/javascript">
+$(document).ready(function(){
+ 	var teacher_chk = $('#teacher').val();
+
+ 	var sum = $('#sum').val();
+	 $('#overall-teacher').html("Total : "+teacher_chk);
+	//  $('#overall-contact').html("Company : "+company_chk+"/"+sum);
+});
 $(".open-modal").click(function() {
 	var date = $(this).val();
     var std_id = $(this).data("id") 
 	 $.ajax({
 		url: "<?php
-					 echo base_url("crud/event_forcontact/");
+					 echo base_url("crud/event_forteacher/");
 					 ?>",  
     			type: "POST",
     			cache: false,
@@ -206,4 +206,4 @@ $(".open-modal").click(function() {
    
 
 </script>
-
+    

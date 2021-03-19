@@ -87,33 +87,27 @@
                     <span><?php if(isset($class)){
                      echo "ระดับชั้น ".$class->class_name.$class->class_group; }else{
                      echo "No Data";
-                 } ?></span>
-                            <button onclick="window.history.back();" class="btn btn-default">ย้อนกลับ</button>
+                 } ?>
                      </div>
                     <div class="panel-body">
                     <div class="table-responsive">
                     <table cellpadding="0" cellspacing="0" border="0" class="table  datatables" id="example">
                           <thead >
                             <tr>
-                              <th>No.</th>
-                              <th>Title</th>
-                              <th>First Name</th>
-                              <th>Last Name</th>
-                              <th>Gender</th>
-                              <th>Tel</th>
-                              <th>Email</th>
-                              <th>Class_id</th>
+                            <th><input type="checkbox" id="select-all"></th>
+                              <th>ชื่อ</th>
+                              <th>โทรศัพท์</th>
+                              <th>อีเมล</th>
+                              <th>ระดับชั้น</th>
                               <th class="text-center">-</th>
                             </tr>
                           </thead>
                           <tbody>
                               <?php if($student_list != null){ foreach($student_list as $std){ ?>
                                 <tr>
-                              <td><?php echo $std->std_id ?></td>
-                              <td><?php echo $std->title ?></td>
-                              <td><?php echo $std->fname ?></td>
-                              <td><?php echo $std->lname ?></td>
-                              <td><?php echo $std->gender ?></td>
+                            <?php $name = $std->title.$std->fname." ".$std->lname;?>
+                              <td><input type="checkbox" id="select-all"></td>
+                              <td><?php echo $name ?></td>
                               <td><?php echo $std->tel ?></td>
                               <td><?php echo $std->email ?></td>
                               <td><?php echo $std->class_name ?></td>
@@ -135,3 +129,4 @@
                 </div>
             </div>
         </div>
+

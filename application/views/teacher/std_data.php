@@ -76,101 +76,79 @@
 								<div class="col-md-6">
 									<h3>Position of : <b><?php echo $train_detail[0]->company_name ?><b></h3>
 				
-           							        <?php echo $map['html']; ?>
-    
-								</div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="tab-container tab-midnightblue">
-										<ul class="nav nav-tabs">
-											<li class="active" style="font-size:18px"><a href="#home1" data-toggle="tab">Timeline</a></li>
-											<li class="active"  style="float:right;font-size:18px">	
-												<a id="overall-teacher"></a>
-											</li>
-										</ul>
-                                        <div class="panel panel-sky">
-                                            <div class="panel-body collapse in">
-												
-   													
-											
-                                                <div class="table-responsive">
-												<!-- <div class="pull-right text-right">
-														
-														<a href="<?php echo base_url()?>Student/export_excel" class="btn btn-success btn-lg" data-toggle="tooltip" title="ส่งออกข้อมูล">
-															<i class="fas fa-file-excel"></i></span> Excel
-														</a>
-													</div> -->
-                                                <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
-                                                    <thead class="bg-primary">
-	              	                    				<tr>
-	              	                    					<th>Date</th>
-	              	                    					<th width="40%">Title</th>
-	              	                    					<th width="3%"> - </th>
-	              	                    				</tr>
-	              	                    			</thead>
-	              	                    			<tbody>
-										<?php 
-												$sum = 0;
-												$std_chk =0;
-												$contact_chk =0;
-											foreach($result_test as $row){
-												$dt = new DateTime($row->date);
-												$date = $dt->format('Y-m-d');
-												$time = $dt->format('H:i:s');
-												$std_chk++;
-												?>
-												<tr>
-												<td><?php echo $date ?></td>
-												<td>
-												<?php foreach($result as $r){
-														$dt = new DateTime($r->start_event);
-														$date_event = $dt->format('Y-m-d');
-														$time = $dt->format('H:i:s');
-														if($date == $date_event){
-															echo $r->title."  ";
-														}
-												} ?>
-												</td>
+					<div class="table-responsive">
+					<!-- <div class="pull-right text-right">
+							
+							<a href="<?php echo base_url()?>Student/export_excel" class="btn btn-success btn-lg" data-toggle="tooltip" title="ส่งออกข้อมูล">
+								<i class="fas fa-file-excel"></i></span> Excel
+							</a>
+						</div> -->
+					<table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
+						<thead class="bg-primary">
+							  <tr>
+								  <th>Date</th>
+								  <th width="40%">Title</th>
+								  <th width="3%"> - </th>
+							  </tr>
+						  </thead>
+						  <tbody>
+			<?php 
+					$sum = 0;
+					$std_chk =0;
+					$contact_chk =0;
+				foreach($result_test as $row){
+					$dt = new DateTime($row->date);
+					$date = $dt->format('Y-m-d');
+					$time = $dt->format('H:i:s');
+					$std_chk++;
+					?>
+					<tr>
+					<td><?php echo $date ?></td>
+					<td>
+					<?php foreach($result as $r){
+							$dt = new DateTime($r->start_event);
+							$date_event = $dt->format('Y-m-d');
+							$time = $dt->format('H:i:s');
+							if($date == $date_event){
+								echo $r->title."  ";
+							}
+					} ?>
+					</td>
 
-												
-												<td>
-												<button type="button" value='<?php echo $date ?>' class="btn btn-xs btn-warning open-modal">
-															<i class="ace-icon fa fa-search bigger-120"></i>
-												</button>
-												</td>
-												</tr>
-												<?php
-												$sum++;
-													}
-														
-													  ?> 
-                                                    
-	              	                    			</tbody>
-													  <!-- Overall Chk -->
-													<input type="hidden" id="teacher" value="<?php echo $std_chk ?>">
-													<input type="hidden" id="sum" value="<?php echo $sum ?>">
-													<input id="std_id" type="hidden" name="std_id" value="<?php echo $r->std_id?>">
-													  <!---------------------------- -->
+					
+					<td>
+					<button type="button" value='<?php echo $date ?>' class="btn btn-xs btn-warning open-modal">
+								<i class="ace-icon fa fa-search bigger-120"></i>
+					</button>
+					</td>
+					</tr>
+					<?php
+					$sum++;
+						}
+							
+						  ?> 
+						
+						  </tbody>
+						  <!-- Overall Chk -->
+						<input type="hidden" id="teacher" value="<?php echo $std_chk ?>">
+						<input type="hidden" id="sum" value="<?php echo $sum ?>">
+						<input id="std_id" type="hidden" name="std_id" value="<?php echo $r->std_id?>">
+						  <!---------------------------- -->
 
-                                                </table>
+					</table>
 
-                                                </div>
-                                            </div>
-                                        </div>
-									</div>
-								</div>
-							</div>
-
-
-						</div>
 					</div>
 				</div>
 			</div>
-</body>
+		</div>
+	</div>
+</div>
 
-</html>
+
+</div>
+</div>
+</div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -213,3 +191,5 @@ $(".open-modal").click(function() {
    
 
 </script>
+
+

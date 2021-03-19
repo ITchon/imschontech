@@ -204,6 +204,7 @@ public function get_student_by($class_id,$teacher_id) {
         $sql ="SELECT std.std_id, std.title, std.fname, std.lname, std.gender, std.tel, std.email, std.class_id, std.class_name,std.class_group FROM student_train_detail as std
         left join class as c on c.class_id = std.class_id
         WHERE c.class_id='$class_id' and std.spv_id = '$teacher_id'";
+
       $query = $this->db->query($sql);
       if($query->num_rows()!=0) {
         $result =  $query->result();
@@ -212,6 +213,22 @@ public function get_student_by($class_id,$teacher_id) {
         else{       
         return false;
           }
+}
+
+public function get_student_byteach($teacher_id) {
+  $sql ="SELECT std.std_id, std.title, std.fname, std.lname, std.gender, std.tel, std.email, std.class_id,
+   std.class_name,std.class_group,std.company_name
+  FROM student_train_detail as std
+  left join class as c on c.class_id = std.class_id
+  WHERE std.spv_id = '$teacher_id'";
+$query = $this->db->query($sql);
+if($query->num_rows()!=0) {
+  $result =  $query->result();
+    return $result;  
+    }
+  else{       
+  return false;
+    }
 }
 
 public function show_class($class_id) {

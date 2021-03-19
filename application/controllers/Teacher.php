@@ -137,6 +137,7 @@ class Teacher Extends CI_controller{
         $std_id =  $this->uri->segment('4');
         $subject_id =  $this->uri->segment('3');
         
+        
         $data['std_detail'] = null;
             $data['result'] = $this->model_spv->get_subject_data($subject_id);
             if($data['result']!=null){
@@ -406,7 +407,64 @@ $this->load->view('teacher/footer');
 
     }
 
+    public function manage_internbook() 	
+	{
+        if($this->input->post('std_id')){
+            $std_id = $this->input->post('std_id'); 
+            $text = "and student.std_id = '$std_id'";
+        }else{
+            $text = '';
+        }
 
+        $teacher_id =  $this->session->userdata('teacher_id');
+        $result = $this->model_teacher->get_division($teacher_id);
+
+        $data['result_test'] = $this->model_teacher->get_std_data($teacher_id,$text);
+        $data['result_search'] = $this->model_teacher->get_std_data1($teacher_id);
+
+        $train_id = $this->input->post('train_id'); 
+
+        $data['result'] = $this->model_teacher->get_events_date2($teacher_id);
+        
+        $data['division_list'] = $this->model_teacher->get_dv_class($teacher_id);
+        $data['class_list'] = $this->model_teacher->get_dv_class_group($teacher_id);
+
+        
+		$this->load->view('teacher/manage_intern',$data);
+        $this->load->view('teacher/modal');
+        $this->load->view('teacher/footer');
+
+    }
+
+    public function document() 	
+	{
+
+        $teacher_id =  $this->session->userdata('teacher_id');
+
+        $data['student_list'] = $this->model_teacher->get_student_byteach($teacher_id);
+
+    //      if($this->uri->segment('3')){
+    //    $sql =  "SELECT * FROM events where std_id =  $std_id AND teacher_confirm = 0";
+    //    $query = $this->db->query($sql); 
+    //    $data['result'] = $query->result();
+    //    $sql =  "SELECT * FROM student where std_id =  $std_id";
+    //    $query = $this->db->query($sql); 
+    //    $data['name'] = $query->result()[0];
+    //       }
+        //   if($this->input->get('student_search')){
+        //      $data['result'] = $this->model_teacher->get_student_detail_by($student_search,$class_id);
+        //   }
+
+
+        
+		$this->load->view('teacher/document',$data);
+        $this->load->view('teacher/modal');
+        $this->load->view('teacher/footer');
+
+    }
+
+
+    
 
 }
 ?>
