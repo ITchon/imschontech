@@ -276,6 +276,13 @@ class Contact Extends CI_controller{
         $data['result_search'] = $this->model_contact->get_std_data1($contact_id);
 
         $data['result'] = $this->model_contact->get_events_date2($contact_id);
+
+        $res = $this->model_contact->count_mystd($contact_id);
+        $data['my_slave'] = $res->t_id;
+        $res = $this->model_contact->count_maxstdwork($contact_id);
+        $data['myworkmax_salve'] = $res->id;
+        $res = $this->model_contact->count_stdwork($contact_id);
+        $data['mywork_salve'] = $res->id;
         
 		$this->load->view('contact/manage_intern',$data);
         $this->load->view('contact/modal');
@@ -300,6 +307,11 @@ class Contact Extends CI_controller{
         $data['result_search'] = $this->model_contact->get_std_data1($contact_id);
 
         $data['result'] = $this->model_contact->get_events_date2($contact_id);
+        $res= $this->model_contact->count_interntime($contact_id);
+        $data['count_interntime'] = $res->num;
+
+        $res= $this->model_contact->count_maxinterntime($contact_id);
+        $data['count_maxinterntime'] = $res->num;
         
 		$this->load->view('contact/manage_interntime',$data);
         $this->load->view('contact/modal');

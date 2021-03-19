@@ -28,6 +28,19 @@
 			<div class="panel panel-default" >
 			<div class="panel-body" style="min-height: 752px;">
                 <div class="panel panel-midnightblue">
+                <div id="page-heading">
+
+<div class="col-md-6">
+               <a class="info-tiles tiles-brown" >
+                   <div class="tiles-heading">
+                       <div class="pull-left"><span style=" font-size: 18px;">ยืนยันการลงเวลาทั้งหมด</span></div>
+                   </div>
+                   <div class="tiles-body text-center">
+                      <?php echo $count_interntime."/".$count_maxinterntime; ?>
+                   </div>
+               </a>
+           </div>
+</div>
                     <div class="panel-heading">
                     <?php if(isset($result)){
                           echo "เวลาการปฏิบัติงานของนักศึกษา";
