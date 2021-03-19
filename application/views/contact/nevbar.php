@@ -28,7 +28,6 @@
                     <?php } ?>
                     </ul>
                 </li>
-                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/document"><i class="fa fa-user"></i><span>ดาวน์โหลดเอกสาร</span></a></li>
               
                                         </li>
                                     </ul>
