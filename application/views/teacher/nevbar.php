@@ -17,10 +17,9 @@
                     </ul>
                 </li> -->
                
-                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>manage_officer" ><i class="fa fa-user"></i><span>เจ้าหน้าที่</span></a></li>
-                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>manage_teacher"><i class="fa fa-user"></i><span>อาจารย์</span></a></li>
-                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>นักเรียน</span></a></li>
-                <li class="<?php if($url == "")echo "active"?>"><a href="javascript:;"><i class="fa fa-table"></i> <span>ประเมิน</span></a>
+                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>teacher/manage_internbook" ><i class="fa fa-user"></i><span>จัดการสมุดฝึกงาน</span></a></li>  
+                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>teacher/student"><i class="fa fa-user"></i><span>นักเรียน</span></a></li>
+                <li class="<?php if($url == "")echo "active"?>"><a href="javascript:;"><i class="fa fa-table"></i> <span>ประเมินผลการนิเทศ</span></a>
                     <ul class="acc-menu">
                     <?php foreach($result_subject as $rs){
                             $subject_id = $rs->subject_id;
@@ -29,6 +28,7 @@
                     <?php } ?>
                     </ul>
                 </li>
+                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>teacher/document"><i class="fa fa-user"></i><span>ดาวน์โหลดเอกสาร</span></a></li>
               
                                         </li>
                                     </ul>

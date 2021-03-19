@@ -66,7 +66,7 @@
                                 $subject_id =  $this->uri->segment('3');
                               echo "<td class='text-center'>
                               <a href='".base_url()."Teacher/std_data/".$r->std_id."'><button class='btn btn-info'>ดูรายละเอียด</button></a>
-                              <a href='".base_url()."Teacher/supervision_insert/".$r->std_id."/".$subject_id."'><button class='btn btn-brown'>ประเมิน</button></a>
+                              <a href='".base_url()."Teacher/supervision_insert/".$r->std_id."/".$subject_id."/".$r->t_id."'><button class='btn btn-brown'>ประเมิน</button></a>
                             
                               </td>";  ?>
                             </tr>
