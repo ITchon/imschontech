@@ -76,12 +76,12 @@
                               <?php 
                               $url = $this->uri->segment('3');
                               if($result != null) { ?>
-                              <form action="<?php echo base_url()."teacher/supervision_save_th/$url" ?>" method="post">
+                              <form action="<?php echo base_url()."contact/supervision_save/$url" ?>" method="post">
                                 <input type="hidden" name="subject_id" value="<?php echo $subject_id ?>">
                                 <input type="hidden" name="train_id" value="<?php echo $train_id ?>">
                                 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered " id="example">
                                     <thead class="text-center">
-                                        <th colspan="6" ><h4><?php echo $subject_name ?></h4></th>
+                                        <th colspan="7" ><h4><?php echo $subject_name ?></h4></th>
                                         <tr>
                                             <th colspan="2" >รายการประเมินผล</th>
                                             <th width="120px">มากที่สุุด</th>
@@ -93,30 +93,27 @@
                                     </thead>
                                     <tbody>
                                     <?php
+                                    $i = 1;
+                                    $j = 1;
                                   foreach($result as $r){ ?> 
                                     <tr>
                                     <td colspan="6" width='25px'><b><?php echo $r->glist_name ?></b></td>
                                     <?php 
-                                    $i = 1;
                                     foreach($result_list as $rl){
                                           if($r->glist_id==$rl->glist_id){ ?>
                                           <tr>
-                                            <td colspan="2"><?php echo  $i.". ".$rl->list_name ?></td>
-                                            <td  class="text-center"><input required type="radio" value="4<?php echo $r->glist_id?>" name="<?php echo $i?>" id=""></td>
-                                            <td  class="text-center"><input required type="radio" value="3<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
-                                            <td  class="text-center"><input required type="radio" value="2<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
-                                            <td  class="text-center"><input required type="radio" value="1<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
-                                            <td  class="text-center"><input required type="radio" value="1<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
+                                            <td colspan="2"><?php echo  $j.". ".$rl->list_name ?></td>
+                                            <td  class="text-center"><input required type="radio" value="5<?php echo $rl->list_id?>"name="<?php echo $j?>" id=""></td>
+                                            <td  class="text-center"><input required type="radio" value="4<?php echo $rl->list_id?>"name="<?php echo $j?>" id=""></td>
+                                            <td  class="text-center"><input required type="radio" value="3<?php echo $rl->list_id?>"name="<?php echo $j?>" id=""></td>
+                                            <td  class="text-center"><input required type="radio" value="2<?php echo $rl->list_id?>"name="<?php echo $j?>" id=""></td>
+                                            <td  class="text-center"><input required type="radio" value="1<?php echo $rl->list_id?>"name="<?php echo $j?>" id=""></td>
                                             <?php 
-                                            $i++;
+                                            $j++;
                                           } ?>
                                         </tr>
                                   <?php 
                                    } ?> 
-                                    <!-- <td  class="text-center"><input required type="radio" value="4<?php echo $r->glist_id?>" name="<?php echo $i?>" id=""></td>
-                                    <td  class="text-center"><input required type="radio" value="3<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
-                                    <td  class="text-center"><input required type="radio" value="2<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
-                                    <td  class="text-center"><input required type="radio" value="1<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td> -->
                                     </tr>
 
                                       <?php
@@ -125,9 +122,18 @@
                                     </tbody>
                                     </table>
                                     <div class="text-center">
- 
                                         <div class="form-group">
-                                        <input type="hidden" name="max" value="<?php echo $i-1?>">
+                                             <div class="col-md-12">
+                                            <label for="textarea"><h4>ข้อเสนอแนะ / ติชม</h4> </label><br>
+                                            <textarea id="textarea" name="suggest" class="form-control" cols="50" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="position"><h4>ตำแหน่ง</h4> </label>
+                                            <input type="text" class="form-control" name="position" id="position">
+                                        </div>
+                                        <div class="form-group">
+                                        <input type="hidden" name="max" value="<?php echo $j-1 ?>">
                                         <input type="submit" class="btn btn-primary" value="บันทึก">
                                       </div>
                                     </div>

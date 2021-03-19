@@ -1,5 +1,6 @@
-		<div id='wrap' >
 <head><?php echo $map['js'];?></head>
+
+		<div id='wrap' >
 			<div class="row">
 				<div class="col-md-12">
                
@@ -75,7 +76,22 @@
 								</div>
 								<div class="col-md-6">
 									<h3>Position of : <b><?php echo $train_detail[0]->company_name ?><b></h3>
-				
+									<?php echo $map['html']; ?>
+								</div>
+								</div>
+
+								<div class="row">
+								<div class="col-md-12">
+									<div class="tab-container tab-midnightblue">
+										<ul class="nav nav-tabs">
+											<li class="active" style="font-size:18px"><a href="#home1" data-toggle="tab">Timeline</a></li>
+											<li class="active"  style="float:right;font-size:18px">	
+												<a id="overall-teacher"></a>
+											</li>
+										</ul>
+                                        <div class="panel panel-sky">
+                                            <div class="panel-body collapse in">
+
 					<div class="table-responsive">
 					<!-- <div class="pull-right text-right">
 							

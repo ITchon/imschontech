@@ -37,7 +37,7 @@ tr{
     <div class="container">
         <div class="header">
             <h4>วิทยาลัยเทคนิคชลบุรี</h4>
-            <p>แบบประเมินผลการฝึกงาน</p>
+            <p><?php echo $result_spv->subject_name ?></p>
         </div>
         <div class="content" >
         <table>
@@ -89,68 +89,43 @@ tr{
             </table>
                <table id="bg-table" width="100%" style="border-collapse: collapse;font-size:10pt;margin-top:8px;">
                 <tr>
-                    <th width="80px" colspan="2">รายการประเมินผล</th>
-                    <th width="80px">ดีมาก<br>(4)</th>
-                    <th width="80px">ดี<br>(3)</th>
-                    <th width="80px">พอใช้<br>(2)</th>
-                    <th width="90px" style="line-height:20px">ต้องปรับปรุง<br>(1)</th>
+                    <th colspan="2" >รายการประเมินผล</th>
+                    <th width="80px">มากที่สุุด</th>
+                    <th width="80px">มาก</th>
+                    <th width="80px">ปานกลาง</th>
+                    <th width="80px">น้อย</th>
+                    <th width="80px">น้อยที่สุด</th>
                 </tr>       
            <tbody>
                 <?php           
-                                $verygood=null;
-                                $good=null;
-                                $fair=null;
-                                $bad=null;
-                                $i = 1;
-                              foreach($result as $r){ 
-                                  ?> 
-                                <tr>
-                                    <td width='25px'  style="border-right:1px solid #000;padding:4px;"><?php echo $i ?></td>
-                                    <td  style="border-right:1px solid #000;padding:4px;"><?php echo $r->glist_name?></td>
-                                    <td style="text-align:center;border-right:1px solid #000;padding:4px;"><?php 
-                                    if($r->score == 4){
-                                        $verygood +=4;
-                                        echo "/" ;
-                                    }?>
-                                    </td>
-                                    <td style="text-align:center;border-right:1px solid #000;padding:4px;">
-                                    <?php if($r->score == 3){
-                                        $good +=3;
-                                        echo "/" ;
-                                    } ?>
-                                    </td>
-                                    <td style="text-align:center;border-right:1px solid #000;padding:4px;">
-                                    <?php if($r->score == 2){
-                                        $fair +=2;
-                                        echo "/" ;
-                                    }
-                                    ?>
-                                    </td>
-                                    <td style="text-align:center;border-right:1px solid #000;padding:4px;">
-                                    <?php if($r->score == 1){
-                                        $bad +=1;
-                                        echo "/" ;
-                                    }
-                                    ?>
-                                    </td>
-                                </tr>
+                                    $i = 1;
+                                    $j = 1;
+                                foreach($result as $r){ ?> 
+                                    <tr>
+                                    <td colspan="7" width='25px'><b><?php echo $r->glist_name ?></b></td>
+                                    <?php 
+                                    foreach($result_list as $rl){
+                                          if($r->glist_id==$rl->glist_id){ ?>
+                                          <tr>
+                                            <td colspan="2" style="border-right:1px solid #000;padding:4px;text-align:left"><?php echo  $j.". ".$rl->list_name ?></td>
+                                            <td  style="border-right:1px solid #000;padding:4px;text-align:center" ><?php if($rl->score == 5)echo "/" ;else ?></td>
+                                            <td  style="border-right:1px solid #000;padding:4px;text-align:center" ><?php if($rl->score == 4)echo "/" ;else ?></td>
+                                            <td  style="border-right:1px solid #000;padding:4px;text-align:center" ><?php if($rl->score == 3)echo "/" ;else ?></td>
+                                            <td  style="border-right:1px solid #000;padding:4px;text-align:center" ><?php if($rl->score == 2)echo "/" ;else ?></td>
+                                            <td  style="border-right:1px solid #000;padding:4px;text-align:center" ><?php if($rl->score == 1)echo "/" ;else ?></td>
+                                            <?php 
+                                            $i++;
+                                            $j++;
+                                          } ?>
+                                        </tr>
+                                  <?php 
+                                   } ?> 
+                                    </tr>
 
-                                  <?php
-                                $i++;
-                              }
-                              $total = $verygood+$good+$fair+$bad;
-                                ?>
-                                <tr>
-                            <td style="text-align:right;border-right:1px solid #000;padding:4px;" colspan="2">รวมคะแนน</td>
-                            <td style="text-align:center;border-right:1px solid #000;padding:4px;"><?php echo $verygood ?></td>
-                            <td style="text-align:center;border-right:1px solid #000;padding:4px;"><?php echo $good ?></td>
-                            <td style="text-align:center;border-right:1px solid #000;padding:4px;"><?php echo $fair ?></td>
-                            <td style="text-align:center;border-right:1px solid #000;padding:4px;"><?php echo $bad ?></td>
-                            </tr>
-                            <tr>
-                            <td style="text-align:right" colspan="2">รวมคะแนนทั้งหมด</td>
-                            <td style="text-align:center;border-right:1px solid #000;padding:4px;" colspan="4"> <?php echo $total ?></td>
-                            </tr>
+                                      <?php
+                                  }
+                                    ?>
+                               
             </tbody>
     </table>  
         </div>

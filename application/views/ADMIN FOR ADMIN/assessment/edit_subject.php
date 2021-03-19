@@ -190,7 +190,6 @@ $(document).ready(function() {
     			cache: false,
     			data:{
     				id: id
-    			},
     			success: function(res){
                 alert(res);
                 console.log(res);
@@ -202,9 +201,7 @@ $(document).ready(function() {
       
     });
 $(document).on('click', '#del_glist', function() {
-      var r = confirm("Confirm delete?");
-      if (r == true) {
-    	var $ele = $(this).parent().parent();//?????
+ 
         var glist_id = $(this).attr("data-id");
         var sub_id = <?php echo $this->uri->segment('3')?>;
     		$.ajax({
@@ -221,7 +218,7 @@ $(document).on('click', '#del_glist', function() {
             // console.log("error");
           }
     		});
-      } 
+      
     });
 $(document).on('click', '#confirm', function() {
     	var $ele = $(this).parent().parent();//?????

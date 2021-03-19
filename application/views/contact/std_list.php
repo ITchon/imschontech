@@ -17,16 +17,43 @@
     .fa-check{
         color: green;
     }
-    .fa-ban{
-        color: red;
-    }
-</style>
-<div id='wrap' >
 
-    <div class="row">
-		<div class="col-md-12">
-			<div class="panel panel-default" >
-			<div class="panel-body" style="min-height: 752px;">
+
+        table.dataTable th,
+        table.dataTable td {
+            white-space: nowrap;
+        }
+</style>
+<?php  $subject_id =  $this->uri->segment('3'); ?>
+<div id='wrap' >
+<div class="container" style="min-height: 752px;background-color:#ffffff">
+    <div class="row"> 
+    <div id="page-heading">
+        <h2><?php echo $result_subject->subject_name ?></h2>
+
+             <div class="col-md-6">
+					        <a class="info-tiles tiles-green" >
+					            <div class="tiles-heading">
+					                <div class="pull-left"><span style=" font-size: 18px;">กำลังฝึกงานอยู่ทั้งหมด</span></div>
+					            </div>
+					            <div class="tiles-body text-center">
+                                   5
+					            </div>
+					        </a>
+					    </div>
+              <div class="col-md-6">
+					        <a class="info-tiles tiles-brown" >
+					            <div class="tiles-heading">
+					                <div class="pull-left"><span style=" font-size: 18px;">ประเมินนักเรียนไปแล้วทั้งหมด</span></div>
+					            </div>
+					            <div class="tiles-body text-center">
+                                   2/2
+					            </div>
+					        </a>
+					    </div>
+              
+        </div>
+      <div class="col-md-12">
                 <div class="panel panel-midnightblue">
                     <div class="panel-heading">
                     <?php if(isset($result)){
@@ -36,7 +63,9 @@
                  } ?>
                      </div>
                     <div class="panel-body">
+                    
                     <div class="table-responsive">
+                    <?php echo $this->session->flashdata("success");  ?>
                     <table cellpadding="0" cellspacing="0" border="0" class="table  datatables" id="example">
                           <thead >
                             <tr>
@@ -49,10 +78,13 @@
                               <th>วันที่เริ่มฝึก</th>
                               <th>วันที่สิ้นสุด</th>
                               <th class="text-center"></th>
+                              <th class="text-center"></th>
                             </tr>
                           </thead>
                           <tbody>
-                              <?php if($result != null){ foreach($result as $r){ ?>
+                              <?php if($result != null){ foreach($result as $r){ 
+                                
+                                ?>
                                 <tr>
                               <td><?php echo $r->company_name ?></td>
                               <td><?php echo $r->title." ".$r->fname." ".$r->lname ?></td>
@@ -62,13 +94,24 @@
                               <td><?php echo $r->term ?></td>
                               <td><?php echo $r->start_date ?></td>
                               <td><?php echo $r->end_date ?></td>
-                              <?php 
-                                $subject_id =  $this->uri->segment('3');
-                              echo "<td class='text-center'>
-                              <a href='".base_url()."contact/trainer_data/".$r->std_id."'><button class='btn btn-info'>ดูรายละเอียด</button></a>
-                              <a href='".base_url()."contact/supervision_insert/".$r->std_id."/".$subject_id."/".$r->t_id."'><button class='btn btn-brown'>ประเมิน</button></a>
-                            
-                              </td>";  ?>
+                              <?php if(array_search($r->t_id, array_column($result_spv, 't_id')) !== false){
+                                $key = array_search($r->t_id, array_column($result_spv, 't_id')) ;
+                                echo "<td class='text-center'>";
+                                echo "<span class='text-success'>ประเมินแล้ว</span>";
+                                echo "</td>";
+                                echo "<td class='text-center'>
+                                <a href='".base_url()."contact/supervision_view/".$subject_id."/".$result_spv[$key]['spv_contact_id']."'><button class='btn btn-primary'>ดูแบบประเมิน</button></a>
+                                <a href='".base_url()."contact/supervision_insert/".$subject_id."/".$r->std_id."'><button class='btn btn-warning'>แก้ไข</button></a>
+                                </td>";
+                              } else {
+                                echo "<td class='text-center'>";
+                                echo "<span class='text-danger'>ยังไม่ได้ประเมิน</span>";
+                                echo "</td>";
+                                echo "<td class='text-center'>
+                                      <a href='".base_url()."contact/supervision_insert/".$subject_id."/".$r->std_id."'><button class='btn btn-brown'>ประเมิน</button></a>
+                                      </td>";
+                              }
+                            ?>
                             </tr>
                               <?php }}else{
                                   echo "No Data";
@@ -82,3 +125,40 @@
                 </div>
             </div>
         </div>
+<script>
+$('#example').DataTable( {
+        responsive: true,
+        dom: "Bfrtip",
+        ajax: "../php/staff.php",
+        columns: [
+            {   // Responsive control column
+                data: null,
+                defaultContent: '',
+                className: 'control',
+                orderable: false
+            },
+            {   // Checkbox select column
+                data: null,
+                defaultContent: '',
+                className: 'select-checkbox',
+                orderable: false
+            },
+            { data: "first_name" },
+            { data: "last_name", className: 'never' },
+            { data: "position" },
+            { data: "office" },
+            { data: "start_date" },
+            { data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
+        ],
+        order: [ 2, 'asc' ],
+        select: {
+            style:    'os',
+            selector: 'td.select-checkbox'
+        },
+        buttons: [
+            { extend: "create", editor: editor },
+            { extend: "edit",   editor: editor },
+            { extend: "remove", editor: editor }
+        ]
+    } );
+</script>

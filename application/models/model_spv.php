@@ -10,6 +10,13 @@
             return $data;
 
         }
+        public function get_subject_contact() {  
+            $sql="SELECT  * FROM `subject` where subject_type = 'ผู้ควบคุมการฝึกงาน' ";
+            $query = $this->db->query($sql); 
+            $data  = $query->result(); 
+            return $data;
+
+        }
         public function get_spv_contact() {  
             $sql="SELECT  * FROM `subject` where subject_type = 'ผู้ควบคุมการฝึกงาน' ";
             $query = $this->db->query($sql); 
@@ -38,9 +45,10 @@
             return $data;
         }
         public function get_spv_data($spv_id)
-        {
+        {   
             $sql="SELECT * FROM `subject_score` ss
-            inner join group_list gl on gl.glist_id = ss.`glist_id`
+            inner join grouplist_list gll on gll.list_id = ss.`list_id`
+            inner join list l on l.list_id = gll.list_id
             where `spv_contact_id` = $spv_id";
             $query = $this->db->query($sql); 
             $data  = $query->result(); 
@@ -54,7 +62,7 @@
             $query = $this->db->query($sql); 
             $data  = $query->result(); 
             return $data;
-        }
+        } 
 
 
         public function supervision_save($train_id,$subject_id,$suggest,$position,$data_score)
@@ -64,9 +72,9 @@
                 $last_id = $this->db->insert_id();
                 $chk ;
                 foreach($data_score as $ds){
-                    $glist_id =  $ds['glist_id'];
+                    $list_id =  $ds['list_id'];
                     $score =  $ds['score'];
-                    $sql ="INSERT INTO  subject_score (spv_contact_id,glist_id,score ) VALUES ($last_id,'$glist_id','$score');";          
+                    $sql ="INSERT INTO  subject_score (spv_contact_id,list_id,score ) VALUES ($last_id,'$list_id','$score');";    
                     $query = $this->db->query($sql);  
                     if($query) $chk = true;
                     else $chk = false;

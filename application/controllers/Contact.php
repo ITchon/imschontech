@@ -17,7 +17,7 @@ class Contact Extends CI_controller{
 
         $contact_id =  $this->session->userdata('contact_id');
         $data['result'] = $this->model_teacher->get_division($contact_id);
-        $data['result_subject'] = $this->model_spv->get_subject_teacher($contact_id);
+        $data['result_subject'] = $this->model_spv->get_subject_contact($contact_id);
 
         $this->load->view('contact/header');
         $this->load->view('contact/nevbar',$data);
@@ -42,11 +42,19 @@ class Contact Extends CI_controller{
     }
 
     public function subject() 	
-	{
+	{  
         $contact_id =  $this->session->userdata('contact_id');
+        $subject_id =  $this->uri->segment('3');
         $sql="SELECT  * FROM student_train_detail where contact_id = '$contact_id' ";
         $query = $this->db->query($sql); 
-        $data['result'] = $query->result(); ;
+        $data['result'] = $query->result(); 
+        $sql="SELECT  * FROM supervision_contact  where  subject_id = '$subject_id'";
+        $query = $this->db->query($sql); 
+        $data['result_spv'] = $query->result_array(); 
+        $sql="SELECT  * FROM subject  where  subject_id = '$subject_id'";
+        $query = $this->db->query($sql); 
+        $data['result_subject'] = $query->row(); 
+
         $this->load->view('contact/std_list',$data);
         $this->load->view('contact/footer');
 
@@ -67,14 +75,16 @@ class Contact Extends CI_controller{
     }
     public function supervision_view() 	
 	{   
-        $spv_id =  $this->uri->segment('3');
+        $spv_id =  $this->uri->segment('4');
+        $subject_id =  $this->uri->segment('3');
         $sql="SELECT  * FROM `supervision_contact` sc
         inner join subject s on s.subject_id = sc.subject_id
         where spv_contact_id = '$spv_id' ";
         $query = $this->db->query($sql); 
         $data['result_spv']  = $query->row(); 
+        $data['result'] = $this->model_spv->get_subject_data($subject_id);
         $data['date'] = $this->model->Thai_date($data['result_spv']->approve_date);
-        $data['result'] = $this->model_spv->get_spv_data($spv_id);
+        $data['result_list'] = $this->model_spv->get_spv_data($spv_id);
         $data['std_detail'] = $this->model_pdf->get_train_detail($data['result_spv']->t_id);
         // print_r($data['result']);exit;
 		$this->load->view('contact/supervision_view',$data);
@@ -83,22 +93,27 @@ class Contact Extends CI_controller{
     }
     public function supervision_insert() 	
 	{   
-        $std_id =  $this->uri->segment('3');
+        $std_id =  $this->uri->segment('4');
+        $subject_id =  $this->uri->segment('3');
         $data['std_detail'] = null;
-        if($this->input->post('subject_id')!=null && $this->input->post('train_id')!=null){
-            $data['result'] = $this->model_spv->get_subject_data($this->input->post('subject_id'));
+            $data['result'] = $this->model_spv->get_subject_data($subject_id);
             if($data['result']!=null){
+                $sql="SELECT  * FROM `grouplist_list` gll
+                inner join group_list gl on gl.glist_id = gll.glist_id
+                inner join list l on l.list_id = gll.list_id";
+                $query = $this->db->query($sql); 
+                $data['result_list']  = $query->result(); 
+                // print_r($data['result_list']);exit;
                 $data['subject_name'] = $data['result'][0]->subject_name;
                 $data['subject_id'] = $data['result'][0]->subject_id;
-                $data['train_id'] = $this->input->post('train_id');
-                $data['std_detail'] = $this->model_pdf->get_train_detail($this->input->post('train_id'));
+                $data['std_data'] = $this->model_spv->get_train($std_id);
+                $data['train_id'] = $data['std_data'][0]->t_id;
+                $data['std_detail'] = $this->model_pdf->get_train_detail($data['std_data'][0]->t_id);
             }
-            // print_r($data['result'][0]->subject_name);
-        }
-        $data['result_spv'] = $this->model_spv->get_spv_contact();
-        $data['result_train'] = $this->model_spv->get_train($std_id);
-		$this->load->view('contact/supervision_insert',$data);
-		$this->load->view('footer');
+            // print_r($data['std_data'][0]->t_id);exit;
+		$this->load->view('contact/spv_insert_beta',$data);
+		$this->load->view('contact/footer');
+
     }
     public function supervision_save() 	
 	{   
@@ -108,15 +123,15 @@ class Contact Extends CI_controller{
        $suggest = $this->input->post('suggest');
        $position = $this->input->post('position');
        $max = $this->input->post('max');
-      //Store data in array 2 dimension 
        $a= [];
        for($i=1;$i<=$max;$i++){
           $data = $this->input->post($i);
           $g_id = substr($data, 1);
           $score = substr($data, 0, 1);
-          $data= array ("glist_id"=>$g_id,"score"=>$score);
+          $data= array ("list_id"=>$g_id,"score"=>$score);
           array_push($a,$data);
        }
+
        $result = $this->model_spv->supervision_save($train_id,$subject_id,$suggest,$position,$a);
        if($result){
             $this->session->set_flashdata('success','<div class="alert alert-success"><span> บันทึกข้อมูลเรียบร้อย</span></div>');
