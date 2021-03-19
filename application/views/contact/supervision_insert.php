@@ -31,7 +31,8 @@
     display:inline-block;
     }
 </style>
-		<div class="container">
+<div id='wrap' >    
+<div class="container">
 			<div class="row">
 					<div class="panel panel-1">
                         <div class="panel-heading">
@@ -158,6 +159,7 @@
                 </div>
             </div>
         </div>
+
 
 
 

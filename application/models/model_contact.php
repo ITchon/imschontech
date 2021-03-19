@@ -81,6 +81,7 @@ public function get_std_data($contact_id,$text) {
   inner join class on class.class_id = student.class_id
   inner join division on division.dv_id = class.dv_id
   WHERE train.contact_id = '$contact_id' and contact_confirm = 0 $text ORDER BY events.start_event DESC";
+  
 $query = $this->db->query($sql);
 $result =  $query->result();
 
