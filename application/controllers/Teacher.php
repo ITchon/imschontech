@@ -41,7 +41,7 @@ class Teacher Extends CI_controller{
 	{
         $teacher_id =  $this->session->userdata('teacher_id');
         $class_id =  $this->uri->segment('3');
-        $sql="SELECT  * FROM student_train_detail ";
+        $sql="SELECT  * FROM student_train_detail where teacher_id = '$teacher_id' ";
         $query = $this->db->query($sql); 
         $data['result'] = $query->result(); ;
         $this->load->view('teacher/std_list',$data);
@@ -303,8 +303,8 @@ class Teacher Extends CI_controller{
       $class_chk = $data['train_detail'][0]->class_id;
       
       if(in_array($class_chk,$class_teacher)){
-          $this->load->view('teacher/modal');
           $this->load->view('teacher/std_data',$data);
+          $this->load->view('teacher/modal');
           $this->load->view('teacher/footer');
       }
   }else{

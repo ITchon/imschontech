@@ -7,7 +7,6 @@ class Contact Extends CI_controller{
 
 		$this->load->helper('url');
 		$this->load->helper('form');
-        $this->load->view('contact/header');
 		$this->load->database(); 
         $this->load->model('model');
         $this->load->model('model_contact');
@@ -15,6 +14,13 @@ class Contact Extends CI_controller{
         $this->load->model('model_spv');
         $this->load->model('model_pdf');
         $this->load->model('student_model');
+
+        $contact_id =  $this->session->userdata('contact_id');
+        $data['result'] = $this->model_teacher->get_division($contact_id);
+        $data['result_subject'] = $this->model_spv->get_subject_teacher($contact_id);
+
+        $this->load->view('contact/header');
+        $this->load->view('contact/nevbar',$data);
 
 		$this->model->CheckSession();
 		$this->model->block_for_contact();
@@ -32,6 +38,17 @@ class Contact Extends CI_controller{
         $this->load->view('contact/menu');
         $this->load->view('contact/dashboard',$data);
 		$this->load->view('contact/footer');
+
+    }
+
+    public function subject() 	
+	{
+        $contact_id =  $this->session->userdata('contact_id');
+        $sql="SELECT  * FROM student_train_detail where contact_id = '$contact_id' ";
+        $query = $this->db->query($sql); 
+        $data['result'] = $query->result(); ;
+        $this->load->view('contact/std_list',$data);
+        $this->load->view('contact/footer');
 
     }
 
@@ -126,9 +143,8 @@ class Contact Extends CI_controller{
 
         $data['result'] = $this->model_contact->get_events_date2($contact_id);
 
-        $this->load->view('contact/modal');
-        $this->load->view('contact/menu');
         $this->load->view('contact/trainer',$data);
+        $this->load->view('contact/modal');
 		$this->load->view('contact/footer');
 
 	}
