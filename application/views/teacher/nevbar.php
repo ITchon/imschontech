@@ -5,31 +5,26 @@
         <nav id="page-leftbar" role="navigation">
                 <!-- BEGIN SIDEBAR MENU -->
             <ul class="acc-menu" id="sidebar">
-            <?php $url = $this->uri->segment('2'); ?>
+            <?php $url2 = $this->uri->segment('2'); 
+            $url3 = $this->uri->segment('3'); 
+            ?>
                 <!-- <li class="divider"></li> -->
-                <li class="<?php if($url == "division")echo "active"?>"><a href="<?php echo base_url(); ?>main"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
-                <!-- <li><a href="javascript:;"><i class="fa fa-th"></i> <span>Layout Options</span> </a>
-                    <ul class="acc-menu">
-                        <li><a href="<?php echo base_url(); ?>layout/layout_gd"><span>Grids</span></a></li>
-                        <li><a href="<?php echo base_url(); ?>layout"><span>Horizontal Navigation</span></a></li>
-                        <li><a href="<?php echo base_url(); ?>layout/layout_hori2"><span>Horizontal Navigation 2</span></a></li>
-                        <li><a href="<?php echo base_url(); ?>layout/layout_fixd"><span>Fixed Boxed Layout</span></a></li>
-                    </ul>
-                </li> -->
-               
-                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>manage_officer" ><i class="fa fa-user"></i><span>เจ้าหน้าที่</span></a></li>
-                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>manage_teacher"><i class="fa fa-user"></i><span>อาจารย์</span></a></li>
-                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>นักเรียน</span></a></li>
-                <li class="<?php if($url == "")echo "active"?>"><a href="javascript:;"><i class="fa fa-table"></i> <span>ประเมิน</span></a>
-                    <ul class="acc-menu">
+                <li class="<?php if($url2 == "")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>main"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
+                <li class="<?php if($url2 == "std_data")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>teacher/student" ><i class="fa fa-user"></i><span>รายชื่อนักเรียน</span></a></li>
+                <li class="<?php if($url2 == "division" || $url2 == "list")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>teacher/division"><i class="fa fa-user"></i><span>รายชื่อแผนก</span></a></li>
+                <li class="<?php if($url2 == "std_work")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>teacher/std_work"><i class="fa fa-user"></i><span>บันทึกการปฎิบัติงาน</span></a></li>
+                <li class="<?php if($url2 == "" )echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>แบบฟอร์มการประเมิน</span></a>
+                <li class="<?php if($url2 == "" || $url2 == "supervision_insert" || $url2 =="supervision_view_th" )echo "open active hasChild"?>"><a><i class="fa fa-table"></i> <span>ประเมิน</span></a>
+                    <ul class="acc-menu" style="display: block;">
                     <?php foreach($result_subject as $rs){
                             $subject_id = $rs->subject_id;
+                            $active = "";
+                            if($url3 == $rs->subject_id) $active = "active";
                          ?>
-                        <li class="active"><a href="<?php echo base_url()."teacher/subject/$subject_id" ?>"> - <?php echo $rs->subject_name ?></a></li>
+                        <li class=" <?php echo $active ?>" ><a href="<?php echo base_url()."teacher/subject/$subject_id" ?>"> - <?php echo $rs->subject_name ?></a></li>
                     <?php } ?>
                     </ul>
                 </li>
-              
                                         </li>
                                     </ul>
                                 </li>

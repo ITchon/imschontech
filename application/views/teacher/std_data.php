@@ -1,5 +1,5 @@
+		<div id='wrap' >
 <head><?php echo $map['js'];?></head>
-
 			<div class="row">
 				<div class="col-md-12">
                

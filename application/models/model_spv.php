@@ -74,9 +74,9 @@
                 return $chk;
 
         }
-        public function supervision_save_teacher($train_id,$subject_id,$data_score)
+        public function supervision_save_teacher($train_id,$subject_id,$summarize,$data_score)
         { 
-                $sql ="INSERT INTO  supervision_teacher (t_id,subject_id,approve_date ) VALUES ('$train_id','$subject_id',CURDATE());";          
+                $sql ="INSERT INTO  supervision_teacher (t_id,subject_id,approve_date,summarize ) VALUES ('$train_id','$subject_id',CURDATE(),'$summarize');";          
                 $query = $this->db->query($sql);  
                 $last_id = $this->db->insert_id();
                 $chk ;

@@ -8897,14 +8897,14 @@ footer #back-to-top {
     overflow-y: visible;
   }
   #sidebar {
-    position: fixed;
+    /* position: fixed; */
     width: 0;
     top: 40px;
     bottom: 0px;
     overflow-x: hidden !important;
   }
   body.show-leftbar #sidebar {
-    width: 230px;
+    width: 270px;
   }
 }
 .focusedform {
@@ -10024,7 +10024,7 @@ body.collapse-leftbar #sidebar > li.hasChild:hover > a:before {
     margin-left: 0;
   }
   body.show-leftbar #page-leftbar {
-    width: 230px;
+    width: 270px;
   }
   body.show-leftbar #page-content {
     margin-left: 230px;

@@ -28,8 +28,10 @@
 <div id='wrap' >
 <div class="container" style="min-height: 752px;background-color:#ffffff">
     <div class="row"> 
-    <div id="page-heading">
-        <h2><?php echo $result_subject->subject_name ?></h2>
+
+      <div class="col-md-12">
+      <div id="page-heading">
+        <h2>รายชื่อนักเรียน</h2>
 
              <div class="col-md-6">
 					        <a class="info-tiles tiles-green" >
@@ -53,7 +55,8 @@
 					    </div>
               
         </div>
-      <div class="col-md-12">
+
+   
                 <div class="panel panel-midnightblue">
                     <div class="panel-heading">
                     <?php if(isset($result)){
@@ -77,8 +80,7 @@
                               <th>ภาคเรียน</th>
                               <th>วันที่เริ่มฝึก</th>
                               <th>วันที่สิ้นสุด</th>
-                              <th class="text-center"></th>
-                              <th class="text-center"></th>
+                              <th></th>
                             </tr>
                           </thead>
                           <tbody>
@@ -94,28 +96,11 @@
                               <td><?php echo $r->term ?></td>
                               <td><?php echo $r->start_date ?></td>
                               <td><?php echo $r->end_date ?></td>
-                              <?php if(array_search($r->t_id, array_column($result_spv, 't_id')) !== false){
-                                $key = array_search($r->t_id, array_column($result_spv, 't_id')) ;
-                                echo "<td class='text-center'>";
-                                echo "<span class='text-success'>ประเมินแล้ว</span>";
-                                echo "</td>";
-                                echo "<td class='text-center'>
-                                <a href='".base_url()."Teacher/supervision_view_th/".$subject_id."/".$result_spv[$key]['spv_teacher_id']."'><button class='btn btn-primary'>ดูแบบประเมิน</button></a>
-                                <a href='".base_url()."Teacher/supervision_insert/".$subject_id."/".$r->std_id."'><button class='btn btn-warning'>แก้ไข</button></a>
-                                </td>";
-                              } else {
-                                echo "<td class='text-center'>";
-                                echo "<span class='text-danger'>ยังไม่ได้ประเมิน</span>";
-                                echo "</td>";
-                                echo "<td class='text-center'>
-                                      <a href='".base_url()."Teacher/supervision_insert/".$subject_id."/".$r->std_id."'><button class='btn btn-brown'>ประเมิน</button></a>
-                                      </td>";
-                              }
-                            ?>
+                              <td>
+                                 <a href='<?php echo base_url()."Teacher/std_data/$r->std_id"?>'><button class='btn btn-info'>ดูรายละเอียด</button></a>
+                              </td>
                             </tr>
-                              <?php }}else{
-                                  echo "No Data";
-                              }  ?>
+                              <?php }}  ?>
                            
                           </tbody>
                         </table>
@@ -125,40 +110,3 @@
                 </div>
             </div>
         </div>
-<script>
-$('#example').DataTable( {
-        responsive: true,
-        dom: "Bfrtip",
-        ajax: "../php/staff.php",
-        columns: [
-            {   // Responsive control column
-                data: null,
-                defaultContent: '',
-                className: 'control',
-                orderable: false
-            },
-            {   // Checkbox select column
-                data: null,
-                defaultContent: '',
-                className: 'select-checkbox',
-                orderable: false
-            },
-            { data: "first_name" },
-            { data: "last_name", className: 'never' },
-            { data: "position" },
-            { data: "office" },
-            { data: "start_date" },
-            { data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
-        ],
-        order: [ 2, 'asc' ],
-        select: {
-            style:    'os',
-            selector: 'td.select-checkbox'
-        },
-        buttons: [
-            { extend: "create", editor: editor },
-            { extend: "edit",   editor: editor },
-            { extend: "remove", editor: editor }
-        ]
-    } );
-</script>

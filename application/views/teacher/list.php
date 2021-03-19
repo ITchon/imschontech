@@ -21,7 +21,9 @@
         color: red;
     }
 </style>
-<div class="row">
+<div id='wrap' >
+        <div class="container" style="min-height: 752px;background-color:#ffffff" >
+            <div class="row">
 				<div class="col-md-12">
                
 					<div class="panel panel-midnightblue">
@@ -76,11 +78,8 @@
                             }?> -->
                             </div>
         
-        <form target = '_blank' class="container " action="<?php echo base_url()?>teacher/std_data" method="get">
-            <input type="text" class="form-control" name="student_search" placeholder="รหัสนักศึกษา">
-        </form>
-    </div>
-    <br>
+
+            </div>
             <div class="row">
               <div class="col-xs-12">
                 <div class="panel panel-primary">
@@ -120,7 +119,7 @@
                               <td><?php echo $std->class_name ?></td>
                               <?php echo "<td class='text-center'>
                               <a href='".base_url()."Teacher/std_data/".$std->std_id."'><button class='btn btn-info'>ดูรายละเอียด</button></a>
-                              <a href='".base_url()."Teacher/supervision/".$std->std_id."'><button class='btn btn-brown'>ดูเอกสาร</button></a>
+                              
                             
                               </td>";  ?>
                             </tr>
