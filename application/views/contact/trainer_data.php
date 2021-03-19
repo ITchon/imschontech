@@ -86,11 +86,11 @@
 								<div class="col-md-12">
 									<div class="tab-container tab-success">
 										<ul class="nav nav-tabs">
-											<li class="active"><a href="#home1" data-toggle="tab">รายการปฎิบัติงาน</a></li>
-											<li class=""><a href="#profile1" data-toggle="tab">เวลาการปฎิบัติงาน</a></li>
+											<li class=""><a href="#home1" data-toggle="tab">รายการปฎิบัติงาน</a></li>
+											<li class="active"><a href="#profile1" data-toggle="tab">เวลาการปฎิบัติงาน</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane active clearfix" id="home1">
+											<div class="tab-pane clearfix" id="home1">
 												<div class="col-md-12">
 												<table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
                                                     <thead class="bg-primary">
@@ -142,7 +142,7 @@
 												
 											</div>
 											
-	              							<div class="tab-pane" id="profile1">
+	              							<div class="tab-pane active" id="profile1">
 												<input type="hidden" name="" id="t_id" value="<?php echo $train_id ?>">
 												<div id="work-time-data"></div>
 	              							</div>
