@@ -21,11 +21,12 @@
     border-color: #c0392b;
     }
 </style>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 ">
+<div id='wrap' >
+
+    <div class="row">
+    <div class="col-md-12 ">
 					<div class="panel panel-1">
-						<div class="panel-body" >
+	<div class="panel-body" >
                             <h4>ชื่อ : Suphachok  </h4>
                                
                                 <div class="panel panel-1">
@@ -91,4 +92,6 @@
 			
             </div>
         </div>
+
+
 

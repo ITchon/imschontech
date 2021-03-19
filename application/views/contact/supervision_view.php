@@ -28,6 +28,7 @@ width:auto;
 display:inline-block;
 }
 </style>
+<div id='wrap' >    
     <div class="container">
         <div class="row">
                 <div class="panel panel-1">

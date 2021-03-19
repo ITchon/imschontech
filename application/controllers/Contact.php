@@ -207,8 +207,8 @@ class Contact Extends CI_controller{
     $contact_chk = $data['train_detail'][0]->contact_id;
      if($train_id == null ) $data['train_id'] = $data['train_detail'][0]->t_id;
     // if($contact_chk == $contact_id){
-        $this->load->view('contact/modal');
         $this->load->view('contact/trainer_data',$data);
+        $this->load->view('contact/modal');
         $this->load->view('contact/footer');
         
     // }else{
@@ -259,5 +259,30 @@ class Contact Extends CI_controller{
         }
 
     }
+
+    public function manage_internbook() 	
+	{
+        if($this->input->post('std_id')){
+            $std_id = $this->input->post('std_id'); 
+            $text = "and student.std_id = '$std_id'";
+        }else{
+            $text = '';
+        }
+
+        $contact_id = $this->session->userdata('contact_id');	
+        $data['student_list'] = $this->model_contact->get_mytrainer($contact_id);
+
+        $data['result_test'] = $this->model_contact->get_std_data($contact_id,$text);
+        $data['result_search'] = $this->model_contact->get_std_data1($contact_id);
+
+        $data['result'] = $this->model_contact->get_events_date2($contact_id);
+        
+		$this->load->view('contact/manage_intern',$data);
+        $this->load->view('contact/modal');
+        $this->load->view('contact/footer');
+
+    }
+
+
 }
 ?>

@@ -15,12 +15,19 @@
 	}
 </style>
 <head><?php echo $map['js']; ?></head>
-
-			<div class="row">
-				<div class="col-md-12">
-               
-					<div class="panel panel-midnightblue">
-						<div class="panel-body">
+<div id="">
+    <div id='wrap' >
+    <div class="container" style="background-color: #ffffff;" >
+    <div class="row">
+ <div class="col-xs-12">
+        <div class="panel panel-midnightblue">
+                        <div class="panel-heading">
+                            <h4>บันทึกการปฏิบัติงานของนักเรียนทั้งหมด</h4>
+                            <div class="options">
+                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
 
 							<div class="row">
 								<div class="col-md-6">
@@ -152,10 +159,8 @@
 			</div>
 			
 
-</body>
-</html>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	var t_id = $('#t_id').val();
@@ -219,3 +224,4 @@ $(".open-modal").click(function() {
    
 
 </script>
+    
