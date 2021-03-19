@@ -69,7 +69,7 @@ class Pdf extends CI_Controller {
 		require_once(APPPATH.'../vendor/autoload.php');	
 
 		$mpdf = new \Mpdf\Mpdf();
-		$html = $this->load->view('pdf/test',$data,true);
+		$html = $this->load->view('pdf/spv_th_form',$data,true);
 		$mpdf->WriteHTML($html);
 		$mpdf->Output();
 	}

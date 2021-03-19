@@ -30,43 +30,6 @@
     width:auto;
     display:inline-block;
     }
-    <style>
-        .container {
-            max-width: 820px;
-            margin: 0px auto;
-            margin-top: 50px;
-        }
-
-        .comment {
-            float: left;
-            width: 100%;
-            height: auto;
-        }
-
-        .commenter {
-            float: left;
-        }
-
-        .commenter img {
-            width: 35px;
-            height: 35px;
-        }
-
-        .comment-text-area {
-            float: left;
-            width: 100%;
-            height: auto;
-        }
-
-        .textinput {
-            float: left;
-            width: 100%;
-            min-height: 75px;
-            outline: none;
-            resize: none;
-            border: 1px solid grey;
-        }
-    </style>
 </style>
 <div id="wrap">
 			<div class="row">
@@ -121,38 +84,51 @@
                                         <th colspan="6" ><h4><?php echo $subject_name ?></h4></th>
                                         <tr>
                                             <th colspan="2" >รายการประเมินผล</th>
-                                            <!-- <th width="120px">ดีมาก</th> -->
-                                            <th width="120px">ดี (3)</th>
-                                            <th width="120px">พอใช้ (2)</th>
-                                            <th width="120px">ปรับปรุง (1)</th>
+                                            <th width="120px">ดีมาก</th>
+                                            <th width="120px">ดี</th>
+                                            <th width="120px">พอใช้</th>
+                                            <th width="120px">ปรับปรุง</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $i = 1;
                                   foreach($result as $r){ ?> 
                                     <tr>
-                                    <td width='25px'><?php echo $i ?></td>
-                                    <td><?php echo $r->glist_name?></td>
-                                    <!-- <td  class="text-center"><input required type="radio" value="4<?php echo $r->glist_id?>" name="<?php echo $i?>" id=""></td> -->
+                                    <td colspan="6" width='25px'><b><?php echo $r->glist_name ?></b></td>
+                                    <?php 
+                                    $i = 1;
+                                    foreach($result_list as $rl){
+                                          if($r->glist_id==$rl->glist_id){ ?>
+                                          <tr>
+                                            <td colspan="2"><?php echo  $i.". ".$rl->list_name ?></td>
+                                            <td  class="text-center"><input required type="radio" value="4<?php echo $r->glist_id?>" name="<?php echo $i?>" id=""></td>
+                                            <td  class="text-center"><input required type="radio" value="3<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
+                                            <td  class="text-center"><input required type="radio" value="2<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
+                                            <td  class="text-center"><input required type="radio" value="1<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
+                                            <?php 
+                                            $i++;
+                                          } ?>
+                                        </tr>
+                                  <?php 
+                                   } ?> 
+                                    <!-- <td  class="text-center"><input required type="radio" value="4<?php echo $r->glist_id?>" name="<?php echo $i?>" id=""></td>
                                     <td  class="text-center"><input required type="radio" value="3<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
                                     <td  class="text-center"><input required type="radio" value="2<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
-                                    <td  class="text-center"><input required type="radio" value="1<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
+                                    <td  class="text-center"><input required type="radio" value="1<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td> -->
                                     </tr>
 
                                       <?php
-                                    $i++;
                                   }
                                     ?>
                                     </tbody>
                                     </table>
-                                              <label for="textarea"><h4>สรุปผลการนิเทศ</h4> </label><br>
-                                              <textarea class="textinput" name="summarize" placeholder=""></textarea>
-                                             <div class="text-center">
-                                          <input type="hidden" name="max" value="<?php echo $i-1?>">
-                                          <input type="submit" class="btn btn-success" value="บันทึก">
-                                             </div>
-
+                                    <div class="text-center">
+ 
+                                        <div class="form-group">
+                                        <input type="hidden" name="max" value="<?php echo $i-1?>">
+                                        <input type="submit" class="btn btn-primary" value="บันทึก">
+                                      </div>
+                                    </div>
                                 </form>
                             <?php } ?>
                         </div>
