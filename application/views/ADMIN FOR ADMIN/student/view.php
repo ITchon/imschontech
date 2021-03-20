@@ -67,11 +67,13 @@
                               $txt_status = 'ลงทะเบียนแล้ว'; 
                               $txt_color = '#0EC952';
                             
+                            }else if($r->status == null ){
+                                $txt_status = ''; 
+                                $txt_color = ''; 
+
                             }else{
-                             
-                            $txt_status = 'ยังไม่ลงทะเบียน'; 
-                              $txt_color = '#FF0000'; 
-                            
+                                $txt_status = 'ยังไม่ลงทะเบียน'; 
+                                $txt_color = '#FF0000'; 
                             }
                       
 

@@ -47,6 +47,7 @@
                                             <th>อาจารย์</th>
                                             <th>แผนก</th>
                                             <th>ระดับชั้น</th>
+                                            <th>ตัวย่อ</th>
                                             <th>กลุ่ม</th>
                                             <th  width="15%">Manage</th>
                                         </tr>
@@ -58,6 +59,7 @@
                                         <tr>
                                             <td><?php echo $r->fname ." ".$r->lname	 ?></td>
                                             <td><?php echo $r->dv_name ?></td>
+                                            <td><?php echo $r->level_group ?></td>
                                             <td><?php echo $r->class_name ?></td>
                                             <td><?php echo $r->class_group ?></td>
 

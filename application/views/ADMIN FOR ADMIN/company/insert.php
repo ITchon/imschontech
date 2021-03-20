@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="province">อำเภอ</label>
+                                            <label for="province">จังหวัด</label>
                                             <input type="text" name="province" class="form-control" required>
                                             </select>
                                         </div>

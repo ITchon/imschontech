@@ -20,7 +20,7 @@ class Classs Extends CI_controller{
 	public function index() 	
 	{
 	
-		$qry_inp =  "SELECT cl.class_id , cl.teacher_id , cl.dv_id , cl.class_name , cl.class_group , th.fname , th.lname , dv.dv_name FROM class AS cl 
+		$qry_inp =  "SELECT cl.class_id , cl.teacher_id , cl.dv_id , cl.class_name ,cl.level_group ,cl.class_group , th.fname , th.lname , dv.dv_name FROM class AS cl 
 						INNER JOIN teacher AS th ON th.teacher_id = cl.teacher_id 
 						INNER JOIN division AS dv ON dv.dv_id = cl.dv_id";
         $query = $this->db->query($qry_inp); 

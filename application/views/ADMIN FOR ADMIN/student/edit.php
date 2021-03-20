@@ -111,7 +111,7 @@
                                             <!-- <input type="text" name="class_id" value="<?php echo $result[0]->class_id ?>" class="form-control" > -->
                                             <select name="class_id" class="form-control" id="class_id">
                                                 <?php foreach($result_cl as $cl){?>
-                                                <option value="<?php echo $cl->class_id ?>"><?php echo $cl->class_name ?></option>
+                                                <option value="<?php echo $cl->class_id ?>"><?php echo $cl->class_name." ".$cl->class_group ?></option>
 
 
                                             <?php } ?>

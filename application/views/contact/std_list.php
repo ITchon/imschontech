@@ -82,10 +82,9 @@
                             </tr>
                           </thead>
                           <tbody>
-                              <?php if($result != null){ 
-                                  $i = 0;
+                              <?php $i = 0;
+                              if($result != null){ 
                                   foreach($result as $r){ 
-                                
                                 ?>
                                 <tr>
                               <td><?php echo $r->company_name ?></td>

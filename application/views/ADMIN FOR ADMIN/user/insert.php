@@ -114,6 +114,7 @@
             <button class="pull-right btn btn-inverse-alt btn-xs hidden-print" id="back-to-top"><i class="fa fa-arrow-up"></i></button>
         </div>
     </footer>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 <!--
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -123,7 +124,7 @@
 <script type="text/javascript">!window.jQuery.ui && document.write(unescape('%3Cscript src="assets/js/jqueryui-1.10.3.min.js'))</script>
 -->
 
-<!-- <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jquery-1.10.2.min.js'></script> 
+<script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jquery-1.10.2.min.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/jqueryui-1.10.3.min.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/bootstrap.min.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/enquire.js'></script> 
@@ -138,20 +139,9 @@
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo-datatables.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/placeholdr.js'></script> 
 <script type='text/javascript' src='<?php echo base_url(); ?>/assets/js/application.js'></script> 
-<script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo.js'></script>  -->
+<script type='text/javascript' src='<?php echo base_url(); ?>/assets/demo/demo.js'></script> 
+<script src="<?php echo base_url(); ?>assets/dist/js/bootstrap-select.js"></script>
 
-<script>
-    $(".toggle-password").click(function() {
-
-    $(this).toggleClass("fa-eye fa-eye-slash");
-    var input = $($(this).attr("toggle"));
-    if (input.attr("type") == "password") {
-    input.attr("type", "text");
-    } else {
-    input.attr("type", "password");
-    }
-    });
-</script>
 <script>
 $( document ).ready(function() {
     $('#select').hide();
@@ -181,6 +171,18 @@ $( document ).ready(function() {
   }
 });
 
+</script>
+<script>
+    $(".toggle-password").click(function() {
+
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+    input.attr("type", "text");
+    } else {
+    input.attr("type", "password");
+    }
+    });
 </script>
 </body>
 </html>

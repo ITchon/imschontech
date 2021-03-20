@@ -17,7 +17,7 @@ class Model_ajax extends CI_Model
                    foreach($query->result() as $row)
                    
                    {       
-                       $output .= '<option  value="'.$row->std_id.'">'.$row->std_code." | ".$row->title." ".$row->fname." ".$row->lname." | ".$row->class_name." ".$row->class_group.'</option>.';
+                       $output .= '<option  value="'.$row->std_id.'">'.$row->std_code." | ".$row->title." ".$row->fname." ".$row->lname." | ".$row->class_name." ".$row->class_group.'</option>';
                    
                    }
            
@@ -29,7 +29,7 @@ class Model_ajax extends CI_Model
                     $output = '';
                     foreach($query->result() as $row)
                     {       
-                        $output .= '<option  value="'.$row->teacher_id.'">'.$row->th_code." | ".$row->title." ".$row->fname." ".$row->lname.'</option>.';
+                        $output .= '<option  value="'.$row->teacher_id.'">'.$row->th_code." | ".$row->title." ".$row->fname." ".$row->lname.'</option>';
                     }
             
                  return $output;
@@ -40,7 +40,7 @@ class Model_ajax extends CI_Model
                     $output = '';
                     foreach($query->result() as $row)
                     {       
-                        $output .= '<option  value="'.$row->officer_id.'">'.$row->of_code." | ".$row->title." ".$row->fname." ".$row->lname.'</option>.';
+                        $output .= '<option  value="'.$row->officer_id.'">'.$row->of_code." | ".$row->title." ".$row->fname." ".$row->lname.'</option>';
                     }
             
                  return $output;
@@ -51,7 +51,7 @@ class Model_ajax extends CI_Model
                     $output = '';
                     foreach($query->result() as $row)
                     {       
-                        $output .= '<option  value="'.$row->officer_id.'">'.$row->of_code." | ".$row->title." ".$row->fname." ".$row->lname.'</option>.';
+                        $output .= '<option  value="'.$row->officer_id.'">'.$row->of_code." | ".$row->title." ".$row->fname." ".$row->lname.'</option>';
                     }
             
                  return $output;
@@ -63,7 +63,7 @@ class Model_ajax extends CI_Model
                     foreach($query->result() as $row)
                     
                     {       
-                        $output .= '<option  value="'.$row->id.'">'.$row->fname.'</option>.';
+                        $output .= '<option  value="'.$row->id.'">'.$row->fname.'</option>';
                     
                     }
             
