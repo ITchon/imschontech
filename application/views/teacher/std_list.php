@@ -81,8 +81,9 @@
                             </tr>
                           </thead>
                           <tbody>
-                              <?php if($result != null){ 
+                              <?php
                                   $i = 0;
+                               if($result != null){ 
                                   foreach($result as $r){ 
                                 
                                 ?>

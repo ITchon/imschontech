@@ -5,6 +5,7 @@
 }
 </style>
 <div id="">
+<div id="page-content">
     <div id='wrap' >
         <div class="container" style="min-height: 752px;background-color:#ffffff" >
             <div class="row">

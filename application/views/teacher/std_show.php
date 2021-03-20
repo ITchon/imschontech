@@ -25,6 +25,7 @@
         }
 </style>
 <?php  $subject_id =  $this->uri->segment('3'); ?>
+<div id="page-content">
 <div id='wrap' >
 <div class="container" style="min-height: 752px;background-color:#ffffff">
     <div class="row"> 
