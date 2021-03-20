@@ -181,7 +181,6 @@
 <script>
     $('#edit_glist').click(function() {
         var id = $(this).attr("data-id");
-        alert(id);
     		$.ajax({
     			url: "<?php echo base_url("manage_asm/get_onegrouplist");?>",
     			type: "POST",
@@ -190,7 +189,6 @@
     				id: id
                     },
     			success: function(res){
-                alert(res);
                 console.log(res);
     			},
           error:function(res){
@@ -220,7 +218,6 @@
       
     });
     $('#confirm').click(function() {
-        alert("llo");
     	var $ele = $(this).parent().parent();//?????
         var glist_id = $(this).attr("data-id");
         var g_list = $('#g_list').val();

@@ -27,7 +27,41 @@ border-color: #c0392b;
 width:auto;
 display:inline-block;
 }
+
 </style>
+<style>
+
+
+        .comment {
+            float: left;
+            width: 100%;
+            height: auto;
+        }
+
+        .commenter {
+            float: left;
+        }
+
+        .commenter img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .comment-text-area {
+            float: left;
+            width: 100%;
+            height: auto;
+        }
+
+        .textinput {
+            float: left;
+            width: 100%;
+            min-height: 75px;
+            outline: none;
+            resize: none;
+            border: 1px solid grey;
+        }
+    </style>
 <div id='wrap' >
     <div class="container" style="min-height: 752px;background-color:#ffffff">
         <div class="row">
@@ -64,9 +98,10 @@ display:inline-block;
                               </div>
                           <br>
                           <?php 
-                          $url = $this->uri->segment('3');
+                          $url4 = $this->uri->segment('4');
+                          $url3 = $this->uri->segment('3');
                           if($result != null) { ?>
-
+                     <form action="<?php echo base_url()."teacher/supervision_save_edit_th/$url3/$url4" ?>" method="post">
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered " id="example">
                                 <thead class="text-center">
                                     <th colspan="6" ><?php echo $result_spv->subject_name ?></th>
@@ -80,70 +115,36 @@ display:inline-block;
                                 </thead>
                                 <tbody>
                                 <?php
-                                $good=null;
-                                $fair=null;
-                                $bad=null;
                                 $i = 1;
                               foreach($result as $r){ 
                                   ?> 
                                 <tr>
-                                <td width='25px'><?php echo $i ?></td>
-                                <td><?php echo $r->glist_name?></td>
-                                <!-- <td  class="text-center"><?php if($r->score == 4)echo "/" ;else ?></td> -->
-                                <td  class="text-center">
-                                <?php if($r->score == 3){
-                                        $good +=3;
-                                        echo "/" ;
-                                    } ?></td>
-                                <td  class="text-center">
-                                <?php if($r->score == 2){
-                                        $fair +=2;
-                                        echo "/" ;
-                                    }
-                                    ?>
-                                </td>
-                                <td  class="text-center">
-                                <?php if($r->score == 1){
-                                        $bad +=1;
-                                        echo "/" ;
-                                    }
-                                    ?>
-                                </td>
+                                    <td width='25px'><?php echo $i ?></td>
+                                    <td><?php echo $r->glist_name?></td>
+                                    <!-- <td  class="text-center"><?php if($r->score == 4)echo "/" ;else ?></td> -->
+                                    <td  class="text-center"><input <?php if($r->score == 3)echo "checked" ?> required type="radio" value="3<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
+                                    <td  class="text-center"><input <?php if($r->score == 2)echo "checked" ?> required type="radio" value="2<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
+                                    <td  class="text-center"><input <?php if($r->score == 1)echo "checked" ?> required type="radio" value="1<?php echo $r->glist_id?>"name="<?php echo $i?>" id=""></td>
                                 </tr>
 
                                   <?php
                                 $i++;
                               }
-                              $total = $good+$fair+$bad;
-
                                 ?>
-                                                            <tr>
-                            <td class="text-right" colspan="2">รวมคะแนน</td>
-                            <td class="text-center"><?php echo $good ?></td>
-                            <td class="text-center"><?php echo $fair ?></td>
-                            <td class="text-center"><?php echo $bad ?></td>
-                            </tr>
-                            <tr>
-                            <td class="text-right" colspan="2">รวมคะแนนทั้งหมด</td>
-                            <td class="text-center" colspan="3"> <?php echo $total ?></td>
-                            </tr>
                                 </tbody>
       
                                 </table>
-                                <div class="footer">
-                                    <b>สรุปผลการนิเทศ</b>
-                                    <br>
-                                    <span><?php echo $result_spv->summarize ?></span>
-                                        <div class="text-center">
+                                <label for="textarea"><h4>สรุปผลการนิเทศ</h4> </label><br>
+                                              <textarea class="textinput" name="summarize" placeholder="" value="ddasdasd"><?php echo $result_spv->summarize ?></textarea>
+                                             <div class="text-center">
+                                          <input type="hidden" name="max" value="<?php echo $i-1?>">
+                                          <input type="hidden" name="spv_id" value="<?php echo $result_spv->spv_teacher_id ?>">
+                                          <button onclick="window.history.back();" class="btn btn-default">กลับ</button>
+                                          <input type="submit" class="btn btn-success" value="บันทึก">
+                                          
+                                             </div>
 
-                                        </div>
-                                </div>
-                                <?php $url = $this->uri->segment('4'); ?>
-                                </table>
-                                <div class="text-center">
-                                    <button onclick="window.history.back();" class="btn btn-default">กลับ</button>
-                                    <a href="<?php echo base_url()."pdf/view_teacher/$url"?>"><button class="btn btn-green">ดาวน์โหลดเอกสาร</button></a>
-                                </div>
+                                             </form>
 
                         <?php } ?>
                     </div>

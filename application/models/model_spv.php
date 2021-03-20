@@ -99,6 +99,23 @@
                 return $chk;
 
         }
+        public function supervision_update_teacher($spv_id,$summarize,$data_score)
+        { 
+                $sql ="UPDATE  supervision_teacher set summarize = '$summarize',approve_date = CURDATE() where spv_teacher_id = '$spv_id'";          
+                $query = $this->db->query($sql);  
+                $last_id = $this->db->insert_id();
+                $chk ;
+                foreach($data_score as $ds){
+                    $glist_id =  $ds['glist_id'];
+                    $score =  $ds['score'];
+                    $sql ="UPDATE  subject_score_th set score = '$score' where spv_teacher_id = '$spv_id';";          
+                    $query = $this->db->query($sql);  
+                    if($query) $chk = true;
+                    else $chk = false;
+                }
+                return $chk;
+
+        }
 
         public function get_spv($std)
         { 

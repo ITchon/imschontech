@@ -121,7 +121,7 @@ tr{
                               }
                               $total = $verygood+$good+$fair+$bad;
                                 ?>
-                                <tr>
+                            <tr>
                             <td style="text-align:right;border-right:1px solid #000;padding:4px;" colspan="2">รวมคะแนน</td>
                             <!-- <td style="text-align:center;border-right:1px solid #000;padding:4px;"><?php echo $verygood ?></td> -->
                             <td style="text-align:center;border-right:1px solid #000;padding:4px;"><?php echo $good ?></td>
