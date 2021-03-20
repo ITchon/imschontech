@@ -35,7 +35,7 @@ class manage_student Extends CI_controller{
 					std.std_code,
 					std.birth_date,
 					std.class_id FROM student AS std 
-					INNER JOIN class AS cl ON cl.class_id = std.class_id";
+					left JOIN class AS cl ON cl.class_id = std.class_id";
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
 		$this->load->view('ADMIN FOR ADMIN/student/view',$data);

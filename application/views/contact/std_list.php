@@ -34,10 +34,10 @@
              <div class="col-md-6">
 					        <a class="info-tiles tiles-green" >
 					            <div class="tiles-heading">
-					                <div class="pull-left"><span style=" font-size: 18px;">กำลังฝึกงานอยู่ทั้งหมด</span></div>
+					                <div class="pull-left"><span style=" font-size: 18px;">มีนักเรียนที่กำลังฝึกงานอยู่ทั้งหมด</span></div>
 					            </div>
 					            <div class="tiles-body text-center">
-                                   5
+                                   <?php echo $total ?>
 					            </div>
 					        </a>
 					    </div>
@@ -46,8 +46,8 @@
 					            <div class="tiles-heading">
 					                <div class="pull-left"><span style=" font-size: 18px;">ประเมินนักเรียนไปแล้วทั้งหมด</span></div>
 					            </div>
-					            <div class="tiles-body text-center">
-                                   2/2
+					            <div class="tiles-body text-center" id="overall-spv">
+                                 
 					            </div>
 					        </a>
 					    </div>
@@ -82,7 +82,9 @@
                             </tr>
                           </thead>
                           <tbody>
-                              <?php if($result != null){ foreach($result as $r){ 
+                              <?php if($result != null){ 
+                                  $i = 0;
+                                  foreach($result as $r){ 
                                 
                                 ?>
                                 <tr>
@@ -103,6 +105,7 @@
                                 <a href='".base_url()."contact/supervision_view/".$subject_id."/".$result_spv[$key]['spv_contact_id']."'><button class='btn btn-primary'>ดูแบบประเมิน</button></a>
                                 <a href='".base_url()."contact/supervision_insert/".$subject_id."/".$r->std_id."'><button class='btn btn-warning'>แก้ไข</button></a>
                                 </td>";
+                                $i++;
                               } else {
                                 echo "<td class='text-center'>";
                                 echo "<span class='text-danger'>ยังไม่ได้ประเมิน</span>";
@@ -119,6 +122,7 @@
                            
                           </tbody>
                         </table>
+				            		<input type="hidden" id="total_spv" value="<?php echo $i ?>">
                     </div>
                     
                     </div>
@@ -126,6 +130,11 @@
             </div>
         </div>
 <script>
+$(document).ready(function(){
+ 	var total_spv = $('#total_spv').val();
+	 $('#overall-spv').html(total_spv);
+	//  $('#overall-contact').html("Company : "+company_chk+"/"+sum);
+}); 
 $('#example').DataTable( {
         responsive: true,
         dom: "Bfrtip",

@@ -54,7 +54,7 @@
                                             <th>สถานะ</th>
                                             <th>หมายเหตุ</th>
                                         
-                                            <th  width="15%">Manage</th>
+                                            <th width="170px">Manage</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -66,12 +66,12 @@
                                                 }
                                                else if($r->status == 1 ){ 
                                                 
-                                                $txt_status = 'ผ่าน'; 
+                                                $txt_status = 'ยืนยันแล้ว'; 
                                                 $txt_color = '#0EC952';
                                                 
                                                 }else{
                                                 
-                                                $txt_status = 'ไม่ผ่าน'; 
+                                                $txt_status = 'ยังไม่ได้ยืนยัน'; 
                                                 $txt_color = '#FF0000'; 
                                                 
                                                 }
@@ -87,13 +87,18 @@
                                             <td><?php echo $r->term ?></td>
                                             <td><?php echo $r->start_date ?></td>
                                             <td><?php echo $r->end_date ?></td>
-                                            <td><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td>
+                                            <td  width="100px"><?php echo '<b><span style="color:'.$txt_color.'">'.$txt_status.'</span></b>';?></td>
                                             <td><?php echo $r->note ?></td>
                                             <td>
-                                          
+                                            
                                                 <div class="btn-group">
+                                                <?php if($r->status == 1){?>
+                                                    <button type ="button" onclick="javascript:window.location='<?php echo base_url() . 'manage_train/no_confirm/' . $r->t_id; ?>';" style="width: 50px;" class="btn btn-sm btn-danger"><i class='fa fa-times'></i></button>
+                                                <?php }else{?>
+                                                    <button type ="button" onclick="javascript:window.location='<?php echo base_url() . 'manage_train/confirm/' . $r->t_id; ?>';" style="width: 50px;"  class="btn btn-sm btn-success"><i class='fa fa-check'></i></button>
+                                                    <?php } ?>
                                                     <button type ="button" onclick="javascript:window.location='<?php echo base_url() . 'manage_train/edit/' . $r->t_id; ?>';" style="width: 50px;" class="btn btn-sm btn-warning"><i class='fa fa-edit'></i></button>
-                                                    <button type ="button" value="<?php echo $r->t_id ?>" style="width: 50px;" class="btn btn-sm btn-danger delete"><i class='fa fa-trash-o'></i></button>
+                                                    <button type ="button" value="<?php echo $r->t_id ?>" style="width: 50px;" class="btn btn-sm btn-inverse delete"><i class='fa fa-trash-o'></i></button>
                                                 </div>
                                             </td>
                                             <?php  } ?> 

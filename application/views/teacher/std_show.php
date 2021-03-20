@@ -33,26 +33,17 @@
       <div id="page-heading">
         <h2>รายชื่อนักเรียน</h2>
 
-             <div class="col-md-6">
+            <div class="col-md-6">
 					        <a class="info-tiles tiles-green" >
 					            <div class="tiles-heading">
-					                <div class="pull-left"><span style=" font-size: 18px;">กำลังฝึกงานอยู่ทั้งหมด</span></div>
+					                <div class="pull-left"><span style=" font-size: 18px;">มีนักเรียนที่กำลังฝึกงานอยู่ทั้งหมด</span></div>
 					            </div>
 					            <div class="tiles-body text-center">
-                                   5
+                                     <?php echo $total ?>
 					            </div>
 					        </a>
 					    </div>
-              <div class="col-md-6">
-					        <a class="info-tiles tiles-brown" >
-					            <div class="tiles-heading">
-					                <div class="pull-left"><span style=" font-size: 18px;">ประเมินนักเรียนไปแล้วทั้งหมด</span></div>
-					            </div>
-					            <div class="tiles-body text-center">
-                                   2/2
-					            </div>
-					        </a>
-					    </div>
+ 
               
         </div>
 

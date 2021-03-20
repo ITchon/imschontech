@@ -149,9 +149,12 @@ class Pdf extends CI_Controller {
 	public function std_worklist_form()
 	{
 		$t_id =  $this->uri->segment('3');
-		$sql="SELECT  * FROM  events e where t_id = '$t_id'";
+		$sql="SELECT  * FROM  events e where t_id = '$t_id' order by start_event asc";
         $query = $this->db->query($sql); 
 		$data['result_event']  = $query->result(); 
+		$sql="SELECT  * FROM  event_img ";
+        $query = $this->db->query($sql); 
+		$data['result_img']  = $query->result(); 
 		// print_r($data['result_date']);exit;
 		$data['twd'] = $this->model_pdf->total_work_day($t_id);
 		$data['tad'] = $this->model_pdf->total_absent_day($t_id);

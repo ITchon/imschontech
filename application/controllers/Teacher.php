@@ -70,9 +70,11 @@ class Teacher Extends CI_controller{
 	{
         $teacher_id =  $this->session->userdata('teacher_id');
         $subject_id =  $this->uri->segment('3');
-        $sql="SELECT  * FROM student_train_detail where spv_id = '$teacher_id'";
+        $sql="SELECT  * FROM student_train_detail where spv_id = '$teacher_id' and status != 0";
         $query = $this->db->query($sql); 
         $data['result'] = $query->result(); 
+        $data['total'] = $query->num_rows();  
+
         $sql="SELECT  * FROM supervision_teacher  where  subject_id = '$subject_id'";
         $query = $this->db->query($sql); 
         $data['result_spv'] = $query->result_array(); 
@@ -90,9 +92,11 @@ class Teacher Extends CI_controller{
         $teacher_id =  $this->session->userdata('teacher_id');
         $data['result_spv'] = $this->model_spv->get_spv_teacher($std_id);
         $sql="SELECT  * FROM student_train_detail
-        where std_id = '$std_id'";
+        where std_id = '$std_id' and status != 0";
         $query = $this->db->query($sql); 
         $data['result_train'] = $query->result();
+        $data['total'] = $query->num_rows(); 
+
 		$this->load->view('teacher/supervision',$data);
 		$this->load->view('teacher/footer');
 
@@ -189,9 +193,11 @@ class Teacher Extends CI_controller{
     public function student() 	
 	{
         $teacher_id =  $this->session->userdata('teacher_id');
-        $sql="SELECT  * FROM student_train_detail where spv_id = '$teacher_id'";
+        $sql="SELECT  * FROM student_train_detail where spv_id = '$teacher_id' and status != 0";
         $query = $this->db->query($sql); 
         $data['result'] = $query->result(); 
+        $data['total'] = $query->num_rows(); 
+
         $this->load->view('teacher/std_show',$data);
         $this->load->view('teacher/footer');
 

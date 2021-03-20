@@ -130,6 +130,26 @@
               
             }else{  return false; }
         }
+        public function confirm($t_id)
+        {
+            $sqlEdt = "UPDATE train set status = '1' WHERE t_id = '$t_id';";
+            $ecx_train = $this->db->query($sqlEdt);
+            if ($ecx_train ){
+              
+              return true;  
+              
+            }else{  return false; }
+        }
+        public function no_confirm($t_id)
+        {
+            $sqlEdt = "UPDATE train set status = '0' WHERE t_id = '$t_id';";
+            $ecx_train = $this->db->query($sqlEdt);
+            if ($ecx_train ){
+              
+              return true;  
+              
+            }else{  return false; }
+        }
     }
         
 

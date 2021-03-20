@@ -65,22 +65,7 @@ tr{
                     </tr>      
                     <tr> 
 
-                    <td>  
-                    รวมระยะเวลาฝึกงาน
-                    <?php  echo $twd->total_work_day." วัน" ?>
-                   
-                    ลาป่วย
-                    <?php  echo $tsd->total_sick_day." วัน" ?>
-                   
-                    ลากิจ
-                    <?php  echo $tpld->total_personal_leave_day." วัน" ?>
-                    </td>  
-                    <td>
-                    มาสาย
-                    <?php  echo $tld->total_late_day." วัน" ?>
-                   
-                    ขาด
-                    <?php  echo $tad->total_absent_day." วัน" ?>
+                     <?php  echo $tad->total_absent_day." วัน" ?>
             </td>
             </tr>      
 
@@ -102,7 +87,15 @@ tr{
                                     <td style="border-right:1px solid #000;padding:4px;text-align:center" width='25px'><?php echo $i+1 ?></td>
                                     <td style="border-right:1px solid #000;padding:4px;text-align:center"><?php echo $r->start_event ?></td>
                                     <td style="border-right:1px solid #000;padding:4px;text-align:center"><?php echo $r->title ?></td>
-                                    <td style="border-right:1px solid #000;padding:4px;text-align:center"></td>
+                                    <td style="border-right:1px solid #000;padding:4px;text-align:center">
+                                    <?php 
+                                    foreach($result_img as $row){
+                                        if($r->id == $row->id){	?>
+                                            <img src="<?php echo base_url()."uploads/$row->img_code"?>" width="150px" >
+                                    <?php
+                                        }
+                                    } ?>
+                                    </td>
                                     <td style="border-right:1px solid #000;padding:4px;text-align:center"><?php echo $r->description ?></td>
                                 </tr>
 

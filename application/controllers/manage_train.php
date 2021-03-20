@@ -20,6 +20,7 @@ class manage_train Extends CI_controller{
 		$qry_inp =  "SELECT * from student_train_detail";
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
+		
         // $data['result_g'] = $this->train_model->train();
 		$this->load->view('ADMIN FOR ADMIN/train/view',$data);
 		$this->load->view('ADMIN FOR ADMIN/footer_2020');
@@ -110,6 +111,24 @@ class manage_train Extends CI_controller{
         	redirect('manage_train','refresh');
 		}
 
+	}
+	public function confirm()
+	{
+		$t_id = $this->uri->segment('3'); 
+		$result = $this->train_model->confirm($t_id);
+		if($result!=FALSE)
+		{
+            redirect('manage_train');
+		}
+	}
+	public function no_confirm()
+	{
+		$t_id = $this->uri->segment('3'); 
+		$result = $this->train_model->no_confirm($t_id);
+		if($result!=FALSE)
+		{
+            redirect('manage_train');
+		}
 	}
 }
 ?>
