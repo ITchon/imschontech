@@ -263,8 +263,6 @@ $this->load->view('teacher/footer');
 	public function std_data() 	
 	{
 
- 
-
         $teacher_id = $this->session->userdata('teacher_id');
         $res = $this->model_teacher->get_division_class($teacher_id);
         $class_teacher = [];
