@@ -109,6 +109,7 @@
                                             <select name="usergroup" class="form-control">
                                                 <option value="bilateral">ทวิภาคี</option>
                                                 <option value="course">หลักสูตร</option>
+                                                <option value="registrar">งานทะเบียน</option>
                                             </select>
                                         </div>
                                     </div>

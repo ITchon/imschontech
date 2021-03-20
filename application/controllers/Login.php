@@ -104,6 +104,23 @@ class Login extends CI_Controller {
 						$username = $this->session->userdata('username');
 						redirect('main');
 						 }
+					 else if($data['usergroup']=="registrar"){
+						$condition = "officer_id = ".$data['user_id'];
+						$userdata = $this->model->GetUserData("officer",$condition);
+						$arrData = array(
+							'id' => $data['id'],
+							'officer_id'=> $userdata['officer_id'],
+							'usergroup'=> $data['usergroup'],
+							'password'=> $userdata['password'],
+							'username'=> $userdata['username'],
+							'login' => "OK" ,
+							'status_login' => $data['status_login'] ,
+							'fname'=>$userdata['fname'] ,
+							'lname' =>$userdata['lname']);		
+						$this->session->set_userdata($arrData);
+						$username = $this->session->userdata('username');
+						redirect('main');
+						 }
 				 else if($data['usergroup']=="contact"){
 					$condition = "contact_id = ".$data['user_id'];
 					$userdata = $this->model->GetUserData("contact",$condition);
