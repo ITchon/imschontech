@@ -27,7 +27,7 @@
                                             <th width="15%">บริษัท</th>
                                             <th width="20%">รายการ</th>
                                             <th>วันที่</th>
-                                            <th width="10%">จัดการ</th>
+                                            <th class="text-center" width="10%">-</th>
                                         </tr>
                                     </thead>
                                     <tbody class="selects">
@@ -63,9 +63,11 @@
 
 												
 												<td>
-												<button data-id='<?php echo $row->std_id?>' type="button" value='<?php echo $date ?>' class="btn btn-xs btn-warning open-modal">
+												<!-- <button data-id='<?php echo $row->std_id?>' type="button" value='<?php echo $date ?>' class="btn btn-xs btn-warning open-modal">
 															<i class="ace-icon fa fa-search bigger-120"></i>
-												</button>
+												</button> -->
+                                 <a href='<?php echo base_url()."Teacher/std_data/$r->std_id"?>'><button class='btn btn-info'>ดูรายละเอียด</button></a>
+
                                                 <!-- <input id="std_id" type="text" name="std_id" value="<?php echo $row->std_id?>"> -->
 												</td>
 												</tr>
@@ -81,16 +83,6 @@
                         </div>
                     </div>
                 </div>
-                <script type="text/javascript">
-    $('.division').select2({
-    placeholder: '--- ค้นหาแผนก---',
-    });
-</script>
-<script type="text/javascript">
-    $('.selectSTD').select2({
-    placeholder: '--- ค้นหานักเรียน---',
-    });
-</script>
 <script type="text/javascript">
 $(document).ready(function(){
  	var teacher_chk = $('#teacher').val();

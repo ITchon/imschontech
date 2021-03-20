@@ -10,9 +10,9 @@
                 <!-- BEGIN SIDEBAR MENU -->
             <ul class="acc-menu" id="sidebar">
        
-            <?php $url = $this->uri->segment('2'); ?>
+            <?php $url2 = $this->uri->segment('2'); ?>
                 <!-- <li class="divider"></li> -->
-                <li class="<?php if($url == "division")echo "active"?>"><a href="<?php echo base_url(); ?>main"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
+                <li class="<?php if($url2 == "division")echo "active"?>"><a href="<?php echo base_url(); ?>main"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
                 <!-- <li><a href="javascript:;"><i class="fa fa-th"></i> <span>Layout Options</span> </a>
                     <ul class="acc-menu">
                         <li><a href="<?php echo base_url(); ?>layout/layout_gd"><span>Grids</span></a></li>
@@ -22,7 +22,7 @@
                     </ul>
                 </li> -->
                
-                <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_internbook" ><i class="fa fa-user"></i><span>อนุมัติการปฏิบัติงาน</span></a></li>  
+                <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_internbook" ><i class="fa fa-user"></i><span>ข้อมูลการปฏิบัติงาน</span></a></li>  
                 <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_interntime"><i class="fa fa-user"></i><span>เช็คชื่อการปฎิบัติงาน</span></a></li>
                 <li class="<?php if($url2 == "")echo "active"?>"><a href="javascript:;"><i class="fa fa-table"></i> <span>ประเมินผลการนิเทศ</span></a>
                     <ul class="acc-menu" style="display: block;">
