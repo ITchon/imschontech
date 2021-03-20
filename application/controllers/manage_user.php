@@ -33,6 +33,7 @@ class manage_user Extends CI_controller{
 	{
 	
 		$this->load->view('ADMIN FOR ADMIN/user/insert');
+		// $this->load->view('ADMIN FOR ADMIN/footer_2020');
 		
 	}
 

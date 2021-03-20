@@ -45,7 +45,7 @@ class Contact Extends CI_controller{
 	{  
         $contact_id =  $this->session->userdata('contact_id');
         $subject_id =  $this->uri->segment('3');
-        $sql="SELECT  * FROM student_train_detail where contact_id = '$contact_id'  and status != 0";
+        $sql="SELECT  * FROM student_train_detail where contact_id = '$contact_id'  and status != 1";
         $query = $this->db->query($sql); 
         $data['result'] = $query->result(); 
         $data['total'] = $query->num_rows();  
@@ -68,7 +68,7 @@ class Contact Extends CI_controller{
         $teacher_id =  $this->session->userdata('teacher_id');
         $data['result_spv'] = $this->model_spv->get_spv($std_id);
         $sql="SELECT  * FROM student_train_detail
-        where std_id = '$std_id' and status != 0";
+        where std_id = '$std_id' and status != 1";
         $query = $this->db->query($sql); 
         $data['result_train'] = $query->result();
         $data['total'] = $query->num_rows();  

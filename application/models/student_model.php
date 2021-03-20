@@ -31,7 +31,7 @@
         }
         public function get_train($std_id) {  
             
-            $sql =  "SELECT * FROM train where std_id = $std_id ORDER BY `train`.`end_date` DESC";
+            $sql =  "SELECT * FROM student_train_detail std where std_id = $std_id ORDER BY `std`.`end_date` DESC";
             $query = $this->db->query($sql); 
             $data = $query->result();
 

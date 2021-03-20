@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="province">อำเภอ</label>
+                                            <label for="province">จังหวัด</label>
                                             <input type="text" name="province" value="<?php echo $result[0]->province ?>" class="form-control">
                                             </select>
                                         </div>

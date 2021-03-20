@@ -171,8 +171,8 @@ today = yyyy + '-' + mm + '-' + dd;
                      data: data,
                     success:function(res)
                     {           
-                      //   console.log(res);
-                      // insert_issue(res);
+                        // console.log(res);
+                         insert_issue(res);
                         calendar.fullCalendar('refetchEvents');
                         $('#addModal').modal('hide');
                         $("#form")[0].reset();
@@ -236,6 +236,7 @@ today = yyyy + '-' + mm + '-' + dd;
     
     </script>
 </head>
+<div class="container">
 </div>
     <div class="row">
          <div class="col-xs-12" >

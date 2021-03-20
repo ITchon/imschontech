@@ -110,9 +110,9 @@
                                             <label for="class_id">ระดับชั้น</label>
                                             <!-- <input type="text" name="class_id" value="<?php echo $result[0]->class_id ?>" class="form-control" > -->
                                             <select name="class_id" class="form-control">
-                                                <option value="<?php echo $result_cl[0]->class_id ?>"><?php echo $result_cl[0]->class_name ?></option>
+                                                <option value="<?php echo $result_cl[0]->class_id ?>"><?php echo $result_cl[0]->class_name." ".$result_cl[0]->class_group ?></option>
                                                 <?php foreach($result_cl as $cl){?>
-                                                <option value="<?php echo $cl->class_id ?>"><?php echo $cl->class_name ?></option>
+                                                <option value="<?php echo $cl->class_id ?>"><?php echo $cl->class_name." ".$cl->class_group ?></option>
 
 
                                             <?php } ?>
