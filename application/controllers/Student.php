@@ -138,6 +138,67 @@
       $this->load->view('student/error');
     }
 
+    function std_work(){
+      $std_id =  $this->session->userdata('std_id');
+      $train_id = $this->uri->segment('3'); 
+      $data['train_id'] = $train_id;
+      $data['train_select'] = $this->student_model->get_train($std_id);
+      $this->load->view('student/header');
+      // $this->load->view('student/menu');  
+      $this->load->view('student/select_train',$data);
+      
+      if($this->uri->segment('3')){
+      $train_id = $this->uri->segment('3'); 
+      $data['train_detail'] = $this->student_model->get_student($std_id,$train_id);
+      if($data['train_detail']){
+        $start_date = $data['train_detail'][0]->start_date;
+        $end_date = $data['train_detail'][0]->end_date;
+        $sql =  "SELECT * FROM `events`WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id'";
+        $query = $this->db->query($sql); 
+        $data['result'] = $query->result();
+        $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' ORDER BY `events`.`start_event` DESC";
+        $query = $this->db->query($sql); 
+        $data['result_test'] = $query->result();
+
+        $this->load->view('contact/header');
+        $this->load->view('student/std_work', $data);
+        $this->load->view('student/modal');
+        }
+      }
+      $this->load->view('student/footer');
+    }
+
+    function std_worktime(){
+      $std_id =  $this->session->userdata('std_id');
+      $train_id = $this->uri->segment('3'); 
+      $data['train_id'] = $train_id;
+      $data['train_select'] = $this->student_model->get_train($std_id);
+      $this->load->view('student/header');
+      // $this->load->view('student/menu');  
+      $this->load->view('student/select_train',$data);
+      
+      if($this->uri->segment('3')){
+      $train_id = $this->uri->segment('3'); 
+      $data['train_detail'] = $this->student_model->get_student($std_id,$train_id);
+      if($data['train_detail']){
+        $start_date = $data['train_detail'][0]->start_date;
+        $end_date = $data['train_detail'][0]->end_date;
+        $sql =  "SELECT * FROM `events`WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id'";
+        $query = $this->db->query($sql); 
+        $data['result'] = $query->result();
+        $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' ORDER BY `events`.`start_event` DESC";
+        $query = $this->db->query($sql); 
+        $data['result_test'] = $query->result();
+        $latlong = $data['train_detail'][0]->latlong;
+
+        $this->load->view('contact/header');
+        $this->load->view('student/std_worktime', $data);
+        $this->load->view('student/modal');
+        }
+      }
+      $this->load->view('student/footer');
+    }
+
 
 
 
