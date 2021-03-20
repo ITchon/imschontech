@@ -103,7 +103,7 @@
                                 echo "</td>";
                                 echo "<td class='text-center'>
                                 <a href='".base_url()."Teacher/supervision_view_th/".$subject_id."/".$result_spv[$key]['spv_teacher_id']."'><button class='btn btn-primary'>ดูแบบประเมิน</button></a>
-                                <a href='".base_url()."Teacher/supervision_insert/".$subject_id."/".$r->std_id."'><button class='btn btn-warning'>แก้ไข</button></a>
+                                <a href='".base_url()."Teacher/supervision_edit_th/".$subject_id."/".$result_spv[$key]['spv_teacher_id']."'><button class='btn btn-warning'>แก้ไข</button></a>
                                 </td>";
                                 $i++;
                               } else {

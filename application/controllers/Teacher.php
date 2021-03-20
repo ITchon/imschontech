@@ -136,6 +136,23 @@ class Teacher Extends CI_controller{
 
 
     }
+    public function supervision_edit_th() 	
+	{   
+        $spv_id =  $this->uri->segment('4');
+        $sql="SELECT  * FROM `supervision_teacher` st
+        inner join subject s on s.subject_id = st.subject_id
+        where spv_teacher_id = '$spv_id'";
+        $query = $this->db->query($sql); 
+        $data['result_spv']  = $query->row(); 
+        $data['date'] = $this->model->Thai_date($data['result_spv']->approve_date);
+        $data['result'] = $this->model_spv->get_spv_data_th($spv_id);
+        $data['std_detail'] = $this->model_pdf->get_train_detail($data['result_spv']->t_id);
+        // print_r($data['result']);exit;
+		$this->load->view('teacher/supervision_edit',$data);
+		$this->load->view('teacher/footer');
+
+
+    }
     public function supervision_insert() 	
 	{   
         $std_id =  $this->uri->segment('4');
@@ -167,8 +184,7 @@ class Teacher Extends CI_controller{
     public function supervision_save_th() 	
 	{   
        $std_id =  $this->uri->segment('3');
-       $train_id = $this->input->post('train_id');
-       $subject_id = $this->input->post('subject_id');
+
        $summarize = $this->input->post('summarize');
        $max = $this->input->post('max');
       //Store data in array 2 dimension 
@@ -180,14 +196,39 @@ class Teacher Extends CI_controller{
           $data= array ("glist_id"=>$g_id,"score"=>$score);
           array_push($a,$data);
        }
-       $result = $this->model_spv->supervision_save_teacher($train_id,$subject_id,$summarize,$a);
-       if($result){
-        $this->session->set_flashdata('success','<div class="alert alert-success"><span> บันทึกข้อมูลเรียบร้อย</span></div>');
-        redirect("teacher/subject/$subject_id");  
-   }else{
-        $this->session->set_flashdata('success','<div class="alert alert-danger"><span> เกิดข้อผิดพลาด</span></div>');
-        redirect("teacher/subject/$subject_id");  
-   }
+            $result = $this->model_spv->supervision_save_teacher($train_id,$subject_id,$summarize,$a);
+        if($result){
+                $this->session->set_flashdata('success','<div class="alert alert-success"><span> บันทึกข้อมูลเรียบร้อย</span></div>');
+                redirect("teacher/subject/$subject_id");  
+        }else{
+                $this->session->set_flashdata('success','<div class="alert alert-danger"><span> เกิดข้อผิดพลาด</span></div>');
+                redirect("teacher/subject/$subject_id");  
+        }
+    }
+    public function supervision_save_edit_th() 	
+	{   
+       $subject_id =  $this->uri->segment('3');
+       $spv_id =  $this->uri->segment('4');
+       $summarize = $this->input->post('summarize');
+       $max = $this->input->post('max');
+      //Store data in array 2 dimension 
+       $a= [];
+       for($i=1;$i<=$max;$i++){
+          $data = $this->input->post($i);
+          $g_id = substr($data, 1);
+          $score = substr($data, 0, 1);
+          $data= array ("glist_id"=>$g_id,"score"=>$score);
+          array_push($a,$data);
+       }
+    //    print_r($a);exit;
+            $result = $this->model_spv->supervision_update_teacher($spv_id,$summarize,$a);
+        if($result){
+                $this->session->set_flashdata('success','<div class="alert alert-success"><span> แก้ไขข้อมูลเรียบร้อย</span></div>');
+                redirect("teacher/subject/$subject_id");  
+        }else{
+                $this->session->set_flashdata('success','<div class="alert alert-danger"><span> เกิดข้อผิดพลาด</span></div>');
+                redirect("teacher/subject/$subject_id");  
+        }
     }
 
     public function student() 	
