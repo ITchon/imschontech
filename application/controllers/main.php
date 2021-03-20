@@ -33,7 +33,11 @@ class main Extends CI_controller{
 		}else if($this->session->userdata('usergroup') == 'course'){
 			redirect('admin');
 
+		}else if($this->session->userdata('usergroup') == 'registrar'){
+			redirect('admin');
+
 		}else{
+			echo "lol";
 			exit;
 		}
 

@@ -113,14 +113,14 @@
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="std_code">รหัสนักเรียน</label>
-                                            <input type="text" name="std_code" class="form-control">
+                                            <input type="text" name="std_code" class="form-control" required>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="birth_date">ปีเกิด</label>
-                                            <input type="date" name="birth_date" class="form-control">
+                                            <input type="date" name="birth_date" class="form-control" required>
                                             </select>
                                         </div>
                                     </div>

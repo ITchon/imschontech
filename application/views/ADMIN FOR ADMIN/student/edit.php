@@ -109,7 +109,7 @@
                                         <div class="form-group">
                                             <label for="class_id">ระดับชั้น</label>
                                             <!-- <input type="text" name="class_id" value="<?php echo $result[0]->class_id ?>" class="form-control" > -->
-                                            <select name="class_id" class="form-control">
+                                            <select name="class_id" class="form-control" id="class_id">
                                                 <?php foreach($result_cl as $cl){?>
                                                 <option <?php if($result[0]->class_id == $cl->class_id)echo "selected" ?> value="<?php echo $cl->class_id ?>"><?php echo $cl->dv_name." | ".$cl->class_name." ".$cl->class_group ?></option>
                                             <?php } ?>
@@ -186,3 +186,8 @@
 
 </body>
 </html>
+<script>
+$(document).ready(function() {
+document.getElementById('class_id').value = "<?php echo $result[0]->class_id ?>";
+});
+</script>
