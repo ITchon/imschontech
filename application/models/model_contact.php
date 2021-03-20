@@ -130,5 +130,78 @@ if($query) {
     }
 }
 
+public function count_maxstdwork($contact_id) {
+  $sql =  "SELECT COUNT(e.id) as id FROM events as e
+  inner join train as t on t.std_id = e.std_id
+  WHERE t.contact_id = '$contact_id'";
+  $query = $this->db->query($sql);
+  $result =  $query->result()[0];
+
+if($query) {
+    return $result;  
+    }
+  else{       
+  return false;
+    }
+}
+
+public function count_stdwork($contact_id) {
+  $sql =  "SELECT COUNT(e.id) as id FROM events as e
+  inner join train as t on t.std_id = e.std_id
+  WHERE t.contact_id = '$contact_id' AND e.contact_confirm = 1";
+  $query = $this->db->query($sql);
+  $result =  $query->result()[0];
+
+if($query) {
+    return $result;  
+    }
+  else{       
+  return false;
+    }
+}
+
+public function count_mystd($contact_id) {
+  $sql =  "SELECT COUNT(t_id) as t_id FROM train WHERE contact_id = '$contact_id' and status = 0";
+  $query = $this->db->query($sql);
+  $result =  $query->result()[0];
+
+if($query) {
+    return $result;  
+    }
+  else{       
+  return false;
+    }
+}
+
+public function count_interntime($contact_id) {
+  $sql =  "SELECT COUNT(std.swt_id) as num FROM std_work_time as std
+  left join train as t on t.t_id = std.t_id 
+  where (std.arrive_time != '' OR std.depart_time != '') and t.contact_id = '$contact_id' and std.confirm = 1";
+  $query = $this->db->query($sql);
+  $result =  $query->result()[0];
+
+if($query) {
+    return $result;  
+    }
+  else{       
+  return false;
+    }
+}
+
+public function count_maxinterntime($contact_id) {
+  $sql =  "SELECT COUNT(std.swt_id) as num FROM std_work_time as std
+  left join train as t on t.t_id = std.t_id 
+  where (std.arrive_time != '' OR std.depart_time != '') and t.contact_id = '$contact_id'";
+  $query = $this->db->query($sql);
+  $result =  $query->result()[0];
+
+if($query) {
+    return $result;  
+    }
+  else{       
+  return false;
+    }
+}
+
 }
 ?>
