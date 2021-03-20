@@ -172,7 +172,7 @@ today = yyyy + '-' + mm + '-' + dd;
                     success:function(res)
                     {           
                       //   console.log(res);
-                      // insert_issue(res);
+                       insert_issue(res);
                         calendar.fullCalendar('refetchEvents');
                         $('#addModal').modal('hide');
                         $("#form")[0].reset();
