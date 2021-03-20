@@ -1,10 +1,15 @@
-
+<style>
+    .page-header{
+        margin:10px;
+    }
+</style>
    
    <div id="page-container">
         <!-- BEGIN SIDEBAR -->
         <nav id="page-leftbar" role="navigation">
                 <!-- BEGIN SIDEBAR MENU -->
             <ul class="acc-menu" id="sidebar">
+       
             <?php $url = $this->uri->segment('2'); ?>
                 <!-- <li class="divider"></li> -->
                 <li class="<?php if($url == "division")echo "active"?>"><a href="<?php echo base_url(); ?>main"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
@@ -29,6 +34,7 @@
                     </ul>
                 </li>
                 <li><a class="btn btn-default" data-toggle='modal' href='#logoutModal' ><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
+
 
               
                                         </li>
