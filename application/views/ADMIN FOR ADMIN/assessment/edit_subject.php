@@ -152,7 +152,6 @@
 
 
 <script>
-$(document).ready(function() {
     $('#confirm').addClass('hidden');
     var num = $('#num').val();
   var i = 1;
@@ -166,7 +165,7 @@ $(document).ready(function() {
       $('#add').addClass('hidden');
     }
   });
-  $(document).on('click', '.btn_remove', function() {
+  $('.btn_remove').click(function() {
     var button_id = $(this).attr("id");
     i--;
     $('#row' + $('#dynamic_field div').length).remove();
@@ -176,12 +175,11 @@ $(document).ready(function() {
 
     
   });
-});
+
 </script>
 
 <script>
-$(document).ready(function() {
-    $(document).on('click', '#edit_glist', function() {
+    $('#edit_glist').click(function() {
         var id = $(this).attr("data-id");
         alert(id);
     		$.ajax({
@@ -190,18 +188,19 @@ $(document).ready(function() {
     			cache: false,
     			data:{
     				id: id
+                    },
     			success: function(res){
                 alert(res);
                 console.log(res);
     			},
           error:function(res){
             // console.log("error");
-          }
+          },
     		});
       
     });
-$(document).on('click', '#del_glist', function() {
- 
+    
+    $('#del_glist').click(function() {
         var glist_id = $(this).attr("data-id");
         var sub_id = <?php echo $this->uri->segment('3')?>;
     		$.ajax({
@@ -220,7 +219,8 @@ $(document).on('click', '#del_glist', function() {
     		});
       
     });
-$(document).on('click', '#confirm', function() {
+    $('#confirm').click(function() {
+        alert("llo");
     	var $ele = $(this).parent().parent();//?????
         var glist_id = $(this).attr("data-id");
         var g_list = $('#g_list').val();
@@ -244,7 +244,5 @@ $(document).on('click', '#confirm', function() {
 
     });
 
-});
-
-
 </script>
+
