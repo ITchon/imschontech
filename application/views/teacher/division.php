@@ -44,11 +44,11 @@
                                                         </div>
                                                     </a>
                                                 </div>
+                                                <?php } ?>
+                                                <?php  }?>
                                     </div>
                                 </div>
                             </div>
-                          <?php  }
-                           }?>
                     
 
            

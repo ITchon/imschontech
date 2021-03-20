@@ -37,11 +37,13 @@
 													<td><b>ระยะเวลาการปฎิบัติงาน</b></td>
 													<td>
 													<?php echo $train_detail[0]->start_date." ถึง ".$train_detail[0]->end_date ;
-														$today =date("Y-m-d");
+															$today =date("Y-m-d");
 														if($train_detail[0]->end_date < $today){
 															echo "<span class='text-danger'> (สิ้นสุดการฝึกงานแล้ว) </span>";
 														}else if(($today >= $train_detail[0]->start_date) && ($today <= $train_detail[0]->end_date)){
 															echo "<span class='text-success'> (กำลังฝึกงาน) </span>";
+														}else{
+															echo "<span class='text-success'> (ยังไม่ถึงเวลาการฝึกงาน) </span>";
 														}	
 													
 													?></td>
@@ -56,11 +58,14 @@
 													<td><b>ผู้ควบคุมการปฎิบัติงาน</b></td>
 													<td><?php echo $train_detail[0]->name." (".$train_detail[0]->tel.") " ?></td>
 												</tr>
+														
 											</tbody>
 										</table>
 
 									</div>
+									
 								</div>
+								
 								<div class="col-md-6">
 									<h3>ตำแหน่งสถานที่ปฎิบัติงาน : <b><?php echo $train_detail[0]->company_name ?><b></h3>
 				

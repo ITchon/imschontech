@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-1">
                                         <div class="form-group">
                                             <label for="gender">เพศ</label>
                                             <select name="gender" class="form-control">
@@ -78,7 +78,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="email">อีเมล</label>
                                             <input type="email" name="email" class="form-control">
@@ -96,13 +96,13 @@
                                            
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                         <label for="class_id">กลุ่ม</label>
                                             <select name="class_id" class="form-control">
                                                 <!-- <option value="<?php echo $result_cl[0]->class_id ?>"><?php echo $result_cl[0]->class_name ?></option> -->
                                                 <?php foreach ($result_cl as $cl) {
-                                                        echo " <option value=".$cl->class_id."> ".$cl->class_name." ".$cl->class_group." </option> ";
+                                                        echo " <option value=".$cl->class_id."> ".$cl->dv_name." | ".$cl->class_name." ".$cl->class_group." </option> ";
                                                                                  }
                                                 ?>
                                             </select>

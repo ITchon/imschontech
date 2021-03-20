@@ -20,7 +20,7 @@
                 </li> -->
                
                 <li class="<?php if($url2 == "view")echo "active"?>"><a href="<?php echo base_url(); ?>student/view/<?php echo $url3; ?>" ><i class="fa fa-user"></i><span>ข้อมูลการฝึกงาน</span></a></li>  
-                <li class="<?php if($url2 == "calendar")echo "active"?>"><a href="<?php echo base_url(); ?>student/calendar/<?php echo $url3; ?>" ><i class="fa fa-user"></i><span>ปฏิทิน</span></a></li>  
+                <li class="<?php if($url2 == "calendar")echo "active"?>"><a href="<?php echo base_url(); ?>student/calendar/<?php echo $url3; ?>" ><i class="fa fa-calendar"></i><span>บันทึกการปฏิบัติงาน</span></a></li>  
                 <li class="<?php if($url2 == "file")echo "active"?>"><a href="<?php echo base_url(); ?>student/file/<?php echo $url3; ?>"><i class="fa fa-user"></i><span>ดาวน์โหลดเอกสาร</span></a></li>
                 <li><a class="btn btn-default" data-toggle='modal' href='#logoutModal' ><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
                 
