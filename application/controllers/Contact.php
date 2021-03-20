@@ -404,6 +404,104 @@ class Contact Extends CI_controller{
         // }
     }
 
+    public function student() 	
+	{
+        $contact_id =  $this->session->userdata('contact_id');
+        $sql="SELECT  * FROM student_train_detail where contact_id = '$contact_id' and status != 1";
+        $query = $this->db->query($sql); 
+        $data['result'] = $query->result(); 
+        $data['total'] = $query->num_rows(); 
+
+        $this->load->view('contact/std_show',$data);
+        $this->load->view('contact/footer');
+
+    }
+
+    public function std_data() 	
+	{
+
+
+    if($this->uri->segment('3')){
+    $std_id =  $this->uri->segment('3');
+    $train_id = $this->input->post('train_id'); 
+    $data['train_id'] = $train_id;
+    $data['train_detail'] = $this->student_model->get_student($std_id,$train_id);
+    $data['train_select'] = $this->student_model->get_train($std_id);
+    
+    $res = $this->model_teacher->get_std($std_id);
+    if($res != null){
+
+    $class_id = $res->class_id;
+
+    $start_date = $data['train_detail'][0]->start_date;
+    $end_date = $data['train_detail'][0]->end_date;
+    $data['result'] = $this->model_teacher->get_events_date($start_date,$end_date,$std_id,$class_id);
+   
+    $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' AND contact_confirm = 0 ORDER BY `events`.`start_event` DESC";
+      $query = $this->db->query($sql); 
+      $data['result_test'] = $query->result();
+      $latlong = $data['train_detail'][0]->latlong;
+      if($latlong == null){
+        $latlong = ',';
+      }
+
+
+      $this->load->library('Googlemaps');
+      $config['center'] = $latlong;
+      $config['zoom'] = '10';
+      $this->googlemaps->initialize($config);
+  
+      $marker = array();
+      $marker['position'] = $latlong;
+      $this->googlemaps->add_marker($marker);
+      $data['map'] = $this->googlemaps->create_map();
+  
+      $class_chk = $data['train_detail'][0]->class_id;
+      
+
+          $this->load->view('contact/std_data',$data);
+          $this->load->view('contact/modal');
+    $this->load->view('contact/footer');
+
+             }
+        }
+    }
+
+    public function std_internbook() 	
+	{
+
+
+    if($this->uri->segment('3')){
+    $std_id =  $this->uri->segment('3');
+    $train_id = $this->input->post('train_id'); 
+    $data['train_id'] = $train_id;
+    $data['train_detail'] = $this->student_model->get_student($std_id,$train_id);
+    $data['train_select'] = $this->student_model->get_train($std_id);
+    
+    $res = $this->model_teacher->get_std($std_id);
+    if($res != null){
+
+    $class_id = $res->class_id;
+
+    $start_date = $data['train_detail'][0]->start_date;
+    $end_date = $data['train_detail'][0]->end_date;
+    $data['result'] = $this->model_teacher->get_events_date($start_date,$end_date,$std_id,$class_id);
+   
+    $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' AND contact_confirm = 0 ORDER BY `events`.`start_event` DESC";
+      $query = $this->db->query($sql); 
+      $data['result_test'] = $query->result();
+
+  
+      $class_chk = $data['train_detail'][0]->class_id;
+      
+
+          $this->load->view('contact/std_internbook',$data);
+          $this->load->view('contact/modal');
+    $this->load->view('contact/footer');
+  }
+ }
+
+    }
 
 }
 ?>

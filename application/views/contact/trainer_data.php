@@ -1,92 +1,15 @@
-<style>
-    .student_detail{
-        padding-left:50px;
-        padding-right:50px;
-        padding-top:100px;
-    }
-    .fa-check{
-        color: green;
-    }
-    .fa-ban{
-        color: red;
-    }
-	#form {
-  display: inline-block;
-	}
-</style>
-<head><?php echo $map['js']; ?></head>
-<div id="">
-    <div id='wrap' >
-    <div class="container" style="background-color: #ffffff;" >
-    <div class="row">
- <div class="col-xs-12">
-        <div class="panel panel-midnightblue">
-                        <div class="panel-heading">
-                            <h4>บันทึกการปฏิบัติงานของนักเรียนทั้งหมด</h4>
-                            <div class="options">
-                                <a href="javascript:;" class="panel-collapse"><i class="fa fa-chevron-down"></i></a>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-
-							<div class="row">
-								<div class="col-md-6">
-									<img src="assets/demo/avatar/johansson.png" alt="" class="pull-left" style="margin: 0 20px 20px 0">
-									<div class="table-responsive">
-										<table class="table table-condensed ">
-											<label class="control-label col-sm-6 col-xs-6" for="train">
-												<h3><strong><?php echo ucfirst($train_detail[0]->fname."  ".$train_detail[0]->lname) ?></strong></h3>
-											</label>
-    										
-
-											
-											<!-- <thead>
-												<tr>
-													<th width="50%"></th>
-													<th width="50%"></th>
-												</tr>
-											</thead> -->
-											<tbody>
-
-												<tr>
-													<td><b>Class</b></td>
-													<td><?php echo $train_detail[0]->class_name." ". $train_detail[0]->class_group  ?></td>
-												</tr>
-												<tr>
-													<td><b>Division</b></td>
-													<td><?php echo $train_detail[0]->dv_name ?></td>
-												</tr>
-												<tr>
-													<td><b>Train Duration</b></td>
-													<td><?php echo $train_detail[0]->start_date." ถึง ".$train_detail[0]->end_date ?></td>
-												</tr>
-												<tr>
-														<td><b>Train Location</b></td>
-														<td><?php echo $train_detail[0]->company_name." <br>".$train_detail[0]->address." ". $train_detail[0]->province ." ". $train_detail[0]->zipcode." <br>(".$train_detail[0]->tel.") " ?></td>
-															
-												</tr>
-												
-												<tr>
-													<td><b>Contact Person</b></td>
-													<td><?php echo $train_detail[0]->name." (".$train_detail[0]->tel.") " ?></td>
-												</tr>
-											</tbody>
-										</table>
-
-									</div>
-								</div>
-								<div class="col-md-6">
-									<h3>Position of : <b><?php echo $train_detail[0]->company_name ?><b></h3>
-				
-           							        <?php echo $map['html']; ?>
-    
-								</div>
-							</div>
+<div id="page-content">
+<div id='wrap' >
+        <div class="container" style="min-height: 752px;background-color:#ffffff" >
+		<div id="page-heading">
+		<?php
+		$name = $train_detail[0]->title.$train_detail[0]->fname." ".$train_detail[0]->lname ?>
+         <h2><?php echo $name; ?></h2>
+            </div>
 							<hr><div class="row">
 								<div class="col-md-12">
 									<div class="tab-container tab-success">
 										<ul class="nav nav-tabs">
-											<li class=""><a href="#home1" data-toggle="tab">รายการปฎิบัติงาน</a></li>
 											<li class="active"><a href="#profile1" data-toggle="tab">เวลาการปฎิบัติงาน</a></li>
 										</ul>
 										<div class="tab-content">

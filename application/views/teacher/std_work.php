@@ -66,7 +66,7 @@
 												<!-- <button data-id='<?php echo $row->std_id?>' type="button" value='<?php echo $date ?>' class="btn btn-xs btn-warning open-modal">
 															<i class="ace-icon fa fa-search bigger-120"></i>
 												</button> -->
-                                 <a href='<?php echo base_url()."Teacher/std_data/$r->std_id"?>'><button class='btn btn-info'>ดูรายละเอียด</button></a>
+                                 <a href='<?php echo base_url()."teacher/std_internbook/$r->std_id"?>'><button class='btn btn-info'>ดูรายละเอียด</button></a>
 
                                                 <!-- <input id="std_id" type="text" name="std_id" value="<?php echo $row->std_id?>"> -->
 												</td>

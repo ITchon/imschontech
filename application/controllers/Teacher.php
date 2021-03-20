@@ -368,6 +368,54 @@ $this->load->view('teacher/footer');
 }
 
     }
+	public function std_internbook() 	
+	{
+
+        $teacher_id = $this->session->userdata('teacher_id');
+        $res = $this->model_teacher->get_division_class($teacher_id);
+        $class_teacher = [];
+        foreach($res as $r){
+            $c = $r->class_id;
+            array_push($class_teacher,$c);
+        }
+
+    if($this->uri->segment('3')){
+    $std_id =  $this->uri->segment('3');
+    $train_id = $this->input->post('train_id'); 
+    $data['train_id'] = $train_id;
+    $data['train_detail'] = $this->student_model->get_student($std_id,$train_id);
+    $data['train_select'] = $this->student_model->get_train($std_id);
+    
+    $res = $this->model_teacher->get_std($std_id);
+    if($res != null){
+
+    $class_id = $res->class_id;
+
+    $start_date = $data['train_detail'][0]->start_date;
+    $end_date = $data['train_detail'][0]->end_date;
+    $data['result'] = $this->model_teacher->get_events_date($start_date,$end_date,$std_id,$class_id);
+   
+    $sql =  "SELECT DISTINCT DATE_FORMAT(start_event,'%Y-%m-%d') AS date FROM `events` WHERE start_event BETWEEN '$start_date' AND  '$end_date' and std_id = '$std_id' AND teacher_confirm = 0 ORDER BY `events`.`start_event` DESC";
+      $query = $this->db->query($sql); 
+      $data['result_test'] = $query->result();
+
+  
+      $class_chk = $data['train_detail'][0]->class_id;
+      
+      if(in_array($class_chk,$class_teacher)){
+          $this->load->view('teacher/std_internbook',$data);
+          $this->load->view('teacher/modal');
+    $this->load->view('teacher/footer');
+      }
+  }else{
+      $this->load->view('teacher/error');
+      $this->load->view('teacher/footer');
+
+
+    }
+ }
+
+    }
 
     public function confirm()
     {
