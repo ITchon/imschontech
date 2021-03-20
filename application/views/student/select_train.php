@@ -1,6 +1,12 @@
-                        <?php $t_id = $this->uri->segment('3') ?>                        
+                        <?php $t_id = $this->uri->segment('3') ?>    
+<div id="page-content">
+
+				<div id='wrap' >
+				  	 <div class="row">
+						<div class="col-md-12">                  
                             <div class="panel panel-midnightblue">
                                 <div class="panel-body">
+								<br>
                                     <form action="<?php echo base_url()."student/redirect/"?>" method="post" >
                                                                                 
     										<div class="col-sm-3 col-xs-3">
@@ -21,6 +27,8 @@
 											<input type="hidden" name="url" value="<?php echo $this->uri->segment('2') ?>">
 											<input type="submit" class="btn btn-primary" value="เลือกภาคเรียน">
 											</form>
-    										</div>
+											
+											
+    										
 
     									

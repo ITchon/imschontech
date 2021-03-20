@@ -11,6 +11,7 @@
       $this->load->database();  
       $this->load->model('model');
       $this->load->model('student_model');
+      $this->load->view('student/nevbar');
       $this->model->CheckSession();
 
 		}
@@ -31,7 +32,7 @@
       $data['train_id'] = $train_id;
       $data['train_select'] = $this->student_model->get_train($std_id);
       $this->load->view('student/header');
-      $this->load->view('student/menu'); 
+      // $this->load->view('student/menu'); 
       $this->load->view('student/select_train',$data);
 
       if($this->uri->segment('3')){
@@ -51,7 +52,7 @@
       $data['train_id'] = $train_id;
       $data['train_select'] = $this->student_model->get_train($std_id);
       $this->load->view('student/header');
-      $this->load->view('student/menu'); 
+      // $this->load->view('student/menu'); 
       $this->load->view('student/select_train',$data);
 
       $data['result'] = $this->student_model->get_student($std_id,$train_id);
@@ -65,7 +66,7 @@
       $data['train_id'] = $train_id;
       $data['train_select'] = $this->student_model->get_train($std_id);
       $this->load->view('student/header');
-      $this->load->view('student/menu'); 
+      // $this->load->view('student/menu'); 
       $this->load->view('student/select_train',$data);
       if($this->uri->segment('3')){
       $sql="SELECT  * FROM  subject s ";
@@ -82,7 +83,7 @@
       $data['train_id'] = $train_id;
       $data['train_select'] = $this->student_model->get_train($std_id);
       $this->load->view('student/header');
-      $this->load->view('student/menu');  
+      // $this->load->view('student/menu');  
       $this->load->view('student/select_train',$data);
       
       if($this->uri->segment('3')){
@@ -109,8 +110,9 @@
         $marker['position'] =  $latlong;
         $this->googlemaps->add_marker($marker);
         $data['map'] = $this->googlemaps->create_map();
-        $this->load->view('student/modal');
+        $this->load->view('contact/header');
         $this->load->view('student/dashboard', $data);
+        $this->load->view('student/modal');
         }
       }
       $this->load->view('student/footer');

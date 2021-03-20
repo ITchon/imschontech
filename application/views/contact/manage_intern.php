@@ -43,7 +43,7 @@
               <div class="col-md-6">
 					        <a class="info-tiles tiles-brown" >
 					            <div class="tiles-heading">
-					                <div class="pull-left"><span style=" font-size: 18px;">ยังไม่ยืนยันบันทึกการปฏิบัติงาน</span></div>
+					                <div class="pull-left"><span style=" font-size: 18px;">ยืนยันบันทึกการปฏิบัติงานทั้งหมด</span></div>
 					            </div>
 					            <div class="tiles-body text-center">
                                 <?php echo $mywork_salve."/".$myworkmax_salve; ?>

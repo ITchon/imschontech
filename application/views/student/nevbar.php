@@ -4,10 +4,12 @@
         <!-- BEGIN SIDEBAR -->
         <nav id="page-leftbar" role="navigation">
                 <!-- BEGIN SIDEBAR MENU -->
-            <ul class="acc-menu" id="sidebar">
-             
+                <ul class="acc-menu" id="sidebar">
+            <?php $url2 = $this->uri->segment('2'); 
+            $url3 = $this->uri->segment('3'); 
+            ?>
                 <!-- <li class="divider"></li> -->
-                <li><a href="<?php echo base_url(); ?>admin"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
+                <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>main/"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
                 <!-- <li><a href="javascript:;"><i class="fa fa-th"></i> <span>Layout Options</span> </a>
                     <ul class="acc-menu">
                         <li><a href="<?php echo base_url(); ?>layout/layout_gd"><span>Grids</span></a></li>
@@ -16,43 +18,13 @@
                         <li><a href="<?php echo base_url(); ?>layout/layout_fixd"><span>Fixed Boxed Layout</span></a></li>
                     </ul>
                 </li> -->
-                <li class=""><a><i class="fa fa-user"></i> <span>จัดการเกี่ยวกับบุคคล</span></a>
-                    <ul class="acc-menu" >
-                        <li><a href="<?php echo base_url(); ?>manage_student"> - <span>นักเรียน</span></a></li>
-                        <li><a href="<?php echo base_url(); ?>manage_teacher"> - <span>อาจารย์</span></a></li>
-                        <li><a href="<?php echo base_url(); ?>manage_contact"> -  <span>ผู้ควบคุมการฝึกงาน</span></a></li>
-                    </ul>
-                </li>
-                <li class=""><a><i class="fa fa-building"></i> <span>จัดการเกี่ยวกับกลุ่มการเรียน</span></a>
-                    <ul class="acc-menu" >
-                        <li><a href="<?php echo base_url(); ?>manage_division"> - <span>แผนก</span></a></li>
-                        <li><a href="<?php echo base_url(); ?>Classs"> - </i><span>กลุ่มการเรียน</span></a></li>
-                    </ul>
-                </li>
-                <li class=""><a><i class="fa fa-suitcase"></i> <span>จัดการเกี่ยวกับการฝึกงาน</span></a>
-                    <ul class="acc-menu" >
-                        <li><a href="<?php echo base_url(); ?>Company"> - </i><span>สถานประกอบการ</span></a></li>
-                        <li><a href="<?php echo base_url(); ?>manage_train"> - </i><span>การฝึกงาน</span></a></li>
-                        <li><a href="<?php echo base_url(); ?>manage_asm"> - </i><span>การสร้างแบบประเมินผล</span></a></li>
-                    </ul>
-                </li>
-
-                <li><a href="<?php echo base_url(); ?>manage_user"><i class="fa fa-user"></i><span>ผู้ใช้งานในระบบ</span></a></li>
-
+               
+                <li class="<?php if($url2 == "view")echo "active"?>"><a href="<?php echo base_url(); ?>student/view/<?php echo $url3; ?>" ><i class="fa fa-user"></i><span>ข้อมูลการฝึกงาน</span></a></li>  
+                <li class="<?php if($url2 == "calendar")echo "active"?>"><a href="<?php echo base_url(); ?>student/calendar/<?php echo $url3; ?>" ><i class="fa fa-user"></i><span>ปฏิทิน</span></a></li>  
+                <li class="<?php if($url2 == "file")echo "active"?>"><a href="<?php echo base_url(); ?>student/file/<?php echo $url3; ?>"><i class="fa fa-user"></i><span>ดาวน์โหลดเอกสาร</span></a></li>
                 <li><a class="btn btn-default" data-toggle='modal' href='#logoutModal' ><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
-                <!-- <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
-                    <ul class="acc-menu">
-                        <li><a href="<?php echo base_url(); ?>manage_contact"> Contact</a></li>
-                         Train</a></li> -->
-                         <!-- Class</a></li>
-                         Company</a></li>
-                         division</a></li>
-                         student</a></li>
-                        <li><a href="<?php echo base_url(); ?>manage_teacher"> teacher</a></li>
-                    </ul>
-                </li> -->
                 
-                
+              
                                         </li>
                                     </ul>
                                 </li>
