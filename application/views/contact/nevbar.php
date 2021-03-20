@@ -22,10 +22,10 @@
                     </ul>
                 </li> -->
                
-                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_internbook" ><i class="fa fa-user"></i><span>บันทึกการปฏิบัติงาน</span></a></li>  
-                <li class="<?php if($url == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_interntime"><i class="fa fa-user"></i><span>เวลาการปฎิบัติงาน</span></a></li>
-                <li class="<?php if($url == "")echo "active"?>"><a href="javascript:;"><i class="fa fa-table"></i> <span>ประเมินผลการนิเทศ</span></a>
-                    <ul class="acc-menu">
+                <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_internbook" ><i class="fa fa-user"></i><span>อนุมัติการปฏิบัติงาน</span></a></li>  
+                <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_interntime"><i class="fa fa-user"></i><span>เช็คชื่อการปฎิบัติงาน</span></a></li>
+                <li class="<?php if($url2 == "")echo "active"?>"><a href="javascript:;"><i class="fa fa-table"></i> <span>ประเมินผลการนิเทศ</span></a>
+                    <ul class="acc-menu" style="display: block;">
                     <?php foreach($result_subject as $rs){
                             $subject_id = $rs->subject_id;
                          ?>

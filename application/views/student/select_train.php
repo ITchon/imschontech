@@ -2,10 +2,10 @@
 <div id="page-content">
 				<div id='wrap' >
 				  	 <div class="row">
+
 						<div class="col-md-12">                  
                             <div class="panel panel-midnightblue">
                                 <div class="panel-body">
-								<br>
                                     <form action="<?php echo base_url()."student/redirect/"?>" method="post" >
                                                                                 
     										<div class="col-sm-3 col-xs-3">

@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-1">
                                         <div class="form-group">
                                             <label for="gender">เพศ</label>
                                             <select name="gender" class="form-control">
@@ -84,7 +84,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="email">อีเมล</label>
                                             <input type="email" name="email" value="<?php echo $result[0]->email ?>" class="form-control">
@@ -105,15 +105,13 @@
                                            
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="class_id">ระดับชั้น</label>
                                             <!-- <input type="text" name="class_id" value="<?php echo $result[0]->class_id ?>" class="form-control" > -->
                                             <select name="class_id" class="form-control" id="class_id">
                                                 <?php foreach($result_cl as $cl){?>
-                                                <option value="<?php echo $cl->class_id ?>"><?php echo $cl->class_name." ".$cl->class_group ?></option>
-
-
+                                                <option <?php if($result[0]->class_id == $cl->class_id)echo "selected" ?> value="<?php echo $cl->class_id ?>"><?php echo $cl->dv_name." | ".$cl->class_name." ".$cl->class_group ?></option>
                                             <?php } ?>
                                             </select>
                                         </div>
@@ -127,8 +125,10 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="birth_date">ปีเกิด</label>
-                                            <input type="date" name="birth_date" value="<?php echo $result[0]->birth_date ?>"class="form-control">
+                                            <label for="birth_date">วันเดือนปีเกิด</label>
+                                            <?php  $date = $result[0]->birth_date ;
+                                             $newDate = date("Y-m-d", strtotime($date));?>
+                                            <input type="date" name="birth_date" value="<?php echo $newDate ?>"class="form-control">
                                         </div>
                                     </div>
                                 

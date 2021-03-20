@@ -48,7 +48,8 @@ class manage_student Extends CI_controller{
     
 	public function insert_student()
 	{
-		$qry_inp =  "SELECT * FROM class";
+		$qry_inp =  "SELECT * FROM class c inner join division dv
+					on dv.dv_id = c.dv_id";
         $query = $this->db->query($qry_inp); 
         $data['result_cl'] = $query->result();
 		$this->load->view('ADMIN FOR ADMIN/student/insert',$data);
@@ -76,7 +77,9 @@ class manage_student Extends CI_controller{
 	{
 		$id = $this->uri->segment('3'); 
         $data['result'] = $this->student_model->selectOnestudent($id);
-        $qry_inp =  "SELECT * FROM class";
+		// print_R($data['result']);
+		$qry_inp =  "SELECT * FROM class c inner join division dv
+					on dv.dv_id = c.dv_id";
         $query = $this->db->query($qry_inp); 
         $data['result_cl'] = $query->result();
 		$this->load->view('ADMIN FOR ADMIN/student/edit',$data);
