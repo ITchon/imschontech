@@ -25,20 +25,14 @@ class main Extends CI_controller{
 		}else if($this->session->userdata('contact_id')){
 			redirect('contact/trainer');
 		}else if($this->session->userdata('admin_id')){
-			$this->load->view('ADMIN FOR ADMIN/header');
-			$this->load->view('ADMIN FOR ADMIN/nevbar');
-			$this->load->view('ADMIN FOR ADMIN/dashboard/index');
-			$this->load->view('ADMIN FOR ADMIN/footer_2020');
+			redirect('admin');
+
 		}else if($this->session->userdata('usergroup') == 'bilateral'){
-			$this->load->view('ADMIN FOR ADMIN/header');
-			$this->load->view('ADMIN FOR ADMIN/nevbar');
-			$this->load->view('ADMIN FOR ADMIN/dashboard/index');
-			$this->load->view('ADMIN FOR ADMIN/footer_2020');
+			redirect('admin');
+
 		}else if($this->session->userdata('usergroup') == 'course'){
-			$this->load->view('ADMIN FOR ADMIN/header');
-			$this->load->view('ADMIN FOR ADMIN/nevbar');
-			$this->load->view('ADMIN FOR ADMIN/dashboard/index');
-			$this->load->view('ADMIN FOR ADMIN/footer_2020');
+			redirect('admin');
+
 		}else{
 			exit;
 		}

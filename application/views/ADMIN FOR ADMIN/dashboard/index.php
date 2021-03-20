@@ -4,80 +4,14 @@
       
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <!-- <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-toyo" href="<?php echo base_url()?>Teacher/list">
-                                <div class="tiles-heading">Teacher</div>
-                                <div class="tiles-body-alt">
-                               
-                                    <div class="text-center"><span class="text-top"></span>Student</div>
-                                    <small>ดูรายชื่อนักเรียน</small>
-                                </div>
-                                <div class="tiles-footer">more info</div>
-                            </a>
-                        </div> -->
-                        <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-toyo" href="<?php echo base_url()?>ADMINdashborad">
-                                <div class="tiles-heading">Student</div>
-                                <div class="tiles-body-alt">
-                               
-                                    <div class="text-center"><span class="text-top"></span>รายชื่อนักเรียน</div>
-                                    <small>ดูรายชื่อนักเรียน</small>
-                                </div>
-                                <div class="tiles-footer">more info</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-toyo" href="<?php echo base_url()?>ADMINdashborad/index_t">
-                                <div class="tiles-heading">Teacher</div>
-                                <div class="tiles-body-alt">
-                                    <!--i class="fa fa-money"></i-->
-                                    <div class="text-center"><span class="text-top"></span>รายชื่อครู</div>
-                                    <small>ดูรายชื่อครู</small>
-                                </div>
-                                <div class="tiles-footer">more info</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-orange" href="#">
-                                <div class="tiles-heading">Members</div>
-                                <div class="tiles-body-alt">
-                                    <i class="fa fa-group"></i>
-                                    <div class="text-center">109</div>
-                                    <small>new users registered</small>
-                                </div>
-                                <div class="tiles-footer">manage members</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-xs-12 col-sm-6">
-                            <a class="info-tiles tiles-alizarin" href="#">
-                                <div class="tiles-heading">Orders</div>
-                                <div class="tiles-body-alt">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <div class="text-center">57</div>
-                                    <small>new orders received</small>
-                                </div>
-                                <div class="tiles-footer">manage orders</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <div class="row">
                 <div class="col-xs-12 col-md-3 col-sm-6 col-lg-3">
                     <a class="info-tiles tiles-alizarin" href="#">
                         <div class="tiles-heading">
-                            <div class="pull-left">Comments</div>
-                            <div class="pull-right"></div>
+                               <span style="font-size:18px">จำนวนนักเรียนที่กำลังออกฝึกงาน</span> 
                         </div>
                         <div class="tiles-body">
-                            <div class="pull-left"><i class="fa fa-comments-o"></i></div>
-                            <div class="pull-right">37<div id="indexinfocomments" style="margin-top: 10px; margin-bottom: -10px;"></div></div>
+                            <div class="pull-left"></div>
+                            <div class="pull-right"><?php echo $total ?><div id="indexinfocomments" style="margin-top: 10px; margin-bottom: -10px;"></div></div>
                         </div>
                     </a>
                 </div>

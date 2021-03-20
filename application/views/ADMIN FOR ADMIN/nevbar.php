@@ -16,17 +16,29 @@
                         <li><a href="<?php echo base_url(); ?>layout/layout_fixd"><span>Fixed Boxed Layout</span></a></li>
                     </ul>
                 </li> -->
-               
-                <li><a href="<?php echo base_url(); ?>manage_division"><i class="fa fa-home"></i><span>แผนก</span></a></li>
-                <li><a href="<?php echo base_url(); ?>Company"><i class="fa fa-building"></i><span>สถานประกอบการ</span></a></li>
-                
-                <li><a href="<?php echo base_url(); ?>manage_teacher"><i class="fa fa-user"></i><span>อาจารย์</span></a></li>
+                <li class=""><a><i class="fa fa-user"></i> <span>จัดการเกี่ยวกับบุคคล</span></a>
+                    <ul class="acc-menu" >
+                        <li><a href="<?php echo base_url(); ?>manage_student"> - <span>นักเรียน</span></a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_teacher"> - <span>อาจารย์</span></a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_contact"> -  <span>ผู้ควบคุมการฝึกงาน</span></a></li>
+                    </ul>
+                </li>
+                <li class=""><a><i class="fa fa-building"></i> <span>จัดการเกี่ยวกับกลุ่มการเรียน</span></a>
+                    <ul class="acc-menu" >
+                        <li><a href="<?php echo base_url(); ?>manage_division"> - <span>แผนก</span></a></li>
+                        <li><a href="<?php echo base_url(); ?>Classs"> - </i><span>กลุ่มการเรียน</span></a></li>
+                    </ul>
+                </li>
+                <li class=""><a><i class="fa fa-suitcase"></i> <span>จัดการเกี่ยวกับการฝึกงาน</span></a>
+                    <ul class="acc-menu" >
+                        <li><a href="<?php echo base_url(); ?>Company"> - </i><span>สถานประกอบการ</span></a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_train"> - </i><span>การฝึกงาน</span></a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_asm"> - </i><span>การสร้างแบบประเมินผล</span></a></li>
+                    </ul>
+                </li>
+
                 <li><a href="<?php echo base_url(); ?>manage_user"><i class="fa fa-user"></i><span>ผู้ใช้งานในระบบ</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_contact"><i class="fa fa-user"></i> <span>ผู้คุมการฝึกงาน</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>นักเรียน</span></a></li>
-                <li><a href="<?php echo base_url(); ?>Classs"><i class="fa fa-circle"></i><span>ชั้นเรียน</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_train"><i class="fa fa-suitcase"></i><span>การฝึกงาน</span></a></li>
-                <li><a href="<?php echo base_url(); ?>manage_asm"><i class="fa fa-list-ul"></i><span>การสร้างแบบประเมินผล</span></a></li>
+
                 <li><a class="btn btn-default" data-toggle='modal' href='#logoutModal' ><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
                 <!-- <li><a href="javascript:;"><i class="fa fa-table"></i> <span>Admin</span></a>
                     <ul class="acc-menu">

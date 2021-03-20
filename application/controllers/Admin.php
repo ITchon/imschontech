@@ -14,11 +14,14 @@ class Admin Extends CI_controller{
 
 	public function index() 	
 	{
-        $this->load->view('ADMIN FOR ADMIN/header');
-        $this->load->view('ADMIN FOR ADMIN/nevbar');
-        $this->load->view('ADMIN FOR ADMIN/index');
-        $this->load->view('ADMIN FOR ADMIN/footer_2020');
-
+			$sql="SELECT  * FROM student_train_detail  where status != 0";
+        	$query = $this->db->query($sql); 
+        	$data['result'] = $query->result(); 
+        	$data['total'] = $query->num_rows(); 
+			$this->load->view('ADMIN FOR ADMIN/header');
+			$this->load->view('ADMIN FOR ADMIN/nevbar');
+			$this->load->view('ADMIN FOR ADMIN/dashboard/index',$data);
+			$this->load->view('ADMIN FOR ADMIN/footer_2020');
 
 		 
 		 
