@@ -22,9 +22,9 @@
                     </ul>
                 </li> -->
                 <li class="<?php if($url2 == "std_data")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>contact/student" ><i class="fa fa-user"></i><span>รายชื่อนักศึกษา</span></a></li>
-                <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_internbook" ><i class="fa fa-user"></i><span>ข้อมูลการปฏิบัติงาน</span></a></li>  
+                <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_internbook" ><i class="fa fa-user"></i><span>อนุมัติการปฏิบัติงาน</span></a></li>  
                 <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_interntime"><i class="fa fa-user"></i><span>เช็คชื่อการปฎิบัติงาน</span></a></li>
-                <li class="<?php if($url2 == "")echo "active"?>"><a href="javascript:;"><i class="fa fa-table"></i> <span>ประเมินผลการนิเทศ</span></a>
+                <li class="<?php if($url2 == "")echo "active"?>"><a href="javascript:;"><i class="fa fa-table"></i> <span>ประเมินผลการฝึกงาน</span></a>
                     <ul class="acc-menu" style="display: block;">
                     <?php foreach($result_subject as $rs){
                             $subject_id = $rs->subject_id;

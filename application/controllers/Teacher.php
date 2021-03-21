@@ -184,7 +184,8 @@ class Teacher Extends CI_controller{
     public function supervision_save_th() 	
 	{   
        $std_id =  $this->uri->segment('3');
-
+       $train_id = $this->input->post('train_id');
+       $subject_id = $this->input->post('subject_id');
        $summarize = $this->input->post('summarize');
        $max = $this->input->post('max');
       //Store data in array 2 dimension 

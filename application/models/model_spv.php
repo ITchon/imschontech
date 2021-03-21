@@ -108,7 +108,7 @@
                 foreach($data_score as $ds){
                     $glist_id =  $ds['glist_id'];
                     $score =  $ds['score'];
-                    $sql ="UPDATE  subject_score_th set score = '$score' where spv_teacher_id = '$spv_id';";          
+                    $sql ="UPDATE  subject_score_th set score = '$score' where spv_teacher_id = '$spv_id' and glist_id = '$glist_id'";          
                     $query = $this->db->query($sql);  
                     if($query) $chk = true;
                     else $chk = false;

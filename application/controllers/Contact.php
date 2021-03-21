@@ -138,10 +138,10 @@ class Contact Extends CI_controller{
        $result = $this->model_spv->supervision_save($train_id,$subject_id,$suggest,$position,$a);
        if($result){
             $this->session->set_flashdata('success','<div class="alert alert-success"><span> บันทึกข้อมูลเรียบร้อย</span></div>');
-            redirect("contact/supervision/$std_id");  
+            redirect("contact/subject/$subject_id");  
        }else{
             $this->session->set_flashdata('success','<div class="alert alert-danger"><span> เกิดข้อผิดพลาด</span></div>');
-            redirect("contact/supervision_insert/$std_id");  
+            redirect("contact/subject/$subject_id");  
        }
     }
 	public function trainer() 	

@@ -61,6 +61,14 @@
 
     }
     function file(){
+      $sql="SELECT  * FROM supervision_contact sc inner join  subject s on s.subject_id = sc.subject_id";
+      $query = $this->db->query($sql); 
+      $data['result_spv_ct'] = $query->result_array(); 
+      
+      $sql="SELECT  * FROM supervision_teacher st inner join  subject s on s.subject_id = st.subject_id ";
+      $query = $this->db->query($sql); 
+      $data['result_spv_th'] = $query->result_array(); 
+
       $std_id =  $this->session->userdata('std_id');
       $train_id = $this->uri->segment('3'); 
       $data['train_id'] = $train_id;

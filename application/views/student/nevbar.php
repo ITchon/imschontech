@@ -9,7 +9,6 @@
             $url3 = $this->uri->segment('3'); 
             ?>
                 <!-- <li class="divider"></li> -->
-                <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>main/"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
                 <!-- <li><a href="javascript:;"><i class="fa fa-th"></i> <span>Layout Options</span> </a>
                     <ul class="acc-menu">
                         <li><a href="<?php echo base_url(); ?>layout/layout_gd"><span>Grids</span></a></li>

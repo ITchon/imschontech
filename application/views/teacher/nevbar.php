@@ -12,7 +12,7 @@
                 <li class="<?php if($url2 == "")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>main"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
                 <li class="<?php if($url2 == "std_data")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>teacher/student" ><i class="fa fa-user"></i><span>รายชื่อนักเรียน</span></a></li>
                 <li class="<?php if($url2 == "division" || $url2 == "list")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>teacher/division"><i class="fa fa-user"></i><span>รายชื่อแผนก</span></a></li>
-                <li class="<?php if($url2 == "std_work")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>teacher/std_work"><i class="fa fa-user"></i><span>ข้อมูลการปฏิบัติงาน</span></a></li>
+                <li class="<?php if($url2 == "std_work")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>teacher/std_work"><i class="fa fa-user"></i><span>อนุมัติการปฏิบัติงาน</span></a></li>
                 <li class="<?php if($url2 == "" )echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>manage_student"><i class="fa fa-user"></i><span>แบบฟอร์มการประเมิน</span></a>
                 <li class="<?php if($url2 == "" || $url2 == "supervision_insert" || $url2 =="supervision_view_th" )echo "open active hasChild"?>"><a><i class="fa fa-table"></i> <span>แบบประเมินออกฝึกงาน</span></a>
                     <ul class="acc-menu" style="display: block;">
