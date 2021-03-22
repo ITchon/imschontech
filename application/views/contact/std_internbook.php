@@ -106,7 +106,7 @@ $(".open-modal").click(function() {
 	var std_id = document.getElementById("std_id").value;
 	 $.ajax({
 		url: "<?php
-					 echo base_url("crud/event_forteacher/");
+					 echo base_url("crud/event_forcontact/");
 					 ?>",  
     			type: "POST",
     			cache: false,

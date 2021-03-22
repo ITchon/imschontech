@@ -21,9 +21,9 @@ class main Extends CI_controller{
 		}else if($this->session->userdata('std_id')){
 			redirect('student');
 		}else if($this->session->userdata('teacher_id')){
-			redirect('teacher/division');
+			redirect('teacher/student');
 		}else if($this->session->userdata('contact_id')){
-			redirect('contact/trainer');
+			redirect('contact/student');
 		}else if($this->session->userdata('admin_id')){
 			redirect('admin');
 

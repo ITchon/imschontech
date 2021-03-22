@@ -19,9 +19,9 @@
                 </li> -->
                
                 <li class="<?php if($url2 == "view")echo "active"?>"><a href="<?php echo base_url(); ?>student/view/<?php echo $url3; ?>" ><i class="fa fa-user"></i><span>ข้อมูลการฝึกงาน</span></a></li>
+                <li class="<?php if($url2 == "calendar")echo "active"?>"><a href="<?php echo base_url(); ?>student/calendar/<?php echo $url3; ?>" ><i class="fa fa-user"></i><span>บันทึกการปฏิบัติงาน</span></a></li>  
                 <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>student/std_work/<?php echo $url3; ?>" ><i class="fa fa-user"></i><span>ข้อมูลการปฏิบัติงาน</span></a></li>
                 <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>student/std_worktime/<?php echo $url3; ?>" ><i class="fa fa-user"></i><span>ตารางลงเวลา</span></a></li>
-                <li class="<?php if($url2 == "calendar")echo "active"?>"><a href="<?php echo base_url(); ?>student/calendar/<?php echo $url3; ?>" ><i class="fa fa-user"></i><span>ปฏิทิน</span></a></li>  
                 <li class="<?php if($url2 == "file")echo "active"?>"><a href="<?php echo base_url(); ?>student/file/<?php echo $url3; ?>"><i class="fa fa-user"></i><span>ดาวน์โหลดเอกสาร</span></a></li>
                 <li><a class="btn btn-default" data-toggle='modal' href='#logoutModal' ><i class="fa fa-sign-out"></i><span>ออกจากระบบ</span></a></li>
                 
@@ -43,7 +43,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                        <h4 class="modal-title">TaiSoul Say Are u sure about that???</h4>
+                                                        <h4 class="modal-title">System : Are you sure to logout</h4>
                                                     </div>
                                                     <div class="modal-body">
                                                         

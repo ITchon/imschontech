@@ -287,14 +287,13 @@ class Contact Extends CI_controller{
             $text = '';
         }
 
-        $contact_id = $this->session->userdata('contact_id');	
-        $data['student_list'] = $this->model_contact->get_mytrainer($contact_id);
+        $contact_id =  $this->session->userdata('contact_id');
+        $result = $this->model_teacher->get_division($contact_id);
 
-        $data['result_test'] = $this->model_contact->get_std_data($contact_id,$text);
-        $data['result_search'] = $this->model_contact->get_std_data1($contact_id);
-
-        $data['result'] = $this->model_contact->get_events_date2($contact_id);
-
+        $sql="SELECT  * FROM student_train_detail where contact_id = '$contact_id' and status != 1";
+        $query = $this->db->query($sql); 
+        $data['result_test'] = $query->result(); 
+        
         $res = $this->model_contact->count_mystd($contact_id);
         $data['my_slave'] = $res->t_id;
         $res = $this->model_contact->count_maxstdwork($contact_id);

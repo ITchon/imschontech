@@ -14,8 +14,8 @@
                                       <tr>
                                           <th width="100px">วันที่</th>
                                           <th width="200px">หัวข้อการปฎิบัติงาน</th>
-                                          <th width="100px" class="text-center" id="overall-teacher"></th>
-                                          <th width="100px" class="text-center" id="overall-contact"></th>
+                                          <th width="230px" class="text-center" id="overall-teacher"></th>
+                                          <th width="230px" class="text-center" id="overall-contact"></th>
                                           <th width="3%"> - </th>
                                       </tr>
                                   </thead>

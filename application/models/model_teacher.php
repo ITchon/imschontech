@@ -151,6 +151,7 @@ public function get_division($teacher_id) {
     $sql ="SELECT DISTINCT dv.dv_id,dv.dv_name FROM class as c
     left join division as dv on dv.dv_id = c.dv_id
     WHERE c.teacher_id = '$teacher_id'";
+
   $query = $this->db->query($sql);
   if($query->num_rows()!=0) {
     $result =  $query->result();
@@ -189,6 +190,7 @@ if($query->num_rows()!=0) {
 public function get_dv_class_group($teacher_id) {
   $sql ="SELECT  DISTINCT dv_id, class_id,`class_name`,class_group from student_train_detail
   WHERE spv_id = '$teacher_id'";
+
 $query = $this->db->query($sql);
 if($query->num_rows()!=0) {
   $result =  $query->result();

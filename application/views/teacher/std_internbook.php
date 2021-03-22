@@ -6,7 +6,6 @@
 		$name = $train_detail[0]->title.$train_detail[0]->fname." ".$train_detail[0]->lname ?>
          <h2><?php echo $name; ?></h2>
             </div>
-
 								<div class="row">
 								<div class="col-md-12">
 									<div class="tab-container tab-midnightblue">
@@ -27,6 +26,7 @@
 							</a>
 						</div> -->
 					<table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered datatables" id="example">
+					
 						<thead class="bg-primary">
 							  <tr>
 								  <th>Date</th>
@@ -35,6 +35,7 @@
 							  </tr>
 						  </thead>
 						  <tbody>
+						  <?php if($result_test != null){ ?>
 			<?php 
 					$sum = 0;
 					$std_chk =0;
@@ -77,7 +78,7 @@
 						<input type="hidden" id="sum" value="<?php echo $sum ?>">
 						<input id="std_id" type="hidden" name="std_id" value="<?php echo $r->std_id?>">
 						  <!---------------------------- -->
-
+						<?php } ?>
 					</table>
 
 					</div>

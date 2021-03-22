@@ -74,7 +74,7 @@
 								</div>
 							</div>
 							<hr>
-							<div class="row">
+							<!-- <div class="row">
 								<div class="col-md-12">
 									<div class="tab-container tab-success">
 										<ul class="nav nav-tabs">
@@ -185,11 +185,9 @@
 													  ?> 
                                                     
 	              	                    			</tbody>
-													  <!-- Overall Chk -->
 													<input type="hidden" id="teacher" value="<?php echo $tch_chk ?>">
 													<input type="hidden" id="company" value="<?php echo $contact_chk ?>">
 													<input type="hidden" id="sum" value="<?php echo $sum ?>">
-													  <!---------------------------- -->
 
                                                 </table>
 												</div>
@@ -212,7 +210,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 </body>
 
 </html>
