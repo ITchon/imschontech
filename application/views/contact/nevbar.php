@@ -12,7 +12,7 @@
        
             <?php $url2 = $this->uri->segment('2'); ?>
                 <!-- <li class="divider"></li> -->
-                <li class="<?php if($url2 == "division")echo "active"?>"><a href="<?php echo base_url(); ?>main"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
+                <!-- <li class="<?php if($url2 == "division")echo "active"?>"><a href="<?php echo base_url(); ?>main"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li> -->
                 <!-- <li><a href="javascript:;"><i class="fa fa-th"></i> <span>Layout Options</span> </a>
                     <ul class="acc-menu">
                         <li><a href="<?php echo base_url(); ?>layout/layout_gd"><span>Grids</span></a></li>
@@ -21,7 +21,7 @@
                         <li><a href="<?php echo base_url(); ?>layout/layout_fixd"><span>Fixed Boxed Layout</span></a></li>
                     </ul>
                 </li> -->
-                <li class="<?php if($url2 == "std_data")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>contact/student" ><i class="fa fa-user"></i><span>รายชื่อนักศึกษา</span></a></li>
+                <li class="<?php if($url2 == "")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>contact/student" ><i class="fa fa-user"></i><span>รายชื่อนักศึกษา</span></a></li>
                 <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_internbook" ><i class="fa fa-user"></i><span>อนุมัติการปฏิบัติงาน</span></a></li>  
                 <li class="<?php if($url2 == "")echo "active"?>"><a href="<?php echo base_url(); ?>contact/manage_interntime"><i class="fa fa-user"></i><span>เช็คชื่อการปฎิบัติงาน</span></a></li>
                 <li class="<?php if($url2 == "")echo "active"?>"><a href="javascript:;"><i class="fa fa-table"></i> <span>ประเมินผลการฝึกงาน</span></a>
@@ -53,7 +53,7 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                            <h4 class="modal-title">TaiSoul Say Are u sure about that???</h4>
+                                                            <h4 class="modal-title">System : Are you sure to logout</h4>
                                                         </div>
                                                         <div class="modal-body">
                                                             

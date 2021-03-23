@@ -147,7 +147,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                        <h4 class="modal-title">TaiSoul Say Are u sure about that???</h4>
+                                                        <h4 class="modal-title">System : Are you sure to logout</h4>
                                                     </div>
                                                     <div class="modal-body">
                                                         

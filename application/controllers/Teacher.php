@@ -49,15 +49,11 @@ class Teacher Extends CI_controller{
         $teacher_id =  $this->session->userdata('teacher_id');
         $result = $this->model_teacher->get_division($teacher_id);
 
-        $data['result_test'] = $this->model_teacher->get_std_data($teacher_id,$text);
-        $data['result_search'] = $this->model_teacher->get_std_data1($teacher_id);
+        $sql="SELECT  * FROM student_train_detail where spv_id = '$teacher_id' and status != 1";
+        $query = $this->db->query($sql); 
+        $data['result_test'] = $query->result(); 
+        // $data['result_test'] = $this->model_teacher->get_std_data($teacher_id,$text);
 
-        $train_id = $this->input->post('train_id'); 
-
-        $data['result'] = $this->model_teacher->get_events_date2($teacher_id);
-        
-        $data['division_list'] = $this->model_teacher->get_dv_class($teacher_id);
-        $data['class_list'] = $this->model_teacher->get_dv_class_group($teacher_id);
         // print_r($data['division_list']);
         // print_r($data['class_list']);
         // exit;

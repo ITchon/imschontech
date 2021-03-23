@@ -21,13 +21,12 @@
                                 <table class="table datatables" style="margin-bottom: 0px;" id="example">
                                     <thead>
                                         <tr>
-                                            <th><input type="checkbox" id="select-all"></th>
-                                            <th width="10%">ชื่อ</th>
-                                            <th width="15%">แผนก</th>
-                                            <th width="15%">บริษัท</th>
-                                            <th width="20%">รายการ</th>
-                                            <th>วันที่</th>
-                                            <th class="text-center" width="10%">-</th>
+                                            <th width="10%"><input type="checkbox" id="select-all"></th>
+                                            <th width="20%">ชื่อ</th>
+                                            <th width="20%">แผนก</th>
+                                            <th width="20%">บริษัท</th>
+                                            <th width="20%">ผู้ควบคุมการฝึก</th>
+                                            <th class="text-center" width="20%">-</th>
                                         </tr>
                                     </thead>
                                     <tbody class="selects">
@@ -37,9 +36,6 @@
 												$contact_chk =0;
 											foreach($result_test as $row){
                                                 $name = $row->title.$row->fname." ".$row->lname;
-												$dt = new DateTime($row->date);
-												$date = $dt->format('Y-m-d');
-												$time = $dt->format('H:i:s');
 												$std_chk++;
 												?>
 												<tr>
@@ -47,26 +43,14 @@
                                                 <td><?php echo $name ?></td>
                                                 <td><?php echo $row->dv_name ?></td>
                                                 <td><?php echo $row->company_name ?></td>
-												<td>
-												<?php foreach($result as $r){
-                                                    $dt = new DateTime($r->start_event);
-                                                    $date_event = $dt->format('Y-m-d');
-                                                    $time = $dt->format('H:i:s');
-                                                    if($date == $date_event){
-                                                        if($row->std_id == $r->std_id){
-                                                            echo $r->title."  ";
-                                                          }
-                                                    }
-												} ?>
-												</td>
-                                                <td><?php echo $date ?></td>
+                                                <td><?php echo $row->name ?></td>
 
 												
 												<td>
 												<!-- <button data-id='<?php echo $row->std_id?>' type="button" value='<?php echo $date ?>' class="btn btn-xs btn-warning open-modal">
 															<i class="ace-icon fa fa-search bigger-120"></i>
 												</button> -->
-                                 <a href='<?php echo base_url()."teacher/std_internbook/$r->std_id"?>'><button class='btn btn-info'>ดูรายละเอียด</button></a>
+                                 <a href='<?php echo base_url()."teacher/std_internbook/$row->std_id"?>'><button class='btn btn-info'>ดูรายละเอียด</button></a>
 
                                                 <!-- <input id="std_id" type="text" name="std_id" value="<?php echo $row->std_id?>"> -->
 												</td>
