@@ -75,7 +75,7 @@
 						  <!-- Overall Chk -->
 						<input type="hidden" id="teacher" value="<?php echo $std_chk ?>">
 						<input type="hidden" id="sum" value="<?php echo $sum ?>">
-						<input id="std_id" type="hidden" name="std_id" value="<?php echo $r->std_id?>">
+						<input id="std_id" type="hidden" name="std_id" value="<?php echo $train_detail[0]->std_id ?>">
 						  <!---------------------------- -->
 
 					</table>
