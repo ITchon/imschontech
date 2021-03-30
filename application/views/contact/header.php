@@ -44,7 +44,22 @@ $(document).ready(function() {
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner" >
         <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
 
-        <div class="navbar-header pull-left toolbar">
+		<div class="navbar-header pull-left toolbar">
+		<ul class="nav navbar-nav pull-right toolbar">
+        	<li class="dropdown">
+        		<a style="font-size:20px" href="#" class="dropdown-toggle " data-toggle="dropdown"><span class="hidden-xs">ระบบนิเทศการฝึกงาน </a>
+        		
+        	</li>
+       
+       
+    
+		</ul>
+			<!-- <a class="nav navbar-nav pull-left toolbar">  -->
+        	<!-- <a class="hidden-xs" > <?php echo $this->session->userdata('username'); ?></a> -->
+        		<!-- <a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs"><?php echo $this->session->userdata('username'); ?> <i class="fa fa-caret-down"></i></span> -->
+
+			<!-- -->
+        </div>
 		
 			<!-- <a class="nav navbar-nav pull-left toolbar">  -->
         	<!-- <a class="hidden-xs" > <?php echo $this->session->userdata('username'); ?></a> -->

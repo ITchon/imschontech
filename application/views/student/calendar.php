@@ -83,6 +83,8 @@ today = yyyy + '-' + mm + '-' + dd;
             var time = datetime.slice(11, 20);
             document.getElementById("start_date").value = date;
             document.getElementById("start_time").value = time;
+                $('.dz-preview').empty();
+                $('.dz-message').show();
                   $('#addModal').modal();
            
          
@@ -151,6 +153,7 @@ today = yyyy + '-' + mm + '-' + dd;
                   $('input,select,textarea, #delete').prop("disabled", false);;
                   $('#check-confirm').html("");
                 }
+
                 $('#name').val(event.title);
                 $('#description').val(event.description);
                 $('#color').val(event.color);
@@ -163,6 +166,7 @@ today = yyyy + '-' + mm + '-' + dd;
             
         });
          $('#insert').on("click", function () {
+           
         myDropzone.processQueue();
         var data = $('#form').serialize();
             $.ajax({
@@ -319,7 +323,7 @@ today = yyyy + '-' + mm + '-' + dd;
                 </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group text-center">
                 <label for="p-in" class="col-md-4 col-xs-3 ">เพิ่มรูปภาพ</label>
                 <div class="col-md-12 col-xs-5">
                                   
@@ -334,7 +338,7 @@ today = yyyy + '-' + mm + '-' + dd;
       <div class="dz-message">
       <div class="fallback">
     </div>
-        <h3>ลากรูปมาใส่ที่ช่อง</h3> หรือ <strong>คลิกที่ช่อง</strong> เพื่อเพิ่มรูปภาพ
+        <h3>คลิกที่นี่</h3> หรือ <strong>ลากรูปมาใส่</strong> เพื่อเพิ่มรูปภาพ
       </div>
     </div>
                       

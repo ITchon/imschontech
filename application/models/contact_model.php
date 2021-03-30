@@ -8,13 +8,14 @@
             $data  = $query->result(); 
         }
         // ,$class_id ,$th_id
-        public function insert_p($name,$tel)
+        public function insert_p($name,$tel,$company_id)
         {
             $sql ="INSERT INTO  contact (
                         name,
-                        tel
+                        tel,
+                        company_id
                         )
-                VALUES ('$name','$tel')";          
+                VALUES ('$name','$tel','$company_id')";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {

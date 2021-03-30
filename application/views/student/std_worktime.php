@@ -1,4 +1,8 @@
-  <hr>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-midnightblue">
+						<div class="panel-body">  
         <div class="row">
             <div class="col-md-12">
                 <div class="tab-container tab-success">

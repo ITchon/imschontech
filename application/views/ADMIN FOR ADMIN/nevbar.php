@@ -97,6 +97,16 @@
                 </li>
 
            <?php } ?>
+           <?php if($this->session->userdata('usergroup') =="person"){?>
+                <li><a href="<?php echo base_url(); ?>admin"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
+                <li class=""><a><i class="fa fa-user"></i> <span>จัดการเกี่ยวกับบุคคล</span></a>
+                    <ul class="acc-menu" >
+                        <li><a href="<?php echo base_url(); ?>manage_teacher"> - <span>อาจารย์</span></a></li>
+                        <li><a href="<?php echo base_url(); ?>manage_officer"> -  <span>เจ้าหน้าที่</span></a></li>
+                    </ul>
+                </li>
+
+           <?php } ?>
 
 
            <?php if($this->session->userdata('usergroup') =="registrar"){?>

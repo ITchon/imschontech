@@ -10027,7 +10027,7 @@ body.collapse-leftbar #sidebar > li.hasChild:hover > a:before {
     width: 270px;
   }
   body.show-leftbar #page-content {
-    margin-left: 230px;
+    margin-left: 270px;
   }
   body.show-leftbar footer {
     -webkit-transform: translate(230px, 0);
@@ -10657,7 +10657,7 @@ body.collapse-leftbar #search.keep-open form button[type="submit"] {
 }
 .navbar-inverse .navbar-nav > li > a {
   color: #888888;
-  color: rgba(255, 255, 255, 0.5);
+  color: #d2d3d6;
 }
 .navbar-inverse .navbar-nav > li > a:hover {
   color: #ffffff;

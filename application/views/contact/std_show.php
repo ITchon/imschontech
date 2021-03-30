@@ -31,9 +31,11 @@
     <div class="row"> 
 
       <div class="col-md-12">
-      <div id="page-heading">
-        <h2>รายชื่อนักเรียน</h2>
-
+      <div class="panel panel-midnightblue">
+        <div class="panel-heading">
+        <span style="font-size:28px">สถานประกอบการ <?php echo $result_company->company_name ?></span>
+        </div>
+        <div class="panel-body">
             <div class="col-md-6">
 					        <a class="info-tiles tiles-green" >
 					            <div class="tiles-heading">
@@ -44,7 +46,9 @@
 					            </div>
 					        </a>
 					    </div>
- 
+                        </div>
+        </div>
+        </div>
               
         </div>
 

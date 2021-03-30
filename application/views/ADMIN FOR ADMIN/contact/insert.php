@@ -51,6 +51,16 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label for="tel">สถานประกอบการ</label>
+                                            <select class="form-control" name="company" id="">
+                                            <?php foreach($result as $r){ ?>
+                                                <option value="<?php echo $r->company_id ?>"><?php echo $r->company_name?></option>
+                                            <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
                                             <label for="username">username</label>
                                             <input type="text" name="username" class="form-control">
                                             </select>

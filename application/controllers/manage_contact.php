@@ -20,7 +20,7 @@ class manage_contact Extends CI_controller{
 
 	public function index() 	
 	{
-		$qry_inp =  "SELECT * FROM contact";
+		$qry_inp =  "SELECT * FROM contact ct inner join company c on c.company_id = ct.company_id";
         $query = $this->db->query($qry_inp); 
         $data['result'] = $query->result();
         // $data['result_g'] = $this->contact_model->teacher();
@@ -33,16 +33,20 @@ class manage_contact Extends CI_controller{
 	}
 	public function insert()
 	{
-		$this->load->view('ADMIN FOR ADMIN/contact/insert');
+		$query = $this->db->query("SELECT * FROM company");
+        $data['result'] = $query->result();
+		// print_r($data['result']);exit;
+		$this->load->view('ADMIN FOR ADMIN/contact/insert',$data);
 	}
 
 	public function insert_p()
 	{
 		$name    = $this->input->post('name'); 
         $tel    = $this->input->post('tel');
+        $company    = $this->input->post('company');
         $username    = $this->input->post('username');
         $password      = $this->input->post('password');
-		$user_id = $this->contact_model->insert_p($name ,$tel); 
+		$user_id = $this->contact_model->insert_p($name ,$tel,$company); 
 		$this->model->insert_user($user_id,"contact",$username,$password,0);
         redirect('manage_contact');
 	}

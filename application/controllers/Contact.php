@@ -35,7 +35,6 @@ class Contact Extends CI_controller{
         $data['cp'] = $this->model_contact->get_contact_profile($contact_id);
 
 
-        $this->load->view('contact/menu');
         $this->load->view('contact/dashboard',$data);
 		$this->load->view('contact/footer');
 
@@ -406,6 +405,10 @@ class Contact Extends CI_controller{
     public function student() 	
 	{
         $contact_id =  $this->session->userdata('contact_id');
+        $sql="SELECT  * FROM contact ct inner join company c on c.company_id = ct.company_id
+         where ct.contact_id = '$contact_id'";
+        $query = $this->db->query($sql); 
+        $data['result_company'] = $query->row(); 
         $sql="SELECT  * FROM student_train_detail where contact_id = '$contact_id' and status != 1";
         $query = $this->db->query($sql); 
         $data['result'] = $query->result(); 

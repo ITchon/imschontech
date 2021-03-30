@@ -45,6 +45,7 @@
                                         <tr>
                                             <th>ชื่อผู้คุมฝึกงาน</th>
                                             <th>เบอร์ติดต่อ</th>
+                                            <th>สถานประกอบการ</th>
                                             <th  width="15%">Manage</th>
                                         </tr>
                                     </thead>
@@ -53,6 +54,7 @@
                                         <tr>
                                             <td><?php echo $r->name ?></td>
                                             <td><?php echo $r->tel ?></td>
+                                            <td><?php echo $r->company_name ?></td>
                                             <td>
                                                
                                                 <div class="btn-group">

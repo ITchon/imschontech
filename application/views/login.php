@@ -31,10 +31,10 @@ box-shadow: 1px -3px 26px 10px rgba(133,133,133,1);
 <div class="verticalcenter">
 	<div class="panel panel-dark " id="sheder">
 		<div class="panel-body">
+		<h3 class="text-center" style="margin-bottom: 25px;"> ระบบนิเทศการฝึกงาน </h3>
 		<img src="assets/img/logochpng.png" alt="Logo" class="brand" />
 
 
-			
 			<h4 class="text-center" style="margin-bottom: 25px;"> ล็อคอินเพื่อเข้าสู่ระบบ </h4>
             <form action="<?php echo base_url() ?>Login/chklogin" method="post">
 						<div class="form-group">

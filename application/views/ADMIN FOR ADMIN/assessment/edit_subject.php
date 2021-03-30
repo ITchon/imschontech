@@ -85,7 +85,7 @@
                                        
                                         <div class="btn-group">
                                             <button type ="button" onclick="javascript:window.location='<?php echo base_url() . 'manage_asm/edit_glist/' . $rg->glist_id; ?>';" style="width: 50px;" class="btn btn-sm btn-warning"><i class='fa fa-edit'></i></button>
-                                            <button type ="button" value="<?php echo $rg->glist_id ?>" id="del_glist" style="width: 50px;" class="btn btn-sm btn-danger delete"><i class='fa fa-trash-o'></i></button>
+                                            <button type ="button" value="<?php echo $rg->glist_id ?>" id="del_glist" style="width: 50px;" class="btn btn-sm btn-danger"><i class='fa fa-trash-o'></i></button>
                                         </div>
                                         
                                         </td>
@@ -199,10 +199,10 @@
     });
     
     $('#del_glist').click(function() {
-        var glist_id = $(this).attr("data-id");
+        var glist_id = $(this).val();
         var sub_id = <?php echo $this->uri->segment('3')?>;
     		$.ajax({
-    			url: "<?php echo base_url("manage_asm/delete_subglist");?>",
+    			url: "<?php echo base_url("manage_asm/sj_delete");?>",
     			type: "POST",
     			cache: false,
     			data:{

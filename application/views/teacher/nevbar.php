@@ -9,7 +9,7 @@
             $url3 = $this->uri->segment('3'); 
             ?>
                 <!-- <li class="divider"></li> -->
-                <!-- <li class="<?php if($url2 == "")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>main"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li> -->
+                <li class="<?php if($url2 == "")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>teacher/dashboard"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
                 <li class="<?php if($url2 == "std_data")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>teacher/student" ><i class="fa fa-user"></i><span>รายชื่อนักเรียน</span></a></li>
                 <li class="<?php if($url2 == "division" || $url2 == "list")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>teacher/division"><i class="fa fa-user"></i><span>รายชื่อแผนก</span></a></li>
                 <li class="<?php if($url2 == "std_work")echo "open active hasChild"?>"><a href="<?php echo base_url(); ?>teacher/std_work"><i class="fa fa-user"></i><span>อนุมัติการปฏิบัติงาน</span></a></li>

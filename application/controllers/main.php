@@ -21,9 +21,9 @@ class main Extends CI_controller{
 		}else if($this->session->userdata('std_id')){
 			redirect('student');
 		}else if($this->session->userdata('teacher_id')){
-			redirect('teacher/student');
+			redirect('teacher/dashboard');
 		}else if($this->session->userdata('contact_id')){
-			redirect('contact/student');
+			redirect('contact/dashboard');
 		}else if($this->session->userdata('admin_id')){
 			redirect('admin');
 
@@ -34,6 +34,9 @@ class main Extends CI_controller{
 			redirect('admin');
 
 		}else if($this->session->userdata('usergroup') == 'registrar'){
+			redirect('admin');
+
+		}else if($this->session->userdata('usergroup') == 'person'){
 			redirect('admin');
 
 		}else{
